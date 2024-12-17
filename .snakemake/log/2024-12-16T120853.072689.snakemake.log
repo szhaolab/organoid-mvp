@@ -1,0 +1,175 @@
+host: slurm-fe01-prd.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+compute_ld_scores          22
+create_annotations         22
+enrichment_ldsc             1
+get_significant_loci        1
+munge_sumstats              1
+total                      48
+
+Select jobs to execute...
+Execute 8 jobs...
+
+[Mon Dec 16 12:08:53 2024]
+localrule munge_sumstats:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned_sumstats/IBD3_sumstats.txt.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/IBD3_munged_sumstats.parquet
+    jobid: 2
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/IBD3_munged_sumstats.parquet
+    wildcards: traits=IBD3
+    resources: tmpdir=/scratch
+
+
+[Mon Dec 16 12:08:53 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.17.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.17.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.17.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.17.l2.M
+    jobid: 36
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.17.annot.gz
+    wildcards: traits=IBD3, chrom=17
+    resources: tmpdir=/scratch
+
+
+[Mon Dec 16 12:08:53 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.20.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.20.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.20.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.20.l2.M
+    jobid: 42
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.20.annot.gz
+    wildcards: traits=IBD3, chrom=20
+    resources: tmpdir=/scratch
+
+
+[Mon Dec 16 12:08:53 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.2.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.2.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.l2.M
+    jobid: 6
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.annot.gz
+    wildcards: traits=IBD3, chrom=2
+    resources: tmpdir=/scratch
+
+
+[Mon Dec 16 12:08:53 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.8.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.8.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.8.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.8.l2.M
+    jobid: 18
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.8.annot.gz
+    wildcards: traits=IBD3, chrom=8
+    resources: tmpdir=/scratch
+
+
+[Mon Dec 16 12:08:53 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.14.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.14.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.l2.M
+    jobid: 30
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.annot.gz
+    wildcards: traits=IBD3, chrom=14
+    resources: tmpdir=/scratch
+
+
+[Mon Dec 16 12:08:53 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.6.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.l2.M
+    jobid: 14
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.annot.gz
+    wildcards: traits=IBD3, chrom=6
+    resources: tmpdir=/scratch
+
+
+[Mon Dec 16 12:08:53 2024]
+localrule get_significant_loci:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned_sumstats/IBD3_sumstats.txt.gz, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Euro_LD_Chunks.bed
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_signif_loci.txt
+    jobid: 47
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_signif_loci.txt
+    wildcards: traits=IBD3
+    resources: tmpdir=/scratch
+
+[Mon Dec 16 12:08:53 2024]
+Error in rule create_annotations:
+    jobid: 42
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.20.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.20.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.20.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.20.l2.M
+    shell:
+        Rscript /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/create_annotations_LY.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.20.bim /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.20.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.20.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.20.l2.M
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Dec 16 12:08:53 2024]
+Error in rule create_annotations:
+    jobid: 36
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.17.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.17.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.17.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.17.l2.M
+    shell:
+        Rscript /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/create_annotations_LY.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.17.bim /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.17.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.17.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.17.l2.M
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Dec 16 12:08:53 2024]
+Error in rule create_annotations:
+    jobid: 6
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.2.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.2.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.l2.M
+    shell:
+        Rscript /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/create_annotations_LY.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.2.bim /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.2.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.l2.M
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Dec 16 12:08:53 2024]
+Error in rule create_annotations:
+    jobid: 30
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.14.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.14.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.l2.M
+    shell:
+        Rscript /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/create_annotations_LY.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.14.bim /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.14.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.l2.M
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Dec 16 12:08:53 2024]
+Error in rule create_annotations:
+    jobid: 18
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.8.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.8.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.8.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.8.l2.M
+    shell:
+        Rscript /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/create_annotations_LY.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.8.bim /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.8.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.8.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.8.l2.M
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Dec 16 12:08:53 2024]
+Error in rule create_annotations:
+    jobid: 14
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.6.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.l2.M
+    shell:
+        Rscript /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/create_annotations_LY.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6.bim /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.6.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.l2.M
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Dec 16 12:08:53 2024]
+Error in rule get_significant_loci:
+    jobid: 47
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned_sumstats/IBD3_sumstats.txt.gz, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Euro_LD_Chunks.bed
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_signif_loci.txt
+    shell:
+        Rscript /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/get_signif_loci_ly.R /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned_sumstats/IBD3_sumstats.txt.gz /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Euro_LD_Chunks.bed /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_signif_loci.txt
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Dec 16 12:08:54 2024]
+Error in rule munge_sumstats:
+    jobid: 2
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned_sumstats/IBD3_sumstats.txt.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/IBD3_munged_sumstats.parquet
+    shell:
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/munge_polyfun_sumstats.py --sumstats /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned_sumstats/IBD3_sumstats.txt.gz --n 60000 --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/IBD3_munged_sumstats.parquet
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-12-16T120853.072689.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

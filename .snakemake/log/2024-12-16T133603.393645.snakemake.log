@@ -1,0 +1,42 @@
+host: s04.hpcc.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+compute_ld_scores          22
+create_annotations         22
+enrichment_ldsc             1
+get_significant_loci        1
+munge_sumstats              1
+total                      48
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Dec 16 13:36:03 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.11.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.11.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.11.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.11.l2.M
+    jobid: 24
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.11.annot.gz
+    wildcards: traits=IBD3, chrom=11
+    resources: tmpdir=/scratch
+
+[Mon Dec 16 13:36:17 2024]
+Error in rule create_annotations:
+    jobid: 24
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.11.bim, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.11.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.11.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.11.l2.M
+    shell:
+        Rscript /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/create_annotations_LY.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.11.bim /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.11.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.11.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.11.l2.M
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-12-16T133603.393645.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

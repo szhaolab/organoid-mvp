@@ -10,7 +10,7 @@ logdir = "log/"
 if not os.path.isdir(logdir):
   os.mkdir(logdir)
 
-pdnew = "/dartfs/rc/lab/S/Szhao/liyang/enrichment/ARID1A_proj/" # contain R scripts for rules
+pdnew = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/" # contain R scripts for rules
 pdorig = "/dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/" # contain required metadata 
 polyfun = '/dartfs/rc/lab/S/Szhao/katieh/polyfun/' # contain polyfun software (download from github)
 pdout = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/" # replace with desired output folder
