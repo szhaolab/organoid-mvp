@@ -1,0 +1,255 @@
+host: s07.hpcc.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+compute_ld_scores           8
+create_annotations          4
+enrichment_ldsc             1
+get_significant_loci        1
+munge_sumstats              1
+total                      16
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:33:58 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.4.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.4.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.4.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.4.l2.M
+    jobid: 10
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.4.annot.gz
+    wildcards: traits=IBD3, chrom=4
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:34:33 2024]
+Finished job 10.
+1 of 16 steps (6%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:34:33 2024]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.4.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.4.l2.ldscore.parquet
+    jobid: 9
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.4.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.4.annot.gz
+    wildcards: traits=IBD3, chrom=4
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:37:22 2024]
+Finished job 9.
+2 of 16 steps (12%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:37:22 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.14.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.14.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.l2.M
+    jobid: 30
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.annot.gz; Set of input files has changed since last execution
+    wildcards: traits=IBD3, chrom=14
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:37:40 2024]
+Finished job 30.
+3 of 16 steps (19%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:37:40 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.6.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.l2.M
+    jobid: 14
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.annot.gz
+    wildcards: traits=IBD3, chrom=6
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:38:03 2024]
+Finished job 14.
+4 of 16 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:38:03 2024]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.l2.ldscore.parquet
+    jobid: 5
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.l2.ldscore.parquet
+    wildcards: traits=IBD3, chrom=2
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:40:50 2024]
+Finished job 5.
+5 of 16 steps (31%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:40:50 2024]
+localrule get_significant_loci:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/cleaned_sumstats/IBD3_sumstats.txt.gz, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Euro_LD_Chunks.bed
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_signif_loci.txt
+    jobid: 47
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_signif_loci.txt
+    wildcards: traits=IBD3
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:42:09 2024]
+Finished job 47.
+6 of 16 steps (38%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:42:10 2024]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.l2.ldscore.parquet
+    jobid: 29
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.annot.gz
+    wildcards: traits=IBD3, chrom=14
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:43:25 2024]
+Finished job 29.
+7 of 16 steps (44%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:43:25 2024]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.3.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.3.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.3.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.3.l2.M
+    jobid: 8
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.3.annot.gz
+    wildcards: traits=IBD3, chrom=3
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:43:54 2024]
+Finished job 8.
+8 of 16 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:43:54 2024]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.3.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.3.l2.ldscore.parquet
+    jobid: 7
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.3.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.3.annot.gz
+    wildcards: traits=IBD3, chrom=3
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:46:29 2024]
+Finished job 7.
+9 of 16 steps (56%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:46:29 2024]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.19.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.19.l2.ldscore.parquet
+    jobid: 39
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.19.l2.ldscore.parquet
+    wildcards: traits=IBD3, chrom=19
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:47:17 2024]
+Finished job 39.
+10 of 16 steps (62%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:47:17 2024]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.1.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.1.l2.ldscore.parquet
+    jobid: 3
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.1.l2.ldscore.parquet
+    wildcards: traits=IBD3, chrom=1
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:49:47 2024]
+Finished job 3.
+11 of 16 steps (69%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:49:47 2024]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.l2.ldscore.parquet
+    jobid: 13
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.annot.gz
+    wildcards: traits=IBD3, chrom=6
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:53:01 2024]
+Finished job 13.
+12 of 16 steps (75%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:53:01 2024]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.15.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.15.l2.ldscore.parquet
+    jobid: 31
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.15.l2.ldscore.parquet
+    wildcards: traits=IBD3, chrom=15
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:53:54 2024]
+Finished job 31.
+13 of 16 steps (81%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:53:54 2024]
+localrule munge_sumstats:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/cleaned_sumstats/IBD3_sumstats.txt.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/IBD3_munged_sumstats.parquet
+    jobid: 2
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/IBD3_munged_sumstats.parquet
+    wildcards: traits=IBD3
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 17:54:41 2024]
+Finished job 2.
+14 of 16 steps (88%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 17:54:41 2024]
+localrule enrichment_ldsc:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/IBD3_munged_sumstats.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.1.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.3.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.4.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.5.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.7.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.8.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.9.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.10.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.11.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.12.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.13.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.15.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.16.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.17.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.18.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.19.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.20.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.21.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.22.l2.ldscore.parquet
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_enrichment.results
+    jobid: 1
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_enrichment.results; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.2.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/IBD3_munged_sumstats.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.3.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.15.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.14.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.6.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.4.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.19.l2.ldscore.parquet, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/IBD3/IBD3.1.l2.ldscore.parquet
+    wildcards: traits=IBD3
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 18:01:34 2024]
+Finished job 1.
+15 of 16 steps (94%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Dec 18 18:01:34 2024]
+localrule all:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_enrichment.results, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_signif_loci.txt
+    jobid: 0
+    reason: Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_signif_loci.txt, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/IBD3_enrichment.results
+    resources: tmpdir=/scratch
+
+[Wed Dec 18 18:01:34 2024]
+Finished job 0.
+16 of 16 steps (100%) done
+Complete log: .snakemake/log/2024-12-18T173358.163259.snakemake.log

@@ -16,8 +16,8 @@ polyfun = '/dartfs/rc/lab/S/Szhao/katieh/polyfun/' # contain polyfun software (d
 pdout = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/" # replace with desired output folder
 
 # Inputs (summary stats, a directory of annotations)
-cleaned_sumstats = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned_sumstats/" 
-bed_dir = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/bed_dir/"
+cleaned_sumstats = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/cleaned_sumstats/" 
+bed_dir = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir/"
 
 # REQUIRED metadata
 onekg = pdorig + '1000G_EUR_Phase3_plink/1000G.EUR.QC'
