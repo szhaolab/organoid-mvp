@@ -13,9 +13,10 @@ if not os.path.isdir(logdir):
 pdnew = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/" # contain R scripts for rules
 pdorig = "/dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/" # contain required metadata 
 polyfun = '/dartfs/rc/lab/S/Szhao/katieh/polyfun/' # contain polyfun software (download from github)
-pdout = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/" # replace with desired output folder
+pdout = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/" # desired output folder
 
 # Inputs (summary stats, a directory of annotations)
+## Change to take raw sumstats as input and then clean them downstream
 cleaned_sumstats = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/cleaned_sumstats/" 
 bed_dir = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir/"
 
@@ -43,6 +44,8 @@ rule all:
       # expand(results + "{t}/{t}.{c}.snpvar_ridge.gz",t=traits, c=chrom),
       # expand(results + "{t}/{t}.{c}.snpvar_ridge_constrained.gz", t=traits, c=chrom),
       # expand(finemapping + 'processed/{t}_finemapped_susie_L1.txt.gz',t=traits)
+
+## Add rule for cleaning sumstats
 
 rule munge_sumstats:
     input:
