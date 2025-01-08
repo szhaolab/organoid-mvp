@@ -13,9 +13,16 @@
 
 ### Setup JupyterNotebook server on Discovery
     sbatch jupyter.sh
-    ssh -NfL 8888:$node:8888 f0052zm@discovery.dartmouth.edu
+    ssh -NfL 8888:$node:8888 f007fdw@discovery.dartmouth.edu
 $node can be obtained from the 2nd url from jupyter-notebook.err, like http://k10:8888/lab?token=8d1e300f945f5c76d8e576cac9b233a29a04683ce6401144. The number before 8888 is the node number, in this case it is k10.
 Copy and paste the url from jupyter-notebook.err
+
+### Setup RStudio server on Discovery
+    sbatch rstudio_server.sh
+    squeue -u f007fdw
+On local computer...
+    ssh -NfL 8789:$node:8789 f007fdw@discovery8.dartmouth.edu
+http://localhost:8789
 
 ## Content Notes
 
