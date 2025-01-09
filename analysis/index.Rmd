@@ -8,4 +8,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+Functional enrichment analysis using UK Biobank data
+
+1. Organization and normalization of summary statistics
+2. 

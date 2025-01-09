@@ -14,10 +14,12 @@ pdnew = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/" # contain R scri
 pdorig = "/dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/" # contain required metadata 
 polyfun = '/dartfs/rc/lab/S/Szhao/katieh/polyfun/' # contain polyfun software (download from github)
 pdout = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/" # desired output folder
+pdclean = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/" # contains the clean_sumstats R script
 
 # Inputs (summary stats, a directory of annotations)
 ## Change to take raw sumstats as input and then clean them downstream
-cleaned_sumstats = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/cleaned_sumstats/" 
+raw_sumstats = "/dartfs/rc/lab/S/Szhao/katieh/organoid_rotation/raw-sumstats/"
+cleaned_sumstats = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/" 
 bed_dir = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir/"
 
 # REQUIRED metadata
@@ -45,7 +47,12 @@ rule all:
       # expand(results + "{t}/{t}.{c}.snpvar_ridge_constrained.gz", t=traits, c=chrom),
       # expand(finemapping + 'processed/{t}_finemapped_susie_L1.txt.gz',t=traits)
 
-## Add rule for cleaning sumstats
+# Finish this rule
+rule clean_sumstats:
+    input:
+    output:
+    shell:
+    "Rscript {pdclean}clean_sumstats.R"
 
 rule munge_sumstats:
     input:
