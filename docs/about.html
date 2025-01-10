@@ -281,7 +281,7 @@ $(document).ready(function () {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -292,8 +292,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -302,13 +302,13 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-01-08
+<strong>Last updated:</strong> 2025-01-09
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>organoid-rotation/</code> <span
@@ -331,36 +331,33 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree7ae292d564fbf62b7919a86ba18fadada2c1618ctargetblank7ae292da">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree400ca9a31f212f35313d6eda1c9c8e8906f2966etargetblank400ca9aa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/7ae292d564fbf62b7919a86ba18fadada2c1618c" target="_blank">7ae292d</a>
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/400ca9a31f212f35313d6eda1c9c8e8906f2966e" target="_blank">400ca9a</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree7ae292d564fbf62b7919a86ba18fadada2c1618ctargetblank7ae292da"
+id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree400ca9a31f212f35313d6eda1c9c8e8906f2966etargetblank400ca9aa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -370,7 +367,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/7ae292d564fbf62b7919a86ba18fadada2c1618c" target="_blank">7ae292d</a>.
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/400ca9a31f212f35313d6eda1c9c8e8906f2966e" target="_blank">400ca9a</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -395,16 +392,6 @@ Ignored files:
     Ignored:    log/
     Ignored:    outputs/annotations/
     Ignored:    outputs/munged_sumstats/
-
-Unstaged changes:
-    Modified:   .DS_Store
-    Deleted:    .ipynb_checkpoints/README-checkpoint.md
-    Deleted:    .ipynb_checkpoints/clean-sumstats-checkpoint.ipynb
-    Deleted:    .ipynb_checkpoints/organoid-rotation-checkpoint.ipynb
-    Deleted:    .ipynb_checkpoints/project-overview-checkpoint.ipynb
-    Modified:   README.md
-    Modified:   analysis/about.Rmd
-    Deleted:    analysis/project-setup.Rmd
 
 </code></pre>
 <p>
@@ -453,6 +440,59 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/400ca9a31f212f35313d6eda1c9c8e8906f2966e/analysis/about.Rmd" target="_blank">400ca9a</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-01-10
+</td>
+<td>
+Publish the initial files for project
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/eae526128d259d96317b365f4cc12d40c206c5f5/analysis/about.Rmd" target="_blank">eae5261</a>
+</td>
+<td>
+Anne K Hooker
+</td>
+<td>
+2025-01-09
+</td>
+<td>
+Set up workflowr framework and modified snakemake pipeline to clean the
+summary stats
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/eae526128d259d96317b365f4cc12d40c206c5f5/docs/about.html" target="_blank">eae5261</a>
+</td>
+<td>
+Anne K Hooker
+</td>
+<td>
+2025-01-09
+</td>
+<td>
+Set up workflowr framework and modified snakemake pipeline to clean the
+summary stats
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/szhaolab/organoid-ukbb/blob/6491835db7f8794e23c92fd99d6ec00b2369620d/analysis/about.Rmd" target="_blank">6491835</a>
 </td>
 <td>
@@ -474,7 +514,7 @@ Start workflowr project.
 </div>
 <p>This project involves performing functional enrichment using Liyang’s
 ASoC annotation derived from colon organoids (epithelial cells). Using
-UK biobank data, I will test for functional enrichment of this
+UK Biobank data, I will test for functional enrichment of this
 annotation in other phenotypes using GWAS summary statistics and
 S-LDSC.</p>
 </div>
