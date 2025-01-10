@@ -8,7 +8,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-Functional enrichment analysis using UK Biobank data
+## Functional enrichment analysis using UK Biobank data
 
-1. Organization and normalization of summary statistics
-2. 
+### Full pipeline in code/pipeline/snake-ldsc-kh.smk\
+1. Organization and normalization (code/R/clean_sumstats.R) of raw UKBB GWAS summary statistics\
+2.
+
