@@ -10,17 +10,16 @@ logdir = "log/"
 if not os.path.isdir(logdir):
   os.mkdir(logdir)
 
-pdnew = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/" # contain R scripts for rules
+pdnew = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/" # contain R scripts for rules
 pdorig = "/dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/" # contain required metadata 
 polyfun = '/dartfs/rc/lab/S/Szhao/katieh/polyfun/' # contain polyfun software (download from github)
 pdout = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/" # desired output folder
 pdclean = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/" # contains the clean_sumstats R script
 
 # Inputs (summary stats, a directory of annotations)
-## Change to take raw sumstats as input and then clean them downstream
 raw_sumstats = "/dartfs/rc/lab/S/Szhao/katieh/organoid_rotation/raw-sumstats/"
 cleaned_sumstats = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/" 
-bed_dir = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir/"
+bed_dir = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir/" # Where the ASoC annotations are stored
 
 # REQUIRED metadata
 onekg = pdorig + '1000G_EUR_Phase3_plink/1000G.EUR.QC'
@@ -38,6 +37,8 @@ munged_sumstats = pdout + 'munged_sumstats/'
 traits = "IBD3"
 chrom = list(map(str, range(1,23)))
 
+# Cleaned sumstats columns
+COLUMNS = "chr, pos, beta, se, a0, a1, rs, pval"
 
 rule all:
   input:
@@ -47,12 +48,13 @@ rule all:
       # expand(results + "{t}/{t}.{c}.snpvar_ridge_constrained.gz", t=traits, c=chrom),
       # expand(finemapping + 'processed/{t}_finemapped_susie_L1.txt.gz',t=traits)
 
-# Finish this rule
 rule clean_sumstats:
     input:
+    raw_sumstats + ''
     output:
+    cleaned_sumstats + '{traits}_sumstats.txt.gz'
     shell:
-    "Rscript {pdclean}clean_sumstats.R"
+    "Rscript {pdclean}clean_sumstats.R {input[0]} {COLUMNS} {output}"
 
 rule munge_sumstats:
     input:
@@ -71,7 +73,7 @@ rule get_significant_loci:
     output:
       results + '{traits}_signif_loci.txt'
     shell:
-      "Rscript {pdnew}get_signif_loci_ly.R {input[0]} {input[1]} {output}"
+      "Rscript {pdnew}get_signif_loci_KH.R {input[0]} {input[1]} {output}"
 
 rule create_annotations:
     input:
@@ -82,8 +84,9 @@ rule create_annotations:
       annotations + '{traits}/{traits}.{chrom}.annot.gz',
       annotations + '{traits}/{traits}.{chrom}.l2.M'
     shell:
-      "Rscript {pdnew}create_annotations_LY.R {input[0]} {input[1]} {input[2]} {output[0]} {output[1]}"
+      "Rscript {pdnew}create_annotations_KH.R {input[0]} {input[1]} {input[2]} {output[0]} {output[1]}"
 
+# Compute LD scores for the AsoC annotation from a reference panel
 rule compute_ld_scores:
     input:
         annotations + '{traits}/{traits}.{chrom}.annot.gz'
@@ -118,6 +121,12 @@ rule enrichment_ldsc:
              --overlap-annot \
       && sed -i 's/_0//g' {output}
       """
+
+# The not-M-5-50 argument specifies estimating functional enrichment of the heritability causally explained by all SNPs (not just common MAF < 5%)
+
+
+
+
 
 # rule polyfun_ldsc:
 #     input:

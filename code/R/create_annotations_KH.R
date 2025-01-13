@@ -1,3 +1,5 @@
+# Copied and annotated from /fine-mapping/organoid-polyfun/create_annotations_LY.R
+
 suppressMessages(library(tidyverse))
 suppressMessages(library(rtracklayer))
 suppressMessages(library(GenomicRanges))
