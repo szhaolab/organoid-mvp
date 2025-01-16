@@ -1,0 +1,13 @@
+---
+title: "Functional Enrichment Analysis"
+author: "Katie Hooker"
+date: "2025-01-15"
+output: html_document
+---
+
+# Run the snakemake pipeline
+```{bash}
+# sbatch run_ldsc.sbatch
+
+```
+

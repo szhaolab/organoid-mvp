@@ -1,0 +1,46 @@
+---
+title: "UK Biobank Phenotypes"
+author: "Katie Hooker"
+date: "2025-01-15"
+output: html_document
+---
+
+## Reading in the [phenotype manifest](https://pan.ukbb.broadinstitute.org/docs/per-phenotype-files)
+```{r}
+library(readxl)
+
+phenoManifest <- suppressWarnings(read_excel("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "phenotype_manifest"))
+
+h2Manifest <- suppressWarnings(read_excel("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "h2_manifest"))
+
+```
+
+
+## Restricting to full cohort size >= 10,000
+```{r}
+library(dplyr)
+
+TenK_pheno <- subset(phenoManifest, n_cases_full_cohort_both_sexes >= 10000)
+
+```
+
+## Restricting phenotypes by keyword(s)
+```{r}
+library(stringr)
+
+TenK_pheno_filtered <- TenK_pheno %>% filter(
+  str_detect(category, "Biological samples") |
+    str_detect(category, "Chapter IV Endocrine, nutritional and metabolic diseases") |
+    str_detect(category, "Chapter XI Diseases of the digestive system") |
+    str_detect(category, "endocrine/metabolic") |
+    str_detect(category, "digestive") | 
+    str_detect(category, "neoplasms") |
+    str_detect(category, "congenital anomalies") |
+    str_detect(category, "C15-C26 Malignant neoplasms of digestive organs") |
+    str_detect(trait_efo_categories, "Digestive system") |
+    str_detect(category, "D10-D36 Benign neoplasms") |
+    str_detect(category, "R10-R19 Symptoms and signs involving the digestive system and abdomen"))
+
+```
+
+
