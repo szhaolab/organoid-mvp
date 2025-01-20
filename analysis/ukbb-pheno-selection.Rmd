@@ -5,21 +5,14 @@ date: "2025-01-15"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-library(knitr)
-opts_knit$set(root.dir = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation")
-
-```
-
-
 ## Reading in the [phenotype manifest](https://pan.ukbb.broadinstitute.org/docs/per-phenotype-files)
 
 ```{r}
 library(readxl)
 
-phenoManifest <- suppressWarnings(read_excel("data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "phenotype_manifest"))
+pheno_manifest <- suppressWarnings(read_excel("./data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "phenotype_manifest"))
 
-h2Manifest <- suppressWarnings(read_excel("data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "h2_manifest"))
+h2_manifest <- suppressWarnings(read_excel("./data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "h2_manifest"))
 
 ```
 
@@ -29,7 +22,7 @@ h2Manifest <- suppressWarnings(read_excel("data/Pan-UK Biobank phenotype manifes
 ```{r}
 library(dplyr)
 
-TenK_pheno <- subset(phenoManifest, n_cases_full_cohort_both_sexes >= 10000)
+TenK_pheno <- subset(pheno_manifest, n_cases_full_cohort_both_sexes >= 10000)
 
 ```
 
@@ -111,14 +104,18 @@ TenK_pheno_filtered <- TenK_pheno_filtered %>%
 ## Restricting to European $h^2 >= 0.1$
 
 ```{r}
-EUR_h2 <- h2Manifest[h2Manifest$pop == "EUR",]
+EUR_h2 <- h2_manifest[h2_manifest$pop == "EUR",]
 EUR_h2 <- EUR_h2 %>% select(trait_type, phenocode, pheno_sex, coding, modifier, pop,
                             estimates.ldsc.h2_observed)
 EUR_h2$phenocode <- as.character(EUR_h2$phenocode)
 
 TenK_pheno_filtered <- left_join(TenK_pheno_filtered, EUR_h2, by = c("trait_type","phenocode","pheno_sex","coding","modifier")) 
 
-TenK_pheno_filtered <- TenK_pheno_filtered %>% subset(estimates.ldsc.h2_observed >= 0.1)
+# Changing h2 to numeric
+TenK_pheno_filtered <- TenK_pheno_filtered %>% mutate(h2_EUR_numeric = as.numeric(estimates.ldsc.h2_observed))
+
+# Subsetting for EUR h2 >= 0.1
+TenK_pheno_filtered <- TenK_pheno_filtered %>% subset(h2_EUR_numeric >= 0.1)
 print(nrow(TenK_pheno_filtered))
 
 ```
@@ -128,6 +125,11 @@ print(nrow(TenK_pheno_filtered))
 ```{r}
 #TenK_pheno_filtered$description
 #TenK_pheno_filtered$coding_description
+
+final_pheno <- select(TenK_pheno_filtered, trait_type, phenocode, pheno_sex,
+                     coding, modifier, description, description_more, coding_description,
+                     category, n_cases_full_cohort_both_sexes, pops_pass_qc, estimates.ldsc.h2_observed)
+final_pheno
 ```
 
 
