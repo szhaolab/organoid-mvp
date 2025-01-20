@@ -5,16 +5,24 @@ date: "2025-01-15"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+library(knitr)
+opts_knit$set(root.dir = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation")
+
+```
+
+
 ## Reading in the [phenotype manifest](https://pan.ukbb.broadinstitute.org/docs/per-phenotype-files)
 
 ```{r}
 library(readxl)
 
-phenoManifest <- suppressWarnings(read_excel("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "phenotype_manifest"))
+phenoManifest <- suppressWarnings(read_excel("data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "phenotype_manifest"))
 
-h2Manifest <- suppressWarnings(read_excel("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "h2_manifest"))
+h2Manifest <- suppressWarnings(read_excel("data/Pan-UK Biobank phenotype manifest.xlsx", sheet = "h2_manifest"))
 
 ```
+
 
 ## Restricting to full cohort size \>= 10,000
 
@@ -24,6 +32,7 @@ library(dplyr)
 TenK_pheno <- subset(phenoManifest, n_cases_full_cohort_both_sexes >= 10000)
 
 ```
+
 
 ## Restricting phenotypes by keyword(s)
 
@@ -37,7 +46,7 @@ TenK_pheno_filtered <- TenK_pheno %>% filter(
     str_detect(category, "Chapter XI Diseases of the digestive system") |
     str_detect(category, "R10-R19 Symptoms and signs involving the digestive system and abdomen") |
     category == "endocrine/metabolic" |
-    category == "digestive" | 
+    category == "digestive" |
     category == "neoplasms" |
     category == "congenital anomalies"|
     str_detect(category, "D10-D36 Benign neoplasms") |
@@ -50,23 +59,34 @@ TenK_pheno_filtered <- TenK_pheno %>% filter(
     # str_detect(trait_efo_categories, "Other measurement") |
     # str_detect(trait_efo_categories, "Other trait"))
 
+print(nrow(TenK_pheno_filtered))
+
+```
+
+
+```{r}
 # Removing diseases of family members
 TenK_pheno_filtered <- TenK_pheno_filtered %>% filter(!startsWith(description, "Illnesses of"))
+print(nrow(TenK_pheno_filtered))
 
 # Removing blood count assays
 TenK_pheno_filtered <- TenK_pheno_filtered %>% filter(str_detect(category, "(?i)Blood count", negate=TRUE)) # (?i) specifies to ignore case
+print(nrow(TenK_pheno_filtered))
 
 # Removing abnormalities in urine
 TenK_pheno_filtered <- TenK_pheno_filtered %>% filter(str_detect(description, "(?i)in urine", negate=TRUE))
+print(nrow(TenK_pheno_filtered))
 
 # Removing measures adjusted by medication
 TenK_pheno_filtered <- TenK_pheno_filtered %>% filter(str_detect(description, "(?i)adjusted by medication", negate=TRUE))
+print(nrow(TenK_pheno_filtered))
 
 # Removing other non-digestive traits
 TenK_pheno_filtered <- TenK_pheno_filtered %>% 
   filter(str_detect(description, "(?i)Breast", negate=TRUE) &
            str_detect(description, "(?i)skin", negate=TRUE) &
            str_detect(description, "(?i)uter", negate=TRUE))
+print(nrow(TenK_pheno_filtered))
 
 # Removing non-digestive specific descriptions
 TenK_pheno_filtered <- TenK_pheno_filtered %>% 
@@ -74,6 +94,7 @@ TenK_pheno_filtered <- TenK_pheno_filtered %>%
   description != "Malignant neoplasm, other" &
   description != "Chemotherapy" &
   description != "Secondary malignant neoplasm")
+print(nrow(TenK_pheno_filtered))
 
 ```
 
@@ -98,14 +119,15 @@ EUR_h2$phenocode <- as.character(EUR_h2$phenocode)
 TenK_pheno_filtered <- left_join(TenK_pheno_filtered, EUR_h2, by = c("trait_type","phenocode","pheno_sex","coding","modifier")) 
 
 TenK_pheno_filtered <- TenK_pheno_filtered %>% subset(estimates.ldsc.h2_observed >= 0.1)
+print(nrow(TenK_pheno_filtered))
 
 ```
 
 ## Removing duplicates across trait_types
 
 ```{r}
-TenK_pheno_filtered$description
-TenK_pheno_filtered$coding_description
+#TenK_pheno_filtered$description
+#TenK_pheno_filtered$coding_description
 ```
 
 
