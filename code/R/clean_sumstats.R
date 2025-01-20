@@ -19,8 +19,8 @@ clean_sumstats <- function(sumstats, cols.to.keep){
   # keep SNPs in 1kg
   #sumstats <- inner_join(sumstats, snps.to.keep, by=rs)
   # Extract relevant columns
-  clean.sumstats <- sumstats[ ,c(chr, pos, beta, se, a0, a1, rs, pval)]
-  colnames(clean.sumstats) <- c('chr','pos','beta','se','a0','a1','snp', 'pval')
+  clean.sumstats <- sumstats[ ,c(chr, pos, beta_EUR, se_EUR, ref, alt, rs, neglog10_pval_EUR)]
+  colnames(clean.sumstats) <- c('chr','pos','beta','se','ref','alt','snp', 'neglog10pval')
   
   # drop XY chromosomes
   clean.sumstats <- clean.sumstats[!(clean.sumstats$chr %in% c("X","Y")), ]
