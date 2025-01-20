@@ -361,7 +361,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -372,8 +372,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -386,9 +386,9 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>organoid-rotation/</code> <span
@@ -498,56 +498,30 @@ run.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
 </p>
 </div>
-<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
 <div class="panel-body">
-<p>
-Using absolute paths to the files within your workflowr project makes it
-difficult for you and others to run your code on a different machine.
-Change the absolute path(s) below to the suggested relative path(s) to
-make your code more reproducible.
-</p>
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th style="text-align:left;">
-absolute
-</th>
-<th style="text-align:left;">
-relative
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation
-</td>
-<td style="text-align:left;">
-.
-</td>
-</tr>
-</tbody>
-</table>
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree1cdf7907f824bbcc40b75a9000e826e642896686targetblank1cdf790a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree36869db12a72bb7a5ec97cbf013079df892069d7targetblank36869dba">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/1cdf7907f824bbcc40b75a9000e826e642896686" target="_blank">1cdf790</a>
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/36869db12a72bb7a5ec97cbf013079df892069d7" target="_blank">36869db</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree1cdf7907f824bbcc40b75a9000e826e642896686targetblank1cdf790a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree36869db12a72bb7a5ec97cbf013079df892069d7targetblank36869dba"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -557,7 +531,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/1cdf7907f824bbcc40b75a9000e826e642896686" target="_blank">1cdf790</a>.
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/36869db12a72bb7a5ec97cbf013079df892069d7" target="_blank">36869db</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -585,6 +559,7 @@ Ignored files:
 
 Untracked files:
     Untracked:  data/
+    Untracked:  outputs/pheno.csv
 
 </code></pre>
 <p>
@@ -629,6 +604,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/36869db12a72bb7a5ec97cbf013079df892069d7/analysis/ukbb-pheno-selection.Rmd" target="_blank">36869db</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-01-20
+</td>
+<td>
+Update UKBB selection
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/dd3f1fe7d3c1a46eaef730ed42cf47f3e8ba6d66/docs/ukbb-pheno-selection.html" target="_blank">dd3f1fe</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-01-20
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -744,9 +753,9 @@ href="https://pan.ukbb.broadinstitute.org/docs/per-phenotype-files">phenotype
 manifest</a></h2>
 <pre class="r"><code>library(readxl)
 
-phenoManifest &lt;- suppressWarnings(read_excel(&quot;data/Pan-UK Biobank phenotype manifest.xlsx&quot;, sheet = &quot;phenotype_manifest&quot;))
+pheno_manifest &lt;- suppressWarnings(read_excel(&quot;./data/Pan-UK Biobank phenotype manifest.xlsx&quot;, sheet = &quot;phenotype_manifest&quot;))
 
-h2Manifest &lt;- suppressWarnings(read_excel(&quot;data/Pan-UK Biobank phenotype manifest.xlsx&quot;, sheet = &quot;h2_manifest&quot;))</code></pre>
+h2_manifest &lt;- suppressWarnings(read_excel(&quot;./data/Pan-UK Biobank phenotype manifest.xlsx&quot;, sheet = &quot;h2_manifest&quot;))</code></pre>
 </div>
 <div id="restricting-to-full-cohort-size-10000" class="section level2">
 <h2>Restricting to full cohort size &gt;= 10,000</h2>
@@ -759,7 +768,7 @@ Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>The following objects are masked from &#39;package:base&#39;:
 
     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>TenK_pheno &lt;- subset(phenoManifest, n_cases_full_cohort_both_sexes &gt;= 10000)</code></pre>
+<pre class="r"><code>TenK_pheno &lt;- subset(pheno_manifest, n_cases_full_cohort_both_sexes &gt;= 10000)</code></pre>
 </div>
 <div id="restricting-phenotypes-by-keywords" class="section level2">
 <h2>Restricting phenotypes by keyword(s)</h2>
@@ -832,21 +841,47 @@ description column.</p>
 <div id="restricting-to-european-h2-0.1" class="section level2">
 <h2>Restricting to European <span class="math inline">\(h^2 &gt;=
 0.1\)</span></h2>
-<pre class="r"><code>EUR_h2 &lt;- h2Manifest[h2Manifest$pop == &quot;EUR&quot;,]
+<pre class="r"><code>EUR_h2 &lt;- h2_manifest[h2_manifest$pop == &quot;EUR&quot;,]
 EUR_h2 &lt;- EUR_h2 %&gt;% select(trait_type, phenocode, pheno_sex, coding, modifier, pop,
                             estimates.ldsc.h2_observed)
 EUR_h2$phenocode &lt;- as.character(EUR_h2$phenocode)
 
 TenK_pheno_filtered &lt;- left_join(TenK_pheno_filtered, EUR_h2, by = c(&quot;trait_type&quot;,&quot;phenocode&quot;,&quot;pheno_sex&quot;,&quot;coding&quot;,&quot;modifier&quot;)) 
 
-TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;% subset(estimates.ldsc.h2_observed &gt;= 0.1)
+# Changing h2 to numeric
+TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;% mutate(h2_EUR_numeric = as.numeric(estimates.ldsc.h2_observed))
+
+# Subsetting for EUR h2 &gt;= 0.1
+TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;% subset(h2_EUR_numeric &gt;= 0.1)
 print(nrow(TenK_pheno_filtered))</code></pre>
-<pre><code>[1] 67</code></pre>
+<pre><code>[1] 22</code></pre>
 </div>
 <div id="removing-duplicates-across-trait_types" class="section level2">
 <h2>Removing duplicates across trait_types</h2>
 <pre class="r"><code>#TenK_pheno_filtered$description
-#TenK_pheno_filtered$coding_description</code></pre>
+#TenK_pheno_filtered$coding_description
+
+final_pheno &lt;- select(TenK_pheno_filtered, trait_type, phenocode, pheno_sex,
+                     coding, modifier, description, description_more, coding_description,
+                     category, n_cases_full_cohort_both_sexes, pops_pass_qc, estimates.ldsc.h2_observed)
+final_pheno</code></pre>
+<pre><code># A tibble: 22 × 12
+   trait_type phenocode pheno_sex  coding modifier description  description_more
+   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;           
+ 1 biomarkers 30600     both_sexes     NA irnt     Albumin      NA              
+ 2 biomarkers 30610     both_sexes     NA irnt     Alkaline ph… NA              
+ 3 biomarkers 30620     both_sexes     NA irnt     Alanine ami… NA              
+ 4 biomarkers 30630     both_sexes     NA irnt     Apolipoprot… NA              
+ 5 biomarkers 30640     both_sexes     NA irnt     Apolipoprot… NA              
+ 6 biomarkers 30650     both_sexes     NA irnt     Aspartate a… NA              
+ 7 biomarkers 30670     both_sexes     NA irnt     Urea         NA              
+ 8 biomarkers 30680     both_sexes     NA irnt     Calcium      NA              
+ 9 biomarkers 30690     both_sexes     NA irnt     Cholesterol  NA              
+10 biomarkers 30700     both_sexes     NA irnt     Creatinine   NA              
+# ℹ 12 more rows
+# ℹ 5 more variables: coding_description &lt;chr&gt;, category &lt;chr&gt;,
+#   n_cases_full_cohort_both_sexes &lt;dbl&gt;, pops_pass_qc &lt;chr&gt;,
+#   estimates.ldsc.h2_observed &lt;chr&gt;</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -879,22 +914,21 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] stringr_1.5.1   dplyr_1.1.4     readxl_1.4.3    knitr_1.49     
-[5] workflowr_1.7.1
+[1] stringr_1.5.1   dplyr_1.1.4     readxl_1.4.3    workflowr_1.7.1
 
 loaded via a namespace (and not attached):
  [1] jsonlite_1.8.9    compiler_4.4.2    promises_1.3.2    tidyselect_1.2.1 
  [5] Rcpp_1.0.13-1     git2r_0.35.0      callr_3.7.6       later_1.4.1      
  [9] jquerylib_0.1.4   yaml_2.3.10       fastmap_1.2.0     R6_2.5.1         
-[13] generics_0.1.3    tibble_3.2.1      rprojroot_2.0.4   bslib_0.8.0      
-[17] pillar_1.9.0      rlang_1.1.4       utf8_1.2.4        cachem_1.1.0     
-[21] stringi_1.8.4     httpuv_1.6.15     xfun_0.49         getPass_0.2-4    
-[25] fs_1.6.5          sass_0.4.9        cli_3.6.3         withr_3.0.2      
-[29] magrittr_2.0.3    ps_1.8.1          digest_0.6.37     processx_3.8.4   
-[33] rstudioapi_0.17.1 lifecycle_1.0.4   vctrs_0.6.5       evaluate_1.0.1   
-[37] glue_1.8.0        cellranger_1.1.0  whisker_0.4.1     fansi_1.0.6      
-[41] rmarkdown_2.29    httr_1.4.7        tools_4.4.2       pkgconfig_2.0.3  
-[45] htmltools_0.5.8.1</code></pre>
+[13] generics_0.1.3    knitr_1.49        tibble_3.2.1      rprojroot_2.0.4  
+[17] bslib_0.8.0       pillar_1.9.0      rlang_1.1.4       utf8_1.2.4       
+[21] cachem_1.1.0      stringi_1.8.4     httpuv_1.6.15     xfun_0.49        
+[25] getPass_0.2-4     fs_1.6.5          sass_0.4.9        cli_3.6.3        
+[29] withr_3.0.2       magrittr_2.0.3    ps_1.8.1          digest_0.6.37    
+[33] processx_3.8.4    rstudioapi_0.17.1 lifecycle_1.0.4   vctrs_0.6.5      
+[37] evaluate_1.0.1    glue_1.8.0        cellranger_1.1.0  whisker_0.4.1    
+[41] fansi_1.0.6       rmarkdown_2.29    httr_1.4.7        tools_4.4.2      
+[45] pkgconfig_2.0.3   htmltools_0.5.8.1</code></pre>
 </div>
 </div>
 </div>
