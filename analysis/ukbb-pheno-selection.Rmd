@@ -6,6 +6,7 @@ output: html_document
 ---
 
 ## Reading in the [phenotype manifest](https://pan.ukbb.broadinstitute.org/docs/per-phenotype-files)
+
 ```{r}
 library(readxl)
 
@@ -15,8 +16,8 @@ h2Manifest <- suppressWarnings(read_excel("/dartfs/rc/lab/S/Szhao/katieh/organoi
 
 ```
 
+## Restricting to full cohort size \>= 10,000
 
-## Restricting to full cohort size >= 10,000
 ```{r}
 library(dplyr)
 
@@ -25,22 +26,86 @@ TenK_pheno <- subset(phenoManifest, n_cases_full_cohort_both_sexes >= 10000)
 ```
 
 ## Restricting phenotypes by keyword(s)
+
 ```{r}
 library(stringr)
 
+# Searching for keywords
 TenK_pheno_filtered <- TenK_pheno %>% filter(
   str_detect(category, "Biological samples") |
     str_detect(category, "Chapter IV Endocrine, nutritional and metabolic diseases") |
     str_detect(category, "Chapter XI Diseases of the digestive system") |
-    str_detect(category, "endocrine/metabolic") |
-    str_detect(category, "digestive") | 
-    str_detect(category, "neoplasms") |
-    str_detect(category, "congenital anomalies") |
-    str_detect(category, "C15-C26 Malignant neoplasms of digestive organs") |
-    str_detect(trait_efo_categories, "Digestive system") |
+    str_detect(category, "R10-R19 Symptoms and signs involving the digestive system and abdomen") |
+    category == "endocrine/metabolic" |
+    category == "digestive" | 
+    category == "neoplasms" |
+    category == "congenital anomalies"|
     str_detect(category, "D10-D36 Benign neoplasms") |
-    str_detect(category, "R10-R19 Symptoms and signs involving the digestive system and abdomen"))
+    str_detect(trait_efo_categories, "Digestive system") |
+    str_detect(trait_efo_categories, "Lipid or lipoprotein measurement") |
+    str_detect(trait_efo_categories, "Liver enzyme measurement") |
+    str_detect(trait_efo_categories, "Metabolic disorder"))
+    # str_detect(trait_efo_categories, "Cancer") |
+    # str_detect(trait_efo_categories, "Other disease") |
+    # str_detect(trait_efo_categories, "Other measurement") |
+    # str_detect(trait_efo_categories, "Other trait"))
 
+# Removing diseases of family members
+TenK_pheno_filtered <- TenK_pheno_filtered %>% filter(!startsWith(description, "Illnesses of"))
+
+# Removing blood count assays
+TenK_pheno_filtered <- TenK_pheno_filtered %>% filter(str_detect(category, "(?i)Blood count", negate=TRUE)) # (?i) specifies to ignore case
+
+# Removing abnormalities in urine
+TenK_pheno_filtered <- TenK_pheno_filtered %>% filter(str_detect(description, "(?i)in urine", negate=TRUE))
+
+# Removing measures adjusted by medication
+TenK_pheno_filtered <- TenK_pheno_filtered %>% filter(str_detect(description, "(?i)adjusted by medication", negate=TRUE))
+
+# Removing other non-digestive traits
+TenK_pheno_filtered <- TenK_pheno_filtered %>% 
+  filter(str_detect(description, "(?i)Breast", negate=TRUE) &
+           str_detect(description, "(?i)skin", negate=TRUE) &
+           str_detect(description, "(?i)uter", negate=TRUE))
+
+# Removing non-digestive specific descriptions
+TenK_pheno_filtered <- TenK_pheno_filtered %>% 
+  filter(description != "Cancer, suspected or other" &
+  description != "Malignant neoplasm, other" &
+  description != "Chemotherapy" &
+  description != "Secondary malignant neoplasm")
+
+```
+
+## Adding back in phenocodes for ICD10 traits
+
+The phenocodes are lost in the read_excel process, but the ICD10 phenocodes are equal to the Letter + 2-digit number format of the description column.
+
+```{r}
+TenK_pheno_filtered <- TenK_pheno_filtered %>%
+  mutate(phenocode = ifelse(trait_type == "icd10", 
+                       str_sub(description, 1, 3), phenocode)) 
+```
+
+## Restricting to European $h^2 >= 0.1$
+
+```{r}
+EUR_h2 <- h2Manifest[h2Manifest$pop == "EUR",]
+EUR_h2 <- EUR_h2 %>% select(trait_type, phenocode, pheno_sex, coding, modifier, pop,
+                            estimates.ldsc.h2_observed)
+EUR_h2$phenocode <- as.character(EUR_h2$phenocode)
+
+TenK_pheno_filtered <- left_join(TenK_pheno_filtered, EUR_h2, by = c("trait_type","phenocode","pheno_sex","coding","modifier")) 
+
+TenK_pheno_filtered <- TenK_pheno_filtered %>% subset(estimates.ldsc.h2_observed >= 0.1)
+
+```
+
+## Removing duplicates across trait_types
+
+```{r}
+TenK_pheno_filtered$description
+TenK_pheno_filtered$coding_description
 ```
 
 
