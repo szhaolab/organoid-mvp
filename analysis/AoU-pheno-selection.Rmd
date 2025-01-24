@@ -1,0 +1,159 @@
+---
+title: "All of Us Phenotype Selection"
+author: "Katie Hooker"
+date: "2025-01-22"
+output: html_document
+---
+
+The All of Us phenotypes index was downloaded [here](https://support.researchallofus.org/hc/en-us/articles/27049847988884-Overview-of-the-All-by-All-tables-available-on-the-All-of-Us-Researcher-Workbench#01HZ2KKW3XZ55MSBT7G1RNQS86) for identifying relevant phenotypes for subsequent analysis. The Excel file was converted to a .csv for ease of use.
+
+# Reading in the index
+```{r}
+suppressMessages(library(dplyr))
+pheno_index <- read.csv("./data/All_by_All_phenotypes.csv")
+
+table(pheno_index$category)
+table(pheno_index$phecode_category)
+
+```
+# Filtering for European ancestry
+Because the LD blocks used in S-LDSC are derived from European ancestry, we will restrict our analysis to this group
+
+```{r}
+pheno_index_EUR <- pheno_index %>% subset(ancestry == "eur")
+
+```
+
+
+# Filtering for sample size $ >= 10,000$
+
+```{r}
+pheno_index_EUR <- pheno_index_EUR %>% mutate(n_total = n_cases + n_controls)
+
+pheno_index_10k <- pheno_index_EUR %>% subset(n_total >= 10000)
+table(pheno_index_10k$phecode_category)
+
+```
+# Filtering for phecodeX rather than phecode because it is more granular
+https://academic.oup.com/bioinformatics/article/39/11/btad655/7335839\
+We cannot use both phecodeX and phecode as they are both classification schemes and there will be overlap in phenotypes.
+```{r}
+table(pheno_index_10k$category)
+pheno_index_filtered <- pheno_index_10k %>% filter(category == "phecodeX")
+
+```
+
+# Filtering for digestive, gastrointestinal, and neoplasms phecode_category
+
+```{r}
+table(pheno_index_filtered$phecode_category)
+pheno_index_filtered <- pheno_index_filtered %>% filter(phecode_category == 'Gastrointestinal' |
+                                                phecode_category == 'Neoplasms')
+# Should I include endocrine/metabolic, genetic, congenital, or null??
+
+```
+
+# Removing irrelevant phenotypes by keyword
+
+```{r}
+library(stringr)
+pheno_index_filtered <- pheno_index_filtered %>% filter(# sex-specific
+                                                          str_detect(description, "(?i)breast", negate=TRUE) &
+                                                          str_detect(description, "(?i)cervi", negate=TRUE) &
+                                                          str_detect(description, "(?i)uter", negate=TRUE) &
+                                                          str_detect(description, "(?i)ovar", negate=TRUE) &
+                                                          str_detect(description, "(?i)gyneco", negate=TRUE) &
+                                                          str_detect(description, "(?i)mammo", negate=TRUE) &
+                                                          str_detect(description, "(?i)endometr", negate=TRUE) &
+                                                          str_detect(description, "(?i)prostate", negate=TRUE) &
+                                                          str_detect(description, "(?i)genit", negate=TRUE) &
+                                                          # respiratory
+                                                          str_detect(description, "(?i)respiratory", negate=TRUE) &
+                                                          str_detect(description, "(?i)lung", negate=TRUE) &
+                                                          # dermatological
+                                                          str_detect(description, " skin", negate=TRUE) &
+                                                          str_detect(description, "carcin", negate=TRUE) &
+                                                          # genitourinary
+                                                          str_detect(description, " bladder", negate=TRUE) &
+                                                          # musculoskeletal
+                                                          str_detect(description, "(?i)myelo", negate=TRUE) &
+                                                          str_detect(description, "(?i)sarcoma", negate=TRUE) &
+                                                          str_detect(description, "(?i)connective", negate=TRUE) &
+                                                          # neuro
+                                                          str_detect(description, "(?i)brain", negate=TRUE) &
+                                                          # lymphatic
+                                                          str_detect(description, "(?i)leukemia", negate=TRUE) &
+                                                          str_detect(description, "(?i)lymph", negate=TRUE) &
+                                                          # eye
+                                                          str_detect(description, "(?i)eye", negate=TRUE) &
+                                                          # findings
+                                                          str_detect(description, "(?i)status", negate=TRUE) &
+                                                          str_detect(description, "(?i)findings", negate=TRUE) &
+                                                          # mouth, teeth, head, etc
+                                                          str_detect(description, "(?i)lip", negate=TRUE) &
+                                                          str_detect(description, "(?i)teeth", negate=TRUE) &
+                                                          str_detect(description, "(?i)tooth", negate=TRUE) &
+                                                          str_detect(description, "(?i)dent", negate=TRUE) &
+                                                          str_detect(description, "(?i)mouth", negate=TRUE) &
+                                                          str_detect(description, "(?i)gingi", negate=TRUE) &
+                                                          str_detect(description, "(?i)head", negate=TRUE) &
+                                                          str_detect(description, "(?i)oral", negate=TRUE) &
+                                                          str_detect(description, "(?i)nasal", negate=TRUE) &
+                                                          str_detect(description, "(?i)salivary", negate=TRUE) &
+                                                          str_detect(description, "(?i)peria", negate=TRUE) &
+                                                          str_detect(description, "(?i)perio", negate=TRUE) &
+                                                          # endocrine, neuroendocrine, thyroid
+                                                          str_detect(description, "(?i)endocrine", negate=TRUE) &
+                                                          str_detect(description, "(?i)thyroid", negate=TRUE) &
+                                                          # not specific
+                                                          str_detect(description, "(?i)unspecified", negate=TRUE) &
+                                                            str_detect(description, "(?i)nonspecific", negate=TRUE) &
+                                                          str_detect(description, "(?i)other", negate=TRUE))
+
+```
+
+Kidney? Endocrine? Thyroid?
+
+# Removing any last irrelevant phenotypes on a specific basis
+```{r}
+pheno_index_filtered <- pheno_index_filtered %>% filter(description != "Carcinoid tumors" &
+                                                          description != "Pheochromocytoma" &
+                                                          description != "Secondary malignant neoplasm" &
+                                                          description != "Carcinoid tumors" &
+                                                          description != "Hemo onc - by cell of origin" &
+                                                          description != "Mature B-cell" &
+                                                          description != "Essential thrombocythemia" &
+                                                          description != "Sequelae of cancer" &
+                                                          description != "Essential thrombocythemia" &
+                                                          description != "Essential thrombocythemia" &
+                                                          description != "Essential thrombocythemia" &
+                                                          description != "Intestinal infection" &
+                                                          description != "Bacterial enteritis" &
+                                                          description != "Intestinal infection due to C. difficile" &
+                                                          description != "Nausea and vomiting" &
+                                                          description != "Nausea" &
+                                                          description != "Vomiting" &
+                                                          description != "Symptoms involving digestive system" &
+                                                          description != "Diarrhea" &
+                                                          description != "Flatulence, eructation, and gas pain" &
+                                                          description != "Nevus, non-neoplastic" &
+                                                          description != "Cancer (solid tumor, excluding BCC)" &
+                                                          description != "Melanocytic nevi*" &
+                                                          description != "Benign neoplasm of peripheral nerves*" &
+                                                          description != "Hemangioma" &
+                                                          description != "Benign neoplasm of choroid" &
+                                                          description != "Benign neoplasm of meninges (Meningioma)" &
+                                                          description != "Benign neoplasm of the pituitary gland and craniopharyngeal duct" &
+                                                          description != "Sialoadenitis" &
+                                                          description != "Stomatitis" &
+                                                          description != "Diseases of tongue" &
+                                                          description != "Glossitis")
+
+for (i in 1:nrow(pheno_index_filtered)) {
+  print(pheno_index_filtered[i,]$description)
+  print(pheno_index_filtered[i,]$n_cases)
+  print(pheno_index_filtered[i,]$n_total)
+}
+
+```
+
