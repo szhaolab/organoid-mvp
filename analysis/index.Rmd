@@ -10,7 +10,7 @@ editor_options:
 
 ## Functional enrichment analysis using UK Biobank data
 
-### Picking [UKBB traits](ukbb-pheno-selection.html)\
+### Picking [All of Us traits](AoU-pheno-selection.html)\
 
 ### Full pipeline in [code/pipeline/snake-ldsc-kh.smk](enrichment-analysis.html)\
 1. Organization and normalization of raw UKBB GWAS summary statistics (clean_sumstats)\
@@ -20,3 +20,5 @@ editor_options:
 5. Compute LD scores for the ASoC annotation from a reference panel (compute_ld_scores)\
 6. Test for enrichment of the ASoC annotation in the UKBB traits (enrichment_ldsc)\
 
+### Archive
+- Picking [UKBB traits](ukbb-pheno-selection.html)\
