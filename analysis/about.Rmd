@@ -7,4 +7,4 @@ editor_options:
   chunk_output_type: console
 ---
 
-This project involves performing functional enrichment using Liyang's ASoC annotation derived from colon organoids (epithelial cells). Using UK Biobank data, I will test for functional enrichment of this annotation in other phenotypes using GWAS summary statistics and S-LDSC.
+This project involves performing functional enrichment using Liyang's ASoC annotation derived from colon organoids (epithelial cells). Using [Million Veteran Program](https://www.research.va.gov/mvp/) data, I will test for functional enrichment of this annotation in other phenotypes using GWAS summary statistics and S-LDSC.

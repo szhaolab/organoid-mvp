@@ -1,0 +1,239 @@
+---
+title: "MVP Phenotype Selection"
+author: "Katie Hooker"
+date: "2025-01-22"
+output: html_document
+---
+
+# Reading in the phenotype manifest
+Downloaded from https://www-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/projects/gap/cgi-bin/study.cgi?study_id=phs002453.v1.p1
+https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/
+
+```{r}
+library(dplyr)
+pheno_mt <- read.csv("./data/phs002453.v1-Documents/MVP_R4.1000G_AGR.DataDictionary_and_Counts_vJuly2024-1.csv")
+names(pheno_mt)
+
+pheno_mt <- pheno_mt %>% select(Trait, Trait_Type, Category, SubCategory, Description, num_samples.EUR, num_cases.EUR, num_controls.EUR, dbgap_cat.EUR, dbgap_cat.pheno)
+
+```
+
+# Filter for 10k cases if binary trait and 10k total cohort if continous trait
+
+```{r}
+pheno_filt <- pheno_mt %>%
+  filter(
+    (Trait_Type == "binary" & num_cases.EUR > 10000) |
+    (Trait_Type == "qt" & num_samples.EUR > 10000)
+  )
+
+table(pheno_filt$Category)
+
+```
+
+# Filter for category of labs, vitals, and phecodes
+
+```{r}
+pheno_filt <- pheno_filt %>% filter(Category == "Labs" |
+                                      Category == "PheCodes" |
+                                      Category == "Vitals")
+```
+
+# Filter by subcategory for phecodes
+
+```{r}
+table(pheno_filt$SubCategory)
+
+pheno_filt <- pheno_filt %>% filter(SubCategory == "Labs" |
+                                      SubCategory == "Vitals" |
+                                      SubCategory == "Digestive System" |
+                                      SubCategory == "Endocrine or Metabolic" |
+                                      SubCategory == "Neoplasms" |
+                                      SubCategory == "Symptoms")
+```
+# Removing irrelevant phenotypes by keyword
+
+```{r}
+library(stringr)
+pheno_filt <- pheno_filt %>% filter(str_detect(Description, "(?i)cervi", negate=TRUE) &
+                                      str_detect(Description, "(?i)prostate", negate=TRUE) &
+                                      str_detect(Description, "(?i)testicu", negate=TRUE) &
+                                      str_detect(Description, "(?i)bladder", negate=TRUE) &
+                                      # respiratory
+                                      str_detect(Description, "(?i)respiratory", negate=TRUE) &
+                                      str_detect(Description, "(?i)lung", negate=TRUE) &
+                                      # dermatological
+                                      str_detect(Description, "(?i)skin", negate=TRUE) &
+                                      str_detect(Description, "carcin", negate=TRUE) &
+                                      # genitourinary
+                                      str_detect(Description, "(?i)bladder", negate=TRUE) &
+                                      # neuro
+                                      str_detect(Description, "(?i)brain", negate=TRUE) &
+                                      # lymphatic
+                                      str_detect(Description, "(?i)lymph", negate=TRUE) &
+                                      # musculoskeletal
+                                      str_detect(Description, "(?i)muscle", negate=TRUE) &
+                                      str_detect(Description, "(?i)limb", negate=TRUE) &
+                                      # eye
+                                      str_detect(Description, "(?i)eye", negate=TRUE) &
+                                      # mouth, teeth, head, etc
+                                      str_detect(Description, "(?i)teeth", negate=TRUE) &
+                                      str_detect(Description, "(?i)tooth", negate=TRUE) &
+                                      str_detect(Description, "(?i)dent", negate=TRUE) &
+                                      str_detect(Description, "(?i)gingi", negate=TRUE) &
+                                      str_detect(Description, "(?i)oral", negate=TRUE) &
+                                      str_detect(Description, "(?i)peria", negate=TRUE) &
+                                      str_detect(Description, "(?i)perio", negate=TRUE) &
+                                      # screenings, findings, etc
+                                      str_detect(Description, "(?i)screening", negate=TRUE) &
+                                      str_detect(Description, "(?i)therapy", negate=TRUE))
+```
+
+
+# If the category is a lab or vital measure, keep only the mean value
+```{r}
+pheno_filt <- pheno_filt %>%
+  filter((Category == "Labs" & grepl("Mean", Trait)) | 
+           (Category == "Vitals" & grepl("Mean", Trait)) |
+           Category == "PheCodes")
+
+```
+
+# Further filtering on a case by case basis
+```{r}
+pheno_filt$Description
+
+to_remove <- c(
+  # Not specific
+  "Cancer, suspected or other",
+  "Secondary malignant neoplasm",
+  "Neoplasm of uncertain behavior",
+  "Lipoma",
+  "Vascular hamartomas and non-neoplastic nevi",
+  "Nevus, non-neoplastic",
+  # Endocrine
+  "Nontoxic nodular goiter",
+  "Nontoxic uninodular goiter",
+  "Hypothyroidism",
+  "Hypothyroidism NOS",
+  "Type 2 diabetes with renal manifestations",
+  "Type 2 diabetes with ophthalmic manifestations",
+  "Type 2 diabetes with neurological manifestations",
+  "Insulin pump user",
+  "Other abnormal glucose",
+  "Polyneuropathy in diabetes",
+  "Diabetic retinopathy",
+  # Unrelated
+  "Gout and other crystal arthrop",
+  "Gout",
+  "Back pain",
+  "Thoracic or lumbosacral neuritis or radiculitis, unspecified",
+  "Sciatica",
+  "Neuralgia, neuritis, and radiculitis NOS",
+  "Nonallopathic lesions NEC",
+  "Myalgia and myositis unspecified",
+  "Edema",
+  "Fever of unknown origin",
+  "Syncope and collapse",
+  "Nausea and vomiting",
+  "Other abnormal blood chemistry",
+  "Malaise and fatigue",
+  "Debility unspecified",
+  # Digestive, but not specific or overlaps with another code
+  "Overweight, obesity and other hyperalimentation",
+  "Diseases of esophagus",
+  "Esophagitis, GERD and related diseases",
+  "Symptoms involving digestive system",
+  "Diverticulosis and diverticulitis",
+  "Anal and rectal conditions",
+  "Abnormal results of function study of liver"
+  # Unrelated biomarkers
+)
+
+pheno_filt <- pheno_filt %>% filter(!Description %in% to_remove)
+```
+
+
+# Loading in file manifests
+```{r}
+# Three batches of lab data
+lab_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+lab_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+lab_3 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar.table_of_contents.txt")
+
+# PheCode digestive system
+digest_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+digest_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+
+# PheCode endocrine or metabolic
+endo_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+endo_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+
+# PheCode neoplasms
+neo_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+neo_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+
+#PheCode symptoms
+symptoms_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar.table_of_contents.txt")
+
+# Vitals
+vitals_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar.table_of_contents.txt")
+
+```
+
+# Merging and organizing the tables of contents
+```{r}
+file_names <- rbind(lab_1, lab_2, lab_3,
+                   digest_1, digest_2,
+                   endo_1, endo_2, 
+                   neo_1, neo_2,
+                   symptoms_1, vitals_1)
+
+rm(lab_1, lab_2, lab_3,
+   digest_1, digest_2,
+   endo_1, endo_2,
+   neo_1, neo_2,
+   symptoms_1, vitals_1)
+
+# Filter for European ancestry file names
+file_names <- file_names %>% filter(str_detect(V6, "EUR"))
+
+# Pull trait name out of file name for column merging
+file_names <- file_names %>% mutate(Trait = sub(".*?AGR\\.(.*?)\\.EUR.*", "\\1", V6))
+
+# Join tables
+pheno_filt <- left_join(pheno_filt, file_names)
+
+```
+
+# Pulling out tarball names
+
+```{r}
+pheno_filt <- pheno_filt %>% mutate(tar_file = "phs002453." %>% paste0(str_extract(V6, "^[^/]+")) %>% paste0(".analysis-PI.MULTI.tar"))
+
+unique_tarballs <- unique(pheno_filt$tar_file)
+unique_tarballs
+
+unique_md5s <- paste0(unique_tarballs, ".md5")
+unique_md5s
+
+pheno_filt <- pheno_filt %>% mutate(file_name = gsub(".*/", "", V6))
+
+```
+
+# Test downloading a small tarball to the server
+```{r}
+#system("wget -P /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/ https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_CongenitalAnomalies.analysis-PI.MULTI.tar")
+#system("wget -P /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/ https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_CongenitalAnomalies.analysis-PI.MULTI.tar.md5")
+
+```
+
+
+# Downloading files to the server
+```{r}
+write.csv(pheno_filt, "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/MVP_pheno_list.csv")
+
+```
+
+Files are then downloaded and extracted one-by-one using the MVP-data-pull pipeline found in code/pipeline/MVP-data-pull/
+

@@ -8,17 +8,18 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Functional enrichment analysis using UK Biobank data
+## Functional enrichment analysis using publicly available GWAS summary statistics data
 
-### Picking [All of Us traits](AoU-pheno-selection.html)\
+### Picking [MVP traits](MVP-pheno-selection.html)
 
 ### Full pipeline in [code/pipeline/snake-ldsc-kh.smk](enrichment-analysis.html)\
-1. Organization and normalization of raw UKBB GWAS summary statistics (clean_sumstats)\
+1. Organization and normalization of raw MVP GWAS summary statistics (clean_sumstats)\
 2. Munge summary statistics to S-LDSC PolyFUN format (munge_sumstats)\
 3. Identify and count significant loci in LD blocks (get_significant_loci)\
 4. Assign SNPs to the ASoC annotation (create_annotations)\
 5. Compute LD scores for the ASoC annotation from a reference panel (compute_ld_scores)\
-6. Test for enrichment of the ASoC annotation in the UKBB traits (enrichment_ldsc)\
+6. Test for enrichment of the ASoC annotation in the MVP traits (enrichment_ldsc)\
 
 ### Archive
 - Picking [UKBB traits](ukbb-pheno-selection.html)\
+- Picking [All of Us traits](AoU-pheno-selection.html)\

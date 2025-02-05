@@ -10,7 +10,7 @@ The All of Us phenotypes index was downloaded [here](https://support.researchall
 # Reading in the index
 ```{r}
 suppressMessages(library(dplyr))
-pheno_index <- read.csv("./data/All_by_All_phenotypes.csv")
+pheno_index <- read.csv("./data/AoU/All_by_All_phenotypes.csv")
 
 table(pheno_index$category)
 table(pheno_index$phecode_category)
@@ -24,7 +24,6 @@ pheno_index_EUR <- pheno_index %>% subset(ancestry == "eur")
 
 ```
 
-
 # Filtering for sample size $ >= 10,000$
 
 ```{r}
@@ -36,7 +35,8 @@ table(pheno_index_10k$phecode_category)
 ```
 # Filtering for phecodeX rather than phecode because it is more granular
 https://academic.oup.com/bioinformatics/article/39/11/btad655/7335839\
-We cannot use both phecodeX and phecode as they are both classification schemes and there will be overlap in phenotypes.
+We cannot use both phecodeX and phecode as they are both classification schemes and there will be overlap in phenotypes?
+
 ```{r}
 table(pheno_index_10k$category)
 pheno_index_filtered <- pheno_index_10k %>% filter(category == "phecodeX")
@@ -157,3 +157,15 @@ for (i in 1:nrow(pheno_index_filtered)) {
 
 ```
 
+# Printing a list of phecodes for data pulling in the AoU Researcher Workbench
+
+```{r}
+phecodes <- pheno_index_filtered$phenoname
+
+python_format <- paste0("[", paste(sapply(phecodes, function(code) paste0('"', code, '"')), collapse = ", "), "]")
+
+cat(python_format)
+
+```
+
+We pivoted from All of Us because after contacting their research support team, I was informed that the All by All GWAS summary statistics are no longer being approved for download.
