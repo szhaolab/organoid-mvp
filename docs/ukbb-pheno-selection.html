@@ -382,7 +382,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-01-20
+<strong>Last updated:</strong> 2025-02-05
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -513,15 +513,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree36869db12a72bb7a5ec97cbf013079df892069d7targetblank36869dba">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree193ae4fdcb98ae92c0112cd112d620b44e71b976targetblank193ae4fa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/36869db12a72bb7a5ec97cbf013079df892069d7" target="_blank">36869db</a>
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/193ae4fdcb98ae92c0112cd112d620b44e71b976" target="_blank">193ae4f</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree36869db12a72bb7a5ec97cbf013079df892069d7targetblank36869dba"
+id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree193ae4fdcb98ae92c0112cd112d620b44e71b976targetblank193ae4fa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +531,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/36869db12a72bb7a5ec97cbf013079df892069d7" target="_blank">36869db</a>.
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/193ae4fdcb98ae92c0112cd112d620b44e71b976" target="_blank">193ae4f</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -558,8 +558,15 @@ Ignored files:
     Ignored:    outputs/munged_sumstats/
 
 Untracked files:
+    Untracked:  .snakemake/.DS_Store
+    Untracked:  code/MVP-data-pull/
     Untracked:  data/
-    Untracked:  outputs/pheno.csv
+
+Unstaged changes:
+    Modified:   .DS_Store
+    Modified:   .gitignore
+    Modified:   code/.DS_Store
+    Modified:   outputs/.DS_Store
 
 </code></pre>
 <p>
@@ -604,6 +611,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/193ae4fdcb98ae92c0112cd112d620b44e71b976/analysis/ukbb-pheno-selection.Rmd" target="_blank">193ae4f</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-05
+</td>
+<td>
+Transitioned to MVP data and developed downloading pipeline
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/0c1d70fa28dc47f75ce5cdf2b937156108a516e9/docs/ukbb-pheno-selection.html" target="_blank">0c1d70f</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-01-20
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -747,16 +788,21 @@ Started UK biobank phenotype selection RMD
 </div>
 </div>
 </div>
-<div id="reading-in-the-phenotype-manifest" class="section level2">
-<h2>Reading in the <a
+<div id="reading-in-the-phenotype-manifest" class="section level1">
+<h1>Reading in the <a
 href="https://pan.ukbb.broadinstitute.org/docs/per-phenotype-files">phenotype
-manifest</a></h2>
+manifest</a></h1>
 <pre class="r"><code>library(readxl)
 
-pheno_manifest &lt;- suppressWarnings(read_excel(&quot;./data/Pan-UK Biobank phenotype manifest.xlsx&quot;, sheet = &quot;phenotype_manifest&quot;))
+pheno_manifest &lt;- read.csv(&quot;./data/UKBB/ukbb_phenotype_manifest.csv&quot;)
 
-h2_manifest &lt;- suppressWarnings(read_excel(&quot;./data/Pan-UK Biobank phenotype manifest.xlsx&quot;, sheet = &quot;h2_manifest&quot;))</code></pre>
+h2_manifest &lt;- read.csv(&quot;./data/UKBB/ukbb_h2_manifest.csv&quot;)</code></pre>
 </div>
+<div
+id="restricting-to-10k-people-in-the-cohort-followed-by-keyword-restrictions"
+class="section level1">
+<h1>Restricting to 10K people in the cohort, followed by keyword
+restrictions</h1>
 <div id="restricting-to-full-cohort-size-10000" class="section level2">
 <h2>Restricting to full cohort size &gt;= 10,000</h2>
 <pre class="r"><code>library(dplyr)</code></pre>
@@ -803,11 +849,11 @@ print(nrow(TenK_pheno_filtered))</code></pre>
 <pre class="r"><code># Removing blood count assays
 TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;% filter(str_detect(category, &quot;(?i)Blood count&quot;, negate=TRUE)) # (?i) specifies to ignore case
 print(nrow(TenK_pheno_filtered))</code></pre>
-<pre><code>[1] 106</code></pre>
+<pre><code>[1] 104</code></pre>
 <pre class="r"><code># Removing abnormalities in urine
 TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;% filter(str_detect(description, &quot;(?i)in urine&quot;, negate=TRUE))
 print(nrow(TenK_pheno_filtered))</code></pre>
-<pre><code>[1] 102</code></pre>
+<pre><code>[1] 100</code></pre>
 <pre class="r"><code># Removing measures adjusted by medication
 TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;% filter(str_detect(description, &quot;(?i)adjusted by medication&quot;, negate=TRUE))
 print(nrow(TenK_pheno_filtered))</code></pre>
@@ -828,16 +874,6 @@ TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;%
 print(nrow(TenK_pheno_filtered))</code></pre>
 <pre><code>[1] 87</code></pre>
 </div>
-<div id="adding-back-in-phenocodes-for-icd10-traits"
-class="section level2">
-<h2>Adding back in phenocodes for ICD10 traits</h2>
-<p>The phenocodes are lost in the read_excel process, but the ICD10
-phenocodes are equal to the Letter + 2-digit number format of the
-description column.</p>
-<pre class="r"><code>TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;%
-  mutate(phenocode = ifelse(trait_type == &quot;icd10&quot;, 
-                       str_sub(description, 1, 3), phenocode)) </code></pre>
-</div>
 <div id="restricting-to-european-h2-0.1" class="section level2">
 <h2>Restricting to European <span class="math inline">\(h^2 &gt;=
 0.1\)</span></h2>
@@ -845,11 +881,10 @@ description column.</p>
 EUR_h2 &lt;- EUR_h2 %&gt;% select(trait_type, phenocode, pheno_sex, coding, modifier, pop,
                             estimates.ldsc.h2_observed)
 EUR_h2$phenocode &lt;- as.character(EUR_h2$phenocode)
+# Changing h2 to numeric
+EUR_h2 &lt;- EUR_h2 %&gt;% mutate(h2_EUR_numeric = as.numeric(estimates.ldsc.h2_observed))
 
 TenK_pheno_filtered &lt;- left_join(TenK_pheno_filtered, EUR_h2, by = c(&quot;trait_type&quot;,&quot;phenocode&quot;,&quot;pheno_sex&quot;,&quot;coding&quot;,&quot;modifier&quot;)) 
-
-# Changing h2 to numeric
-TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;% mutate(h2_EUR_numeric = as.numeric(estimates.ldsc.h2_observed))
 
 # Subsetting for EUR h2 &gt;= 0.1
 TenK_pheno_filtered &lt;- TenK_pheno_filtered %&gt;% subset(h2_EUR_numeric &gt;= 0.1)
@@ -865,23 +900,290 @@ final_pheno &lt;- select(TenK_pheno_filtered, trait_type, phenocode, pheno_sex,
                      coding, modifier, description, description_more, coding_description,
                      category, n_cases_full_cohort_both_sexes, pops_pass_qc, estimates.ldsc.h2_observed)
 final_pheno</code></pre>
-<pre><code># A tibble: 22 × 12
-   trait_type phenocode pheno_sex  coding modifier description  description_more
-   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;           
- 1 biomarkers 30600     both_sexes     NA irnt     Albumin      NA              
- 2 biomarkers 30610     both_sexes     NA irnt     Alkaline ph… NA              
- 3 biomarkers 30620     both_sexes     NA irnt     Alanine ami… NA              
- 4 biomarkers 30630     both_sexes     NA irnt     Apolipoprot… NA              
- 5 biomarkers 30640     both_sexes     NA irnt     Apolipoprot… NA              
- 6 biomarkers 30650     both_sexes     NA irnt     Aspartate a… NA              
- 7 biomarkers 30670     both_sexes     NA irnt     Urea         NA              
- 8 biomarkers 30680     both_sexes     NA irnt     Calcium      NA              
- 9 biomarkers 30690     both_sexes     NA irnt     Cholesterol  NA              
-10 biomarkers 30700     both_sexes     NA irnt     Creatinine   NA              
-# ℹ 12 more rows
-# ℹ 5 more variables: coding_description &lt;chr&gt;, category &lt;chr&gt;,
-#   n_cases_full_cohort_both_sexes &lt;dbl&gt;, pops_pass_qc &lt;chr&gt;,
-#   estimates.ldsc.h2_observed &lt;chr&gt;</code></pre>
+<pre><code>   trait_type phenocode  pheno_sex coding modifier                  description
+1  biomarkers     30600 both_sexes            irnt                      Albumin
+2  biomarkers     30610 both_sexes            irnt         Alkaline phosphatase
+3  biomarkers     30620 both_sexes            irnt     Alanine aminotransferase
+4  biomarkers     30630 both_sexes            irnt             Apolipoprotein A
+5  biomarkers     30640 both_sexes            irnt             Apolipoprotein B
+6  biomarkers     30650 both_sexes            irnt   Aspartate aminotransferase
+8  biomarkers     30670 both_sexes            irnt                         Urea
+9  biomarkers     30680 both_sexes            irnt                      Calcium
+10 biomarkers     30690 both_sexes            irnt                  Cholesterol
+11 biomarkers     30700 both_sexes            irnt                   Creatinine
+12 biomarkers     30710 both_sexes            irnt           C-reactive protein
+13 biomarkers     30720 both_sexes            irnt                   Cystatin C
+14 biomarkers     30730 both_sexes            irnt    Gamma glutamyltransferase
+16 biomarkers     30750 both_sexes            irnt Glycated haemoglobin (HbA1c)
+17 biomarkers     30760 both_sexes            irnt              HDL cholesterol
+18 biomarkers     30770 both_sexes            irnt                        IGF-1
+22 biomarkers     30810 both_sexes            irnt                    Phosphate
+24 biomarkers     30830 both_sexes            irnt                         SHBG
+25 biomarkers     30840 both_sexes            irnt              Total bilirubin
+27 biomarkers     30860 both_sexes            irnt                Total protein
+28 biomarkers     30870 both_sexes            irnt                Triglycerides
+29 biomarkers     30880 both_sexes            irnt                        Urate
+   description_more coding_description
+1              &lt;NA&gt;               &lt;NA&gt;
+2              &lt;NA&gt;               &lt;NA&gt;
+3              &lt;NA&gt;               &lt;NA&gt;
+4              &lt;NA&gt;               &lt;NA&gt;
+5              &lt;NA&gt;               &lt;NA&gt;
+6              &lt;NA&gt;               &lt;NA&gt;
+8              &lt;NA&gt;               &lt;NA&gt;
+9              &lt;NA&gt;               &lt;NA&gt;
+10             &lt;NA&gt;               &lt;NA&gt;
+11             &lt;NA&gt;               &lt;NA&gt;
+12             &lt;NA&gt;               &lt;NA&gt;
+13             &lt;NA&gt;               &lt;NA&gt;
+14             &lt;NA&gt;               &lt;NA&gt;
+16             &lt;NA&gt;               &lt;NA&gt;
+17             &lt;NA&gt;               &lt;NA&gt;
+18             &lt;NA&gt;               &lt;NA&gt;
+22             &lt;NA&gt;               &lt;NA&gt;
+24             &lt;NA&gt;               &lt;NA&gt;
+25             &lt;NA&gt;               &lt;NA&gt;
+27             &lt;NA&gt;               &lt;NA&gt;
+28             &lt;NA&gt;               &lt;NA&gt;
+29             &lt;NA&gt;               &lt;NA&gt;
+                                                                 category
+1  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+2  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+3  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+4  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+5  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+6  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+8  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+9  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+10 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+11 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+12 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+13 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+14 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+16 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+17 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+18 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+22 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+24 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+25 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+27 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+28 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+29 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+   n_cases_full_cohort_both_sexes    pops_pass_qc estimates.ldsc.h2_observed
+1                          385205     AFR,CSA,EUR                      0.121
+2                          420633     CSA,EUR,MID                      0.224
+3                          420449     AFR,CSA,EUR                      0.117
+4                          382929     CSA,EUR,MID                      0.194
+5                          418505         CSA,EUR                      0.106
+6                          419034                                      0.127
+8                          420326         CSA,EUR                      0.103
+9                          385066         CSA,EUR                      0.111
+10                         420607         CSA,EUR                      0.119
+11                         420401     CSA,EUR,MID                      0.191
+12                         419693         CSA,EUR                      0.154
+13                         420588     CSA,EUR,MID                      0.205
+14                         420390     CSA,EAS,EUR                      0.179
+16                         419434     CSA,EUR,MID                      0.198
+17                         385023         CSA,EUR                      0.235
+18                         418326     CSA,EAS,EUR                      0.216
+22                         384475         CSA,EUR                      0.105
+24                         381526         CSA,EUR                      0.192
+25                         418830                                      0.115
+27                         384773         CSA,EUR                      0.135
+28                         420271 AFR,CSA,EUR,MID                      0.180
+29                         420090                                      0.167</code></pre>
+</div>
+</div>
+<div id="keyword-restrictions-only" class="section level1">
+<h1>Keyword restrictions only</h1>
+<div id="restricting-phenotypes-by-keywords-1" class="section level2">
+<h2>Restricting phenotypes by keyword(s)</h2>
+<pre class="r"><code>library(stringr)
+
+# Searching for keywords
+pheno_filtered &lt;- pheno_manifest %&gt;% filter(
+    str_detect( category, &quot;Biological samples&quot;) |
+    str_detect(category, &quot;Chapter IV Endocrine, nutritional and metabolic diseases&quot;) |
+    str_detect(category, &quot;Chapter XI Diseases of the digestive system&quot;) |
+    str_detect(category, &quot;R10-R19 Symptoms and signs involving the digestive system and abdomen&quot;) |
+    category == &quot;endocrine/metabolic&quot; |
+    category == &quot;digestive&quot; |
+    category == &quot;neoplasms&quot; |
+    category == &quot;congenital anomalies&quot;|
+    str_detect(category, &quot;D10-D36 Benign neoplasms&quot;) |
+    str_detect(trait_efo_categories, &quot;Digestive system&quot;) |
+    str_detect(trait_efo_categories, &quot;Lipid or lipoprotein measurement&quot;) |
+    str_detect(trait_efo_categories, &quot;Liver enzyme measurement&quot;) |
+    str_detect(trait_efo_categories, &quot;Metabolic disorder&quot;))
+    # str_detect(trait_efo_categories, &quot;Cancer&quot;) |
+    # str_detect(trait_efo_categories, &quot;Other disease&quot;) |
+    # str_detect(trait_efo_categories, &quot;Other measurement&quot;) |
+    # str_detect(trait_efo_categories, &quot;Other trait&quot;))
+
+print(nrow(pheno_filtered))</code></pre>
+<pre><code>[1] 621</code></pre>
+<pre class="r"><code># Removing diseases of family members
+pheno_filtered &lt;- pheno_filtered %&gt;% filter(!startsWith(description, &quot;Illnesses of&quot;))
+print(nrow(pheno_filtered))</code></pre>
+<pre><code>[1] 615</code></pre>
+<pre class="r"><code># Removing blood count assays
+pheno_filtered &lt;- pheno_filtered %&gt;% filter(str_detect(category, &quot;(?i)Blood count&quot;, negate=TRUE)) # (?i) specifies to ignore case
+print(nrow(pheno_filtered))</code></pre>
+<pre><code>[1] 582</code></pre>
+<pre class="r"><code># Removing abnormalities in urine
+pheno_filtered &lt;- pheno_filtered %&gt;% filter(str_detect(description, &quot;(?i)in urine&quot;, negate=TRUE))
+print(nrow(pheno_filtered))</code></pre>
+<pre><code>[1] 578</code></pre>
+<pre class="r"><code># Removing measures adjusted by medication
+pheno_filtered &lt;- pheno_filtered %&gt;% filter(str_detect(description, &quot;(?i)adjusted by medication&quot;, negate=TRUE))
+print(nrow(pheno_filtered))</code></pre>
+<pre><code>[1] 578</code></pre>
+<pre class="r"><code># Removing other non-digestive traits
+pheno_filtered &lt;- pheno_filtered %&gt;% 
+  filter(str_detect(description, &quot;(?i)Breast&quot;, negate=TRUE) &amp;
+           str_detect(description, &quot;(?i)skin&quot;, negate=TRUE) &amp;
+           str_detect(description, &quot;(?i)uter&quot;, negate=TRUE))
+print(nrow(pheno_filtered))</code></pre>
+<pre><code>[1] 557</code></pre>
+<pre class="r"><code># Removing non-digestive specific descriptions
+pheno_filtered &lt;- pheno_filtered %&gt;% 
+  filter(description != &quot;Cancer, suspected or other&quot; &amp;
+  description != &quot;Malignant neoplasm, other&quot; &amp;
+  description != &quot;Chemotherapy&quot; &amp;
+  description != &quot;Secondary malignant neoplasm&quot;)
+print(nrow(pheno_filtered))</code></pre>
+<pre><code>[1] 553</code></pre>
+</div>
+<div id="restricting-to-european-h2-0.1-1" class="section level2">
+<h2>Restricting to European <span class="math inline">\(h^2 &gt;=
+0.1\)</span></h2>
+<pre class="r"><code>pheno_filtered &lt;- left_join(pheno_filtered, EUR_h2, by = c(&quot;trait_type&quot;,&quot;phenocode&quot;,&quot;pheno_sex&quot;,&quot;coding&quot;,&quot;modifier&quot;)) 
+
+# Subsetting for EUR h2 &gt;= 0.1
+pheno_filtered &lt;- pheno_filtered %&gt;% subset(h2_EUR_numeric &gt;= 0.1)
+print(nrow(pheno_filtered))</code></pre>
+<pre><code>[1] 22</code></pre>
+</div>
+<div id="checking-to-see-how-many-total-traits-have-eur-h2-0.1"
+class="section level2">
+<h2>Checking to see how many TOTAL traits have EUR <span
+class="math inline">\(h2 &gt;= 0.1\)</span></h2>
+<pre class="r"><code>EUR_h2_filtered &lt;- EUR_h2 %&gt;% subset(h2_EUR_numeric &gt;= 0.1)
+
+EUR_h2_filtered$phenocode &lt;- as.character(EUR_h2_filtered$phenocode)
+pheno_manifest$phenocode &lt;- as.character(pheno_manifest$phenocode)
+
+pheno_details &lt;- pheno_manifest[c(1:10),]
+test &lt;- left_join(EUR_h2_filtered, pheno_details)</code></pre>
+<pre><code>Joining with `by = join_by(trait_type, phenocode, pheno_sex, coding, modifier)`</code></pre>
+<pre class="r"><code>nrow(test)</code></pre>
+<pre><code>[1] 273</code></pre>
+</div>
+<div id="removing-duplicates-across-trait_types-1"
+class="section level2">
+<h2>Removing duplicates across trait_types</h2>
+<pre class="r"><code>#pheno_filtered$description
+#pheno_filtered$coding_description
+
+final_pheno2 &lt;- select(pheno_filtered, trait_type, phenocode, pheno_sex,
+                     coding, modifier, description, description_more, coding_description,
+                     category, n_cases_full_cohort_both_sexes, pops_pass_qc, estimates.ldsc.h2_observed)
+final_pheno2</code></pre>
+<pre><code>   trait_type phenocode  pheno_sex coding modifier                  description
+1  biomarkers     30600 both_sexes            irnt                      Albumin
+2  biomarkers     30610 both_sexes            irnt         Alkaline phosphatase
+3  biomarkers     30620 both_sexes            irnt     Alanine aminotransferase
+4  biomarkers     30630 both_sexes            irnt             Apolipoprotein A
+5  biomarkers     30640 both_sexes            irnt             Apolipoprotein B
+6  biomarkers     30650 both_sexes            irnt   Aspartate aminotransferase
+8  biomarkers     30670 both_sexes            irnt                         Urea
+9  biomarkers     30680 both_sexes            irnt                      Calcium
+10 biomarkers     30690 both_sexes            irnt                  Cholesterol
+11 biomarkers     30700 both_sexes            irnt                   Creatinine
+12 biomarkers     30710 both_sexes            irnt           C-reactive protein
+13 biomarkers     30720 both_sexes            irnt                   Cystatin C
+14 biomarkers     30730 both_sexes            irnt    Gamma glutamyltransferase
+16 biomarkers     30750 both_sexes            irnt Glycated haemoglobin (HbA1c)
+17 biomarkers     30760 both_sexes            irnt              HDL cholesterol
+18 biomarkers     30770 both_sexes            irnt                        IGF-1
+22 biomarkers     30810 both_sexes            irnt                    Phosphate
+24 biomarkers     30830 both_sexes            irnt                         SHBG
+25 biomarkers     30840 both_sexes            irnt              Total bilirubin
+27 biomarkers     30860 both_sexes            irnt                Total protein
+28 biomarkers     30870 both_sexes            irnt                Triglycerides
+29 biomarkers     30880 both_sexes            irnt                        Urate
+   description_more coding_description
+1              &lt;NA&gt;               &lt;NA&gt;
+2              &lt;NA&gt;               &lt;NA&gt;
+3              &lt;NA&gt;               &lt;NA&gt;
+4              &lt;NA&gt;               &lt;NA&gt;
+5              &lt;NA&gt;               &lt;NA&gt;
+6              &lt;NA&gt;               &lt;NA&gt;
+8              &lt;NA&gt;               &lt;NA&gt;
+9              &lt;NA&gt;               &lt;NA&gt;
+10             &lt;NA&gt;               &lt;NA&gt;
+11             &lt;NA&gt;               &lt;NA&gt;
+12             &lt;NA&gt;               &lt;NA&gt;
+13             &lt;NA&gt;               &lt;NA&gt;
+14             &lt;NA&gt;               &lt;NA&gt;
+16             &lt;NA&gt;               &lt;NA&gt;
+17             &lt;NA&gt;               &lt;NA&gt;
+18             &lt;NA&gt;               &lt;NA&gt;
+22             &lt;NA&gt;               &lt;NA&gt;
+24             &lt;NA&gt;               &lt;NA&gt;
+25             &lt;NA&gt;               &lt;NA&gt;
+27             &lt;NA&gt;               &lt;NA&gt;
+28             &lt;NA&gt;               &lt;NA&gt;
+29             &lt;NA&gt;               &lt;NA&gt;
+                                                                 category
+1  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+2  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+3  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+4  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+5  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+6  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+8  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+9  Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+10 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+11 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+12 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+13 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+14 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+16 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+17 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+18 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+22 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+24 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+25 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+27 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+28 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+29 Biological samples &gt; Assay results &gt; Blood assays &gt; Blood biochemistry
+   n_cases_full_cohort_both_sexes    pops_pass_qc estimates.ldsc.h2_observed
+1                          385205     AFR,CSA,EUR                      0.121
+2                          420633     CSA,EUR,MID                      0.224
+3                          420449     AFR,CSA,EUR                      0.117
+4                          382929     CSA,EUR,MID                      0.194
+5                          418505         CSA,EUR                      0.106
+6                          419034                                      0.127
+8                          420326         CSA,EUR                      0.103
+9                          385066         CSA,EUR                      0.111
+10                         420607         CSA,EUR                      0.119
+11                         420401     CSA,EUR,MID                      0.191
+12                         419693         CSA,EUR                      0.154
+13                         420588     CSA,EUR,MID                      0.205
+14                         420390     CSA,EAS,EUR                      0.179
+16                         419434     CSA,EUR,MID                      0.198
+17                         385023         CSA,EUR                      0.235
+18                         418326     CSA,EAS,EUR                      0.216
+22                         384475         CSA,EUR                      0.105
+24                         381526         CSA,EUR                      0.192
+25                         418830                                      0.115
+27                         384773         CSA,EUR                      0.135
+28                         420271 AFR,CSA,EUR,MID                      0.180
+29                         420090                                      0.167</code></pre>
+<p>Multiple filtering techniques lead us to only 22 biomarker phenotypes
+of relevance due to low heritability. As a result, we are pivoting to
+using the All of Us dataset instead of the UK biobank.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -929,6 +1231,7 @@ loaded via a namespace (and not attached):
 [37] evaluate_1.0.1    glue_1.8.0        cellranger_1.1.0  whisker_0.4.1    
 [41] fansi_1.0.6       rmarkdown_2.29    httr_1.4.7        tools_4.4.2      
 [45] pkgconfig_2.0.3   htmltools_0.5.8.1</code></pre>
+</div>
 </div>
 </div>
 </div>

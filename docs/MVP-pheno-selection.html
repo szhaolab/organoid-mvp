@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Katie Hooker" />
+
+<meta name="date" content="2025-01-22" />
+
+<title>MVP Phenotype Selection</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">organoid-rotation</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">MVP Phenotype Selection</h1>
+<h4 class="author">Katie Hooker</h4>
+<h4 class="date">2025-01-22</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2025-02-05
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>organoid-rotation/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.1). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20250108code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20250108)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20250108code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20250108)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it
+difficult for you and others to run your code on a different machine.
+Change the absolute path(s) below to the suggested relative path(s) to
+make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/MVP_pheno_list.csv
+</td>
+<td style="text-align:left;">
+data/MVP_pheno_list.csv
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree193ae4fdcb98ae92c0112cd112d620b44e71b976targetblank193ae4fa">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/193ae4fdcb98ae92c0112cd112d620b44e71b976" target="_blank">193ae4f</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree193ae4fdcb98ae92c0112cd112d620b44e71b976targetblank193ae4fa"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/193ae4fdcb98ae92c0112cd112d620b44e71b976" target="_blank">193ae4f</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .snakemake/auxiliary/
+    Ignored:    .snakemake/conda-archive/
+    Ignored:    .snakemake/conda/
+    Ignored:    .snakemake/incomplete/
+    Ignored:    .snakemake/locks/
+    Ignored:    .snakemake/shadow/
+    Ignored:    .snakemake/singularity/
+    Ignored:    log/
+    Ignored:    outputs/annotations/
+    Ignored:    outputs/munged_sumstats/
+
+Untracked files:
+    Untracked:  .snakemake/.DS_Store
+    Untracked:  code/MVP-data-pull/
+    Untracked:  data/
+
+Unstaged changes:
+    Modified:   .DS_Store
+    Modified:   .gitignore
+    Modified:   code/.DS_Store
+    Modified:   outputs/.DS_Store
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/MVP-pheno-selection.Rmd</code>)
+and HTML (<code>docs/MVP-pheno-selection.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/193ae4fdcb98ae92c0112cd112d620b44e71b976/analysis/MVP-pheno-selection.Rmd" target="_blank">193ae4f</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-05
+</td>
+<td>
+Transitioned to MVP data and developed downloading pipeline
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="reading-in-the-phenotype-manifest" class="section level1">
+<h1>Reading in the phenotype manifest</h1>
+<p>Downloaded from <a
+href="https://www-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/projects/gap/cgi-bin/study.cgi?study_id=phs002453.v1.p1"
+class="uri">https://www-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/projects/gap/cgi-bin/study.cgi?study_id=phs002453.v1.p1</a>
+<a
+href="https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/"
+class="uri">https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/</a></p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>
+Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>The following objects are masked from &#39;package:stats&#39;:
+
+    filter, lag</code></pre>
+<pre><code>The following objects are masked from &#39;package:base&#39;:
+
+    intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>pheno_mt &lt;- read.csv(&quot;./data/phs002453.v1-Documents/MVP_R4.1000G_AGR.DataDictionary_and_Counts_vJuly2024-1.csv&quot;)
+names(pheno_mt)</code></pre>
+<pre><code> [1] &quot;Trait&quot;             &quot;Trait_Type&quot;        &quot;Meta_Group&quot;       
+ [4] &quot;Category&quot;          &quot;SubCategory&quot;       &quot;Description&quot;      
+ [7] &quot;num_samples.META&quot;  &quot;num_cases.META&quot;    &quot;num_controls.META&quot;
+[10] &quot;num_samples.AFR&quot;   &quot;num_cases.AFR&quot;     &quot;num_controls.AFR&quot; 
+[13] &quot;num_samples.AMR&quot;   &quot;num_cases.AMR&quot;     &quot;num_controls.AMR&quot; 
+[16] &quot;num_samples.EAS&quot;   &quot;num_cases.EAS&quot;     &quot;num_controls.EAS&quot; 
+[19] &quot;num_samples.EUR&quot;   &quot;num_cases.EUR&quot;     &quot;num_controls.EUR&quot; 
+[22] &quot;dbgap_cat.AFR&quot;     &quot;dbgap_cat.AMR&quot;     &quot;dbgap_cat.EAS&quot;    
+[25] &quot;dbgap_cat.EUR&quot;     &quot;dbgap_cat.META&quot;    &quot;dbgap_cat.pheno&quot;  </code></pre>
+<pre class="r"><code>pheno_mt &lt;- pheno_mt %&gt;% select(Trait, Trait_Type, Category, SubCategory, Description, num_samples.EUR, num_cases.EUR, num_controls.EUR, dbgap_cat.EUR, dbgap_cat.pheno)</code></pre>
+</div>
+<div
+id="filter-for-10k-cases-if-binary-trait-and-10k-total-cohort-if-continous-trait"
+class="section level1">
+<h1>Filter for 10k cases if binary trait and 10k total cohort if
+continous trait</h1>
+<pre class="r"><code>pheno_filt &lt;- pheno_mt %&gt;%
+  filter(
+    (Trait_Type == &quot;binary&quot; &amp; num_cases.EUR &gt; 10000) |
+    (Trait_Type == &quot;qt&quot; &amp; num_samples.EUR &gt; 10000)
+  )
+
+table(pheno_filt$Category)</code></pre>
+<pre><code>
+    Labs PheCodes  Surveys   Vitals 
+     162      496      141       18 </code></pre>
+</div>
+<div id="filter-for-category-of-labs-vitals-and-phecodes"
+class="section level1">
+<h1>Filter for category of labs, vitals, and phecodes</h1>
+<pre class="r"><code>pheno_filt &lt;- pheno_filt %&gt;% filter(Category == &quot;Labs&quot; |
+                                      Category == &quot;PheCodes&quot; |
+                                      Category == &quot;Vitals&quot;)</code></pre>
+</div>
+<div id="filter-by-subcategory-for-phecodes" class="section level1">
+<h1>Filter by subcategory for phecodes</h1>
+<pre class="r"><code>table(pheno_filt$SubCategory)</code></pre>
+<pre><code>
+     Circulatory System    Congenital Anomalies   Dermatological System 
+                     71                       2                      34 
+       Digestive System  Endocrine or Metabolic    Genitourinary System 
+                     47                      43                      28 
+          Hematopoietic     Infectious Diseases Injuries and Poisonings 
+                     14                      14                      17 
+                   Labs        Mental Disorders  Musculoskeletal System 
+                    162                      31                      41 
+              Neoplasms            Neurological                   Other 
+                     27                      24                       8 
+     Respiratory System            Sense Organs                Symptoms 
+                     31                      45                      19 
+                 Vitals 
+                     18 </code></pre>
+<pre class="r"><code>pheno_filt &lt;- pheno_filt %&gt;% filter(SubCategory == &quot;Labs&quot; |
+                                      SubCategory == &quot;Vitals&quot; |
+                                      SubCategory == &quot;Digestive System&quot; |
+                                      SubCategory == &quot;Endocrine or Metabolic&quot; |
+                                      SubCategory == &quot;Neoplasms&quot; |
+                                      SubCategory == &quot;Symptoms&quot;)</code></pre>
+</div>
+<div id="removing-irrelevant-phenotypes-by-keyword"
+class="section level1">
+<h1>Removing irrelevant phenotypes by keyword</h1>
+<pre class="r"><code>library(stringr)
+pheno_filt &lt;- pheno_filt %&gt;% filter(str_detect(Description, &quot;(?i)cervi&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)prostate&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)testicu&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)bladder&quot;, negate=TRUE) &amp;
+                                      # respiratory
+                                      str_detect(Description, &quot;(?i)respiratory&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)lung&quot;, negate=TRUE) &amp;
+                                      # dermatological
+                                      str_detect(Description, &quot;(?i)skin&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;carcin&quot;, negate=TRUE) &amp;
+                                      # genitourinary
+                                      str_detect(Description, &quot;(?i)bladder&quot;, negate=TRUE) &amp;
+                                      # neuro
+                                      str_detect(Description, &quot;(?i)brain&quot;, negate=TRUE) &amp;
+                                      # lymphatic
+                                      str_detect(Description, &quot;(?i)lymph&quot;, negate=TRUE) &amp;
+                                      # musculoskeletal
+                                      str_detect(Description, &quot;(?i)muscle&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)limb&quot;, negate=TRUE) &amp;
+                                      # eye
+                                      str_detect(Description, &quot;(?i)eye&quot;, negate=TRUE) &amp;
+                                      # mouth, teeth, head, etc
+                                      str_detect(Description, &quot;(?i)teeth&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)tooth&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)dent&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)gingi&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)oral&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)peria&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)perio&quot;, negate=TRUE) &amp;
+                                      # screenings, findings, etc
+                                      str_detect(Description, &quot;(?i)screening&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)therapy&quot;, negate=TRUE))</code></pre>
+</div>
+<div
+id="if-the-category-is-a-lab-or-vital-measure-keep-only-the-mean-value"
+class="section level1">
+<h1>If the category is a lab or vital measure, keep only the mean
+value</h1>
+<pre class="r"><code>pheno_filt &lt;- pheno_filt %&gt;%
+  filter((Category == &quot;Labs&quot; &amp; grepl(&quot;Mean&quot;, Trait)) | 
+           (Category == &quot;Vitals&quot; &amp; grepl(&quot;Mean&quot;, Trait)) |
+           Category == &quot;PheCodes&quot;)</code></pre>
+</div>
+<div id="further-filtering-on-a-case-by-case-basis"
+class="section level1">
+<h1>Further filtering on a case by case basis</h1>
+<pre class="r"><code>pheno_filt$Description</code></pre>
+<pre><code>  [1] &quot;hemoglobin A1c (HbA1c, mean, inv-norm transformed)&quot;                          
+  [2] &quot;albumin (mean, inv-norm transformed)&quot;                                        
+  [3] &quot;alanine transaminase (ALT, mean, inv-norm transformed)&quot;                      
+  [4] &quot;aspartate aminotransferase (AST, mean, inv-norm transformed)&quot;                
+  [5] &quot;basophil (absolute count, mean, inv-norm transformed)&quot;                       
+  [6] &quot;basophil (fraction, mean, inv-norm transformed)&quot;                             
+  [7] &quot;bicarbonate (mean, inv-norm transformed)&quot;                                    
+  [8] &quot;body mass index (BMI, mean, inv-normal transformed)&quot;                         
+  [9] &quot;blood urea nitrogen (BUN, mean, inv-norm transformed)&quot;                       
+ [10] &quot;calcium (mean, inv-norm transformed)&quot;                                        
+ [11] &quot;chloride  (mean, inv-norm transformed)&quot;                                      
+ [12] &quot;creatine kinase-MB (CKMB, absolute, mean, inv-norm transformed)&quot;             
+ [13] &quot;creatinine (mean, inv-norm transformed)&quot;                                     
+ [14] &quot;C-reactive protein (CRP, dL, mean, inv-norm transformed)&quot;                    
+ [15] &quot;C-reactive protein (CRP, L, mean, inv-norm transformed)&quot;                     
+ [16] &quot;diastolic blood pressure (DBP, mean, inv-normal transformed)&quot;                
+ [17] &quot;estimated glomerular filtration rate (eGFR, mean, inv-norm transformed)&quot;     
+ [18] &quot;eosinophil (absolute count, mean, inv-norm transformed)&quot;                     
+ [19] &quot;eosinophil (fraction, mean, inv-norm transformed)&quot;                           
+ [20] &quot;erythrocyte sedimentation rate (ESR, mean, inv-norm transformed)&quot;            
+ [21] &quot;ferritin (mean, inv-norm transformed)&quot;                                       
+ [22] &quot;glucose (finger stick, mean, inv-norm transformed)&quot;                          
+ [23] &quot;glucose (fasting status unknown, mean, inv-norm transformed)&quot;                
+ [24] &quot;hematocrit (mean, inv-norm transformed)&quot;                                     
+ [25] &quot;high density lipoprotein cholesterol (HDLC, mean, inv-norm transformed)&quot;     
+ [26] &quot;height (mean, inv-normal transformed)&quot;                                       
+ [27] &quot;hemoglobin (mean, inv-norm transformed)&quot;                                     
+ [28] &quot;PT international normalized ratio (INR, mean, inv-norm transformed)&quot;         
+ [29] &quot;iron (mean, inv-norm transformed)&quot;                                           
+ [30] &quot;low density lipoprotein cholesterol (LDLC, mean, inv-norm transformed)&quot;      
+ [31] &quot;mean corpuscular hemoglobin (MCH, mean, inv-norm transformed)&quot;               
+ [32] &quot;mean corpuscular hemoglobin concentration (MCHC, mean, inv-norm transformed)&quot;
+ [33] &quot;mean corpuscular volume (MCV, mean, inv-norm transformed)&quot;                   
+ [34] &quot;magnesium (Mg, mean, inv-norm transformed)&quot;                                  
+ [35] &quot;monocyte (absolute count, mean, inv-norm transformed)&quot;                       
+ [36] &quot;monocyte (fraction, mean, inv-norm transformed)&quot;                             
+ [37] &quot;mean platelet volume (MPV, mean, inv-norm transformed)&quot;                      
+ [38] &quot;neutrophil (absolute count, mean, inv-norm transformed)&quot;                     
+ [39] &quot;neutrophil (fraction, mean, inv-norm transformed)&quot;                           
+ [40] &quot;Colorectal cancer&quot;                                                           
+ [41] &quot;Cancer, suspected or other&quot;                                                  
+ [42] &quot;Secondary malignant neoplasm&quot;                                                
+ [43] &quot;Neoplasm of uncertain behavior&quot;                                              
+ [44] &quot;Benign neoplasm of colon&quot;                                                    
+ [45] &quot;Lipoma&quot;                                                                      
+ [46] &quot;Vascular hamartomas and non-neoplastic nevi&quot;                                 
+ [47] &quot;Nevus, non-neoplastic&quot;                                                       
+ [48] &quot;Nontoxic nodular goiter&quot;                                                     
+ [49] &quot;Nontoxic uninodular goiter&quot;                                                  
+ [50] &quot;Hypothyroidism&quot;                                                              
+ [51] &quot;Hypothyroidism NOS&quot;                                                          
+ [52] &quot;Diabetes mellitus&quot;                                                           
+ [53] &quot;Type 1 diabetes&quot;                                                             
+ [54] &quot;Type 2 diabetes&quot;                                                             
+ [55] &quot;Type 2 diabetes with renal manifestations&quot;                                   
+ [56] &quot;Type 2 diabetes with ophthalmic manifestations&quot;                              
+ [57] &quot;Type 2 diabetes with neurological manifestations&quot;                            
+ [58] &quot;Insulin pump user&quot;                                                           
+ [59] &quot;Abnormal glucose&quot;                                                            
+ [60] &quot;Impaired fasting glucose&quot;                                                    
+ [61] &quot;Other abnormal glucose&quot;                                                      
+ [62] &quot;Polyneuropathy in diabetes&quot;                                                  
+ [63] &quot;Diabetic retinopathy&quot;                                                        
+ [64] &quot;Protein-calorie malnutrition&quot;                                                
+ [65] &quot;Vitamin deficiency&quot;                                                          
+ [66] &quot;Vitamin B-complex deficiencies&quot;                                              
+ [67] &quot;Vitamin D deficiency&quot;                                                        
+ [68] &quot;Proteinuria&quot;                                                                 
+ [69] &quot;Disorders of carbohydrate transport and metabolism&quot;                          
+ [70] &quot;Intestinal disaccharidase deficiencies and disaccharide malabsorption&quot;       
+ [71] &quot;Disorders of lipoid metabolism&quot;                                              
+ [72] &quot;Hyperlipidemia&quot;                                                              
+ [73] &quot;Hypercholesterolemia&quot;                                                        
+ [74] &quot;Hyperglyceridemia&quot;                                                           
+ [75] &quot;Mixed hyperlipidemia&quot;                                                        
+ [76] &quot;Gout and other crystal arthrop&quot;                                              
+ [77] &quot;Gout&quot;                                                                        
+ [78] &quot;Disorders of mineral metabolism&quot;                                             
+ [79] &quot;Disorders of fluid, electrolyte, and acid-based balance&quot;                     
+ [80] &quot;Electrolyte imbalance&quot;                                                       
+ [81] &quot;Hyposmolality and/or hyponatremia&quot;                                           
+ [82] &quot;Hyperpotassemia&quot;                                                             
+ [83] &quot;Hypopotassemia&quot;                                                              
+ [84] &quot;Acid-base balance disorder&quot;                                                  
+ [85] &quot;Hypovolemia&quot;                                                                 
+ [86] &quot;Overweight, obesity and other hyperalimentation&quot;                             
+ [87] &quot;Obesity&quot;                                                                     
+ [88] &quot;Morbid obesity&quot;                                                              
+ [89] &quot;Diseases of esophagus&quot;                                                       
+ [90] &quot;Esophagitis, GERD and related diseases&quot;                                      
+ [91] &quot;GERD&quot;                                                                        
+ [92] &quot;Barrett&#39;s esophagus&quot;                                                         
+ [93] &quot;Reflux esophagitis&quot;                                                          
+ [94] &quot;Peptic ulcer (excl. esophageal)&quot;                                             
+ [95] &quot;Dysphagia&quot;                                                                   
+ [96] &quot;Gastritis and duodenitis&quot;                                                    
+ [97] &quot;Disorders of function of stomach&quot;                                            
+ [98] &quot;Abdominal hernia&quot;                                                            
+ [99] &quot;Inguinal hernia&quot;                                                             
+[100] &quot;Diaphragmatic hernia&quot;                                                        
+[101] &quot;Umbilical hernia&quot;                                                            
+[102] &quot;Noninfectious gastroenteritis&quot;                                               
+[103] &quot;Intestinal obstruction without mention of hernia&quot;                            
+[104] &quot;Symptoms involving digestive system&quot;                                         
+[105] &quot;Diarrhea&quot;                                                                    
+[106] &quot;Diverticulosis and diverticulitis&quot;                                           
+[107] &quot;Diverticulosis&quot;                                                              
+[108] &quot;Diverticulitis&quot;                                                              
+[109] &quot;Constipation&quot;                                                                
+[110] &quot;Functional digestive disorders&quot;                                              
+[111] &quot;Irritable Bowel Syndrome&quot;                                                    
+[112] &quot;Anal and rectal conditions&quot;                                                  
+[113] &quot;Chronic liver disease and cirrhosis&quot;                                         
+[114] &quot;Other chronic nonalcoholic liver disease&quot;                                    
+[115] &quot;Cirrhosis of liver without mention of alcohol&quot;                               
+[116] &quot;Abnormal results of function study of liver&quot;                                 
+[117] &quot;Cholelithiasis and cholecystitis&quot;                                            
+[118] &quot;Cholelithiasis&quot;                                                              
+[119] &quot;Diseases of pancreas&quot;                                                        
+[120] &quot;Gastrointestinal hemorrhage&quot;                                                 
+[121] &quot;Blood in stool&quot;                                                              
+[122] &quot;Hemorrhage of rectum and anus&quot;                                               
+[123] &quot;Hemorrhage of gastrointestinal tract&quot;                                        
+[124] &quot;Back pain&quot;                                                                   
+[125] &quot;Thoracic or lumbosacral neuritis or radiculitis, unspecified&quot;                
+[126] &quot;Sciatica&quot;                                                                    
+[127] &quot;Neuralgia, neuritis, and radiculitis NOS&quot;                                    
+[128] &quot;Nonallopathic lesions NEC&quot;                                                   
+[129] &quot;Myalgia and myositis unspecified&quot;                                            
+[130] &quot;Edema&quot;                                                                       
+[131] &quot;Fever of unknown origin&quot;                                                     
+[132] &quot;Abdominal pain&quot;                                                              
+[133] &quot;Syncope and collapse&quot;                                                        
+[134] &quot;Nausea and vomiting&quot;                                                         
+[135] &quot;Other abnormal blood chemistry&quot;                                              
+[136] &quot;Malaise and fatigue&quot;                                                         
+[137] &quot;Debility unspecified&quot;                                                        
+[138] &quot;platelet count (mean, inv-norm transformed)&quot;                                 
+[139] &quot;potassium (mean, inv-norm transformed)&quot;                                      
+[140] &quot;prothrombin time (PT, mean, inv-norm transformed)&quot;                           
+[141] &quot;heart rate (HR, mean, inv-normal transformed)&quot;                               
+[142] &quot;red blood cell count (RBC, mean, inv-norm transformed)&quot;                      
+[143] &quot;red cell diameter width (RDW, mean, inv-norm transformed)&quot;                   
+[144] &quot;sodium (mean, inv-norm transformed)&quot;                                         
+[145] &quot;systolic blood pressure (SBP, mean, inv-normal transformed)&quot;                 
+[146] &quot;total iron (mean, inv-norm transformed)&quot;                                     
+[147] &quot;total creatine kinase (mean, inv-norm transformed)&quot;                          
+[148] &quot;total cholesterol (mean, inv-norm transformed)&quot;                              
+[149] &quot;triglyceride (mean, inv-norm transformed)&quot;                                   
+[150] &quot;troponin I (mean, inv-norm transformed)&quot;                                     
+[151] &quot;transferrin saturation (TSAT, mean, inv-norm transformed)&quot;                   
+[152] &quot;white blood cell count (WBC, mean, inv-norm transformed)&quot;                    
+[153] &quot;weight (mean, inv-normal transformed)&quot;                                       </code></pre>
+<pre class="r"><code>to_remove &lt;- c(
+  # Not specific
+  &quot;Cancer, suspected or other&quot;,
+  &quot;Secondary malignant neoplasm&quot;,
+  &quot;Neoplasm of uncertain behavior&quot;,
+  &quot;Lipoma&quot;,
+  &quot;Vascular hamartomas and non-neoplastic nevi&quot;,
+  &quot;Nevus, non-neoplastic&quot;,
+  # Endocrine
+  &quot;Nontoxic nodular goiter&quot;,
+  &quot;Nontoxic uninodular goiter&quot;,
+  &quot;Hypothyroidism&quot;,
+  &quot;Hypothyroidism NOS&quot;,
+  &quot;Type 2 diabetes with renal manifestations&quot;,
+  &quot;Type 2 diabetes with ophthalmic manifestations&quot;,
+  &quot;Type 2 diabetes with neurological manifestations&quot;,
+  &quot;Insulin pump user&quot;,
+  &quot;Other abnormal glucose&quot;,
+  &quot;Polyneuropathy in diabetes&quot;,
+  &quot;Diabetic retinopathy&quot;,
+  # Unrelated
+  &quot;Gout and other crystal arthrop&quot;,
+  &quot;Gout&quot;,
+  &quot;Back pain&quot;,
+  &quot;Thoracic or lumbosacral neuritis or radiculitis, unspecified&quot;,
+  &quot;Sciatica&quot;,
+  &quot;Neuralgia, neuritis, and radiculitis NOS&quot;,
+  &quot;Nonallopathic lesions NEC&quot;,
+  &quot;Myalgia and myositis unspecified&quot;,
+  &quot;Edema&quot;,
+  &quot;Fever of unknown origin&quot;,
+  &quot;Syncope and collapse&quot;,
+  &quot;Nausea and vomiting&quot;,
+  &quot;Other abnormal blood chemistry&quot;,
+  &quot;Malaise and fatigue&quot;,
+  &quot;Debility unspecified&quot;,
+  # Digestive, but not specific or overlaps with another code
+  &quot;Overweight, obesity and other hyperalimentation&quot;,
+  &quot;Diseases of esophagus&quot;,
+  &quot;Esophagitis, GERD and related diseases&quot;,
+  &quot;Symptoms involving digestive system&quot;,
+  &quot;Diverticulosis and diverticulitis&quot;,
+  &quot;Anal and rectal conditions&quot;,
+  &quot;Abnormal results of function study of liver&quot;
+  # Unrelated biomarkers
+)
+
+pheno_filt &lt;- pheno_filt %&gt;% filter(!Description %in% to_remove)</code></pre>
+</div>
+<div id="loading-in-file-manifests" class="section level1">
+<h1>Loading in file manifests</h1>
+<pre class="r"><code># Three batches of lab data
+lab_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch1.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+lab_2 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+lab_3 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+
+# PheCode digestive system
+digest_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch1.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+digest_2 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch2.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+
+# PheCode endocrine or metabolic
+endo_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch1.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+endo_2 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch2.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+
+# PheCode neoplasms
+neo_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch1.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+neo_2 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch2.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+
+#PheCode symptoms
+symptoms_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+
+# Vitals
+vitals_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)</code></pre>
+</div>
+<div id="merging-and-organizing-the-tables-of-contents"
+class="section level1">
+<h1>Merging and organizing the tables of contents</h1>
+<pre class="r"><code>file_names &lt;- rbind(lab_1, lab_2, lab_3,
+                   digest_1, digest_2,
+                   endo_1, endo_2, 
+                   neo_1, neo_2,
+                   symptoms_1, vitals_1)
+
+rm(lab_1, lab_2, lab_3,
+   digest_1, digest_2,
+   endo_1, endo_2,
+   neo_1, neo_2,
+   symptoms_1, vitals_1)
+
+# Filter for European ancestry file names
+file_names &lt;- file_names %&gt;% filter(str_detect(V6, &quot;EUR&quot;))
+
+# Pull trait name out of file name for column merging
+file_names &lt;- file_names %&gt;% mutate(Trait = sub(&quot;.*?AGR\\.(.*?)\\.EUR.*&quot;, &quot;\\1&quot;, V6))
+
+# Join tables
+pheno_filt &lt;- left_join(pheno_filt, file_names)</code></pre>
+<pre><code>Joining with `by = join_by(Trait)`</code></pre>
+</div>
+<div id="pulling-out-tarball-names" class="section level1">
+<h1>Pulling out tarball names</h1>
+<pre class="r"><code>pheno_filt &lt;- pheno_filt %&gt;% mutate(tar_file = &quot;phs002453.&quot; %&gt;% paste0(str_extract(V6, &quot;^[^/]+&quot;)) %&gt;% paste0(&quot;.analysis-PI.MULTI.tar&quot;))
+
+unique_tarballs &lt;- unique(pheno_filt$tar_file)
+unique_tarballs</code></pre>
+<pre><code> [1] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch1.analysis-PI.MULTI.tar&quot;                       
+ [2] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar&quot;       
+ [3] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar&quot;                       
+ [4] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar&quot;                       
+ [5] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch1.analysis-PI.MULTI.tar&quot;         
+ [6] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch2.analysis-PI.MULTI.tar&quot;         
+ [7] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch1.analysis-PI.MULTI.tar&quot;
+ [8] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch2.analysis-PI.MULTI.tar&quot;
+ [9] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch1.analysis-PI.MULTI.tar&quot;   
+[10] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch2.analysis-PI.MULTI.tar&quot;   
+[11] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar&quot;                 </code></pre>
+<pre class="r"><code>unique_md5s &lt;- paste0(unique_tarballs, &quot;.md5&quot;)
+unique_md5s</code></pre>
+<pre><code> [1] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch1.analysis-PI.MULTI.tar.md5&quot;                       
+ [2] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar.md5&quot;       
+ [3] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar.md5&quot;                       
+ [4] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar.md5&quot;                       
+ [5] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch1.analysis-PI.MULTI.tar.md5&quot;         
+ [6] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch2.analysis-PI.MULTI.tar.md5&quot;         
+ [7] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch1.analysis-PI.MULTI.tar.md5&quot;
+ [8] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch2.analysis-PI.MULTI.tar.md5&quot;
+ [9] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch1.analysis-PI.MULTI.tar.md5&quot;   
+[10] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch2.analysis-PI.MULTI.tar.md5&quot;   
+[11] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar.md5&quot;                 </code></pre>
+<pre class="r"><code>pheno_filt &lt;- pheno_filt %&gt;% mutate(file_name = gsub(&quot;.*/&quot;, &quot;&quot;, V6))</code></pre>
+</div>
+<div id="test-downloading-a-small-tarball-to-the-server"
+class="section level1">
+<h1>Test downloading a small tarball to the server</h1>
+<pre class="r"><code>#system(&quot;wget -P /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/ https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_CongenitalAnomalies.analysis-PI.MULTI.tar&quot;)
+#system(&quot;wget -P /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/ https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_CongenitalAnomalies.analysis-PI.MULTI.tar.md5&quot;)</code></pre>
+</div>
+<div id="downloading-files-to-the-server" class="section level1">
+<h1>Downloading files to the server</h1>
+<pre class="r"><code>write.csv(pheno_filt, &quot;/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/MVP_pheno_list.csv&quot;)</code></pre>
+<p>Files are then downloaded and extracted one-by-one using the
+MVP-data-pull pipeline found in code/pipeline/MVP-data-pull/</p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.4.2 (2024-10-31)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.1 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] stringr_1.5.1   dplyr_1.1.4     workflowr_1.7.1
+
+loaded via a namespace (and not attached):
+ [1] jsonlite_1.8.9    compiler_4.4.2    promises_1.3.2    tidyselect_1.2.1 
+ [5] Rcpp_1.0.13-1     git2r_0.35.0      callr_3.7.6       later_1.4.1      
+ [9] jquerylib_0.1.4   yaml_2.3.10       fastmap_1.2.0     R6_2.5.1         
+[13] generics_0.1.3    knitr_1.49        tibble_3.2.1      rprojroot_2.0.4  
+[17] bslib_0.8.0       pillar_1.9.0      rlang_1.1.4       utf8_1.2.4       
+[21] cachem_1.1.0      stringi_1.8.4     httpuv_1.6.15     xfun_0.49        
+[25] getPass_0.2-4     fs_1.6.5          sass_0.4.9        cli_3.6.3        
+[29] withr_3.0.2       magrittr_2.0.3    ps_1.8.1          digest_0.6.37    
+[33] processx_3.8.4    rstudioapi_0.17.1 lifecycle_1.0.4   vctrs_0.6.5      
+[37] evaluate_1.0.1    glue_1.8.0        whisker_0.4.1     fansi_1.0.6      
+[41] rmarkdown_2.29    httr_1.4.7        tools_4.4.2       pkgconfig_2.0.3  
+[45] htmltools_0.5.8.1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
