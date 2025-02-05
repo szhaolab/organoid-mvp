@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?notoc?>
+<!DOCTYPE wga-document
+PUBLIC "-//NLM//DTD WGA Study DTD v2.0n 20070315//EN" "https://dtd.nlm.nih.gov/gap/2.0/wga-study2.dtd">
+<wga-document wga-document-id="phd008760" wga-document-type="protocol" wga-document-version="1" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <front>
+                    <study id="phs002453">
+                              <study-institution>NHLBI</study-institution>
+                              <study-name>Million Veteran Program (MVP) Summary Results from Non-Sensitive Omics Studies</study-name>
+                    </study>
+                    <source-document-meta>
+                              <title-group>
+                                        <title>README_MVP_gwPheWAS_vJuly2024.docx</title>
+                              </title-group>
+                    </source-document-meta>
+                    <document-meta>
+                              <title-group>
+                                        <title>README MVP gwPheWAS</title>
+                              </title-group>
+                    </document-meta>
+          </front>
+          <body>
+                    <sec id="sec1">
+                              <title>MVP gwPheWAS Basic Information</title>
+                              <p>These summary statistics are the result of the VA Million Veteran Program (MVP) gwPheWAS effort (collaboration between the US Departments of Veterans Affairs and Energy).
+                                        For full details, please see our publication in Science and our methods preprint on BioRxiv. For additional questions please contact the corresponding authors of
+                                        these publications or email <email>MVP_gwPheWAS@va.gov</email>. </p>
+                              <p>This analysis was run twice in order to respond to evolving recommendations and guidelines around determination of genetic ancestry, race, and ethnicity. We used our
+                                        previous “harmonized ancestry and race/ethnicity” (HARE) definition initially then followed with genetically inferred ancestry (GIA). Both sets of results are
+                                        available for download via the dbGaP ftp site, however, the GIA results are the focus of the main manuscript and only these results have been processed into dbGaP’s
+                                        browsable website and viewer. We refined our analysis plan based on lessons learned from the HARE analysis therefore there are slight differences between the
+                                        analyses, which are listed below. Detailed methods for the HARE analysis are attached as an appendix as they are not included in the Science publication. </p>
+                              <table-wrap id="t1">
+                                        <table frame="border" rules="all" border="1">
+                                                  <thead>
+                                                            <tr>
+                                                                      <th/>
+                                                                      <th align="center"><bold>HARE</bold></th>
+                                                                      <th align="center"><bold>GIA</bold></th>
+                                                            </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                            <tr>
+                                                                      <td>Quantitative Traits</td>
+                                                                      <td>Raw and inverse-normalized trait values analyzed</td>
+                                                                      <td>Only Inverse-normalized trait values analyzed</td>
+                                                            </tr>
+                                                            <tr>
+                                                                      <td>Sex-specific Traits</td>
+                                                                      <td>Not analyzed</td>
+                                                                      <td>Analyzed and restricted to only the specific biological sex affected</td>
+                                                            </tr>
+                                                  </tbody>
+                                        </table>
+                              </table-wrap>
+                              <p>The VA considers several conditions to be stigmatizing or sensitive therefore have not been included. These include HIV status, sickle cell disease status, and some
+                                        outcomes relating to substance use/abuse. As the latter fell within the phecode category of “Mental Disorders”, none of the phecodes in this category have been
+                                        deposited into dbGaP. A future release is anticipated to include phecodes from this category which have been approved for distribution. Additionally, in order to
+                                        reduce privacy and reidentification concerns, only population-specific analyses with at least 500 cases were uploaded to dbGaP despite a cutoff of 200 cases for
+                                        inclusion in the meta-analysis. </p>
+                              <p>Please see Data Dictionary for additional information on phecode definitions and case/control/total counts. If there are any discrepancies between files with regards to
+                                        these counts, the summary statistics results file is correct. This is also helpful for determining which tar file(s) contain your phenotype(s) of interest. </p>
+                              <p>Please see our GitHuB repository for detailed methods information and code (<ext-link xlink:href="https://github.com/exascale-genomics/SAIGE-GPU/">https://github.com/exascale-genomics/SAIGE-GPU/</ext-link>). </p>
+                              <p><bold><underline>Key References</underline></bold></p>
+                              <ref-list>
+                                        <ref>
+                                                  <citation>Verma A, Huffman JE, Rodriguez A, Conery M, Lui M, et al. Diversity and Scale: Genetic Architecture of 2,068 Traits in the VA Million Veteran
+                                                            Program. Science. 2024 July 19 doi: 10.1126/science.adj1182</citation>
+                                        </ref>
+                                        <ref>
+                                                  <citation>Rodriguez A, Kim Y, et al. Accelerating Genome- and Phenome-Wide Association Studies using GPUs - A case study using data from the Million
+                                                            Veteran Program. bioRxiv [Preprint]. 2024 May 22 doi: 10.1101/2024.05.17.594583. PMID: 38826407 </citation>
+                                        </ref>
+                                        <ref>
+                                                  <citation>Fang H, et al. Harmonizing Genetic Ancestry and Self-identified Race/Ethnicity in Genome-wide Association Studies. Am J Hum Genet. 2019 Oct
+                                                            3;105(4):763-772. doi: 10.1016/j.ajhg.2019.08.012. PMID: 31564439 </citation>
+                                        </ref>
+                              </ref-list>
+                    </sec>
+                    <sec id="sec2">
+                              <title>Methods gwPheWAS [HARE]</title>
+                              <sec id="sec2.1">
+                                        <title>Million Veteran Program (MVP)</title>
+                                        <p>The VA Million Veteran Program (MVP) is a national cohort launched in 2011 designed to study the contributions of genetics, lifestyle, and military exposures to
+                                                  health and disease among US Veterans<sup><xref ref-type="bibr" rid="bibr1">1</xref></sup>. Blood biospecimens were collected for DNA isolation and genotyping, and the biorepository
+                                                  was linked with the VA EHR, which includes diagnosis codes (International Classification of Diseases ninth revision [ICD-9] and tenth revision [ICD-10]),
+                                                  laboratory measures, and detailed survey questionnaires collected at the time of enrollment for all Veterans followed in the healthcare system up to
+                                                  September 2019. </p>
+                              </sec>
+                              <sec id="sec2.2">
+                                        <title>Genotyping, Quality Control, and Imputation</title>
+                                        <p>Specimen collection and genotype quality control have been described in detail before<sup><xref ref-type="bibr" rid="bibr2">2,3</xref></sup>. In brief, blood specimens were collected at
+                                                  recruitment sites across the country then shipped within 24 hours to the VA Central Biorepository in Boston, MA for processing and storage. Study
+                                                  participants were genotyped using a customized Affymetrix Axiom biobank array (the MVP 1.0 Genotyping Array), containing over 730,000 variants. Duplicate
+                                                  samples were excluded as well as samples with observed heterozygosity greater than the expected heterozygosity, missing genotype call rate greater than
+                                                  2.5%, or incongruence between sex inferred from genetic information and gender extracted from phenotype data. Probes with high missingness (>20%), those
+                                                  that were monomorphic, or those with a Hardy Weinberg Equilibrium p&lt;1E-06 in both the overall cohort and within one of the 3 major HARE groups
+                                                  (non-Hispanic White, non-Hispanic Black, or Hispanic/Latino). See below for HARE methods. </p>
+                                        <p>Population-specific principal components (PCs) were computed using EIGENSOFT v.6<sup><xref ref-type="bibr" rid="bibr4">4</xref></sup>. </p>
+                                        <p>Genetic imputation was performed to a hybrid imputation panel comprised of the African Genome Resources panel (<ext-link
+                                                  xlink:href="https://imputation.sanger.ac.uk/?about=1#referencepanels">https://imputation.sanger.ac.uk/?about=1#referencepanels</ext-link>) and
+                                                  1000G p3v5<sup><xref ref-type="bibr" rid="bibr5">5</xref></sup> using SHAPEIT4 (v 4.1.3)<sup><xref ref-type="bibr" rid="bibr6">6</xref></sup>, and Minimac4<sup><xref ref-type="bibr" rid="bibr7">7</xref></sup>. </p>
+                              </sec>
+                              <sec id="sec2.3">
+                                        <title>Ancestry assignment</title>
+                                        <p>The harmonized race/ethnicity and genetic ancestry (HARE) approach, developed by MVP, was used to assign individuals to ancestral groups<sup><xref ref-type="bibr" rid="bibr8">8</xref></sup>. This machine learning
+                                                  algorithm leverages information from both the self-reported race/ethnicity data from the MVP Baseline survey and genotype data to categorized Veterans into
+                                                  four mutually exclusive groups: (1) non-Hispanic White (EUR), (2) non-Hispanic Black (AFR), (3) Hispanic or Latino (HIS), or (4) Asian (ASN). </p>
+                              </sec>
+                              <sec id="sec2.4">
+                                        <title>Phenotype Data </title>
+                                        <sec id="sec2.4.1">
+                                                  <title>EHR-derived clinical outcomes (PheCodes)</title>
+                                                  <p>The clinical outcome from EHR was defined by phecodes curated by the MCP Data Core<sup><xref ref-type="bibr" rid="bibr9">9</xref></sup>. Each phecode represents ICD codes grouped into clinically relevant
+                                                            phenotypes for clinical studies. Using this approach, all ICD codes for all Veterans in MVP were extracted and each assigned a phenotype defined
+                                                            by a phecode. ICD-9 and ICD-10 codes were mapped to 1,876 phecodes, as previously described<sup><xref ref-type="bibr" rid="bibr10">10</xref></sup>. For each phecode, participants with ≥2
+                                                            phecode-mapped ICD-9 or ICD-10 codes were defined as cases, whereas those with no instance of a phecode-mapped ICD-9 or ICD-10 code were defined
+                                                            as controls. Based on our previous simulation studies of ICD EHR data, populations where the phecode comprises &lt; 200 cases or controls were
+                                                            more likely to result in spurious results, and we thus applied this threshold in each of the four HARE-defined ancestry groups. </p>
+                                        </sec>
+                                        <sec id="sec2.4.2">
+                                                  <title>Laboratory measurements</title>
+                                                  <p>For quantitative traits, we calculated the minimum, maximum, and mean value across all visits for each participant and analyzed each resulting
+                                                            phenotype. Only quantitative traits with data for more than 1000 individuals within each HARE-defined ancestry group were included in the
+                                                            analyses. The remaining 69 laboratory measurements that passed quality control were normalized using a rank-based inverse-normal transformation.
+                                                            We additionally filtered values are greater than six standard deviations from the mean in order to remove extreme outliers. </p>
+                                        </sec>
+                                        <sec id="sec2.4.3">
+                                                  <title>Survey Questions</title>
+                                                  <p>The two surveys (questionnaires) for MVP, as noted previously, were designed to augment data that are contained in the electronic health record of each
+                                                            participant<sup><xref ref-type="bibr" rid="bibr1">1</xref></sup>. As with other study activities and all study materials sent to participants, these documents were approved by the VA Central IRB.
+                                                            As participants are enrolled, informed consent and HIPAA authorization forms are scanned by field site staff and sent to the CERC, to be checked
+                                                            for accuracy and completeness, and the data are entered in GenISIS. Conceptually, the MVP Baseline Survey was designed to collect information
+                                                            regarding demographics, family pedigree, health status, lifestyle habits, military experience, medical history, family history of specific
+                                                            illnesses, and physical features. The MVP Lifestyle Survey contains questions from validated instruments in domains selected to provide
+                                                            information on sleep and exercise habits, environmental exposures, dietary habits, and sense of well-being. </p>
+                                        </sec>
+                              </sec>
+                              <sec id="sec2.5">
+                                        <title>Genetic association analyses</title>
+                                        <p>Within each HARE-defined ancestry group (AFR, ASN, EUR, HIS), genetic variants were tested for their association with the trait of interest using generalized
+                                                  linear mixed models to account for participant relatedness using a GPU-optimized version of the SAIGE package<sup><xref ref-type="bibr" rid="bibr11">11</xref></sup> implemented on the U.S. Department of
+                                                  Energy Summit supercomputer. Directly genotyped variants were used for step 1 of SAIGE. Imputed genetic dosages were used for step 2 of SAIGE. Variants
+                                                  were only included in the GWAS if they had an imputation quality > 0.3 and a minor allele count (MAC) > 20 within the relevant HARE-defined ancestry group.
+                                                  Analyses were adjusted for age, sex, and 10 ancestry-specific genetic principal components. </p>
+                              </sec>
+                              <sec id="sec2.6">
+                                        <title>Post-GWAS quality control</title>
+                                        <p>GWAS results were filtered using a custom R script loosely based on EasyQC<sup><xref ref-type="bibr" rid="bibr12">12</xref></sup>. Sanity checks were implemented to remove variants with missing values for major
+                                                  summary statistics (effect size, standard error, etc) or with unreasonable values (p-values or allele frequencies with values >1 or &lt;0). Additionally,
+                                                  variants were removed that were monomorphic, poorly imputed (r2&lt;0.3) or very rare (minor allele frequency &lt; 0.0001) in just the subset of individuals
+                                                  included in the GWAS. </p>
+                              </sec>
+                              <sec id="sec2.7">
+                                        <title>Meta-Analysis</title>
+                                        <p>Multi-ancestry meta-analysis was performed using the inverse-variance weighted method as implemented in GWAMA<sup><xref ref-type="bibr" rid="bibr13">13</xref></sup>. Meta-analysis results then underwent the same
+                                                  quality control procedures as the GWAS results. Imputation quality filters were not implemented however an additional filter was added to exclude variants
+                                                  that were specific to only one HARE-defined ancestry group. </p>
+                              </sec> 
+                    </sec> 
+                    
+          </body>
+          <back>
+                   <app-group>
+                             <app id="refs"><sec>
+                                       <title>References</title>
+                                       <ref-list>
+                                                 <ref id="bibr1">
+                                                           <label>1</label>
+                                                           <citation>Gaziano JM, Concato J, Brophy M, et al. Million Veteran Program: A mega-biobank to study genetic influences on health and disease. J Clin
+                                                                     Epidemiol 2016;70:214–23. </citation>
+                                                 </ref>
+                                                 <ref id="bibr2">
+                                                           <label>2</label>
+                                                           <citation>Klarin D, Damrauer SM, Cho K, et al. Genetics of blood lipids among ~300,000 multi-ethnic participants of the Million Veteran Program. Nat Genet
+                                                                     2018;50(11):1514–23. </citation>
+                                                 </ref>
+                                                 <ref id="bibr3">
+                                                           <label>3</label>
+                                                           <citation>Hunter-Zinck H, Shi Y, Li M, et al. Genotyping Array Design and Data Quality Control in the Million Veteran Program. Am J Hum Genet
+                                                                     2020;106(4):535–48. </citation>
+                                                 </ref>
+                                                 <ref id="bibr4">
+                                                           <label>4</label>
+                                                           <citation>Price AL, Patterson NJ, Plenge RM, Weinblatt ME, Shadick NA, Reich D. Principal components analysis corrects for stratification in genome-wide
+                                                                     association studies. Nat Genet 2006;38(8):904–9. </citation>
+                                                 </ref>
+                                                 <ref id="bibr5">
+                                                           <label>5</label>
+                                                           <citation>1000 Genomes Project Consortium, Auton A, Brooks LD, et al. A global reference for human genetic variation. Nature 2015;526(7571):68–74.
+                                                           </citation>
+                                                 </ref>
+                                                 <ref id="bibr6">
+                                                           <label>6</label>
+                                                           <citation>Delaneau O, Zagury J-F, Robinson MR, Marchini JL, Dermitzakis ET. Accurate, scalable and integrative haplotype estimation. Nat Commun
+                                                                     2019;10(1):5436. </citation>
+                                                 </ref>
+                                                 <ref id="bibr7">
+                                                           <label>7</label>
+                                                           <citation>Howie B, Fuchsberger C, Stephens M, Marchini J, Abecasis GR. Fast and accurate genotype imputation in genome-wide association studies through
+                                                                     pre-phasing. Nat Genet 2012;44(8):955–9. </citation>
+                                                 </ref>
+                                                 <ref id="bibr8">
+                                                           <label>8</label>
+                                                           <citation>Fang H, Hui Q, Lynch J, et al. Harmonizing Genetic Ancestry and Self-identified Race/Ethnicity in Genome-wide Association Studies. Am J Hum Genet
+                                                                     2019;105(4):763–72. </citation>
+                                                 </ref>
+                                                 <ref id="bibr9">
+                                                           <label>9</label>
+                                                           <citation>Song RJ, Ho YL, Schubert P, et al. Phenome-wide association of 1809 phenotypes and COVID-19 disease progression in the Veterans Health
+                                                                     Administration Million Veteran Program. PLoS One 2021;16(5):e0251651. </citation>
+                                                 </ref>
+                                                 <ref id="bibr10">
+                                                           <label>10</label>
+                                                           <citation>Denny JC, Ritchie MD, Basford MA, et al. PheWAS: demonstrating the feasibility of a phenome-wide scan to discover gene-disease associations.
+                                                                     Bioinformatics 2010;26(9):1205–10. </citation>
+                                                 </ref>
+                                                 <ref id="bibr11">
+                                                           <label>11</label>
+                                                           <citation>Zhou W, Nielsen JB, Fritsche LG, et al. Efficiently controlling for case-control imbalance and sample relatedness in large-scale genetic
+                                                                     association studies. Nat Genet 2018;50(9):1335–41. </citation>
+                                                 </ref>
+                                                 <ref id="bibr12">
+                                                           <label>12</label>
+                                                           <citation>Winkler TW, Day FR, Croteau-Chonka DC, et al. Quality control and conduct of genome-wide association meta-analyses. Nat Protoc
+                                                                     2014;9(5):1192–212. </citation>
+                                                 </ref>
+                                                 <ref id="bibr13">
+                                                           <label>13</label>
+                                                           <citation>Mägi R, Morris AP. GWAMA: software for genome-wide association meta-analysis. BMC Bioinformatics 2010;11:288. </citation>
+                                                 </ref>
+                                       </ref-list> 
+                             </sec>
+                             </app>
+                   </app-group>
+          
+          </back>
+</wga-document>
