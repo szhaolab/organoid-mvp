@@ -382,7 +382,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-02-05
+<strong>Last updated:</strong> 2025-02-11
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -539,15 +539,15 @@ data/MVP_pheno_list.csv
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree193ae4fdcb98ae92c0112cd112d620b44e71b976targetblank193ae4fa">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtreeb3e304f2a70bde2516f4d87ee44d1e05d1ddac98targetblankb3e304fa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/193ae4fdcb98ae92c0112cd112d620b44e71b976" target="_blank">193ae4f</a>
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/b3e304f2a70bde2516f4d87ee44d1e05d1ddac98" target="_blank">b3e304f</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree193ae4fdcb98ae92c0112cd112d620b44e71b976targetblank193ae4fa"
+id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtreeb3e304f2a70bde2516f4d87ee44d1e05d1ddac98targetblankb3e304fa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -557,7 +557,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/193ae4fdcb98ae92c0112cd112d620b44e71b976" target="_blank">193ae4f</a>.
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/b3e304f2a70bde2516f4d87ee44d1e05d1ddac98" target="_blank">b3e304f</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -579,20 +579,33 @@ Ignored files:
     Ignored:    .snakemake/locks/
     Ignored:    .snakemake/shadow/
     Ignored:    .snakemake/singularity/
+    Ignored:    code/MVP-data-pull/job_error_3623155.err
+    Ignored:    code/MVP-data-pull/job_output_3623155.out
+    Ignored:    data/extracted/
     Ignored:    log/
     Ignored:    outputs/annotations/
     Ignored:    outputs/munged_sumstats/
 
 Untracked files:
-    Untracked:  .snakemake/.DS_Store
-    Untracked:  code/MVP-data-pull/
-    Untracked:  data/
+    Untracked:  code/pipeline/clean-sumstats-test.smk
 
 Unstaged changes:
     Modified:   .DS_Store
     Modified:   .gitignore
+    Modified:   README.md
     Modified:   code/.DS_Store
+    Modified:   code/MVP-data-pull/MVP_data_pull.sbatch
+    Modified:   code/MVP-data-pull/MVP_data_pull.sh
+    Modified:   code/R/clean_sumstats.R
+    Modified:   code/pipeline/snake-ldsc-kh.smk
+    Modified:   data/.DS_Store
+    Modified:   data/MVP_pheno_list.csv
+    Deleted:    data/slurm-3597358.out
     Modified:   outputs/.DS_Store
+    Deleted:    outputs/results/IBD3_enrichment.log
+    Deleted:    outputs/results/IBD3_enrichment.results
+    Deleted:    outputs/results/IBD3_signif_loci.txt
+    Deleted:    raw-sumstats/README.md
 
 </code></pre>
 <p>
@@ -637,6 +650,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/b3e304f2a70bde2516f4d87ee44d1e05d1ddac98/analysis/MVP-pheno-selection.Rmd" target="_blank">b3e304f</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-11
+</td>
+<td>
+Finalize MVP pheno selection
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/c625d35fbd02283c8e3a908138c45f96d8ffcc19/docs/MVP-pheno-selection.html" target="_blank">c625d35</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-05
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -707,37 +754,35 @@ table(pheno_filt$Category)</code></pre>
     Labs PheCodes  Surveys   Vitals 
      162      496      141       18 </code></pre>
 </div>
-<div id="filter-for-category-of-labs-vitals-and-phecodes"
-class="section level1">
-<h1>Filter for category of labs, vitals, and phecodes</h1>
-<pre class="r"><code>pheno_filt &lt;- pheno_filt %&gt;% filter(Category == &quot;Labs&quot; |
-                                      Category == &quot;PheCodes&quot; |
-                                      Category == &quot;Vitals&quot;)</code></pre>
-</div>
 <div id="filter-by-subcategory-for-phecodes" class="section level1">
 <h1>Filter by subcategory for phecodes</h1>
 <pre class="r"><code>table(pheno_filt$SubCategory)</code></pre>
 <pre><code>
      Circulatory System    Congenital Anomalies   Dermatological System 
                      71                       2                      34 
-       Digestive System  Endocrine or Metabolic    Genitourinary System 
-                     47                      43                      28 
-          Hematopoietic     Infectious Diseases Injuries and Poisonings 
-                     14                      14                      17 
-                   Labs        Mental Disorders  Musculoskeletal System 
-                    162                      31                      41 
-              Neoplasms            Neurological                   Other 
-                     27                      24                       8 
-     Respiratory System            Sense Organs                Symptoms 
-                     31                      45                      19 
-                 Vitals 
-                     18 </code></pre>
+       Digestive System       Disease Diagnosis  Endocrine or Metabolic 
+                     47                      69                      43 
+         Family History    Genitourinary System           Hematopoietic 
+                     53                      28                      14 
+    Infectious Diseases Injuries and Poisonings                    Labs 
+                     14                      17                     162 
+       Mental Disorders  Musculoskeletal System               Neoplasms 
+                     31                      41                      27 
+           Neurological                   Other               Pregnancy 
+                     24                       8                       1 
+     Respiratory System            Sense Organs                   Sleep 
+                     31                      45                       5 
+                Smoking                Symptoms                  Vitals 
+                      8                      19                      20 
+         Women&#39;s Health 
+                      3 </code></pre>
 <pre class="r"><code>pheno_filt &lt;- pheno_filt %&gt;% filter(SubCategory == &quot;Labs&quot; |
                                       SubCategory == &quot;Vitals&quot; |
                                       SubCategory == &quot;Digestive System&quot; |
                                       SubCategory == &quot;Endocrine or Metabolic&quot; |
                                       SubCategory == &quot;Neoplasms&quot; |
-                                      SubCategory == &quot;Symptoms&quot;)</code></pre>
+                                      SubCategory == &quot;Symptoms&quot; |
+                                      SubCategory == &quot;Disease Diagnosis&quot;)</code></pre>
 </div>
 <div id="removing-irrelevant-phenotypes-by-keyword"
 class="section level1">
@@ -746,7 +791,6 @@ class="section level1">
 pheno_filt &lt;- pheno_filt %&gt;% filter(str_detect(Description, &quot;(?i)cervi&quot;, negate=TRUE) &amp;
                                       str_detect(Description, &quot;(?i)prostate&quot;, negate=TRUE) &amp;
                                       str_detect(Description, &quot;(?i)testicu&quot;, negate=TRUE) &amp;
-                                      str_detect(Description, &quot;(?i)bladder&quot;, negate=TRUE) &amp;
                                       # respiratory
                                       str_detect(Description, &quot;(?i)respiratory&quot;, negate=TRUE) &amp;
                                       str_detect(Description, &quot;(?i)lung&quot;, negate=TRUE) &amp;
@@ -755,10 +799,12 @@ pheno_filt &lt;- pheno_filt %&gt;% filter(str_detect(Description, &quot;(?i)cerv
                                       str_detect(Description, &quot;carcin&quot;, negate=TRUE) &amp;
                                       # genitourinary
                                       str_detect(Description, &quot;(?i)bladder&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)kidney&quot;, negate=TRUE) &amp;
                                       # neuro
                                       str_detect(Description, &quot;(?i)brain&quot;, negate=TRUE) &amp;
-                                      # lymphatic
+                                      # lymphatic, immune
                                       str_detect(Description, &quot;(?i)lymph&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;(?i)phil&quot;, negate=TRUE) &amp;
                                       # musculoskeletal
                                       str_detect(Description, &quot;(?i)muscle&quot;, negate=TRUE) &amp;
                                       str_detect(Description, &quot;(?i)limb&quot;, negate=TRUE) &amp;
@@ -774,7 +820,9 @@ pheno_filt &lt;- pheno_filt %&gt;% filter(str_detect(Description, &quot;(?i)cerv
                                       str_detect(Description, &quot;(?i)perio&quot;, negate=TRUE) &amp;
                                       # screenings, findings, etc
                                       str_detect(Description, &quot;(?i)screening&quot;, negate=TRUE) &amp;
-                                      str_detect(Description, &quot;(?i)therapy&quot;, negate=TRUE))</code></pre>
+                                      str_detect(Description, &quot;(?i)therapy&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;Takes medication for&quot;, negate=TRUE) &amp;
+                                      str_detect(Description, &quot;What is&quot;, negate=TRUE))</code></pre>
 </div>
 <div
 id="if-the-category-is-a-lab-or-vital-measure-keep-only-the-mean-value"
@@ -784,7 +832,8 @@ value</h1>
 <pre class="r"><code>pheno_filt &lt;- pheno_filt %&gt;%
   filter((Category == &quot;Labs&quot; &amp; grepl(&quot;Mean&quot;, Trait)) | 
            (Category == &quot;Vitals&quot; &amp; grepl(&quot;Mean&quot;, Trait)) |
-           Category == &quot;PheCodes&quot;)</code></pre>
+           Category == &quot;PheCodes&quot; |
+           Category == &quot;Surveys&quot;)</code></pre>
 </div>
 <div id="further-filtering-on-a-case-by-case-basis"
 class="section level1">
@@ -794,201 +843,276 @@ class="section level1">
   [2] &quot;albumin (mean, inv-norm transformed)&quot;                                        
   [3] &quot;alanine transaminase (ALT, mean, inv-norm transformed)&quot;                      
   [4] &quot;aspartate aminotransferase (AST, mean, inv-norm transformed)&quot;                
-  [5] &quot;basophil (absolute count, mean, inv-norm transformed)&quot;                       
-  [6] &quot;basophil (fraction, mean, inv-norm transformed)&quot;                             
-  [7] &quot;bicarbonate (mean, inv-norm transformed)&quot;                                    
-  [8] &quot;body mass index (BMI, mean, inv-normal transformed)&quot;                         
-  [9] &quot;blood urea nitrogen (BUN, mean, inv-norm transformed)&quot;                       
- [10] &quot;calcium (mean, inv-norm transformed)&quot;                                        
- [11] &quot;chloride  (mean, inv-norm transformed)&quot;                                      
- [12] &quot;creatine kinase-MB (CKMB, absolute, mean, inv-norm transformed)&quot;             
- [13] &quot;creatinine (mean, inv-norm transformed)&quot;                                     
- [14] &quot;C-reactive protein (CRP, dL, mean, inv-norm transformed)&quot;                    
- [15] &quot;C-reactive protein (CRP, L, mean, inv-norm transformed)&quot;                     
- [16] &quot;diastolic blood pressure (DBP, mean, inv-normal transformed)&quot;                
- [17] &quot;estimated glomerular filtration rate (eGFR, mean, inv-norm transformed)&quot;     
- [18] &quot;eosinophil (absolute count, mean, inv-norm transformed)&quot;                     
- [19] &quot;eosinophil (fraction, mean, inv-norm transformed)&quot;                           
- [20] &quot;erythrocyte sedimentation rate (ESR, mean, inv-norm transformed)&quot;            
- [21] &quot;ferritin (mean, inv-norm transformed)&quot;                                       
- [22] &quot;glucose (finger stick, mean, inv-norm transformed)&quot;                          
- [23] &quot;glucose (fasting status unknown, mean, inv-norm transformed)&quot;                
- [24] &quot;hematocrit (mean, inv-norm transformed)&quot;                                     
- [25] &quot;high density lipoprotein cholesterol (HDLC, mean, inv-norm transformed)&quot;     
- [26] &quot;height (mean, inv-normal transformed)&quot;                                       
- [27] &quot;hemoglobin (mean, inv-norm transformed)&quot;                                     
- [28] &quot;PT international normalized ratio (INR, mean, inv-norm transformed)&quot;         
- [29] &quot;iron (mean, inv-norm transformed)&quot;                                           
- [30] &quot;low density lipoprotein cholesterol (LDLC, mean, inv-norm transformed)&quot;      
- [31] &quot;mean corpuscular hemoglobin (MCH, mean, inv-norm transformed)&quot;               
- [32] &quot;mean corpuscular hemoglobin concentration (MCHC, mean, inv-norm transformed)&quot;
- [33] &quot;mean corpuscular volume (MCV, mean, inv-norm transformed)&quot;                   
- [34] &quot;magnesium (Mg, mean, inv-norm transformed)&quot;                                  
- [35] &quot;monocyte (absolute count, mean, inv-norm transformed)&quot;                       
- [36] &quot;monocyte (fraction, mean, inv-norm transformed)&quot;                             
- [37] &quot;mean platelet volume (MPV, mean, inv-norm transformed)&quot;                      
- [38] &quot;neutrophil (absolute count, mean, inv-norm transformed)&quot;                     
- [39] &quot;neutrophil (fraction, mean, inv-norm transformed)&quot;                           
- [40] &quot;Colorectal cancer&quot;                                                           
- [41] &quot;Cancer, suspected or other&quot;                                                  
- [42] &quot;Secondary malignant neoplasm&quot;                                                
- [43] &quot;Neoplasm of uncertain behavior&quot;                                              
- [44] &quot;Benign neoplasm of colon&quot;                                                    
- [45] &quot;Lipoma&quot;                                                                      
- [46] &quot;Vascular hamartomas and non-neoplastic nevi&quot;                                 
- [47] &quot;Nevus, non-neoplastic&quot;                                                       
- [48] &quot;Nontoxic nodular goiter&quot;                                                     
- [49] &quot;Nontoxic uninodular goiter&quot;                                                  
- [50] &quot;Hypothyroidism&quot;                                                              
- [51] &quot;Hypothyroidism NOS&quot;                                                          
- [52] &quot;Diabetes mellitus&quot;                                                           
- [53] &quot;Type 1 diabetes&quot;                                                             
- [54] &quot;Type 2 diabetes&quot;                                                             
- [55] &quot;Type 2 diabetes with renal manifestations&quot;                                   
- [56] &quot;Type 2 diabetes with ophthalmic manifestations&quot;                              
- [57] &quot;Type 2 diabetes with neurological manifestations&quot;                            
- [58] &quot;Insulin pump user&quot;                                                           
- [59] &quot;Abnormal glucose&quot;                                                            
- [60] &quot;Impaired fasting glucose&quot;                                                    
- [61] &quot;Other abnormal glucose&quot;                                                      
- [62] &quot;Polyneuropathy in diabetes&quot;                                                  
- [63] &quot;Diabetic retinopathy&quot;                                                        
- [64] &quot;Protein-calorie malnutrition&quot;                                                
- [65] &quot;Vitamin deficiency&quot;                                                          
- [66] &quot;Vitamin B-complex deficiencies&quot;                                              
- [67] &quot;Vitamin D deficiency&quot;                                                        
- [68] &quot;Proteinuria&quot;                                                                 
- [69] &quot;Disorders of carbohydrate transport and metabolism&quot;                          
- [70] &quot;Intestinal disaccharidase deficiencies and disaccharide malabsorption&quot;       
- [71] &quot;Disorders of lipoid metabolism&quot;                                              
- [72] &quot;Hyperlipidemia&quot;                                                              
- [73] &quot;Hypercholesterolemia&quot;                                                        
- [74] &quot;Hyperglyceridemia&quot;                                                           
- [75] &quot;Mixed hyperlipidemia&quot;                                                        
- [76] &quot;Gout and other crystal arthrop&quot;                                              
- [77] &quot;Gout&quot;                                                                        
- [78] &quot;Disorders of mineral metabolism&quot;                                             
- [79] &quot;Disorders of fluid, electrolyte, and acid-based balance&quot;                     
- [80] &quot;Electrolyte imbalance&quot;                                                       
- [81] &quot;Hyposmolality and/or hyponatremia&quot;                                           
- [82] &quot;Hyperpotassemia&quot;                                                             
- [83] &quot;Hypopotassemia&quot;                                                              
- [84] &quot;Acid-base balance disorder&quot;                                                  
- [85] &quot;Hypovolemia&quot;                                                                 
- [86] &quot;Overweight, obesity and other hyperalimentation&quot;                             
- [87] &quot;Obesity&quot;                                                                     
- [88] &quot;Morbid obesity&quot;                                                              
- [89] &quot;Diseases of esophagus&quot;                                                       
- [90] &quot;Esophagitis, GERD and related diseases&quot;                                      
- [91] &quot;GERD&quot;                                                                        
- [92] &quot;Barrett&#39;s esophagus&quot;                                                         
- [93] &quot;Reflux esophagitis&quot;                                                          
- [94] &quot;Peptic ulcer (excl. esophageal)&quot;                                             
- [95] &quot;Dysphagia&quot;                                                                   
- [96] &quot;Gastritis and duodenitis&quot;                                                    
- [97] &quot;Disorders of function of stomach&quot;                                            
- [98] &quot;Abdominal hernia&quot;                                                            
- [99] &quot;Inguinal hernia&quot;                                                             
-[100] &quot;Diaphragmatic hernia&quot;                                                        
-[101] &quot;Umbilical hernia&quot;                                                            
-[102] &quot;Noninfectious gastroenteritis&quot;                                               
-[103] &quot;Intestinal obstruction without mention of hernia&quot;                            
-[104] &quot;Symptoms involving digestive system&quot;                                         
-[105] &quot;Diarrhea&quot;                                                                    
-[106] &quot;Diverticulosis and diverticulitis&quot;                                           
-[107] &quot;Diverticulosis&quot;                                                              
-[108] &quot;Diverticulitis&quot;                                                              
-[109] &quot;Constipation&quot;                                                                
-[110] &quot;Functional digestive disorders&quot;                                              
-[111] &quot;Irritable Bowel Syndrome&quot;                                                    
-[112] &quot;Anal and rectal conditions&quot;                                                  
-[113] &quot;Chronic liver disease and cirrhosis&quot;                                         
-[114] &quot;Other chronic nonalcoholic liver disease&quot;                                    
-[115] &quot;Cirrhosis of liver without mention of alcohol&quot;                               
-[116] &quot;Abnormal results of function study of liver&quot;                                 
-[117] &quot;Cholelithiasis and cholecystitis&quot;                                            
-[118] &quot;Cholelithiasis&quot;                                                              
-[119] &quot;Diseases of pancreas&quot;                                                        
-[120] &quot;Gastrointestinal hemorrhage&quot;                                                 
-[121] &quot;Blood in stool&quot;                                                              
-[122] &quot;Hemorrhage of rectum and anus&quot;                                               
-[123] &quot;Hemorrhage of gastrointestinal tract&quot;                                        
-[124] &quot;Back pain&quot;                                                                   
-[125] &quot;Thoracic or lumbosacral neuritis or radiculitis, unspecified&quot;                
-[126] &quot;Sciatica&quot;                                                                    
-[127] &quot;Neuralgia, neuritis, and radiculitis NOS&quot;                                    
-[128] &quot;Nonallopathic lesions NEC&quot;                                                   
-[129] &quot;Myalgia and myositis unspecified&quot;                                            
-[130] &quot;Edema&quot;                                                                       
-[131] &quot;Fever of unknown origin&quot;                                                     
-[132] &quot;Abdominal pain&quot;                                                              
-[133] &quot;Syncope and collapse&quot;                                                        
-[134] &quot;Nausea and vomiting&quot;                                                         
-[135] &quot;Other abnormal blood chemistry&quot;                                              
-[136] &quot;Malaise and fatigue&quot;                                                         
-[137] &quot;Debility unspecified&quot;                                                        
-[138] &quot;platelet count (mean, inv-norm transformed)&quot;                                 
-[139] &quot;potassium (mean, inv-norm transformed)&quot;                                      
-[140] &quot;prothrombin time (PT, mean, inv-norm transformed)&quot;                           
-[141] &quot;heart rate (HR, mean, inv-normal transformed)&quot;                               
-[142] &quot;red blood cell count (RBC, mean, inv-norm transformed)&quot;                      
-[143] &quot;red cell diameter width (RDW, mean, inv-norm transformed)&quot;                   
-[144] &quot;sodium (mean, inv-norm transformed)&quot;                                         
-[145] &quot;systolic blood pressure (SBP, mean, inv-normal transformed)&quot;                 
-[146] &quot;total iron (mean, inv-norm transformed)&quot;                                     
-[147] &quot;total creatine kinase (mean, inv-norm transformed)&quot;                          
-[148] &quot;total cholesterol (mean, inv-norm transformed)&quot;                              
-[149] &quot;triglyceride (mean, inv-norm transformed)&quot;                                   
-[150] &quot;troponin I (mean, inv-norm transformed)&quot;                                     
-[151] &quot;transferrin saturation (TSAT, mean, inv-norm transformed)&quot;                   
-[152] &quot;white blood cell count (WBC, mean, inv-norm transformed)&quot;                    
-[153] &quot;weight (mean, inv-normal transformed)&quot;                                       </code></pre>
-<pre class="r"><code>to_remove &lt;- c(
-  # Not specific
-  &quot;Cancer, suspected or other&quot;,
-  &quot;Secondary malignant neoplasm&quot;,
-  &quot;Neoplasm of uncertain behavior&quot;,
-  &quot;Lipoma&quot;,
-  &quot;Vascular hamartomas and non-neoplastic nevi&quot;,
-  &quot;Nevus, non-neoplastic&quot;,
-  # Endocrine
-  &quot;Nontoxic nodular goiter&quot;,
-  &quot;Nontoxic uninodular goiter&quot;,
-  &quot;Hypothyroidism&quot;,
-  &quot;Hypothyroidism NOS&quot;,
-  &quot;Type 2 diabetes with renal manifestations&quot;,
-  &quot;Type 2 diabetes with ophthalmic manifestations&quot;,
-  &quot;Type 2 diabetes with neurological manifestations&quot;,
-  &quot;Insulin pump user&quot;,
-  &quot;Other abnormal glucose&quot;,
-  &quot;Polyneuropathy in diabetes&quot;,
-  &quot;Diabetic retinopathy&quot;,
-  # Unrelated
-  &quot;Gout and other crystal arthrop&quot;,
-  &quot;Gout&quot;,
-  &quot;Back pain&quot;,
-  &quot;Thoracic or lumbosacral neuritis or radiculitis, unspecified&quot;,
-  &quot;Sciatica&quot;,
-  &quot;Neuralgia, neuritis, and radiculitis NOS&quot;,
-  &quot;Nonallopathic lesions NEC&quot;,
-  &quot;Myalgia and myositis unspecified&quot;,
-  &quot;Edema&quot;,
-  &quot;Fever of unknown origin&quot;,
-  &quot;Syncope and collapse&quot;,
-  &quot;Nausea and vomiting&quot;,
-  &quot;Other abnormal blood chemistry&quot;,
-  &quot;Malaise and fatigue&quot;,
-  &quot;Debility unspecified&quot;,
-  # Digestive, but not specific or overlaps with another code
-  &quot;Overweight, obesity and other hyperalimentation&quot;,
-  &quot;Diseases of esophagus&quot;,
-  &quot;Esophagitis, GERD and related diseases&quot;,
-  &quot;Symptoms involving digestive system&quot;,
-  &quot;Diverticulosis and diverticulitis&quot;,
-  &quot;Anal and rectal conditions&quot;,
-  &quot;Abnormal results of function study of liver&quot;
-  # Unrelated biomarkers
-)
+  [5] &quot;bicarbonate (mean, inv-norm transformed)&quot;                                    
+  [6] &quot;body mass index (BMI, mean, inv-normal transformed)&quot;                         
+  [7] &quot;blood urea nitrogen (BUN, mean, inv-norm transformed)&quot;                       
+  [8] &quot;calcium (mean, inv-norm transformed)&quot;                                        
+  [9] &quot;Other cancer&quot;                                                                
+ [10] &quot;chloride  (mean, inv-norm transformed)&quot;                                      
+ [11] &quot;Coronary Artery / Coronary Heart Disease (including heart attack, angina)&quot;   
+ [12] &quot;Congestive Heart Failure&quot;                                                    
+ [13] &quot;High Cholesterol&quot;                                                            
+ [14] &quot;Blood clot / Pulmonary Embolism / Deep Vein Thrombosis (DVT)&quot;                
+ [15] &quot;Heart Attack&quot;                                                                
+ [16] &quot;High blood pressure / hypertension&quot;                                          
+ [17] &quot;Other circulatory problem&quot;                                                   
+ [18] &quot;Peripheral Vascular Disease&quot;                                                 
+ [19] &quot;Stroke&quot;                                                                      
+ [20] &quot;Transient Ischemic Attack (TIA)&quot;                                             
+ [21] &quot;creatine kinase-MB (CKMB, absolute, mean, inv-norm transformed)&quot;             
+ [22] &quot;creatinine (mean, inv-norm transformed)&quot;                                     
+ [23] &quot;C-reactive protein (CRP, dL, mean, inv-norm transformed)&quot;                    
+ [24] &quot;C-reactive protein (CRP, L, mean, inv-norm transformed)&quot;                     
+ [25] &quot;diastolic blood pressure (DBP, mean, inv-normal transformed)&quot;                
+ [26] &quot;Sleep apnea&quot;                                                                 
+ [27] &quot;Asthma&quot;                                                                      
+ [28] &quot;Enlarged Prostrate (Benign Prostatic Hyperplasia)&quot;                           
+ [29] &quot;Diabetes / \&quot;Sugar\&quot;&quot;                                                        
+ [30] &quot;Thyroid problems&quot;                                                            
+ [31] &quot;estimated glomerular filtration rate (eGFR, mean, inv-norm transformed)&quot;     
+ [32] &quot;erythrocyte sedimentation rate (ESR, mean, inv-norm transformed)&quot;            
+ [33] &quot;ferritin (mean, inv-norm transformed)&quot;                                       
+ [34] &quot;Irritable Bowel Syndrome (IBS)&quot;                                              
+ [35] &quot;Other digestive system problems&quot;                                             
+ [36] &quot;Colon Polyps&quot;                                                                
+ [37] &quot;Acid Reflux/GERD&quot;                                                            
+ [38] &quot;Peptic Ulcers&quot;                                                               
+ [39] &quot;glucose (finger stick, mean, inv-norm transformed)&quot;                          
+ [40] &quot;glucose (fasting status unknown, mean, inv-norm transformed)&quot;                
+ [41] &quot;hematocrit (mean, inv-norm transformed)&quot;                                     
+ [42] &quot;high density lipoprotein cholesterol (HDLC, mean, inv-norm transformed)&quot;     
+ [43] &quot;height (mean, inv-normal transformed)&quot;                                       
+ [44] &quot;hemoglobin (mean, inv-norm transformed)&quot;                                     
+ [45] &quot;Cataracts&quot;                                                                   
+ [46] &quot;Glaucoma&quot;                                                                    
+ [47] &quot;Severe hearing loss or partial deafness in one or both ears&quot;                 
+ [48] &quot;Macular Degeneration&quot;                                                        
+ [49] &quot;Tinnitus or ringing in the ears&quot;                                             
+ [50] &quot;PT international normalized ratio (INR, mean, inv-norm transformed)&quot;         
+ [51] &quot;iron (mean, inv-norm transformed)&quot;                                           
+ [52] &quot;low density lipoprotein cholesterol (LDLC, mean, inv-norm transformed)&quot;      
+ [53] &quot;mean corpuscular hemoglobin (MCH, mean, inv-norm transformed)&quot;               
+ [54] &quot;mean corpuscular hemoglobin concentration (MCHC, mean, inv-norm transformed)&quot;
+ [55] &quot;mean corpuscular volume (MCV, mean, inv-norm transformed)&quot;                   
+ [56] &quot;magnesium (Mg, mean, inv-norm transformed)&quot;                                  
+ [57] &quot;monocyte (absolute count, mean, inv-norm transformed)&quot;                       
+ [58] &quot;monocyte (fraction, mean, inv-norm transformed)&quot;                             
+ [59] &quot;mean platelet volume (MPV, mean, inv-norm transformed)&quot;                      
+ [60] &quot;Concussion or loss of consciousness&quot;                                         
+ [61] &quot;Memory Loss or Impairment&quot;                                                   
+ [62] &quot;Migraine Headaches&quot;                                                          
+ [63] &quot;Other nervous system problem&quot;                                                
+ [64] &quot;Other Headaches&quot;                                                             
+ [65] &quot;Spinal Cord Injury&quot;                                                          
+ [66] &quot;Colorectal cancer&quot;                                                           
+ [67] &quot;Cancer, suspected or other&quot;                                                  
+ [68] &quot;Secondary malignant neoplasm&quot;                                                
+ [69] &quot;Neoplasm of uncertain behavior&quot;                                              
+ [70] &quot;Benign neoplasm of colon&quot;                                                    
+ [71] &quot;Lipoma&quot;                                                                      
+ [72] &quot;Vascular hamartomas and non-neoplastic nevi&quot;                                 
+ [73] &quot;Nevus, non-neoplastic&quot;                                                       
+ [74] &quot;Nontoxic nodular goiter&quot;                                                     
+ [75] &quot;Nontoxic uninodular goiter&quot;                                                  
+ [76] &quot;Hypothyroidism&quot;                                                              
+ [77] &quot;Hypothyroidism NOS&quot;                                                          
+ [78] &quot;Diabetes mellitus&quot;                                                           
+ [79] &quot;Type 1 diabetes&quot;                                                             
+ [80] &quot;Type 2 diabetes&quot;                                                             
+ [81] &quot;Type 2 diabetes with renal manifestations&quot;                                   
+ [82] &quot;Type 2 diabetes with ophthalmic manifestations&quot;                              
+ [83] &quot;Type 2 diabetes with neurological manifestations&quot;                            
+ [84] &quot;Insulin pump user&quot;                                                           
+ [85] &quot;Abnormal glucose&quot;                                                            
+ [86] &quot;Impaired fasting glucose&quot;                                                    
+ [87] &quot;Other abnormal glucose&quot;                                                      
+ [88] &quot;Polyneuropathy in diabetes&quot;                                                  
+ [89] &quot;Diabetic retinopathy&quot;                                                        
+ [90] &quot;Protein-calorie malnutrition&quot;                                                
+ [91] &quot;Vitamin deficiency&quot;                                                          
+ [92] &quot;Vitamin B-complex deficiencies&quot;                                              
+ [93] &quot;Vitamin D deficiency&quot;                                                        
+ [94] &quot;Proteinuria&quot;                                                                 
+ [95] &quot;Disorders of carbohydrate transport and metabolism&quot;                          
+ [96] &quot;Intestinal disaccharidase deficiencies and disaccharide malabsorption&quot;       
+ [97] &quot;Disorders of lipoid metabolism&quot;                                              
+ [98] &quot;Hyperlipidemia&quot;                                                              
+ [99] &quot;Hypercholesterolemia&quot;                                                        
+[100] &quot;Hyperglyceridemia&quot;                                                           
+[101] &quot;Mixed hyperlipidemia&quot;                                                        
+[102] &quot;Gout and other crystal arthrop&quot;                                              
+[103] &quot;Gout&quot;                                                                        
+[104] &quot;Disorders of mineral metabolism&quot;                                             
+[105] &quot;Disorders of fluid, electrolyte, and acid-based balance&quot;                     
+[106] &quot;Electrolyte imbalance&quot;                                                       
+[107] &quot;Hyposmolality and/or hyponatremia&quot;                                           
+[108] &quot;Hyperpotassemia&quot;                                                             
+[109] &quot;Hypopotassemia&quot;                                                              
+[110] &quot;Acid-base balance disorder&quot;                                                  
+[111] &quot;Hypovolemia&quot;                                                                 
+[112] &quot;Overweight, obesity and other hyperalimentation&quot;                             
+[113] &quot;Obesity&quot;                                                                     
+[114] &quot;Morbid obesity&quot;                                                              
+[115] &quot;Diseases of esophagus&quot;                                                       
+[116] &quot;Esophagitis, GERD and related diseases&quot;                                      
+[117] &quot;GERD&quot;                                                                        
+[118] &quot;Barrett&#39;s esophagus&quot;                                                         
+[119] &quot;Reflux esophagitis&quot;                                                          
+[120] &quot;Peptic ulcer (excl. esophageal)&quot;                                             
+[121] &quot;Dysphagia&quot;                                                                   
+[122] &quot;Gastritis and duodenitis&quot;                                                    
+[123] &quot;Disorders of function of stomach&quot;                                            
+[124] &quot;Abdominal hernia&quot;                                                            
+[125] &quot;Inguinal hernia&quot;                                                             
+[126] &quot;Diaphragmatic hernia&quot;                                                        
+[127] &quot;Umbilical hernia&quot;                                                            
+[128] &quot;Noninfectious gastroenteritis&quot;                                               
+[129] &quot;Intestinal obstruction without mention of hernia&quot;                            
+[130] &quot;Symptoms involving digestive system&quot;                                         
+[131] &quot;Diarrhea&quot;                                                                    
+[132] &quot;Diverticulosis and diverticulitis&quot;                                           
+[133] &quot;Diverticulosis&quot;                                                              
+[134] &quot;Diverticulitis&quot;                                                              
+[135] &quot;Constipation&quot;                                                                
+[136] &quot;Functional digestive disorders&quot;                                              
+[137] &quot;Irritable Bowel Syndrome&quot;                                                    
+[138] &quot;Anal and rectal conditions&quot;                                                  
+[139] &quot;Chronic liver disease and cirrhosis&quot;                                         
+[140] &quot;Other chronic nonalcoholic liver disease&quot;                                    
+[141] &quot;Cirrhosis of liver without mention of alcohol&quot;                               
+[142] &quot;Abnormal results of function study of liver&quot;                                 
+[143] &quot;Cholelithiasis and cholecystitis&quot;                                            
+[144] &quot;Cholelithiasis&quot;                                                              
+[145] &quot;Diseases of pancreas&quot;                                                        
+[146] &quot;Gastrointestinal hemorrhage&quot;                                                 
+[147] &quot;Blood in stool&quot;                                                              
+[148] &quot;Hemorrhage of rectum and anus&quot;                                               
+[149] &quot;Hemorrhage of gastrointestinal tract&quot;                                        
+[150] &quot;Back pain&quot;                                                                   
+[151] &quot;Thoracic or lumbosacral neuritis or radiculitis, unspecified&quot;                
+[152] &quot;Sciatica&quot;                                                                    
+[153] &quot;Neuralgia, neuritis, and radiculitis NOS&quot;                                    
+[154] &quot;Nonallopathic lesions NEC&quot;                                                   
+[155] &quot;Myalgia and myositis unspecified&quot;                                            
+[156] &quot;Edema&quot;                                                                       
+[157] &quot;Fever of unknown origin&quot;                                                     
+[158] &quot;Abdominal pain&quot;                                                              
+[159] &quot;Syncope and collapse&quot;                                                        
+[160] &quot;Nausea and vomiting&quot;                                                         
+[161] &quot;Other abnormal blood chemistry&quot;                                              
+[162] &quot;Malaise and fatigue&quot;                                                         
+[163] &quot;Debility unspecified&quot;                                                        
+[164] &quot;platelet count (mean, inv-norm transformed)&quot;                                 
+[165] &quot;potassium (mean, inv-norm transformed)&quot;                                      
+[166] &quot;prothrombin time (PT, mean, inv-norm transformed)&quot;                           
+[167] &quot;heart rate (HR, mean, inv-normal transformed)&quot;                               
+[168] &quot;red blood cell count (RBC, mean, inv-norm transformed)&quot;                      
+[169] &quot;red cell diameter width (RDW, mean, inv-norm transformed)&quot;                   
+[170] &quot;Gout&quot;                                                                        
+[171] &quot;Ostearthritis&quot;                                                               
+[172] &quot;Osteoporosis&quot;                                                                
+[173] &quot;Other skeletal/muscular problem&quot;                                             
+[174] &quot;Other Arthritis&quot;                                                             
+[175] &quot;Rheumatoid Arthritis&quot;                                                        
+[176] &quot;sodium (mean, inv-norm transformed)&quot;                                         
+[177] &quot;systolic blood pressure (SBP, mean, inv-normal transformed)&quot;                 
+[178] &quot;total iron (mean, inv-norm transformed)&quot;                                     
+[179] &quot;total creatine kinase (mean, inv-norm transformed)&quot;                          
+[180] &quot;total cholesterol (mean, inv-norm transformed)&quot;                              
+[181] &quot;triglyceride (mean, inv-norm transformed)&quot;                                   
+[182] &quot;troponin I (mean, inv-norm transformed)&quot;                                     
+[183] &quot;transferrin saturation (TSAT, mean, inv-norm transformed)&quot;                   
+[184] &quot;white blood cell count (WBC, mean, inv-norm transformed)&quot;                    
+[185] &quot;weight (mean, inv-normal transformed)&quot;                                       </code></pre>
+<pre class="r"><code>to_remove &lt;- c(&quot;blood urea nitrogen (BUN, mean, inv-norm transformed)&quot;, # kidney
+               &quot;body mass index (BMI, mean, inv-normal transformed)&quot;,
+               &quot;calcium (mean, inv-norm transformed)&quot;, # muscle
+               &quot;creatine kinase-MB (CKMB, absolute, mean, inv-norm transformed)&quot;, # heart attack
+               &quot;creatinine (mean, inv-norm transformed)&quot;, # kidney
+               &quot;C-reactive protein (CRP, dL, mean, inv-norm transformed)&quot;, # inflammation
+               &quot;C-reactive protein (CRP, L, mean, inv-norm transformed)&quot;,
+               &quot;erythrocyte sedimentation rate (ESR, mean, inv-norm transformed)&quot;, # kidney
+               &quot;erythrocyte sedimentation rate (ESR, mean, inv-norm transformed)&quot;, # inflammation
+               &quot;ferritin (mean, inv-norm transformed)&quot;, # iron
+               &quot;hematocrit (mean, inv-norm transformed)&quot;, # iron
+               &quot;platelet count (mean, inv-norm transformed)&quot;,
+               &quot;potassium (mean, inv-norm transformed)&quot;,
+               &quot;prothrombin time (PT, mean, inv-norm transformed)&quot;,
+               &quot;red blood cell count (RBC, mean, inv-norm transformed)&quot;,
+               &quot;red cell diameter width (RDW, mean, inv-norm transformed)&quot;,
+               &quot;total creatine kinase (mean, inv-norm transformed)&quot;, # heart
+               &quot;Other cancer&quot;,
+               &quot;Coronary Artery / Coronary Heart Disease (including heart attack, angina)&quot;,
+               &quot;Congestive Heart Failure&quot;,
+               &quot;Blood clot / Pulmonary Embolism / Deep Vein Thrombosis (DVT)&quot;,
+               &quot;Heart Attack&quot;,
+               &quot;High blood pressure / hypertension&quot;,
+               &quot;Other circulatory problem&quot;,
+               &quot;Peripheral Vascular Disease&quot;,
+               &quot;Stroke&quot;,
+               &quot;Transient Ischemic Attack (TIA)&quot;,
+               &quot;Sleep apnea&quot;,
+               &quot;Asthma&quot;,
+               &quot;Enlarged Prostrate (Benign Prostatic Hyperplasia)&quot;,
+               &quot;height (mean, inv-normal transformed)&quot;,
+               &quot;hemoglobin (mean, inv-norm transformed)&quot;,
+               &quot;Cataracts&quot;,
+               &quot;Glaucoma&quot;,
+               &quot;Severe hearing loss or partial deafness in one or both ears&quot;,
+               &quot;Macular Degeneration&quot;,
+               &quot;Tinnitus or ringing in the ears&quot;,
+               &quot;PT international normalized ratio (INR, mean, inv-norm transformed)&quot;,
+               &quot;iron (mean, inv-norm transformed)&quot;,
+               &quot;mean corpuscular hemoglobin (MCH, mean, inv-norm transformed)&quot;,
+               &quot;mean corpuscular hemoglobin concentration (MCHC, mean, inv-norm transformed)&quot;,
+               &quot;mean corpuscular volume (MCV, mean, inv-norm transformed)&quot;,
+               &quot;monocyte (absolute count, mean, inv-norm transformed)&quot;,
+               &quot;monocyte (fraction, mean, inv-norm transformed)&quot;,
+               &quot;mean platelet volume (MPV, mean, inv-norm transformed)&quot;,
+               &quot;Concussion or loss of consciousness&quot;,
+               &quot;Memory Loss or Impairment&quot;,
+               &quot;Migraine Headaches&quot;,
+               &quot;Other nervous system problem&quot;,
+               &quot;Other Headaches&quot;,
+               &quot;Spinal Cord Injury&quot;,
+               &quot;Cancer, suspected or other&quot;,
+               &quot;Secondary malignant neoplasm&quot;,
+               &quot;Neoplasm of uncertain behavior&quot;,
+               &quot;Lipoma&quot;,
+               &quot;Vascular hamartomas and non-neoplastic nevi&quot;,
+               &quot;Nevus, non-neoplastic&quot;,
+               &quot;Insulin pump user&quot;,
+               &quot;Polyneuropathy in diabetes&quot;,
+               &quot;Diabetic retinopathy&quot;,
+               &quot;Gout and other crystal arthrop&quot;,
+               &quot;Gout&quot;,
+               &quot;Back pain&quot;,
+               &quot;Thoracic or lumbosacral neuritis or radiculitis, unspecified&quot;,
+               &quot;Sciatica&quot;,
+               &quot;Neuralgia, neuritis, and radiculitis NOS&quot;,
+               &quot;Nonallopathic lesions NEC&quot;,
+               &quot;Myalgia and myositis unspecified&quot;,
+               &quot;Edema&quot;,
+               &quot;Fever of unknown origin&quot;,
+               &quot;Syncope and collapse&quot;,
+               &quot;Other abnormal blood chemistry&quot;,
+               &quot;Malaise and fatigue&quot;,
+               &quot;Debility unspecified&quot;,
+               &quot;Gout&quot;,
+               &quot;Ostearthritis&quot;,
+               &quot;Osteoporosis&quot;,
+               &quot;Other skeletal/muscular problem&quot;,
+               &quot;Other Arthritis&quot;,
+               &quot;Rheumatoid Arthritis&quot;,
+               &quot;total iron (mean, inv-norm transformed)&quot;,
+               &quot;troponin I (mean, inv-norm transformed)&quot;,
+               &quot;transferrin saturation (TSAT, mean, inv-norm transformed)&quot;,
+               &quot;white blood cell count (WBC, mean, inv-norm transformed)&quot;,
+               &quot;weight (mean, inv-normal transformed)&quot;,
+               &quot;diastolic blood pressure (DBP, mean, inv-normal transformed)&quot;,
+               &quot;heart rate (HR, mean, inv-normal transformed)&quot;,
+               &quot;systolic blood pressure (SBP, mean, inv-normal transformed)&quot;,
+               &quot;Dysphagia&quot;)
 
 pheno_filt &lt;- pheno_filt %&gt;% filter(!Description %in% to_remove)</code></pre>
 </div>
@@ -1015,7 +1139,12 @@ neo_2 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org
 symptoms_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
 
 # Vitals
-vitals_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)</code></pre>
+vitals_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+
+# Surveys 
+surveys_1 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch1.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+surveys_2 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch2.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)
+surveys_3 &lt;- read.table(&quot;https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch3.analysis-PI.MULTI.tar.table_of_contents.txt&quot;)</code></pre>
 </div>
 <div id="merging-and-organizing-the-tables-of-contents"
 class="section level1">
@@ -1024,13 +1153,15 @@ class="section level1">
                    digest_1, digest_2,
                    endo_1, endo_2, 
                    neo_1, neo_2,
-                   symptoms_1, vitals_1)
+                   symptoms_1, vitals_1,
+                   surveys_1, surveys_2, surveys_3)
 
 rm(lab_1, lab_2, lab_3,
    digest_1, digest_2,
    endo_1, endo_2,
    neo_1, neo_2,
-   symptoms_1, vitals_1)
+   symptoms_1, vitals_1,
+   surveys_1, surveys_2, surveys_3)
 
 # Filter for European ancestry file names
 file_names &lt;- file_names %&gt;% filter(str_detect(V6, &quot;EUR&quot;))
@@ -1049,29 +1180,31 @@ pheno_filt &lt;- left_join(pheno_filt, file_names)</code></pre>
 unique_tarballs &lt;- unique(pheno_filt$tar_file)
 unique_tarballs</code></pre>
 <pre><code> [1] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch1.analysis-PI.MULTI.tar&quot;                       
- [2] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar&quot;       
- [3] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar&quot;                       
- [4] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar&quot;                       
+ [2] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch1.analysis-PI.MULTI.tar&quot;             
+ [3] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch2.analysis-PI.MULTI.tar&quot;             
+ [4] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar&quot;                       
  [5] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch1.analysis-PI.MULTI.tar&quot;         
  [6] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch2.analysis-PI.MULTI.tar&quot;         
  [7] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch1.analysis-PI.MULTI.tar&quot;
  [8] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch2.analysis-PI.MULTI.tar&quot;
  [9] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch1.analysis-PI.MULTI.tar&quot;   
 [10] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch2.analysis-PI.MULTI.tar&quot;   
-[11] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar&quot;                 </code></pre>
+[11] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar&quot;                 
+[12] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar&quot;                       </code></pre>
 <pre class="r"><code>unique_md5s &lt;- paste0(unique_tarballs, &quot;.md5&quot;)
 unique_md5s</code></pre>
 <pre><code> [1] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch1.analysis-PI.MULTI.tar.md5&quot;                       
- [2] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar.md5&quot;       
- [3] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar.md5&quot;                       
- [4] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar.md5&quot;                       
+ [2] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch1.analysis-PI.MULTI.tar.md5&quot;             
+ [3] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch2.analysis-PI.MULTI.tar.md5&quot;             
+ [4] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar.md5&quot;                       
  [5] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch1.analysis-PI.MULTI.tar.md5&quot;         
  [6] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch2.analysis-PI.MULTI.tar.md5&quot;         
  [7] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch1.analysis-PI.MULTI.tar.md5&quot;
  [8] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch2.analysis-PI.MULTI.tar.md5&quot;
  [9] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch1.analysis-PI.MULTI.tar.md5&quot;   
 [10] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch2.analysis-PI.MULTI.tar.md5&quot;   
-[11] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar.md5&quot;                 </code></pre>
+[11] &quot;phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar.md5&quot;                 
+[12] &quot;phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar.md5&quot;                       </code></pre>
 <pre class="r"><code>pheno_filt &lt;- pheno_filt %&gt;% mutate(file_name = gsub(&quot;.*/&quot;, &quot;&quot;, V6))</code></pre>
 </div>
 <div id="test-downloading-a-small-tarball-to-the-server"
