@@ -31,14 +31,6 @@ table(pheno_filt$Category)
 
 ```
 
-# Filter for category of labs, vitals, and phecodes
-
-```{r}
-pheno_filt <- pheno_filt %>% filter(Category == "Labs" |
-                                      Category == "PheCodes" |
-                                      Category == "Vitals")
-```
-
 # Filter by subcategory for phecodes
 
 ```{r}
@@ -49,8 +41,10 @@ pheno_filt <- pheno_filt %>% filter(SubCategory == "Labs" |
                                       SubCategory == "Digestive System" |
                                       SubCategory == "Endocrine or Metabolic" |
                                       SubCategory == "Neoplasms" |
-                                      SubCategory == "Symptoms")
+                                      SubCategory == "Symptoms" |
+                                      SubCategory == "Disease Diagnosis")
 ```
+
 # Removing irrelevant phenotypes by keyword
 
 ```{r}
@@ -58,7 +52,6 @@ library(stringr)
 pheno_filt <- pheno_filt %>% filter(str_detect(Description, "(?i)cervi", negate=TRUE) &
                                       str_detect(Description, "(?i)prostate", negate=TRUE) &
                                       str_detect(Description, "(?i)testicu", negate=TRUE) &
-                                      str_detect(Description, "(?i)bladder", negate=TRUE) &
                                       # respiratory
                                       str_detect(Description, "(?i)respiratory", negate=TRUE) &
                                       str_detect(Description, "(?i)lung", negate=TRUE) &
@@ -67,10 +60,12 @@ pheno_filt <- pheno_filt %>% filter(str_detect(Description, "(?i)cervi", negate=
                                       str_detect(Description, "carcin", negate=TRUE) &
                                       # genitourinary
                                       str_detect(Description, "(?i)bladder", negate=TRUE) &
+                                      str_detect(Description, "(?i)kidney", negate=TRUE) &
                                       # neuro
                                       str_detect(Description, "(?i)brain", negate=TRUE) &
-                                      # lymphatic
+                                      # lymphatic, immune
                                       str_detect(Description, "(?i)lymph", negate=TRUE) &
+                                      str_detect(Description, "(?i)phil", negate=TRUE) &
                                       # musculoskeletal
                                       str_detect(Description, "(?i)muscle", negate=TRUE) &
                                       str_detect(Description, "(?i)limb", negate=TRUE) &
@@ -86,7 +81,9 @@ pheno_filt <- pheno_filt %>% filter(str_detect(Description, "(?i)cervi", negate=
                                       str_detect(Description, "(?i)perio", negate=TRUE) &
                                       # screenings, findings, etc
                                       str_detect(Description, "(?i)screening", negate=TRUE) &
-                                      str_detect(Description, "(?i)therapy", negate=TRUE))
+                                      str_detect(Description, "(?i)therapy", negate=TRUE) &
+                                      str_detect(Description, "Takes medication for", negate=TRUE) &
+                                      str_detect(Description, "What is", negate=TRUE))
 ```
 
 
@@ -95,7 +92,8 @@ pheno_filt <- pheno_filt %>% filter(str_detect(Description, "(?i)cervi", negate=
 pheno_filt <- pheno_filt %>%
   filter((Category == "Labs" & grepl("Mean", Trait)) | 
            (Category == "Vitals" & grepl("Mean", Trait)) |
-           Category == "PheCodes")
+           Category == "PheCodes" |
+           Category == "Surveys")
 
 ```
 
@@ -103,52 +101,95 @@ pheno_filt <- pheno_filt %>%
 ```{r}
 pheno_filt$Description
 
-to_remove <- c(
-  # Not specific
-  "Cancer, suspected or other",
-  "Secondary malignant neoplasm",
-  "Neoplasm of uncertain behavior",
-  "Lipoma",
-  "Vascular hamartomas and non-neoplastic nevi",
-  "Nevus, non-neoplastic",
-  # Endocrine
-  "Nontoxic nodular goiter",
-  "Nontoxic uninodular goiter",
-  "Hypothyroidism",
-  "Hypothyroidism NOS",
-  "Type 2 diabetes with renal manifestations",
-  "Type 2 diabetes with ophthalmic manifestations",
-  "Type 2 diabetes with neurological manifestations",
-  "Insulin pump user",
-  "Other abnormal glucose",
-  "Polyneuropathy in diabetes",
-  "Diabetic retinopathy",
-  # Unrelated
-  "Gout and other crystal arthrop",
-  "Gout",
-  "Back pain",
-  "Thoracic or lumbosacral neuritis or radiculitis, unspecified",
-  "Sciatica",
-  "Neuralgia, neuritis, and radiculitis NOS",
-  "Nonallopathic lesions NEC",
-  "Myalgia and myositis unspecified",
-  "Edema",
-  "Fever of unknown origin",
-  "Syncope and collapse",
-  "Nausea and vomiting",
-  "Other abnormal blood chemistry",
-  "Malaise and fatigue",
-  "Debility unspecified",
-  # Digestive, but not specific or overlaps with another code
-  "Overweight, obesity and other hyperalimentation",
-  "Diseases of esophagus",
-  "Esophagitis, GERD and related diseases",
-  "Symptoms involving digestive system",
-  "Diverticulosis and diverticulitis",
-  "Anal and rectal conditions",
-  "Abnormal results of function study of liver"
-  # Unrelated biomarkers
-)
+to_remove <- c("blood urea nitrogen (BUN, mean, inv-norm transformed)", # kidney
+               "body mass index (BMI, mean, inv-normal transformed)",
+               "calcium (mean, inv-norm transformed)", # muscle
+               "creatine kinase-MB (CKMB, absolute, mean, inv-norm transformed)", # heart attack
+               "creatinine (mean, inv-norm transformed)", # kidney
+               "C-reactive protein (CRP, dL, mean, inv-norm transformed)", # inflammation
+               "C-reactive protein (CRP, L, mean, inv-norm transformed)",
+               "erythrocyte sedimentation rate (ESR, mean, inv-norm transformed)", # kidney
+               "erythrocyte sedimentation rate (ESR, mean, inv-norm transformed)", # inflammation
+               "ferritin (mean, inv-norm transformed)", # iron
+               "hematocrit (mean, inv-norm transformed)", # iron
+               "platelet count (mean, inv-norm transformed)",
+               "potassium (mean, inv-norm transformed)",
+               "prothrombin time (PT, mean, inv-norm transformed)",
+               "red blood cell count (RBC, mean, inv-norm transformed)",
+               "red cell diameter width (RDW, mean, inv-norm transformed)",
+               "total creatine kinase (mean, inv-norm transformed)", # heart
+               "Other cancer",
+               "Coronary Artery / Coronary Heart Disease (including heart attack, angina)",
+               "Congestive Heart Failure",
+               "Blood clot / Pulmonary Embolism / Deep Vein Thrombosis (DVT)",
+               "Heart Attack",
+               "High blood pressure / hypertension",
+               "Other circulatory problem",
+               "Peripheral Vascular Disease",
+               "Stroke",
+               "Transient Ischemic Attack (TIA)",
+               "Sleep apnea",
+               "Asthma",
+               "Enlarged Prostrate (Benign Prostatic Hyperplasia)",
+               "height (mean, inv-normal transformed)",
+               "hemoglobin (mean, inv-norm transformed)",
+               "Cataracts",
+               "Glaucoma",
+               "Severe hearing loss or partial deafness in one or both ears",
+               "Macular Degeneration",
+               "Tinnitus or ringing in the ears",
+               "PT international normalized ratio (INR, mean, inv-norm transformed)",
+               "iron (mean, inv-norm transformed)",
+               "mean corpuscular hemoglobin (MCH, mean, inv-norm transformed)",
+               "mean corpuscular hemoglobin concentration (MCHC, mean, inv-norm transformed)",
+               "mean corpuscular volume (MCV, mean, inv-norm transformed)",
+               "monocyte (absolute count, mean, inv-norm transformed)",
+               "monocyte (fraction, mean, inv-norm transformed)",
+               "mean platelet volume (MPV, mean, inv-norm transformed)",
+               "Concussion or loss of consciousness",
+               "Memory Loss or Impairment",
+               "Migraine Headaches",
+               "Other nervous system problem",
+               "Other Headaches",
+               "Spinal Cord Injury",
+               "Cancer, suspected or other",
+               "Secondary malignant neoplasm",
+               "Neoplasm of uncertain behavior",
+               "Lipoma",
+               "Vascular hamartomas and non-neoplastic nevi",
+               "Nevus, non-neoplastic",
+               "Insulin pump user",
+               "Polyneuropathy in diabetes",
+               "Diabetic retinopathy",
+               "Gout and other crystal arthrop",
+               "Gout",
+               "Back pain",
+               "Thoracic or lumbosacral neuritis or radiculitis, unspecified",
+               "Sciatica",
+               "Neuralgia, neuritis, and radiculitis NOS",
+               "Nonallopathic lesions NEC",
+               "Myalgia and myositis unspecified",
+               "Edema",
+               "Fever of unknown origin",
+               "Syncope and collapse",
+               "Other abnormal blood chemistry",
+               "Malaise and fatigue",
+               "Debility unspecified",
+               "Gout",
+               "Ostearthritis",
+               "Osteoporosis",
+               "Other skeletal/muscular problem",
+               "Other Arthritis",
+               "Rheumatoid Arthritis",
+               "total iron (mean, inv-norm transformed)",
+               "troponin I (mean, inv-norm transformed)",
+               "transferrin saturation (TSAT, mean, inv-norm transformed)",
+               "white blood cell count (WBC, mean, inv-norm transformed)",
+               "weight (mean, inv-normal transformed)",
+               "diastolic blood pressure (DBP, mean, inv-normal transformed)",
+               "heart rate (HR, mean, inv-normal transformed)",
+               "systolic blood pressure (SBP, mean, inv-normal transformed)",
+               "Dysphagia")
 
 pheno_filt <- pheno_filt %>% filter(!Description %in% to_remove)
 ```
@@ -179,6 +220,11 @@ symptoms_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/db
 # Vitals
 vitals_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar.table_of_contents.txt")
 
+# Surveys 
+surveys_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+surveys_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+surveys_3 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch3.analysis-PI.MULTI.tar.table_of_contents.txt")
+
 ```
 
 # Merging and organizing the tables of contents
@@ -187,13 +233,15 @@ file_names <- rbind(lab_1, lab_2, lab_3,
                    digest_1, digest_2,
                    endo_1, endo_2, 
                    neo_1, neo_2,
-                   symptoms_1, vitals_1)
+                   symptoms_1, vitals_1,
+                   surveys_1, surveys_2, surveys_3)
 
 rm(lab_1, lab_2, lab_3,
    digest_1, digest_2,
    endo_1, endo_2,
    neo_1, neo_2,
-   symptoms_1, vitals_1)
+   symptoms_1, vitals_1,
+   surveys_1, surveys_2, surveys_3)
 
 # Filter for European ancestry file names
 file_names <- file_names %>% filter(str_detect(V6, "EUR"))
