@@ -194,6 +194,10 @@ to_remove <- c("blood urea nitrogen (BUN, mean, inv-norm transformed)", # kidney
 pheno_filt <- pheno_filt %>% filter(!Description %in% to_remove)
 ```
 
+# FINAL phenotype list
+```{r}
+pheno_filt$Description
+```
 
 # Loading in file manifests
 ```{r}
