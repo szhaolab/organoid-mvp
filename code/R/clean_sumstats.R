@@ -19,8 +19,8 @@ clean_sumstats <- function(sumstats, cols.to.keep){
   # keep SNPs in 1kg
   #sumstats <- inner_join(sumstats, snps.to.keep, by=rs)
   # Extract relevant columns
-  clean.sumstats <- sumstats[ ,c(chr, pos, beta_EUR, se_EUR, ref, alt, rs, neglog10_pval_EUR)]
-  colnames(clean.sumstats) <- c('chr','pos','beta','se','ref','alt','snp', 'neglog10pval')
+  clean.sumstats <- sumstats[ ,c(chr, pos, beta, se, a0, a1, rs, pval)]
+  colnames(clean.sumstats) <- c('chr','pos','beta','se','a0','a1','snp', 'pval')
   
   # drop XY chromosomes
   clean.sumstats <- clean.sumstats[!(clean.sumstats$chr %in% c("X","Y")), ]
@@ -48,10 +48,10 @@ clean_sumstats <- function(sumstats, cols.to.keep){
   return(clean.sumstats)
 }
 
-args <- commandArgs(trailingOnly=T) # Captures command line arguments
-sumstats <- vroom::vroom(args[1], col_names = T) # Reads the summary statistics data from the first argument specified in the command line
-cols.to.keep <- unlist(strsplit(as.character(args[2]), split=',')) # Splits the second command line argument into a vector of column names/indices
-outName <- args[3] # Specify the output file name via the third argument in the command line
+args <- commandArgs(trailingOnly=T)
+sumstats <- vroom::vroom(args[1], col_names = T)
+cols.to.keep <- unlist(strsplit(as.character(args[2]), split=','))
+outName <- args[3]
 
 cleaned_sumstats <- clean_sumstats(sumstats, cols.to.keep)
 vroom::vroom_write(cleaned_sumstats, outName)

@@ -2,4 +2,5 @@
 /outputs/annotations
 /outputs/munged_sumstats
 /code/MVP-data-pull/job_*
-data/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch1.analysis-PI.MULTI.tar
+/raw-sumstats
+/cleaned-sumstats

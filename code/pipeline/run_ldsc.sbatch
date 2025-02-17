@@ -10,7 +10,7 @@
 
 ################################
 # Enter your code to run below #
-# Usage: Run snakemake snake-ldsc-kh.py
+# Usage: Run snakemake snake-ldsc-kh.smk
 ################################
 
 eval "$(conda shell.bash hook)"

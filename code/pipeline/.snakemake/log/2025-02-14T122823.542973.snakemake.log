@@ -1,0 +1,37 @@
+host: s43.hpcc.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count
+---------------------  -------
+all                          1
+clean_sumstats_binary        1
+total                        2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 14 12:28:23 2025]
+localrule clean_sumstats_binary:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP_R4.1000G_AGR.Phe_578_8.EUR.GIA.dbGaP.txt.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    jobid: 1
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    wildcards: binary_traits=Phe_578_8
+    resources: tmpdir=/scratch/f007fdw
+
+Terminating processes on user request, this might take some time.
+[Fri Feb 14 12:41:59 2025]
+Error in rule clean_sumstats_binary:
+    jobid: 1
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP_R4.1000G_AGR.Phe_578_8.EUR.GIA.dbGaP.txt.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    shell:
+        Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/clean_sumstats_binary.R /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP_R4.1000G_AGR.Phe_578_8.EUR.GIA.dbGaP.txt.gz chrom,pos,or,ci,ref,alt,SNP_ID,pval /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2025-02-14T122823.542973.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

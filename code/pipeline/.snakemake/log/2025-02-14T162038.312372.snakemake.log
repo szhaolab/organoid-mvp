@@ -1,0 +1,42 @@
+host: q03.hpcc.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count
+---------------------  -------
+all                          1
+clean_sumstats_binary        1
+total                        2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 14 16:20:38 2025]
+localrule clean_sumstats_binary:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP_R4.1000G_AGR.Phe_578_8.EUR.GIA.dbGaP.txt.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    jobid: 1
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    wildcards: binary_traits=Phe_578_8
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/clean_sumstats_binary.R /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP_R4.1000G_AGR.Phe_578_8.EUR.GIA.dbGaP.txt.gz chrom,pos,or,ci,ref,alt,SNP_ID,pval /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+[Fri Feb 14 16:33:55 2025]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 14 16:33:55 2025]
+localrule all:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    jobid: 0
+    reason: Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    resources: tmpdir=/scratch/f007fdw
+
+[Fri Feb 14 16:33:55 2025]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2025-02-14T162038.312372.snakemake.log

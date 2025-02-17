@@ -1,0 +1,281 @@
+Assuming unrestricted shared filesystem usage.
+host: s21.hpcc.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+clean_sumstats              1
+compute_ld_scores          22
+create_annotations         22
+enrichment_ldsc             1
+get_significant_loci        1
+munge_sumstats              1
+total                      49
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 17 11:52:03 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.14.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.14.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.14.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.14.l2.M
+    jobid: 31
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.14.annot.gz
+    wildcards: trait=ALT_Mean_INT, chrom=14
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.14.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.14.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.14.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.14.l2.M
+Rows: 324698 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (3): X2, X5, X6
+dbl (3): X1, X3, X4
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 324698 Columns: 21
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr  (3): SNP, A1, A2
+dbl (18): CHR, BP, MAFbin1, MAFbin2, MAFbin3, MAFbin4, MAFbin5, MAFbin6, MAF...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[Mon Feb 17 11:52:25 2025]
+Finished job 31.
+1 of 49 steps (2%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 17 11:52:25 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.21.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.21.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.21.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.21.l2.M
+    jobid: 45
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.21.annot.gz
+    wildcards: trait=ALT_Mean_INT, chrom=21
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.21.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.21.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.21.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.21.l2.M
+Rows: 138712 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (3): X2, X5, X6
+dbl (3): X1, X3, X4
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 138712 Columns: 21
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr  (3): SNP, A1, A2
+dbl (18): CHR, BP, MAFbin1, MAFbin2, MAFbin3, MAFbin4, MAFbin5, MAFbin6, MAF...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[Mon Feb 17 11:52:43 2025]
+Finished job 45.
+2 of 49 steps (4%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 17 11:52:44 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.12.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.12.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.12.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.12.l2.M
+    jobid: 27
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.12.annot.gz
+    wildcards: trait=ALT_Mean_INT, chrom=12
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.12.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.12.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.12.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.12.l2.M
+Rows: 480110 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (3): X2, X5, X6
+dbl (3): X1, X3, X4
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 480110 Columns: 21
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr  (3): SNP, A1, A2
+dbl (18): CHR, BP, MAFbin1, MAFbin2, MAFbin3, MAFbin4, MAFbin5, MAFbin6, MAF...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[Mon Feb 17 11:53:08 2025]
+Finished job 27.
+3 of 49 steps (6%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 17 11:53:09 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.22.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.22.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.l2.M
+    jobid: 47
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.annot.gz
+    wildcards: trait=ALT_Mean_INT, chrom=22
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.22.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.22.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.l2.M
+Rows: 141123 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (3): X2, X5, X6
+dbl (3): X1, X3, X4
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 141123 Columns: 21
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr  (3): SNP, A1, A2
+dbl (18): CHR, BP, MAFbin1, MAFbin2, MAFbin3, MAFbin4, MAFbin5, MAFbin6, MAF...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[Mon Feb 17 11:53:26 2025]
+Finished job 47.
+4 of 49 steps (8%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 17 11:53:26 2025]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.l2.ldscore.parquet
+    jobid: 46
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.annot.gz
+    wildcards: trait=ALT_Mean_INT, chrom=22
+    resources: tmpdir=/scratch/f007fdw
+
+
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/compute_ldscores.py                --bfile /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.22                --annot /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.annot.gz                --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.22.l2.ldscore.parquet
+        
+/dartfs/rc/lab/S/Szhao/katieh/polyfun/ldsc_polyfun/parse.py:369: FutureWarning: The 'delim_whitespace' keyword in pd.read_csv is deprecated and will be removed in a future version. Use ``sep='\s+'`` instead
+  self.df = pd.read_csv(fname, header=self.__header__, usecols=self.__usecols__,
+[WARNING]  no ld-wind argument specified.  We will use --ld-cm 1.0
+[INFO]  Applying SNPs filter...
+  0%|          | 0/141123 [00:00<?, ?it/s] 17%|█▋        | 24290/141123 [00:00<00:00, 242885.18it/s] 35%|███▍      | 49201/141123 [00:00<00:00, 246538.24it/s] 53%|█████▎    | 74115/141123 [00:00<00:00, 247720.93it/s] 70%|███████   | 98888/141123 [00:00<00:00, 245809.86it/s] 88%|████████▊ | 123799/141123 [00:00<00:00, 246989.43it/s]100%|██████████| 141123/141123 [00:00<00:00, 246745.57it/s]
+[INFO]  After filtering, 141123 SNPs remain
+[INFO]  Applying initial ldscores loop
+  0%|          | 0/4 [00:00<?, ?it/s]100%|██████████| 4/4 [00:00<00:00, 590.31it/s]
+[INFO]  Applying main ldscores loop...
+  0%|          | 0/2819 [00:00<?, ?it/s]  1%|          | 28/2819 [00:00<00:10, 268.70it/s]  2%|▏         | 55/2819 [00:00<00:14, 184.85it/s]  3%|▎         | 75/2819 [00:00<00:17, 156.48it/s]  3%|▎         | 98/2819 [00:00<00:15, 176.88it/s]  4%|▍         | 123/2819 [00:00<00:13, 196.79it/s]  5%|▌         | 144/2819 [00:00<00:14, 188.65it/s]  6%|▌         | 164/2819 [00:00<00:14, 181.42it/s]  6%|▋         | 183/2819 [00:01<00:14, 176.07it/s]  7%|▋         | 211/2819 [00:01<00:12, 202.43it/s]  8%|▊         | 232/2819 [00:01<00:13, 186.30it/s]  9%|▉         | 252/2819 [00:01<00:15, 160.72it/s] 10%|▉         | 269/2819 [00:01<00:17, 148.36it/s] 10%|█         | 289/2819 [00:01<00:15, 159.95it/s] 11%|█         | 306/2819 [00:01<00:15, 161.31it/s] 12%|█▏        | 330/2819 [00:01<00:13, 180.42it/s] 12%|█▏        | 352/2819 [00:01<00:13, 189.67it/s] 13%|█▎        | 372/2819 [00:02<00:13, 182.54it/s] 14%|█▍        | 398/2819 [00:02<00:11, 202.20it/s] 15%|█▍        | 419/2819 [00:02<00:12, 199.68it/s] 16%|█▌        | 440/2819 [00:02<00:13, 178.39it/s] 16%|█▋        | 459/2819 [00:02<00:14, 168.24it/s] 17%|█▋        | 477/2819 [00:02<00:14, 163.15it/s] 18%|█▊        | 494/2819 [00:02<00:14, 162.35it/s] 18%|█▊        | 513/2819 [00:02<00:13, 167.47it/s] 19%|█▉        | 534/2819 [00:03<00:12, 179.01it/s] 20%|█▉        | 553/2819 [00:03<00:12, 179.07it/s] 20%|██        | 572/2819 [00:03<00:13, 168.40it/s] 21%|██        | 590/2819 [00:03<00:13, 165.04it/s] 22%|██▏       | 608/2819 [00:03<00:13, 166.43it/s] 22%|██▏       | 625/2819 [00:03<00:13, 163.25it/s] 23%|██▎       | 642/2819 [00:03<00:13, 159.02it/s] 23%|██▎       | 658/2819 [00:03<00:14, 150.14it/s] 24%|██▍       | 674/2819 [00:03<00:15, 142.42it/s] 24%|██▍       | 689/2819 [00:04<00:15, 135.10it/s] 25%|██▌       | 705/2819 [00:04<00:14, 141.35it/s] 26%|██▌       | 724/2819 [00:04<00:13, 153.02it/s] 26%|██▋       | 741/2819 [00:04<00:13, 155.97it/s] 27%|██▋       | 757/2819 [00:04<00:13, 150.33it/s] 27%|██▋       | 773/2819 [00:04<00:14, 142.75it/s] 28%|██▊       | 789/2819 [00:04<00:13, 146.55it/s] 29%|██▉       | 812/2819 [00:04<00:11, 169.34it/s] 29%|██▉       | 831/2819 [00:04<00:11, 174.10it/s] 30%|███       | 849/2819 [00:05<00:11, 170.67it/s] 31%|███       | 873/2819 [00:05<00:10, 189.52it/s] 32%|███▏      | 897/2819 [00:05<00:09, 202.94it/s] 33%|███▎      | 921/2819 [00:05<00:08, 213.30it/s] 33%|███▎      | 944/2819 [00:05<00:08, 216.23it/s] 34%|███▍      | 966/2819 [00:05<00:08, 209.87it/s] 35%|███▌      | 988/2819 [00:05<00:09, 186.75it/s] 36%|███▌      | 1008/2819 [00:05<00:11, 156.72it/s] 36%|███▋      | 1025/2819 [00:06<00:13, 131.67it/s] 37%|███▋      | 1040/2819 [00:06<00:15, 118.51it/s] 37%|███▋      | 1053/2819 [00:06<00:16, 105.01it/s] 38%|███▊      | 1065/2819 [00:06<00:19, 91.57it/s]  38%|███▊      | 1075/2819 [00:06<00:20, 83.43it/s] 38%|███▊      | 1084/2819 [00:06<00:21, 80.90it/s] 39%|███▉      | 1093/2819 [00:06<00:21, 79.92it/s] 39%|███▉      | 1102/2819 [00:07<00:20, 82.07it/s] 39%|███▉      | 1111/2819 [00:07<00:20, 82.55it/s] 40%|███▉      | 1120/2819 [00:07<00:20, 80.98it/s] 40%|████      | 1129/2819 [00:07<00:21, 78.52it/s] 40%|████      | 1137/2819 [00:07<00:21, 76.49it/s] 41%|████      | 1145/2819 [00:07<00:22, 74.10it/s] 41%|████      | 1153/2819 [00:07<00:23, 69.94it/s] 41%|████      | 1161/2819 [00:07<00:24, 67.36it/s] 41%|████▏     | 1168/2819 [00:08<00:25, 65.07it/s] 42%|████▏     | 1175/2819 [00:08<00:26, 62.14it/s] 42%|████▏     | 1182/2819 [00:08<00:27, 59.18it/s] 42%|████▏     | 1188/2819 [00:08<00:28, 56.37it/s] 42%|████▏     | 1194/2819 [00:08<00:30, 54.13it/s] 43%|████▎     | 1200/2819 [00:08<00:30, 52.26it/s] 43%|████▎     | 1206/2819 [00:08<00:31, 50.72it/s] 43%|████▎     | 1212/2819 [00:08<00:31, 51.25it/s] 43%|████▎     | 1218/2819 [00:09<00:31, 51.01it/s] 43%|████▎     | 1224/2819 [00:09<00:31, 51.24it/s] 44%|████▎     | 1230/2819 [00:09<00:30, 52.19it/s] 44%|████▍     | 1236/2819 [00:09<00:29, 52.87it/s] 44%|████▍     | 1243/2819 [00:09<00:28, 55.86it/s] 44%|████▍     | 1250/2819 [00:09<00:26, 58.23it/s] 45%|████▍     | 1256/2819 [00:09<00:26, 58.39it/s] 45%|████▍     | 1263/2819 [00:09<00:25, 60.38it/s] 45%|████▌     | 1275/2819 [00:09<00:20, 76.57it/s] 46%|████▌     | 1294/2819 [00:10<00:14, 107.54it/s] 46%|████▋     | 1310/2819 [00:10<00:12, 121.61it/s] 47%|████▋     | 1324/2819 [00:10<00:11, 124.97it/s] 47%|████▋     | 1337/2819 [00:10<00:11, 125.82it/s] 48%|████▊     | 1354/2819 [00:10<00:10, 136.98it/s] 49%|████▊     | 1370/2819 [00:10<00:10, 143.12it/s] 49%|████▉     | 1385/2819 [00:10<00:09, 143.95it/s] 50%|████▉     | 1400/2819 [00:10<00:09, 142.08it/s] 50%|█████     | 1415/2819 [00:10<00:10, 139.67it/s] 51%|█████     | 1429/2819 [00:10<00:10, 130.98it/s] 51%|█████     | 1443/2819 [00:11<00:11, 120.50it/s] 52%|█████▏    | 1456/2819 [00:11<00:12, 112.07it/s] 52%|█████▏    | 1468/2819 [00:11<00:12, 105.79it/s] 52%|█████▏    | 1479/2819 [00:11<00:13, 100.37it/s] 53%|█████▎    | 1490/2819 [00:11<00:14, 94.23it/s]  53%|█████▎    | 1500/2819 [00:11<00:14, 90.48it/s] 54%|█████▎    | 1510/2819 [00:11<00:14, 91.25it/s] 54%|█████▍    | 1520/2819 [00:11<00:14, 90.18it/s] 54%|█████▍    | 1531/2819 [00:12<00:13, 93.83it/s] 55%|█████▍    | 1549/2819 [00:12<00:10, 116.00it/s] 56%|█████▌    | 1567/2819 [00:12<00:09, 132.94it/s] 56%|█████▌    | 1582/2819 [00:12<00:09, 135.11it/s] 57%|█████▋    | 1596/2819 [00:12<00:09, 129.05it/s] 57%|█████▋    | 1610/2819 [00:12<00:09, 123.05it/s] 58%|█████▊    | 1623/2819 [00:12<00:09, 121.74it/s] 58%|█████▊    | 1646/2819 [00:12<00:07, 150.08it/s] 59%|█████▉    | 1665/2819 [00:12<00:07, 160.31it/s] 60%|█████▉    | 1685/2819 [00:13<00:06, 170.00it/s] 60%|██████    | 1705/2819 [00:13<00:06, 178.14it/s] 61%|██████    | 1724/2819 [00:13<00:06, 177.94it/s] 62%|██████▏   | 1742/2819 [00:13<00:06, 166.50it/s] 62%|██████▏   | 1759/2819 [00:13<00:06, 155.68it/s] 63%|██████▎   | 1775/2819 [00:13<00:07, 141.85it/s] 63%|██████▎   | 1790/2819 [00:13<00:07, 138.94it/s] 64%|██████▍   | 1805/2819 [00:13<00:07, 139.12it/s] 65%|██████▍   | 1822/2819 [00:13<00:06, 145.41it/s] 65%|██████▌   | 1837/2819 [00:14<00:06, 146.15it/s] 66%|██████▌   | 1853/2819 [00:14<00:06, 148.14it/s] 66%|██████▋   | 1868/2819 [00:14<00:06, 142.17it/s] 67%|██████▋   | 1883/2819 [00:14<00:07, 130.72it/s] 67%|██████▋   | 1897/2819 [00:14<00:07, 118.84it/s] 68%|██████▊   | 1910/2819 [00:14<00:08, 107.37it/s] 68%|██████▊   | 1922/2819 [00:14<00:09, 97.52it/s]  69%|██████▊   | 1933/2819 [00:15<00:09, 89.23it/s] 69%|██████▉   | 1943/2819 [00:15<00:10, 81.91it/s] 69%|██████▉   | 1952/2819 [00:15<00:11, 75.47it/s] 70%|██████▉   | 1960/2819 [00:15<00:12, 71.04it/s] 70%|██████▉   | 1968/2819 [00:15<00:12, 67.20it/s] 70%|███████   | 1975/2819 [00:15<00:13, 64.42it/s] 70%|███████   | 1982/2819 [00:15<00:13, 62.12it/s] 71%|███████   | 1989/2819 [00:15<00:13, 60.53it/s] 71%|███████   | 1996/2819 [00:16<00:13, 59.03it/s] 71%|███████   | 2002/2819 [00:16<00:14, 57.50it/s] 71%|███████   | 2008/2819 [00:16<00:14, 56.36it/s] 71%|███████▏  | 2015/2819 [00:16<00:13, 59.22it/s] 72%|███████▏  | 2022/2819 [00:16<00:12, 62.10it/s] 72%|███████▏  | 2029/2819 [00:16<00:12, 64.26it/s] 72%|███████▏  | 2038/2819 [00:16<00:11, 69.62it/s] 73%|███████▎  | 2048/2819 [00:16<00:09, 77.42it/s] 73%|███████▎  | 2059/2819 [00:16<00:08, 85.45it/s] 74%|███████▎  | 2073/2819 [00:17<00:07, 101.01it/s] 74%|███████▍  | 2088/2819 [00:17<00:06, 113.63it/s] 74%|███████▍  | 2100/2819 [00:17<00:06, 114.76it/s] 75%|███████▍  | 2112/2819 [00:17<00:06, 115.11it/s] 76%|███████▌  | 2130/2819 [00:17<00:05, 133.08it/s] 76%|███████▋  | 2152/2819 [00:17<00:04, 158.44it/s] 77%|███████▋  | 2174/2819 [00:17<00:03, 173.94it/s] 78%|███████▊  | 2193/2819 [00:17<00:03, 176.69it/s] 79%|███████▊  | 2215/2819 [00:17<00:03, 188.11it/s] 79%|███████▉  | 2234/2819 [00:17<00:03, 188.46it/s] 80%|███████▉  | 2253/2819 [00:18<00:03, 184.56it/s] 81%|████████  | 2272/2819 [00:18<00:02, 182.94it/s] 81%|████████▏ | 2291/2819 [00:18<00:02, 184.39it/s] 82%|████████▏ | 2310/2819 [00:18<00:02, 184.14it/s] 83%|████████▎ | 2329/2819 [00:18<00:02, 169.70it/s] 83%|████████▎ | 2347/2819 [00:18<00:03, 153.68it/s] 84%|████████▍ | 2363/2819 [00:18<00:02, 153.94it/s] 84%|████████▍ | 2379/2819 [00:18<00:02, 151.98it/s] 85%|████████▍ | 2395/2819 [00:19<00:02, 152.25it/s] 86%|████████▌ | 2411/2819 [00:19<00:02, 147.19it/s] 86%|████████▌ | 2426/2819 [00:19<00:02, 139.67it/s] 87%|████████▋ | 2444/2819 [00:19<00:02, 150.04it/s] 87%|████████▋ | 2464/2819 [00:19<00:02, 161.68it/s] 88%|████████▊ | 2481/2819 [00:19<00:02, 160.05it/s] 89%|████████▊ | 2498/2819 [00:19<00:01, 160.73it/s] 89%|████████▉ | 2516/2819 [00:19<00:01, 165.10it/s] 90%|█████████ | 2538/2819 [00:19<00:01, 179.92it/s] 91%|█████████ | 2560/2819 [00:19<00:01, 189.30it/s] 92%|█████████▏| 2586/2819 [00:20<00:01, 208.64it/s] 92%|█████████▏| 2607/2819 [00:20<00:01, 198.60it/s] 93%|█████████▎| 2629/2819 [00:20<00:00, 202.07it/s] 94%|█████████▍| 2650/2819 [00:20<00:00, 197.56it/s] 95%|█████████▍| 2670/2819 [00:20<00:00, 194.13it/s] 96%|█████████▌| 2693/2819 [00:20<00:00, 203.91it/s] 96%|█████████▋| 2717/2819 [00:20<00:00, 211.18it/s] 97%|█████████▋| 2739/2819 [00:20<00:00, 193.56it/s] 98%|█████████▊| 2759/2819 [00:21<00:00, 176.85it/s] 99%|█████████▊| 2778/2819 [00:21<00:00, 158.14it/s] 99%|█████████▉| 2795/2819 [00:21<00:00, 141.35it/s]100%|█████████▉| 2810/2819 [00:21<00:00, 132.29it/s]100%|██████████| 2819/2819 [00:21<00:00, 130.92it/s]
+[Mon Feb 17 11:53:55 2025]
+Finished job 46.
+5 of 49 steps (10%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 17 11:53:55 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.15.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.15.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.l2.M
+    jobid: 33
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.annot.gz
+    wildcards: trait=ALT_Mean_INT, chrom=15
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.15.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.15.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.l2.M
+Rows: 287001 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (3): X2, X5, X6
+dbl (3): X1, X3, X4
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 287001 Columns: 21
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr  (3): SNP, A1, A2
+dbl (18): CHR, BP, MAFbin1, MAFbin2, MAFbin3, MAFbin4, MAFbin5, MAFbin6, MAF...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[Mon Feb 17 11:54:16 2025]
+Finished job 33.
+6 of 49 steps (12%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 17 11:54:16 2025]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.l2.ldscore.parquet
+    jobid: 32
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.annot.gz
+    wildcards: trait=ALT_Mean_INT, chrom=15
+    resources: tmpdir=/scratch/f007fdw
+
+
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/compute_ldscores.py                --bfile /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.15                --annot /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.annot.gz                --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.15.l2.ldscore.parquet
+        
+/dartfs/rc/lab/S/Szhao/katieh/polyfun/ldsc_polyfun/parse.py:369: FutureWarning: The 'delim_whitespace' keyword in pd.read_csv is deprecated and will be removed in a future version. Use ``sep='\s+'`` instead
+  self.df = pd.read_csv(fname, header=self.__header__, usecols=self.__usecols__,
+[WARNING]  no ld-wind argument specified.  We will use --ld-cm 1.0
+[INFO]  Applying SNPs filter...
+  0%|          | 0/287001 [00:00<?, ?it/s]  8%|▊         | 24287/287001 [00:00<00:01, 242856.91it/s] 17%|█▋        | 49102/287001 [00:00<00:00, 245962.97it/s] 26%|██▌       | 73947/287001 [00:00<00:00, 247094.91it/s] 34%|███▍      | 98657/287001 [00:00<00:00, 246960.57it/s] 43%|████▎     | 123521/287001 [00:00<00:00, 247562.00it/s] 52%|█████▏    | 148478/287001 [00:00<00:00, 248242.22it/s] 60%|██████    | 173303/287001 [00:00<00:00, 245271.81it/s] 69%|██████▉   | 198116/287001 [00:00<00:00, 246169.41it/s] 78%|███████▊  | 222926/287001 [00:00<00:00, 246765.53it/s] 86%|████████▋ | 247612/287001 [00:01<00:00, 246791.75it/s] 95%|█████████▍| 272295/287001 [00:01<00:00, 244265.00it/s]100%|██████████| 287001/287001 [00:01<00:00, 245937.97it/s]
+[INFO]  After filtering, 287001 SNPs remain
+[INFO]  Applying initial ldscores loop
+  0%|          | 0/23 [00:00<?, ?it/s]100%|██████████| 23/23 [00:00<00:00, 605.36it/s]
+[INFO]  Applying main ldscores loop...
+  0%|          | 0/5718 [00:00<?, ?it/s]  1%|          | 36/5718 [00:00<00:16, 348.55it/s]  1%|          | 71/5718 [00:00<00:22, 255.59it/s]  2%|▏         | 98/5718 [00:00<00:21, 260.12it/s]  2%|▏         | 125/5718 [00:00<00:22, 249.48it/s]  3%|▎         | 151/5718 [00:00<00:25, 217.62it/s]  3%|▎         | 174/5718 [00:00<00:31, 175.17it/s]  3%|▎         | 193/5718 [00:01<00:39, 141.25it/s]  4%|▎         | 209/5718 [00:01<00:47, 116.91it/s]  4%|▍         | 223/5718 [00:01<00:55, 99.01it/s]   4%|▍         | 235/5718 [00:01<01:04, 85.64it/s]  4%|▍         | 245/5718 [00:01<01:10, 78.01it/s]  4%|▍         | 254/5718 [00:02<01:16, 71.43it/s]  5%|▍         | 262/5718 [00:02<01:23, 65.68it/s]  5%|▍         | 269/5718 [00:02<01:28, 61.50it/s]  5%|▍         | 276/5718 [00:02<01:32, 59.04it/s]  5%|▍         | 283/5718 [00:02<01:30, 59.81it/s]  5%|▌         | 292/5718 [00:02<01:22, 65.80it/s]  5%|▌         | 307/5718 [00:02<01:03, 85.15it/s]  6%|▌         | 320/5718 [00:02<00:56, 95.92it/s]  6%|▌         | 334/5718 [00:02<00:51, 105.44it/s]  6%|▌         | 356/5718 [00:03<00:39, 135.80it/s]  7%|▋         | 376/5718 [00:03<00:35, 152.33it/s]  7%|▋         | 395/5718 [00:03<00:32, 162.16it/s]  7%|▋         | 415/5718 [00:03<00:30, 171.33it/s]  8%|▊         | 441/5718 [00:03<00:26, 196.54it/s]  8%|▊         | 463/5718 [00:03<00:26, 201.97it/s]  8%|▊         | 485/5718 [00:03<00:25, 204.42it/s]  9%|▉         | 506/5718 [00:03<00:26, 199.89it/s]  9%|▉         | 527/5718 [00:03<00:27, 189.32it/s] 10%|▉         | 547/5718 [00:04<00:29, 176.10it/s] 10%|▉         | 565/5718 [00:04<00:30, 170.85it/s] 10%|█         | 583/5718 [00:04<00:31, 162.25it/s] 11%|█         | 603/5718 [00:04<00:30, 170.34it/s] 11%|█         | 623/5718 [00:04<00:28, 176.55it/s] 11%|█         | 641/5718 [00:04<00:29, 175.05it/s] 12%|█▏        | 659/5718 [00:04<00:29, 169.31it/s] 12%|█▏        | 677/5718 [00:04<00:32, 153.93it/s] 12%|█▏        | 693/5718 [00:05<00:36, 138.04it/s] 12%|█▏        | 708/5718 [00:05<00:38, 131.30it/s] 13%|█▎        | 725/5718 [00:05<00:35, 140.18it/s] 13%|█▎        | 740/5718 [00:05<00:35, 140.34it/s] 13%|█▎        | 755/5718 [00:05<00:36, 136.38it/s] 13%|█▎        | 769/5718 [00:05<00:36, 136.40it/s] 14%|█▍        | 791/5718 [00:05<00:31, 158.03it/s] 14%|█▍        | 809/5718 [00:05<00:30, 161.84it/s] 14%|█▍        | 826/5718 [00:05<00:30, 158.37it/s] 15%|█▍        | 842/5718 [00:06<00:30, 158.82it/s] 15%|█▌        | 862/5718 [00:06<00:28, 169.62it/s] 15%|█▌        | 881/5718 [00:06<00:27, 175.38it/s] 16%|█▌        | 904/5718 [00:06<00:25, 191.16it/s] 16%|█▌        | 924/5718 [00:06<00:26, 182.11it/s] 16%|█▋        | 943/5718 [00:06<00:29, 163.47it/s] 17%|█▋        | 960/5718 [00:06<00:30, 155.74it/s] 17%|█▋        | 978/5718 [00:06<00:29, 161.62it/s] 17%|█▋        | 997/5718 [00:06<00:27, 168.98it/s] 18%|█▊        | 1015/5718 [00:07<00:28, 163.60it/s] 18%|█▊        | 1032/5718 [00:07<00:30, 154.03it/s] 18%|█▊        | 1048/5718 [00:07<00:30, 154.53it/s] 19%|█▊        | 1065/5718 [00:07<00:29, 157.24it/s] 19%|█▉        | 1082/5718 [00:07<00:29, 158.68it/s] 19%|█▉        | 1099/5718 [00:07<00:28, 159.32it/s] 20%|█▉        | 1116/5718 [00:07<00:28, 161.76it/s] 20%|█▉        | 1137/5718 [00:07<00:26, 173.81it/s] 20%|██        | 1155/5718 [00:07<00:26, 172.90it/s] 21%|██        | 1173/5718 [00:08<00:28, 158.42it/s] 21%|██        | 1190/5718 [00:08<00:30, 148.56it/s] 21%|██        | 1207/5718 [00:08<00:29, 153.61it/s] 21%|██▏       | 1223/5718 [00:08<00:29, 151.08it/s] 22%|██▏       | 1243/5718 [00:08<00:27, 163.24it/s] 22%|██▏       | 1266/5718 [00:08<00:24, 181.55it/s] 22%|██▏       | 1286/5718 [00:08<00:23, 184.74it/s] 23%|██▎       | 1305/5718 [00:08<00:25, 175.04it/s] 23%|██▎       | 1323/5718 [00:08<00:27, 159.80it/s] 23%|██▎       | 1340/5718 [00:09<00:29, 148.79it/s] 24%|██▎       | 1356/5718 [00:09<00:30, 143.75it/s] 24%|██▍       | 1375/5718 [00:09<00:28, 154.79it/s] 24%|██▍       | 1391/5718 [00:09<00:28, 154.33it/s] 25%|██▍       | 1407/5718 [00:09<00:29, 144.20it/s] 25%|██▍       | 1422/5718 [00:09<00:33, 127.66it/s] 25%|██▌       | 1436/5718 [00:09<00:37, 115.02it/s] 25%|██▌       | 1448/5718 [00:09<00:41, 103.18it/s] 26%|██▌       | 1459/5718 [00:10<00:45, 94.26it/s]  26%|██▌       | 1469/5718 [00:10<00:47, 90.28it/s] 26%|██▌       | 1479/5718 [00:10<00:47, 88.85it/s] 26%|██▌       | 1488/5718 [00:10<00:49, 85.08it/s] 26%|██▌       | 1497/5718 [00:10<00:51, 82.53it/s] 26%|██▋       | 1506/5718 [00:10<00:53, 78.98it/s] 26%|██▋       | 1514/5718 [00:10<00:54, 77.46it/s] 27%|██▋       | 1522/5718 [00:10<00:54, 76.52it/s] 27%|██▋       | 1530/5718 [00:11<00:55, 75.41it/s] 27%|██▋       | 1538/5718 [00:11<00:56, 73.59it/s] 27%|██▋       | 1546/5718 [00:11<00:57, 72.07it/s] 27%|██▋       | 1554/5718 [00:11<00:58, 71.50it/s] 27%|██▋       | 1562/5718 [00:11<00:58, 70.58it/s] 27%|██▋       | 1570/5718 [00:11<01:00, 68.59it/s] 28%|██▊       | 1577/5718 [00:11<01:01, 67.28it/s] 28%|██▊       | 1584/5718 [00:11<01:02, 65.95it/s] 28%|██▊       | 1591/5718 [00:11<01:04, 64.32it/s] 28%|██▊       | 1599/5718 [00:12<01:00, 68.15it/s] 28%|██▊       | 1614/5718 [00:12<00:45, 90.08it/s] 28%|██▊       | 1628/5718 [00:12<00:39, 102.95it/s] 29%|██▊       | 1643/5718 [00:12<00:35, 114.39it/s] 29%|██▉       | 1656/5718 [00:12<00:34, 117.92it/s] 29%|██▉       | 1668/5718 [00:12<00:34, 117.24it/s] 29%|██▉       | 1682/5718 [00:12<00:33, 122.21it/s] 30%|██▉       | 1695/5718 [00:12<00:32, 123.02it/s] 30%|██▉       | 1708/5718 [00:12<00:33, 120.66it/s] 30%|███       | 1721/5718 [00:13<00:34, 114.73it/s] 30%|███       | 1733/5718 [00:13<00:37, 107.26it/s] 31%|███       | 1744/5718 [00:13<00:40, 99.10it/s]  31%|███       | 1755/5718 [00:13<00:41, 95.75it/s] 31%|███       | 1765/5718 [00:13<00:43, 91.83it/s] 31%|███       | 1775/5718 [00:13<00:44, 89.00it/s] 31%|███       | 1784/5718 [00:13<00:44, 88.93it/s] 31%|███▏      | 1800/5718 [00:13<00:36, 106.76it/s] 32%|███▏      | 1818/5718 [00:13<00:30, 125.97it/s] 32%|███▏      | 1833/5718 [00:14<00:29, 132.59it/s] 32%|███▏      | 1847/5718 [00:14<00:28, 134.53it/s] 33%|███▎      | 1861/5718 [00:14<00:30, 127.48it/s] 33%|███▎      | 1874/5718 [00:14<00:33, 116.46it/s] 33%|███▎      | 1886/5718 [00:14<00:36, 104.56it/s] 33%|███▎      | 1897/5718 [00:14<00:39, 97.12it/s]  33%|███▎      | 1907/5718 [00:14<00:40, 94.44it/s] 34%|███▎      | 1917/5718 [00:14<00:42, 90.48it/s] 34%|███▎      | 1927/5718 [00:15<00:44, 86.03it/s] 34%|███▍      | 1936/5718 [00:15<00:46, 81.51it/s] 34%|███▍      | 1945/5718 [00:15<00:49, 76.92it/s] 34%|███▍      | 1953/5718 [00:15<00:51, 73.67it/s] 34%|███▍      | 1961/5718 [00:15<00:53, 70.10it/s] 34%|███▍      | 1969/5718 [00:15<00:54, 69.39it/s] 35%|███▍      | 1976/5718 [00:15<00:54, 69.18it/s] 35%|███▍      | 1984/5718 [00:15<00:53, 69.63it/s] 35%|███▍      | 1991/5718 [00:16<00:53, 69.68it/s] 35%|███▍      | 1998/5718 [00:16<00:53, 69.20it/s] 35%|███▌      | 2006/5718 [00:16<00:52, 70.04it/s] 35%|███▌      | 2014/5718 [00:16<00:52, 70.32it/s] 35%|███▌      | 2022/5718 [00:16<00:53, 69.32it/s] 35%|███▌      | 2029/5718 [00:16<00:54, 67.89it/s] 36%|███▌      | 2036/5718 [00:16<00:56, 65.74it/s] 36%|███▌      | 2043/5718 [00:16<00:56, 65.28it/s] 36%|███▌      | 2050/5718 [00:16<00:56, 64.96it/s] 36%|███▌      | 2057/5718 [00:17<00:57, 63.77it/s] 36%|███▌      | 2064/5718 [00:17<00:59, 61.91it/s] 36%|███▌      | 2071/5718 [00:17<00:59, 61.11it/s] 36%|███▋      | 2079/5718 [00:17<00:56, 64.95it/s] 37%|███▋      | 2088/5718 [00:17<00:51, 70.77it/s] 37%|███▋      | 2097/5718 [00:17<00:49, 73.88it/s] 37%|███▋      | 2106/5718 [00:17<00:46, 77.58it/s] 37%|███▋      | 2118/5718 [00:17<00:40, 88.06it/s] 37%|███▋      | 2130/5718 [00:17<00:36, 96.99it/s] 37%|███▋      | 2144/5718 [00:18<00:32, 109.23it/s] 38%|███▊      | 2158/5718 [00:18<00:30, 116.15it/s] 38%|███▊      | 2170/5718 [00:18<00:30, 116.25it/s] 38%|███▊      | 2182/5718 [00:18<00:30, 116.70it/s] 38%|███▊      | 2194/5718 [00:18<00:30, 117.41it/s] 39%|███▊      | 2206/5718 [00:18<00:30, 116.69it/s] 39%|███▉      | 2218/5718 [00:18<00:31, 109.48it/s] 39%|███▉      | 2230/5718 [00:18<00:32, 106.06it/s] 39%|███▉      | 2241/5718 [00:18<00:33, 103.34it/s] 39%|███▉      | 2252/5718 [00:19<00:34, 100.11it/s] 40%|███▉      | 2263/5718 [00:19<00:36, 94.43it/s]  40%|███▉      | 2273/5718 [00:19<00:38, 89.39it/s] 40%|███▉      | 2283/5718 [00:19<00:39, 87.24it/s] 40%|████      | 2292/5718 [00:19<00:40, 84.38it/s] 40%|████      | 2301/5718 [00:19<00:42, 81.10it/s] 40%|████      | 2310/5718 [00:19<00:44, 77.33it/s] 41%|████      | 2318/5718 [00:19<00:45, 74.63it/s] 41%|████      | 2326/5718 [00:20<00:47, 72.06it/s] 41%|████      | 2334/5718 [00:20<00:49, 68.94it/s] 41%|████      | 2341/5718 [00:20<00:50, 67.25it/s] 41%|████      | 2348/5718 [00:20<00:49, 67.48it/s] 41%|████      | 2355/5718 [00:20<00:49, 67.74it/s] 41%|████▏     | 2363/5718 [00:20<00:47, 70.19it/s] 41%|████▏     | 2372/5718 [00:20<00:45, 73.34it/s] 42%|████▏     | 2380/5718 [00:20<00:45, 73.27it/s] 42%|████▏     | 2388/5718 [00:20<00:44, 75.14it/s] 42%|████▏     | 2396/5718 [00:20<00:43, 76.49it/s] 42%|████▏     | 2404/5718 [00:21<00:43, 75.60it/s] 42%|████▏     | 2412/5718 [00:21<00:44, 74.38it/s] 42%|████▏     | 2420/5718 [00:21<00:44, 73.95it/s] 42%|████▏     | 2428/5718 [00:21<00:45, 72.49it/s] 43%|████▎     | 2436/5718 [00:21<00:46, 70.95it/s] 43%|████▎     | 2444/5718 [00:21<00:46, 70.50it/s] 43%|████▎     | 2452/5718 [00:21<00:46, 69.61it/s] 43%|████▎     | 2459/5718 [00:21<00:47, 67.90it/s] 43%|████▎     | 2466/5718 [00:21<00:49, 66.13it/s] 43%|████▎     | 2474/5718 [00:22<00:47, 68.57it/s] 44%|████▎     | 2492/5718 [00:22<00:32, 98.81it/s] 44%|████▍     | 2509/5718 [00:22<00:27, 118.54it/s] 44%|████▍     | 2525/5718 [00:22<00:24, 128.12it/s] 44%|████▍     | 2539/5718 [00:22<00:24, 130.15it/s] 45%|████▍     | 2554/5718 [00:22<00:23, 133.52it/s] 45%|████▍     | 2568/5718 [00:22<00:23, 133.39it/s] 45%|████▌     | 2588/5718 [00:22<00:20, 152.10it/s] 46%|████▌     | 2605/5718 [00:22<00:19, 155.72it/s] 46%|████▌     | 2621/5718 [00:23<00:20, 148.20it/s] 46%|████▌     | 2636/5718 [00:23<00:22, 138.87it/s] 46%|████▋     | 2653/5718 [00:23<00:21, 145.84it/s] 47%|████▋     | 2671/5718 [00:23<00:19, 153.83it/s] 47%|████▋     | 2688/5718 [00:23<00:19, 157.33it/s] 47%|████▋     | 2704/5718 [00:23<00:19, 152.00it/s] 48%|████▊     | 2720/5718 [00:23<00:20, 147.65it/s] 48%|████▊     | 2739/5718 [00:23<00:18, 158.06it/s] 48%|████▊     | 2762/5718 [00:23<00:16, 177.52it/s] 49%|████▊     | 2780/5718 [00:24<00:16, 178.20it/s] 49%|████▉     | 2798/5718 [00:24<00:16, 173.87it/s] 49%|████▉     | 2816/5718 [00:24<00:17, 166.65it/s] 50%|████▉     | 2833/5718 [00:24<00:18, 157.67it/s] 50%|████▉     | 2849/5718 [00:24<00:19, 147.04it/s] 50%|█████     | 2864/5718 [00:24<00:20, 136.63it/s] 50%|█████     | 2878/5718 [00:24<00:21, 131.79it/s] 51%|█████     | 2894/5718 [00:24<00:20, 138.47it/s] 51%|█████     | 2911/5718 [00:24<00:19, 146.04it/s] 51%|█████     | 2926/5718 [00:25<00:19, 143.91it/s] 51%|█████▏    | 2941/5718 [00:25<00:20, 136.31it/s] 52%|█████▏    | 2955/5718 [00:25<00:21, 126.09it/s] 52%|█████▏    | 2968/5718 [00:25<00:24, 114.39it/s] 52%|█████▏    | 2980/5718 [00:25<00:25, 106.42it/s] 52%|█████▏    | 2991/5718 [00:25<00:27, 99.51it/s]  53%|█████▎    | 3002/5718 [00:25<00:29, 92.19it/s] 53%|█████▎    | 3012/5718 [00:26<00:31, 85.82it/s] 53%|█████▎    | 3021/5718 [00:26<00:33, 80.88it/s] 53%|█████▎    | 3030/5718 [00:26<00:34, 78.57it/s] 53%|█████▎    | 3038/5718 [00:26<00:35, 76.11it/s] 53%|█████▎    | 3046/5718 [00:26<00:36, 73.52it/s] 53%|█████▎    | 3055/5718 [00:26<00:34, 76.38it/s] 54%|█████▎    | 3064/5718 [00:26<00:33, 78.21it/s] 54%|█████▎    | 3072/5718 [00:26<00:34, 77.72it/s] 54%|█████▍    | 3080/5718 [00:26<00:34, 77.19it/s] 54%|█████▍    | 3088/5718 [00:27<00:34, 75.57it/s] 54%|█████▍    | 3099/5718 [00:27<00:31, 83.76it/s] 54%|█████▍    | 3111/5718 [00:27<00:28, 92.30it/s] 55%|█████▍    | 3122/5718 [00:27<00:27, 94.90it/s] 55%|█████▍    | 3132/5718 [00:27<00:27, 95.09it/s] 55%|█████▍    | 3144/5718 [00:27<00:25, 101.09it/s] 55%|█████▌    | 3156/5718 [00:27<00:24, 105.66it/s] 55%|█████▌    | 3172/5718 [00:27<00:21, 120.77it/s] 56%|█████▌    | 3189/5718 [00:27<00:18, 134.31it/s] 56%|█████▌    | 3204/5718 [00:27<00:18, 138.11it/s] 56%|█████▋    | 3218/5718 [00:28<00:18, 135.10it/s] 57%|█████▋    | 3232/5718 [00:28<00:19, 124.86it/s] 57%|█████▋    | 3245/5718 [00:28<00:22, 111.77it/s] 57%|█████▋    | 3257/5718 [00:28<00:23, 106.17it/s] 57%|█████▋    | 3271/5718 [00:28<00:21, 113.73it/s] 58%|█████▊    | 3292/5718 [00:28<00:17, 137.73it/s] 58%|█████▊    | 3309/5718 [00:28<00:16, 144.27it/s] 58%|█████▊    | 3324/5718 [00:28<00:16, 142.62it/s] 58%|█████▊    | 3339/5718 [00:29<00:17, 139.59it/s] 59%|█████▊    | 3355/5718 [00:29<00:16, 144.07it/s] 59%|█████▉    | 3377/5718 [00:29<00:14, 164.26it/s] 59%|█████▉    | 3396/5718 [00:29<00:13, 170.11it/s] 60%|█████▉    | 3414/5718 [00:29<00:14, 162.13it/s] 60%|██████    | 3431/5718 [00:29<00:14, 153.11it/s] 60%|██████    | 3447/5718 [00:29<00:15, 148.95it/s] 61%|██████    | 3465/5718 [00:29<00:14, 155.22it/s] 61%|██████    | 3482/5718 [00:29<00:14, 158.38it/s] 61%|██████    | 3498/5718 [00:30<00:14, 151.53it/s] 61%|██████▏   | 3514/5718 [00:30<00:15, 138.85it/s] 62%|██████▏   | 3529/5718 [00:30<00:16, 129.34it/s] 62%|██████▏   | 3543/5718 [00:30<00:18, 117.19it/s] 62%|██████▏   | 3556/5718 [00:30<00:20, 108.03it/s] 62%|██████▏   | 3568/5718 [00:30<00:21, 100.80it/s] 63%|██████▎   | 3579/5718 [00:30<00:21, 100.91it/s] 63%|██████▎   | 3590/5718 [00:30<00:21, 98.40it/s]  63%|██████▎   | 3602/5718 [00:31<00:20, 102.29it/s] 63%|██████▎   | 3616/5718 [00:31<00:19, 110.35it/s] 63%|██████▎   | 3628/5718 [00:31<00:18, 111.96it/s] 64%|██████▎   | 3640/5718 [00:31<00:18, 110.78it/s] 64%|██████▍   | 3652/5718 [00:31<00:19, 106.07it/s] 64%|██████▍   | 3663/5718 [00:31<00:20, 102.13it/s] 64%|██████▍   | 3674/5718 [00:31<00:20, 97.40it/s]  64%|██████▍   | 3684/5718 [00:31<00:21, 94.16it/s] 65%|██████▍   | 3694/5718 [00:32<00:22, 88.63it/s] 65%|██████▍   | 3703/5718 [00:32<00:24, 82.99it/s] 65%|██████▍   | 3712/5718 [00:32<00:25, 77.41it/s] 65%|██████▌   | 3720/5718 [00:32<00:27, 72.57it/s] 65%|██████▌   | 3728/5718 [00:32<00:29, 68.11it/s] 65%|██████▌   | 3735/5718 [00:32<00:31, 63.67it/s] 65%|██████▌   | 3742/5718 [00:32<00:32, 59.99it/s] 66%|██████▌   | 3749/5718 [00:32<00:34, 57.14it/s] 66%|██████▌   | 3755/5718 [00:33<00:36, 54.51it/s] 66%|██████▌   | 3761/5718 [00:33<00:36, 53.03it/s] 66%|██████▌   | 3767/5718 [00:33<00:37, 51.76it/s] 66%|██████▌   | 3773/5718 [00:33<00:38, 50.82it/s] 66%|██████▌   | 3779/5718 [00:33<00:38, 50.13it/s] 66%|██████▌   | 3785/5718 [00:33<00:38, 49.91it/s] 66%|██████▋   | 3791/5718 [00:33<00:38, 50.26it/s] 66%|██████▋   | 3797/5718 [00:33<00:37, 51.10it/s] 67%|██████▋   | 3803/5718 [00:34<00:37, 51.71it/s] 67%|██████▋   | 3809/5718 [00:34<00:37, 50.60it/s] 67%|██████▋   | 3815/5718 [00:34<00:37, 50.62it/s] 67%|██████▋   | 3821/5718 [00:34<00:37, 51.04it/s] 67%|██████▋   | 3827/5718 [00:34<00:37, 50.56it/s] 67%|██████▋   | 3833/5718 [00:34<00:37, 50.30it/s] 67%|██████▋   | 3839/5718 [00:34<00:35, 52.55it/s] 67%|██████▋   | 3849/5718 [00:34<00:29, 63.94it/s] 67%|██████▋   | 3858/5718 [00:34<00:26, 70.51it/s] 68%|██████▊   | 3867/5718 [00:35<00:24, 75.02it/s] 68%|██████▊   | 3876/5718 [00:35<00:23, 77.38it/s] 68%|██████▊   | 3885/5718 [00:35<00:22, 80.23it/s] 68%|██████▊   | 3901/5718 [00:35<00:17, 102.46it/s] 69%|██████▊   | 3922/5718 [00:35<00:13, 132.97it/s] 69%|██████▉   | 3938/5718 [00:35<00:12, 139.09it/s] 69%|██████▉   | 3953/5718 [00:35<00:12, 136.78it/s] 69%|██████▉   | 3967/5718 [00:35<00:13, 129.35it/s] 70%|██████▉   | 3981/5718 [00:35<00:14, 120.16it/s] 70%|██████▉   | 3994/5718 [00:36<00:14, 115.16it/s] 70%|███████   | 4006/5718 [00:36<00:14, 116.33it/s] 70%|███████   | 4021/5718 [00:36<00:13, 123.24it/s] 71%|███████   | 4035/5718 [00:36<00:13, 127.66it/s] 71%|███████   | 4054/5718 [00:36<00:11, 144.44it/s] 71%|███████   | 4074/5718 [00:36<00:10, 159.15it/s] 72%|███████▏  | 4091/5718 [00:36<00:10, 161.57it/s] 72%|███████▏  | 4108/5718 [00:36<00:10, 152.69it/s] 72%|███████▏  | 4124/5718 [00:36<00:11, 143.03it/s] 72%|███████▏  | 4139/5718 [00:37<00:12, 131.17it/s] 73%|███████▎  | 4153/5718 [00:37<00:13, 117.67it/s] 73%|███████▎  | 4166/5718 [00:37<00:14, 106.53it/s] 73%|███████▎  | 4178/5718 [00:37<00:16, 95.01it/s]  73%|███████▎  | 4188/5718 [00:37<00:17, 87.07it/s] 73%|███████▎  | 4197/5718 [00:37<00:18, 80.28it/s] 74%|███████▎  | 4206/5718 [00:37<00:20, 74.98it/s] 74%|███████▎  | 4214/5718 [00:38<00:21, 70.24it/s] 74%|███████▍  | 4222/5718 [00:38<00:22, 66.21it/s] 74%|███████▍  | 4229/5718 [00:38<00:23, 63.06it/s] 74%|███████▍  | 4236/5718 [00:38<00:24, 59.55it/s] 74%|███████▍  | 4242/5718 [00:38<00:25, 57.26it/s] 74%|███████▍  | 4248/5718 [00:38<00:26, 55.51it/s] 74%|███████▍  | 4254/5718 [00:38<00:27, 53.94it/s] 75%|███████▍  | 4260/5718 [00:38<00:27, 52.24it/s] 75%|███████▍  | 4266/5718 [00:39<00:28, 51.42it/s] 75%|███████▍  | 4272/5718 [00:39<00:28, 50.69it/s] 75%|███████▍  | 4278/5718 [00:39<00:28, 50.47it/s] 75%|███████▍  | 4284/5718 [00:39<00:28, 50.79it/s] 75%|███████▌  | 4290/5718 [00:39<00:28, 50.94it/s] 75%|███████▌  | 4296/5718 [00:39<00:27, 51.20it/s] 75%|███████▌  | 4302/5718 [00:39<00:27, 51.51it/s] 75%|███████▌  | 4308/5718 [00:39<00:27, 51.87it/s] 75%|███████▌  | 4314/5718 [00:40<00:27, 51.27it/s] 76%|███████▌  | 4320/5718 [00:40<00:27, 51.30it/s] 76%|███████▌  | 4326/5718 [00:40<00:27, 50.89it/s] 76%|███████▌  | 4332/5718 [00:40<00:27, 50.48it/s] 76%|███████▌  | 4338/5718 [00:40<00:26, 51.41it/s] 76%|███████▌  | 4344/5718 [00:40<00:25, 53.02it/s] 76%|███████▌  | 4353/5718 [00:40<00:22, 61.13it/s] 76%|███████▋  | 4361/5718 [00:40<00:20, 66.09it/s] 76%|███████▋  | 4369/5718 [00:40<00:19, 69.37it/s] 77%|███████▋  | 4380/5718 [00:41<00:16, 78.75it/s] 77%|███████▋  | 4391/5718 [00:41<00:15, 87.61it/s] 77%|███████▋  | 4402/5718 [00:41<00:14, 93.29it/s] 77%|███████▋  | 4413/5718 [00:41<00:13, 95.62it/s] 77%|███████▋  | 4424/5718 [00:41<00:13, 98.01it/s] 78%|███████▊  | 4435/5718 [00:41<00:12, 99.64it/s] 78%|███████▊  | 4448/5718 [00:41<00:11, 107.49it/s] 78%|███████▊  | 4463/5718 [00:41<00:10, 117.94it/s] 78%|███████▊  | 4477/5718 [00:41<00:10, 122.10it/s] 79%|███████▊  | 4490/5718 [00:42<00:10, 122.65it/s] 79%|███████▉  | 4503/5718 [00:42<00:10, 120.70it/s] 79%|███████▉  | 4516/5718 [00:42<00:10, 116.29it/s] 79%|███████▉  | 4528/5718 [00:42<00:10, 115.12it/s] 79%|███████▉  | 4540/5718 [00:42<00:10, 113.11it/s] 80%|███████▉  | 4552/5718 [00:42<00:10, 109.21it/s] 80%|███████▉  | 4572/5718 [00:42<00:08, 133.30it/s] 80%|████████  | 4592/5718 [00:42<00:07, 150.77it/s] 81%|████████  | 4616/5718 [00:42<00:06, 176.07it/s] 81%|████████  | 4634/5718 [00:42<00:06, 174.12it/s] 81%|████████▏ | 4652/5718 [00:43<00:06, 167.40it/s] 82%|████████▏ | 4669/5718 [00:43<00:06, 160.96it/s] 82%|████████▏ | 4687/5718 [00:43<00:06, 165.10it/s] 82%|████████▏ | 4706/5718 [00:43<00:05, 171.63it/s] 83%|████████▎ | 4724/5718 [00:43<00:06, 163.58it/s] 83%|████████▎ | 4741/5718 [00:43<00:06, 149.16it/s] 83%|████████▎ | 4757/5718 [00:43<00:06, 140.82it/s] 84%|████████▎ | 4776/5718 [00:43<00:06, 153.50it/s] 84%|████████▍ | 4794/5718 [00:44<00:05, 159.42it/s] 84%|████████▍ | 4815/5718 [00:44<00:05, 171.33it/s] 85%|████████▍ | 4834/5718 [00:44<00:05, 175.23it/s] 85%|████████▍ | 4852/5718 [00:44<00:05, 172.39it/s] 85%|████████▌ | 4870/5718 [00:44<00:04, 171.82it/s] 86%|████████▌ | 4889/5718 [00:44<00:04, 175.86it/s] 86%|████████▌ | 4908/5718 [00:44<00:04, 179.64it/s] 86%|████████▌ | 4927/5718 [00:44<00:04, 169.05it/s] 86%|████████▋ | 4945/5718 [00:44<00:04, 161.24it/s] 87%|████████▋ | 4971/5718 [00:44<00:04, 186.60it/s] 87%|████████▋ | 4994/5718 [00:45<00:03, 196.62it/s] 88%|████████▊ | 5014/5718 [00:45<00:03, 191.88it/s] 88%|████████▊ | 5034/5718 [00:45<00:03, 184.81it/s] 88%|████████▊ | 5053/5718 [00:45<00:03, 182.62it/s] 89%|████████▉ | 5078/5718 [00:45<00:03, 201.37it/s] 89%|████████▉ | 5101/5718 [00:45<00:02, 208.71it/s] 90%|████████▉ | 5123/5718 [00:45<00:02, 205.57it/s] 90%|████████▉ | 5144/5718 [00:45<00:03, 189.03it/s] 90%|█████████ | 5168/5718 [00:45<00:02, 201.97it/s] 91%|█████████ | 5189/5718 [00:46<00:02, 197.67it/s] 91%|█████████ | 5210/5718 [00:46<00:02, 195.99it/s] 92%|█████████▏| 5234/5718 [00:46<00:02, 206.46it/s] 92%|█████████▏| 5255/5718 [00:46<00:02, 201.82it/s] 92%|█████████▏| 5276/5718 [00:46<00:02, 190.71it/s] 93%|█████████▎| 5296/5718 [00:46<00:02, 191.21it/s] 93%|█████████▎| 5316/5718 [00:46<00:02, 191.32it/s] 93%|█████████▎| 5337/5718 [00:46<00:01, 195.85it/s] 94%|█████████▎| 5357/5718 [00:46<00:01, 185.23it/s] 94%|█████████▍| 5376/5718 [00:47<00:01, 175.68it/s] 94%|█████████▍| 5394/5718 [00:47<00:01, 176.32it/s] 95%|█████████▍| 5412/5718 [00:47<00:01, 176.35it/s] 95%|█████████▍| 5430/5718 [00:47<00:01, 176.60it/s] 95%|█████████▌| 5448/5718 [00:47<00:01, 176.21it/s] 96%|█████████▌| 5466/5718 [00:47<00:01, 177.00it/s] 96%|█████████▌| 5484/5718 [00:47<00:01, 167.73it/s] 96%|█████████▌| 5501/5718 [00:47<00:01, 158.96it/s] 97%|█████████▋| 5518/5718 [00:47<00:01, 146.16it/s] 97%|█████████▋| 5533/5718 [00:48<00:01, 143.81it/s] 97%|█████████▋| 5548/5718 [00:48<00:01, 141.13it/s] 97%|█████████▋| 5568/5718 [00:48<00:00, 155.85it/s] 98%|█████████▊| 5587/5718 [00:48<00:00, 163.74it/s] 98%|█████████▊| 5604/5718 [00:48<00:00, 156.51it/s] 98%|█████████▊| 5620/5718 [00:48<00:00, 142.26it/s] 99%|█████████▊| 5635/5718 [00:48<00:00, 134.40it/s] 99%|█████████▉| 5656/5718 [00:48<00:00, 153.08it/s] 99%|█████████▉| 5679/5718 [00:49<00:00, 173.48it/s]100%|█████████▉| 5703/5718 [00:49<00:00, 190.69it/s]100%|██████████| 5718/5718 [00:49<00:00, 116.25it/s]
+[Mon Feb 17 11:55:15 2025]
+Finished job 32.
+7 of 49 steps (14%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 17 11:55:15 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.6.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.l2.M
+    jobid: 15
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.annot.gz
+    wildcards: trait=ALT_Mean_INT, chrom=6
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.6.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.l2.M
+Rows: 664016 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (3): X2, X5, X6
+dbl (3): X1, X3, X4
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 664016 Columns: 21
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr  (3): SNP, A1, A2
+dbl (18): CHR, BP, MAFbin1, MAFbin2, MAFbin3, MAFbin4, MAFbin5, MAFbin6, MAF...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[Mon Feb 17 11:55:42 2025]
+Finished job 15.
+8 of 49 steps (16%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 17 11:55:42 2025]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.l2.ldscore.parquet
+    jobid: 14
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.annot.gz
+    wildcards: trait=ALT_Mean_INT, chrom=6
+    resources: tmpdir=/scratch/f007fdw
+
+
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/compute_ldscores.py                --bfile /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6                --annot /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.annot.gz                --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/ALT_Mean_INT/ALT_Mean_INT.6.l2.ldscore.parquet
+        
