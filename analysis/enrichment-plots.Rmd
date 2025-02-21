@@ -16,7 +16,7 @@ library(stringr)
 
 ```
 
-
+# Plotting function
 ```{r}
 enrichment_plot <- function(data, group, xlim=NULL){
   
@@ -47,7 +47,7 @@ enrichment_plot <- function(data, group, xlim=NULL){
 }
 ```
 
-
+# Compiling all trait results
 ```{r}
 output_path <- "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/"
 
@@ -60,7 +60,9 @@ pheno_list[pheno_list$Description == "glucose (finger stick, mean, inv-norm tran
 
 pheno_list <- pheno_list %>% 
   mutate(Short_desc = str_trim(gsub("\\(.*?\\)", "", Description))) %>% 
-  mutate(Short_desc = str_to_sentence(Short_desc))
+  mutate(Short_desc = str_to_sentence(Short_desc)) %>% 
+  mutate(Short_desc = gsub("(?i)Gerd", "GERD", Short_desc)) %>% 
+  mutate(Short_desc = gsub("(?i)nos", "NOS", Short_desc))
 traits <- unique(pheno_list$Trait)
 traitslab <- unique(pheno_list$Short_desc)
 
@@ -81,8 +83,8 @@ for (i in 1:length(traits)){
 }
 ```
 
-```{r}
 # Plot all traits, four at a time
+```{r}
 for (i in seq(1, nrow(all_traits)-4, 16)){
   enrichment_plot(all_traits[i:(i+15),], group="Category", xlim=c(-120,120))
 }
@@ -90,5 +92,21 @@ for (i in seq(1, nrow(all_traits)-4, 16)){
 enrichment_plot(all_traits[385:388,], group="Category", xlim=c(-120,120))
 
 ```
+
+# Looking at which traits have abnormally large enrichment or large standard error
+```{r}
+hist(all_traits$Enrichment, breaks = 50)
+hist(all_traits$Enrichment_std_error, breaks = 20)
+```
+
+
+```{r}
+subset(all_traits, Enrichment < -200)
+subset(all_traits, Enrichment > 200)
+subset(all_traits, Enrichment_std_error < -200)
+subset(all_traits, Enrichment_std_error > 200)
+
+```
+
 
 
