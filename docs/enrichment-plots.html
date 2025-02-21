@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Katie Hooker" />
 
+<meta name="date" content="2025-01-15" />
 
-<title>Home</title>
+<title>Functional Enrichment Analysis Plots</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,6 +31,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -229,6 +234,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -236,6 +304,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -273,7 +351,9 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Functional Enrichment Analysis Plots</h1>
+<h4 class="author">Katie Hooker</h4>
+<h4 class="date">2025-01-15</h4>
 
 </div>
 
@@ -281,7 +361,7 @@ $(document).ready(function () {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -292,8 +372,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -306,9 +386,9 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>organoid-rotation/</code> <span
@@ -343,6 +423,124 @@ class="panel-collapse collapse">
 <p>Great! Since the R Markdown file has been committed to the Git
 repository, you know the exact version of the code that produced these
 results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20250108code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(20250108)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20250108code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20250108)</code> was run prior to running
+the code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it
+difficult for you and others to run your code on a different machine.
+Change the absolute path(s) below to the suggested relative path(s) to
+make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/
+</td>
+<td style="text-align:left;">
+outputs
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/MVP_pheno_list.csv
+</td>
+<td style="text-align:left;">
+data/MVP_pheno_list.csv
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -725,10 +923,11 @@ have uncommitted changes.
 <div id="versions" class="tab-pane fade">
 <p>
 These are the previous versions of the repository in which changes were
-made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML
-(<code>docs/index.html</code>) files. If you’ve configured a remote Git
-repository (see <code>?wflow_git_remote</code>), click on the hyperlinks
-in the table below to view the files as they were in that past version.
+made to the R Markdown (<code>analysis/enrichment-plots.Rmd</code>) and
+HTML (<code>docs/enrichment-plots.html</code>) files. If you’ve
+configured a remote Git repository (see <code>?wflow_git_remote</code>),
+click on the hyperlinks in the table below to view the files as they
+were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -757,7 +956,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/szhaolab/organoid-ukbb/blob/e26f15ed22c7a291ad5dfa262ddc26f55d6a7a0e/analysis/index.Rmd" target="_blank">e26f15e</a>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/e26f15ed22c7a291ad5dfa262ddc26f55d6a7a0e/analysis/enrichment-plots.Rmd" target="_blank">e26f15e</a>
 </td>
 <td>
 akhooker
@@ -769,246 +968,6 @@ akhooker
 Visualize enrichment results
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/c625d35fbd02283c8e3a908138c45f96d8ffcc19/docs/index.html" target="_blank">c625d35</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-02-05
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/szhaolab/organoid-ukbb/blob/193ae4fdcb98ae92c0112cd112d620b44e71b976/analysis/index.Rmd" target="_blank">193ae4f</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-02-05
-</td>
-<td>
-Transitioned to MVP data and developed downloading pipeline
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/3c275f9acfef0e3c8dac982fdabffb45a53659de/docs/index.html" target="_blank">3c275f9</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-24
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/szhaolab/organoid-ukbb/blob/a71a45951a616fa52b55c951c96d7218aca5cc7a/analysis/index.Rmd" target="_blank">a71a459</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-24
-</td>
-<td>
-Add updated index
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/9e0923ffe01f8410be21adab753a92ad91e1be65/docs/index.html" target="_blank">9e0923f</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-20
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/3239dac6cdfa4ff65403d29a345680a9b6ed743a/docs/index.html" target="_blank">3239dac</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-20
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/7dc19f5385f7d369517c5c254dc91d2cbcc8e384/docs/index.html" target="_blank">7dc19f5</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-20
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/1854a90fb9710efceed7657dcac0a4a48a32f79d/docs/index.html" target="_blank">1854a90</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-16
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/szhaolab/organoid-ukbb/blob/5e4454135ef33827e3fdbd43d2a4b300c14c9d99/analysis/index.Rmd" target="_blank">5e44541</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-16
-</td>
-<td>
-Started UK biobank phenotype selection RMD
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/d39b6f3a3efbf3b64c6b98f7f8562847307965c1/docs/index.html" target="_blank">d39b6f3</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-10
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/szhaolab/organoid-ukbb/blob/400ca9a31f212f35313d6eda1c9c8e8906f2966e/analysis/index.Rmd" target="_blank">400ca9a</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-10
-</td>
-<td>
-Publish the initial files for project
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/szhaolab/organoid-ukbb/blob/eae526128d259d96317b365f4cc12d40c206c5f5/analysis/index.Rmd" target="_blank">eae5261</a>
-</td>
-<td>
-Anne K Hooker
-</td>
-<td>
-2025-01-09
-</td>
-<td>
-Set up workflowr framework and modified snakemake pipeline to clean the
-summary stats
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/eae526128d259d96317b365f4cc12d40c206c5f5/docs/index.html" target="_blank">eae5261</a>
-</td>
-<td>
-Anne K Hooker
-</td>
-<td>
-2025-01-09
-</td>
-<td>
-Set up workflowr framework and modified snakemake pipeline to clean the
-summary stats
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/szhaolab/organoid-ukbb/blob/6491835db7f8794e23c92fd99d6ec00b2369620d/analysis/index.Rmd" target="_blank">6491835</a>
-</td>
-<td>
-akhooker
-</td>
-<td>
-2025-01-08
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1016,53 +975,124 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<div
-id="functional-enrichment-analysis-using-publicly-available-gwas-summary-statistics-data"
-class="section level2">
-<h2>Functional enrichment analysis using publicly available GWAS summary
-statistics data</h2>
-<div id="picking-mvp-traits" class="section level3">
-<h3>Picking <a href="MVP-pheno-selection.html">MVP traits</a></h3>
-</div>
-<div id="full-pipeline-in-codepipelinesnake-ldsc-kh.smk"
-class="section level3">
-<h3>Full pipeline in <a
-href="enrichment-analysis.html">code/pipeline/snake-ldsc-kh.smk</a><br />
-</h3>
-<ol style="list-style-type: decimal">
-<li>Organization and normalization of raw MVP GWAS summary statistics
-(clean_sumstats)<br />
-</li>
-<li>Munge summary statistics to S-LDSC PolyFUN format
-(munge_sumstats)<br />
-</li>
-<li>Identify and count significant loci in LD blocks
-(get_significant_loci)<br />
-</li>
-<li>Assign SNPs to the ASoC annotation (create_annotations)<br />
-</li>
-<li>Compute LD scores for the ASoC annotation from a reference panel
-(compute_ld_scores)<br />
-</li>
-<li>Test for enrichment of the ASoC annotation in the MVP traits
-(enrichment_ldsc)<br />
-</li>
-</ol>
-</div>
-<div id="examining-the-enrichment-results" class="section level3">
-<h3>Examining the <a href="enrichment-plots.html">enrichment
-results</a></h3>
-</div>
-<div id="archive" class="section level3">
-<h3>Archive</h3>
-<ul>
-<li>Picking <a href="ukbb-pheno-selection.html">UKBB traits</a><br />
-</li>
-<li>Picking <a href="AoU-pheno-selection.html">All of Us
-traits</a><br />
-</li>
-</ul>
-</div>
+<p>This script is for plotting the outputs of the functional enrichment
+analysis run on the 97 selected MVP phenotypes.</p>
+<pre class="r"><code>enrichment_plot &lt;- function(data, group, xlim=NULL){
+  
+  group = sym(group)
+  p &lt;- ggplot(data, aes(x = Enrichment, y = !!group))+
+    geom_point() +
+    xlab(&quot;Enrichment&quot;) +
+    geom_errorbarh(aes(xmin=Enrichment-ci, xmax=Enrichment+ci), height=.2) +
+    facet_wrap(Trait_label~.,ncol = 1) +
+    theme_bw()  +
+    geom_vline(xintercept = 1,linetype=&quot;dotted&quot;, colour = &quot;red&quot;) +
+    theme(axis.ticks = element_blank(),
+      panel.grid.minor = element_blank(),
+      axis.line = element_line(colour = &quot;black&quot;),
+      axis.text = element_text(size = 8, colour = &quot;black&quot;),
+      axis.title = element_text(face=&quot;bold&quot;,size = 12),
+      strip.text = element_text(face=&quot;bold&quot;,size = 12),
+      panel.spacing.x = unit(0.6,units = &quot;cm&quot;),
+      axis.title.y = element_blank(),
+      legend.position = &quot;none&quot;,
+      plot.title = element_text(hjust = 0.5))
+  
+  if(!is.null(xlim)){
+    p &lt;- p + coord_cartesian(xlim = xlim)
+  }
+  print(p)
+
+}</code></pre>
+<pre class="r"><code>output_path &lt;- &quot;/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/&quot;
+
+# Reading in trait abbreviations and their corresponding trait names
+pheno_list &lt;- read.csv(&quot;/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/MVP_pheno_list.csv&quot;)
+
+# Fixing traits that are not unique after shortening
+pheno_list[pheno_list$Description == &quot;Irritable Bowel Syndrome (IBS)&quot;,]$Description &lt;- &quot;Irritable Bowel Syndrome survey result&quot;
+pheno_list[pheno_list$Description == &quot;glucose (finger stick, mean, inv-norm transformed)&quot;,]$Description &lt;- &quot;Glucose finger stick result&quot;
+
+pheno_list &lt;- pheno_list %&gt;% 
+  mutate(Short_desc = str_trim(gsub(&quot;\\(.*?\\)&quot;, &quot;&quot;, Description))) %&gt;% 
+  mutate(Short_desc = str_to_sentence(Short_desc))
+traits &lt;- unique(pheno_list$Trait)
+traitslab &lt;- unique(pheno_list$Short_desc)
+
+all_traits &lt;- NULL 
+for (i in 1:length(traits)){
+  efile1 &lt;- read.table(paste0(output_path, sprintf(&quot;results/%s_enrichment.results&quot;, traits[i])),
+                       header=T)
+  enrich &lt;- efile1[1:4,c(1,5,6,7)]
+  enrich$ci &lt;- 1.96*enrich$Enrichment_std_error
+  enrich$Trait &lt;- traits[i]
+  enrich$Trait_label &lt;- traitslab[i]
+
+  if(is.null(all_traits)){
+    all_traits &lt;- enrich
+  } else{
+    all_traits &lt;- rbind(all_traits, enrich)
+  }
+}</code></pre>
+<pre class="r"><code># Plot all traits, four at a time
+for (i in seq(1, nrow(all_traits)-4, 16)){
+  enrichment_plot(all_traits[i:(i+15),], group=&quot;Category&quot;, xlim=c(-120,120))
+}</code></pre>
+<p><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-4.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-6.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-7.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-8.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-9.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-10.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-11.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-12.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-13.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-14.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-15.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-16.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-17.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-18.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-19.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-20.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-21.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-22.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-23.png" width="672" style="display: block; margin: auto;" /><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-24.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># Last trait
+enrichment_plot(all_traits[385:388,], group=&quot;Category&quot;, xlim=c(-120,120))</code></pre>
+<p><img src="figure/enrichment-plots.Rmd/unnamed-chunk-3-25.png" width="672" style="display: block; margin: auto;" /></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.4.2 (2024-10-31)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.1 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] lubridate_1.9.3 forcats_1.0.0   stringr_1.5.1   dplyr_1.1.4    
+ [5] purrr_1.0.2     readr_2.1.5     tidyr_1.3.1     tibble_3.2.1   
+ [9] ggplot2_3.5.1   tidyverse_2.0.0 workflowr_1.7.1
+
+loaded via a namespace (and not attached):
+ [1] sass_0.4.9        utf8_1.2.4        generics_0.1.3    stringi_1.8.4    
+ [5] hms_1.1.3         digest_0.6.37     magrittr_2.0.3    timechange_0.3.0 
+ [9] evaluate_1.0.1    grid_4.4.2        fastmap_1.2.0     rprojroot_2.0.4  
+[13] jsonlite_1.8.9    processx_3.8.4    whisker_0.4.1     ps_1.8.1         
+[17] promises_1.3.2    httr_1.4.7        fansi_1.0.6       scales_1.3.0     
+[21] jquerylib_0.1.4   cli_3.6.3         rlang_1.1.4       munsell_0.5.1    
+[25] withr_3.0.2       cachem_1.1.0      yaml_2.3.10       tools_4.4.2      
+[29] tzdb_0.4.0        colorspace_2.1-1  httpuv_1.6.15     vctrs_0.6.5      
+[33] R6_2.5.1          lifecycle_1.0.4   git2r_0.35.0      fs_1.6.5         
+[37] pkgconfig_2.0.3   callr_3.7.6       pillar_1.9.0      bslib_0.8.0      
+[41] later_1.4.1       gtable_0.3.6      glue_1.8.0        Rcpp_1.0.13-1    
+[45] xfun_0.49         tidyselect_1.2.1  rstudioapi_0.17.1 knitr_1.49       
+[49] farver_2.1.2      htmltools_0.5.8.1 labeling_0.4.3    rmarkdown_2.29   
+[53] compiler_4.4.2    getPass_0.2-4    </code></pre>
 </div>
 </div>
 </div>
@@ -1086,6 +1116,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -1118,6 +1150,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
