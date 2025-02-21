@@ -20,6 +20,8 @@ editor_options:
 5. Compute LD scores for the ASoC annotation from a reference panel (compute_ld_scores)\
 6. Test for enrichment of the ASoC annotation in the MVP traits (enrichment_ldsc)\
 
+### Examining the [enrichment results](enrichment-plots.html)
+
 ### Archive
 - Picking [UKBB traits](ukbb-pheno-selection.html)\
 - Picking [All of Us traits](AoU-pheno-selection.html)\
