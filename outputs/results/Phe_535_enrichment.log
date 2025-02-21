@@ -1,0 +1,37 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.0
+* (C) 2014-2015 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/Phe_535_enrichment \
+--h2 /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/Phe_535_munged_sumstats.parquet \
+--ref-ld-chr /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/Phe_535/Phe_535. \
+--w-ld-chr /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/weights/weights. \
+--overlap-annot  \
+--not-M-5-50  
+
+Beginning analysis at Tue Feb 18 00:55:01 2025
+Reading summary statistics from /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/Phe_535_munged_sumstats.parquet ...
+Read summary statistics for 18552448 SNPs.
+Reading reference panel LD Score from /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/Phe_535/Phe_535.[1-22] ...
+Read reference panel LD Scores for 9997231 SNPs.
+Reading regression weight LD Score from /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/weights/weights.[1-22] ...
+Read regression weight LD Scores for 9997231 SNPs.
+After merging with reference panel LD, 107275 SNPs remain.
+After merging with regression SNP LD, 107275 SNPs remain.
+WARNING: number of SNPs less than 200k; this is almost always bad.
+Removed 0 SNPs with chi^2 > 80 (107275 SNPs remain)
+Total Observed scale h2: -0.0701 (0.0761)
+Categories: 020222_ATAC_Stim_TNFa_0 020222_ATAC_Stim_UT_0 ASoC_TNFa_11samp_WGS_0_0 ASoC_UT_11samp_WGS_0_0 MAFbin1_0 MAFbin2_0 MAFbin3_0 MAFbin4_0 MAFbin5_0 MAFbin6_0 MAFbin7_0 MAFbin8_0 MAFbin9_0 MAFbin10_0 MAF_Adj_Predicted_Allele_Age_0 MAF_Adj_LLD_AFR_0 Recomb_Rate_10kb_0 Nucleotide_Diversity_10kb_0 Backgrd_Selection_Stat_0 CpG_Content_50kb_0
+Lambda GC: 1.0711
+Mean Chi^2: 1.0626
+Intercept: 1.0599 (0.0211)
+Ratio: 0.9562 (0.3372)
+Reading annot matrix from /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/Phe_535/Phe_535.[1-22] ...
+Results printed to /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/Phe_535_enrichment.results
+Analysis finished at Tue Feb 18 00:58:26 2025
+Total time elapsed: 3.0m:25.55000000000001s

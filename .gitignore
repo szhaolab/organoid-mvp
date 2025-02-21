@@ -4,3 +4,5 @@
 /code/MVP-data-pull/job_*
 /raw-sumstats
 /cleaned-sumstats
+/code/pipeline/.snakemake
+/code/pipeline/array-outputs

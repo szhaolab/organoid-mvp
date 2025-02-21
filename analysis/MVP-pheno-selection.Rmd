@@ -11,7 +11,7 @@ https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs0
 
 ```{r}
 library(dplyr)
-pheno_mt <- read.csv("./data/phs002453.v1-Documents/MVP_R4.1000G_AGR.DataDictionary_and_Counts_vJuly2024-1.csv")
+pheno_mt <- read.csv("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/phs002453.v1-Documents/MVP_R4.1000G_AGR.DataDictionary_and_Counts_vJuly2024-1.csv")
 names(pheno_mt)
 
 pheno_mt <- pheno_mt %>% select(Trait, Trait_Type, Category, SubCategory, Description, num_samples.EUR, num_cases.EUR, num_controls.EUR, dbgap_cat.EUR, dbgap_cat.pheno)
@@ -202,32 +202,32 @@ pheno_filt$Description
 # Loading in file manifests
 ```{r}
 # Three batches of lab data
-lab_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
-lab_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
-lab_3 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar.table_of_contents.txt")
+lab_1 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+lab_2 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+lab_3 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Labs_batch3.analysis-PI.MULTI.tar.table_of_contents.txt")
 
 # PheCode digestive system
-digest_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
-digest_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+digest_1 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+digest_2 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_DigestiveSystem_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
 
 # PheCode endocrine or metabolic
-endo_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
-endo_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+endo_1 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+endo_2 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_EndocrineMetabolic_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
 
 # PheCode neoplasms
-neo_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
-neo_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+neo_1 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+neo_2 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Neoplasms_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
 
 #PheCode symptoms
-symptoms_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar.table_of_contents.txt")
+symptoms_1 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_Symptoms.analysis-PI.MULTI.tar.table_of_contents.txt")
 
 # Vitals
-vitals_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar.table_of_contents.txt")
+vitals_1 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Vitals_Quantitative.analysis-PI.MULTI.tar.table_of_contents.txt")
 
 # Surveys 
-surveys_1 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
-surveys_2 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
-surveys_3 <- read.table("https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch3.analysis-PI.MULTI.tar.table_of_contents.txt")
+surveys_1 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch1.analysis-PI.MULTI.tar.table_of_contents.txt")
+surveys_2 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch2.analysis-PI.MULTI.tar.table_of_contents.txt")
+surveys_3 <- read.table("https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.Surveys_Binary_batch3.analysis-PI.MULTI.tar.table_of_contents.txt")
 
 ```
 
@@ -275,8 +275,8 @@ pheno_filt <- pheno_filt %>% mutate(file_name = gsub(".*/", "", V6))
 
 # Test downloading a small tarball to the server
 ```{r}
-#system("wget -P /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/ https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_CongenitalAnomalies.analysis-PI.MULTI.tar")
-#system("wget -P /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/ https://ftp-ncbi-nlm-nih-gov.dartmouth.idm.oclc.org/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_CongenitalAnomalies.analysis-PI.MULTI.tar.md5")
+#system("wget -P /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/ https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_CongenitalAnomalies.analysis-PI.MULTI.tar")
+#system("wget -P /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/ https://ftp.ncbi.nlm.nih.gov/dbgap/studies/phs002453/phs002453.v1.p1/analyses/GIA/phs002453.MVP_R4.1000G_AGR.GIA.PheCodes_CongenitalAnomalies.analysis-PI.MULTI.tar.md5")
 
 ```
 
