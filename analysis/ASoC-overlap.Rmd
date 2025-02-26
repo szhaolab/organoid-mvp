@@ -1,0 +1,70 @@
+---
+title: "ASoC Overlap with MVP SNPs"
+author: "Katie Hooker"
+date: "2025-02-24"
+output: html_document
+---
+
+This script examines the degree of overlap between the SNPs covered by the MVP GWASes and the SNPs in Liyang's ASoC annotation. We noticed high standard errors and negative enrichment values in our enrichment analysis, which may be due to SNPs in the ASoC annotation that are missing from the MVP GWAS.
+
+```{r}
+library(dplyr)
+library(data.table)
+```
+
+# Reading in ASoC annotations
+```{r}
+UT_anno <- read.table("/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir/ASoC_UT_11samp_WGS_0.1_lifted.bed", sep="\t")
+TNFa_anno <- read.table("/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir/ASoC_TNFa_11samp_WGS_0.1_lifted.bed", sep="\t")
+
+colnames(UT_anno) <- c("chrom", "pos", "end_pos")
+colnames(TNFa_anno) <- c("chrom", "pos", "end_pos")
+
+```
+
+# Reading in MVP annotation files and creating a table of coverages
+```{r}
+annotation_path <- "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/"
+
+pheno_list <- read.csv("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/MVP_pheno_list.csv")
+odd_rows <- seq_len(nrow(pheno_list)) %% 2
+traits <- pheno_list[odd_rows==1,]$Trait
+
+all_coverages <- data.frame(matrix(nrow=0, ncol=3))
+colnames(all_coverages) <- c("Trait", "UT_coverage", "TNFa_coverage")
+
+# For each trait...
+for (i in 1:length(traits)){
+  # Initialize SNP counts
+  UT_SNPs <- 0
+  TNFa_SNPs <- 0
+  
+  # For each chromosome annotation of each trait...
+  for (chrom_i in 1:22){
+    chrom_anno <- fread(paste0(annotation_path, traits[i], "/", traits[i], ".", chrom_i, ".annot.gz"))
+    
+    # Add the SNPs that are covered to the ongoing count of annotation SNPs that are in the MVP GWAS
+    UT_SNPs <- UT_SNPs + sum(chrom_anno$ASoC_UT_11samp_WGS_0)
+    TNFa_SNPs <- TNFa_SNPs + sum(chrom_anno$ASoC_TNFa_11samp_WGS_0)
+  }
+  
+  # SNPs from the annotation covered in the MVP GWAS / total SNPs in the annotation * 100
+  UT_coverage <- (UT_SNPs / nrow(UT_anno)) * 100
+  TNFa_coverage <- (TNFa_SNPs / nrow(TNFa_anno)) * 100
+  
+  # Current trait coverage
+  trait_coverage <- data.frame(
+    Trait = traits[i],
+    UT_coverage = UT_coverage,
+    TNFa_coverage = TNFa_coverage,
+    stringsAsFactors = FALSE
+    )  
+  
+  all_coverages <- rbind(all_coverages, trait_coverage)
+
+}
+
+```
+
+
+

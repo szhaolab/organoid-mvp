@@ -22,6 +22,8 @@ editor_options:
 
 ### Examining the [enrichment results](enrichment-plots.html)
 
+### Examining [overlap between ASoC annotation and MVP SNPs](ASoC-overlap.html)
+
 ### Archive
 - Picking [UKBB traits](ukbb-pheno-selection.html)\
 - Picking [All of Us traits](AoU-pheno-selection.html)\
