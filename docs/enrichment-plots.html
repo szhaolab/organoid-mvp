@@ -11,7 +11,7 @@
 
 <meta name="author" content="Katie Hooker" />
 
-<meta name="date" content="2025-01-15" />
+<meta name="date" content="2025-02-17" />
 
 <title>Functional Enrichment Analysis Plots</title>
 
@@ -353,7 +353,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Functional Enrichment Analysis Plots</h1>
 <h4 class="author">Katie Hooker</h4>
-<h4 class="date">2025-01-15</h4>
+<h4 class="date">2025-02-17</h4>
 
 </div>
 
@@ -382,7 +382,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-02-21
+<strong>Last updated:</strong> 2025-02-26
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -547,15 +547,15 @@ data/MVP_pheno_list.csv
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree95e31a3204002d445f089130b73d4a0bf674ed4atargetblank95e31a3a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtreed097ffa1a5645c4c990c9cb98f8d0eee7e2c7e69targetblankd097ffaa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/95e31a3204002d445f089130b73d4a0bf674ed4a" target="_blank">95e31a3</a>
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/d097ffa1a5645c4c990c9cb98f8d0eee7e2c7e69" target="_blank">d097ffa</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtree95e31a3204002d445f089130b73d4a0bf674ed4atargetblank95e31a3a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomszhaolaborganoidukbbtreed097ffa1a5645c4c990c9cb98f8d0eee7e2c7e69targetblankd097ffaa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -565,7 +565,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/szhaolab/organoid-ukbb/tree/95e31a3204002d445f089130b73d4a0bf674ed4a" target="_blank">95e31a3</a>.
+<a href="https://github.com/szhaolab/organoid-ukbb/tree/d097ffa1a5645c4c990c9cb98f8d0eee7e2c7e69" target="_blank">d097ffa</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -596,11 +596,326 @@ Ignored files:
     Ignored:    code/pipeline/.snakemake/locks/
     Ignored:    code/pipeline/.snakemake/shadow/
     Ignored:    code/pipeline/.snakemake/singularity/
+    Ignored:    code/pipeline/log/
     Ignored:    data/extracted/
     Ignored:    outputs/annotations/
     Ignored:    outputs/munged_sumstats/
-    Ignored:    outputs/plots/
     Ignored:    raw-sumstats/
+
+Untracked files:
+    Untracked:  code/pipeline/run_ldsc_3728886.log
+
+Unstaged changes:
+    Modified:   code/R/clean_sumstats_binary.R
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vY2xlYW5lZC1zdW1zdGF0cy9QaGVfNTMwXzFfc3Vtc3RhdHMudHh0Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vY2xlYW5lZC1zdW1zdGF0cy9QaGVfNTc4Xzhfc3Vtc3RhdHMudHh0Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE0LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE0LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE0LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE1LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE1LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE1LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE2LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE2LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE2LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE3LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE3LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE3LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE4LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE4LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE4LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE5LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE5LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjE5LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEwLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEwLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEwLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjExLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjExLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjExLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEyLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEyLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEyLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEzLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEzLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjEzLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIwLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIwLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIwLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIxLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIxLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIxLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIyLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIyLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjIyLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjMuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjMubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjMubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjQuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjQubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjQubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjUuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjUubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjUubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjYuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjYubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjYubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjcuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjcubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjcubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjguYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjgubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjgubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjkuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjkubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTMwXzEvUGhlXzUzMF8xLjkubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE0LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE0LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE0LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE1LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE1LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE1LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE2LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE2LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE2LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE3LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE3LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE3LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE4LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE4LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE4LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE5LmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE5LmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjE5LmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEwLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEwLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEwLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjExLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjExLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjExLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEyLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEyLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEyLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEzLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEzLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjEzLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIwLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIwLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIwLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIxLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIxLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIxLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIyLmFubm90Lmd6
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIyLmwyLk0=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjIyLmwyLmxkc2NvcmUucGFycXVldA==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjMuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjMubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjMubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjQuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjQubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjQubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjUuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjUubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjUubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjYuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjYubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjYubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjcuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjcubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjcubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjguYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjgubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjgubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjkuYW5ub3QuZ3o=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjkubDIuTQ==
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9hbm5vdGF0aW9ucy9QaGVfNTc4XzgvUGhlXzU3OF84LjkubDIubGRzY29yZS5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9tdW5nZWRfc3Vtc3RhdHMvUGhlXzU3OF84X211bmdlZF9zdW1zdGF0cy5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9tdW5nZWRfc3Vtc3RhdHMvUGhlXzUzMF8xX211bmdlZF9zdW1zdGF0cy5wYXJxdWV0
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9yZXN1bHRzL1BoZV81MzBfMV9lbnJpY2htZW50LnJlc3VsdHM=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9yZXN1bHRzL1BoZV81MzBfMV9zaWduaWZfbG9jaS50eHQ=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9yZXN1bHRzL1BoZV81NzhfOF9lbnJpY2htZW50LnJlc3VsdHM=
+    Modified:   code/pipeline/.snakemake/metadata/L2RhcnRmcy9yYy9sYWIvUy9Temhhby9rYXRpZWgvb3JnYW5vaWQtcm90YXRpb24vb3V0cHV0cy9yZXN1bHRzL1BoZV81NzhfOF9zaWduaWZfbG9jaS50eHQ=
+    Modified:   code/pipeline/run_ldsc.sbatch
+    Modified:   code/pipeline/run_ldsc_array.sbatch
+    Modified:   code/pipeline/snake-ldsc-kh_TEST.smk
+    Modified:   outputs/results/CircChol_enrichment.log
+    Modified:   outputs/results/CircChol_enrichment.results
+    Modified:   outputs/results/DoDM_enrichment.log
+    Modified:   outputs/results/DoDM_enrichment.results
+    Modified:   outputs/results/DoThy_enrichment.log
+    Modified:   outputs/results/DoThy_enrichment.results
+    Modified:   outputs/results/GIIBS_enrichment.log
+    Modified:   outputs/results/GIIBS_enrichment.results
+    Modified:   outputs/results/GIOth_enrichment.log
+    Modified:   outputs/results/GIOth_enrichment.results
+    Modified:   outputs/results/GIPolyp_enrichment.log
+    Modified:   outputs/results/GIPolyp_enrichment.results
+    Modified:   outputs/results/GIReflux_enrichment.log
+    Modified:   outputs/results/GIReflux_enrichment.results
+    Modified:   outputs/results/GIUlcer_enrichment.log
+    Modified:   outputs/results/GIUlcer_enrichment.results
+    Modified:   outputs/results/Phe_153_enrichment.log
+    Modified:   outputs/results/Phe_153_enrichment.results
+    Modified:   outputs/results/Phe_208_enrichment.log
+    Modified:   outputs/results/Phe_208_enrichment.results
+    Modified:   outputs/results/Phe_241_1_enrichment.log
+    Modified:   outputs/results/Phe_241_1_enrichment.results
+    Modified:   outputs/results/Phe_241_enrichment.log
+    Modified:   outputs/results/Phe_241_enrichment.results
+    Modified:   outputs/results/Phe_244_4_enrichment.log
+    Modified:   outputs/results/Phe_244_4_enrichment.results
+    Modified:   outputs/results/Phe_244_enrichment.log
+    Modified:   outputs/results/Phe_244_enrichment.results
+    Modified:   outputs/results/Phe_250_1_enrichment.log
+    Modified:   outputs/results/Phe_250_1_enrichment.results
+    Modified:   outputs/results/Phe_250_22_enrichment.log
+    Modified:   outputs/results/Phe_250_22_enrichment.results
+    Modified:   outputs/results/Phe_250_23_enrichment.log
+    Modified:   outputs/results/Phe_250_23_enrichment.results
+    Modified:   outputs/results/Phe_250_24_enrichment.log
+    Modified:   outputs/results/Phe_250_24_enrichment.results
+    Modified:   outputs/results/Phe_250_2_enrichment.log
+    Modified:   outputs/results/Phe_250_2_enrichment.results
+    Modified:   outputs/results/Phe_250_41_enrichment.log
+    Modified:   outputs/results/Phe_250_41_enrichment.results
+    Modified:   outputs/results/Phe_250_42_enrichment.log
+    Modified:   outputs/results/Phe_250_42_enrichment.results
+    Modified:   outputs/results/Phe_250_4_enrichment.log
+    Modified:   outputs/results/Phe_250_4_enrichment.results
+    Modified:   outputs/results/Phe_250_enrichment.log
+    Modified:   outputs/results/Phe_250_enrichment.results
+    Modified:   outputs/results/Phe_260_enrichment.log
+    Modified:   outputs/results/Phe_260_enrichment.results
+    Modified:   outputs/results/Phe_261_2_enrichment.log
+    Modified:   outputs/results/Phe_261_2_enrichment.results
+    Modified:   outputs/results/Phe_261_4_enrichment.log
+    Modified:   outputs/results/Phe_261_4_enrichment.results
+    Modified:   outputs/results/Phe_261_enrichment.log
+    Modified:   outputs/results/Phe_261_enrichment.results
+    Modified:   outputs/results/Phe_269_enrichment.log
+    Modified:   outputs/results/Phe_269_enrichment.results
+    Modified:   outputs/results/Phe_271_3_enrichment.log
+    Modified:   outputs/results/Phe_271_3_enrichment.results
+    Modified:   outputs/results/Phe_271_enrichment.log
+    Modified:   outputs/results/Phe_271_enrichment.results
+    Modified:   outputs/results/Phe_272_11_enrichment.log
+    Modified:   outputs/results/Phe_272_11_enrichment.results
+    Modified:   outputs/results/Phe_272_12_enrichment.log
+    Modified:   outputs/results/Phe_272_12_enrichment.results
+    Modified:   outputs/results/Phe_272_13_enrichment.log
+    Modified:   outputs/results/Phe_272_13_enrichment.results
+    Modified:   outputs/results/Phe_272_1_enrichment.log
+    Modified:   outputs/results/Phe_272_1_enrichment.results
+    Modified:   outputs/results/Phe_272_enrichment.log
+    Modified:   outputs/results/Phe_272_enrichment.results
+    Modified:   outputs/results/Phe_275_enrichment.log
+    Modified:   outputs/results/Phe_275_enrichment.results
+    Modified:   outputs/results/Phe_276_12_enrichment.log
+    Modified:   outputs/results/Phe_276_12_enrichment.results
+    Modified:   outputs/results/Phe_276_13_enrichment.log
+    Modified:   outputs/results/Phe_276_13_enrichment.results
+    Modified:   outputs/results/Phe_276_14_enrichment.log
+    Modified:   outputs/results/Phe_276_14_enrichment.results
+    Modified:   outputs/results/Phe_276_1_enrichment.log
+    Modified:   outputs/results/Phe_276_1_enrichment.results
+    Modified:   outputs/results/Phe_276_4_enrichment.log
+    Modified:   outputs/results/Phe_276_4_enrichment.results
+    Modified:   outputs/results/Phe_276_5_enrichment.log
+    Modified:   outputs/results/Phe_276_5_enrichment.results
+    Modified:   outputs/results/Phe_276_enrichment.log
+    Modified:   outputs/results/Phe_276_enrichment.results
+    Modified:   outputs/results/Phe_278_11_enrichment.log
+    Modified:   outputs/results/Phe_278_11_enrichment.results
+    Modified:   outputs/results/Phe_278_1_enrichment.log
+    Modified:   outputs/results/Phe_278_1_enrichment.results
+    Modified:   outputs/results/Phe_278_enrichment.log
+    Modified:   outputs/results/Phe_278_enrichment.results
+    Modified:   outputs/results/Phe_530_11_enrichment.log
+    Modified:   outputs/results/Phe_530_11_enrichment.results
+    Modified:   outputs/results/Phe_530_13_enrichment.log
+    Modified:   outputs/results/Phe_530_13_enrichment.results
+    Modified:   outputs/results/Phe_530_14_enrichment.log
+    Modified:   outputs/results/Phe_530_14_enrichment.results
+    Modified:   outputs/results/Phe_530_1_enrichment.log
+    Modified:   outputs/results/Phe_530_1_enrichment.results
+    Modified:   outputs/results/Phe_530_enrichment.log
+    Modified:   outputs/results/Phe_530_enrichment.results
+    Modified:   outputs/results/Phe_531_enrichment.log
+    Modified:   outputs/results/Phe_531_enrichment.results
+    Modified:   outputs/results/Phe_535_enrichment.log
+    Modified:   outputs/results/Phe_535_enrichment.results
+    Modified:   outputs/results/Phe_536_enrichment.log
+    Modified:   outputs/results/Phe_536_enrichment.results
+    Modified:   outputs/results/Phe_550_1_enrichment.log
+    Modified:   outputs/results/Phe_550_1_enrichment.results
+    Modified:   outputs/results/Phe_550_2_enrichment.log
+    Modified:   outputs/results/Phe_550_2_enrichment.results
+    Modified:   outputs/results/Phe_550_4_enrichment.log
+    Modified:   outputs/results/Phe_550_4_enrichment.results
+    Modified:   outputs/results/Phe_550_enrichment.log
+    Modified:   outputs/results/Phe_550_enrichment.results
+    Modified:   outputs/results/Phe_558_enrichment.log
+    Modified:   outputs/results/Phe_558_enrichment.results
+    Modified:   outputs/results/Phe_560_enrichment.log
+    Modified:   outputs/results/Phe_560_enrichment.results
+    Modified:   outputs/results/Phe_561_1_enrichment.log
+    Modified:   outputs/results/Phe_561_1_enrichment.results
+    Modified:   outputs/results/Phe_561_enrichment.log
+    Modified:   outputs/results/Phe_561_enrichment.results
+    Modified:   outputs/results/Phe_562_1_enrichment.log
+    Modified:   outputs/results/Phe_562_1_enrichment.results
+    Modified:   outputs/results/Phe_562_2_enrichment.log
+    Modified:   outputs/results/Phe_562_2_enrichment.results
+    Modified:   outputs/results/Phe_562_enrichment.log
+    Modified:   outputs/results/Phe_562_enrichment.results
+    Modified:   outputs/results/Phe_563_enrichment.log
+    Modified:   outputs/results/Phe_563_enrichment.results
+    Modified:   outputs/results/Phe_564_1_enrichment.log
+    Modified:   outputs/results/Phe_564_1_enrichment.results
+    Modified:   outputs/results/Phe_564_enrichment.log
+    Modified:   outputs/results/Phe_564_enrichment.results
+    Modified:   outputs/results/Phe_565_enrichment.log
+    Modified:   outputs/results/Phe_565_enrichment.results
+    Modified:   outputs/results/Phe_571_51_enrichment.log
+    Modified:   outputs/results/Phe_571_51_enrichment.results
+    Modified:   outputs/results/Phe_571_5_enrichment.log
+    Modified:   outputs/results/Phe_571_5_enrichment.results
+    Modified:   outputs/results/Phe_571_enrichment.log
+    Modified:   outputs/results/Phe_571_enrichment.results
+    Modified:   outputs/results/Phe_573_7_enrichment.log
+    Modified:   outputs/results/Phe_573_7_enrichment.results
+    Modified:   outputs/results/Phe_574_1_enrichment.log
+    Modified:   outputs/results/Phe_574_1_enrichment.results
+    Modified:   outputs/results/Phe_574_enrichment.log
+    Modified:   outputs/results/Phe_574_enrichment.results
+    Modified:   outputs/results/Phe_577_enrichment.log
+    Modified:   outputs/results/Phe_577_enrichment.results
+    Modified:   outputs/results/Phe_578_2_enrichment.log
+    Modified:   outputs/results/Phe_578_2_enrichment.results
+    Modified:   outputs/results/Phe_578_8_enrichment.log
+    Modified:   outputs/results/Phe_578_8_enrichment.results
+    Modified:   outputs/results/Phe_578_9_enrichment.log
+    Modified:   outputs/results/Phe_578_9_enrichment.results
+    Modified:   outputs/results/Phe_578_enrichment.log
+    Modified:   outputs/results/Phe_578_enrichment.results
+    Modified:   outputs/results/Phe_785_enrichment.log
+    Modified:   outputs/results/Phe_785_enrichment.results
+    Modified:   outputs/results/Phe_789_enrichment.log
+    Modified:   outputs/results/Phe_789_enrichment.results
+    Deleted:    outputs/results/combined_results.txt
+    Deleted:    outputs/results/concatenate_results.sh
 
 </code></pre>
 <p>
@@ -645,6 +960,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/d097ffa1a5645c4c990c9cb98f8d0eee7e2c7e69/analysis/enrichment-plots.Rmd" target="_blank">d097ffa</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-26
+</td>
+<td>
+Update enrichment plots
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/szhaolab/organoid-ukbb/4d11dd61a66aa8eb1ee8b0f0e70685194127cb6c/docs/enrichment-plots.html" target="_blank">4d11dd6</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -722,7 +1071,7 @@ analysis run on the 97 selected MVP phenotypes.</p>
       axis.line = element_line(colour = &quot;black&quot;),
       axis.text = element_text(size = 8, colour = &quot;black&quot;),
       axis.title = element_text(face=&quot;bold&quot;,size = 12),
-      strip.text = element_text(face=&quot;bold&quot;,size = 12),
+      strip.text = element_text(face=&quot;bold&quot;,size = 10),
       panel.spacing.x = unit(0.6,units = &quot;cm&quot;),
       axis.title.y = element_blank(),
       legend.position = &quot;none&quot;,
@@ -751,8 +1100,24 @@ pheno_list &lt;- pheno_list %&gt;%
   mutate(Short_desc = str_to_sentence(Short_desc)) %&gt;% 
   mutate(Short_desc = gsub(&quot;(?i)Gerd&quot;, &quot;GERD&quot;, Short_desc)) %&gt;% 
   mutate(Short_desc = gsub(&quot;(?i)nos&quot;, &quot;NOS&quot;, Short_desc))
-traits &lt;- unique(pheno_list$Trait)
-traitslab &lt;- unique(pheno_list$Short_desc)
+
+odd_rows &lt;- seq_len(nrow(pheno_list)) %% 2
+pheno_list_unique &lt;- pheno_list[odd_rows==1,]
+  
+pheno_list_unique$N_desc &lt;- NA
+
+for (trait in pheno_list_unique$Trait){
+  if (pheno_list_unique[pheno_list_unique$Trait == trait,]$Category == &quot;Labs&quot;) {
+    N_string = paste0(&quot;N total = &quot;, pheno_list_unique[pheno_list_unique$Trait == trait,]$num_samples.EUR)
+  } else {
+    N_string = paste0(&quot;N cases = &quot;, pheno_list_unique[pheno_list_unique$Trait == trait,]$num_cases.EUR, &quot;, N controls = &quot;, pheno_list_unique[pheno_list_unique$Trait == trait,]$num_controls.EUR)
+  }
+  pheno_list_unique[pheno_list_unique$Trait == trait,]$N_desc &lt;- N_string
+}
+
+pheno_list_unique &lt;- pheno_list_unique %&gt;% mutate(Short_desc = paste0(Short_desc, &quot; (&quot;, N_desc, &quot;)&quot;))
+traits &lt;- pheno_list_unique$Trait
+traitslab &lt;- pheno_list_unique$Short_desc
 
 all_traits &lt;- NULL 
 for (i in 1:length(traits)){
@@ -914,6 +1279,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/4d11dd61a66aa8eb1ee8b0f0e70685194127cb6c/docs/figure/enrichment-plots.Rmd/unnamed-chunk-3-4.png" target="_blank">4d11dd6</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-21
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/szhaolab/organoid-ukbb/blob/931961b308f87717ef93075ba9488c7fefbdec26/docs/figure/enrichment-plots.Rmd/unnamed-chunk-3-4.png" target="_blank">931961b</a>
 </td>
 <td>
@@ -1026,6 +1402,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/4d11dd61a66aa8eb1ee8b0f0e70685194127cb6c/docs/figure/enrichment-plots.Rmd/unnamed-chunk-3-7.png" target="_blank">4d11dd6</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-21
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/szhaolab/organoid-ukbb/blob/931961b308f87717ef93075ba9488c7fefbdec26/docs/figure/enrichment-plots.Rmd/unnamed-chunk-3-7.png" target="_blank">931961b</a>
@@ -1332,6 +1719,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/4d11dd61a66aa8eb1ee8b0f0e70685194127cb6c/docs/figure/enrichment-plots.Rmd/unnamed-chunk-3-15.png" target="_blank">4d11dd6</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-21
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/szhaolab/organoid-ukbb/blob/931961b308f87717ef93075ba9488c7fefbdec26/docs/figure/enrichment-plots.Rmd/unnamed-chunk-3-15.png" target="_blank">931961b</a>
 </td>
 <td>
@@ -1368,6 +1766,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/4d11dd61a66aa8eb1ee8b0f0e70685194127cb6c/docs/figure/enrichment-plots.Rmd/unnamed-chunk-3-16.png" target="_blank">4d11dd6</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-21
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/szhaolab/organoid-ukbb/blob/931961b308f87717ef93075ba9488c7fefbdec26/docs/figure/enrichment-plots.Rmd/unnamed-chunk-3-16.png" target="_blank">931961b</a>
@@ -1735,778 +2144,831 @@ class="section level1">
 standard error</h1>
 <pre class="r"><code>hist(all_traits$Enrichment, breaks = 50)</code></pre>
 <p><img src="figure/enrichment-plots.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
+Past versions of unnamed-chunk-4-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/4d11dd61a66aa8eb1ee8b0f0e70685194127cb6c/docs/figure/enrichment-plots.Rmd/unnamed-chunk-4-1.png" target="_blank">4d11dd6</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-21
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>hist(all_traits$Enrichment_std_error, breaks = 20)</code></pre>
 <p><img src="figure/enrichment-plots.Rmd/unnamed-chunk-4-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-2">
+Past versions of unnamed-chunk-4-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/szhaolab/organoid-ukbb/blob/4d11dd61a66aa8eb1ee8b0f0e70685194127cb6c/docs/figure/enrichment-plots.Rmd/unnamed-chunk-4-2.png" target="_blank">4d11dd6</a>
+</td>
+<td>
+akhooker
+</td>
+<td>
+2025-02-21
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>subset(all_traits, Enrichment &lt; -200)</code></pre>
 <pre><code>                 Category Enrichment Enrichment_std_error Enrichment_p
-43   ASoC_TNFa_11samp_WGS    -341.29               840.80    0.5419300
-45  020222_ATAC_Stim_TNFa    -276.09               585.13    0.1181800
-46    020222_ATAC_Stim_UT    -415.18               878.58    0.0311030
-48     ASoC_UT_11samp_WGS    -603.78              1528.70    0.5076800
-59   ASoC_TNFa_11samp_WGS    -961.23            141830.00    0.4609900
-60     ASoC_UT_11samp_WGS    -651.45             94330.00    0.5787700
+43   ASoC_TNFa_11samp_WGS    -340.19               849.48    0.5474200
+45  020222_ATAC_Stim_TNFa    -283.47               615.67    0.1161100
+46    020222_ATAC_Stim_UT    -432.00               936.77    0.0287740
+48     ASoC_UT_11samp_WGS    -607.22              1559.80    0.5059500
+56     ASoC_UT_11samp_WGS    -210.37               297.04    0.3212400
+59   ASoC_TNFa_11samp_WGS   -1157.60             90540.00    0.4641100
+60     ASoC_UT_11samp_WGS    -772.84             25614.00    0.5908200
 64     ASoC_UT_11samp_WGS    -234.50               321.65    0.2071700
 79   ASoC_TNFa_11samp_WGS    -280.39               261.10    0.1093200
-92     ASoC_UT_11samp_WGS    -301.03               142.71    0.0110920
-96     ASoC_UT_11samp_WGS    -447.55               274.36    0.0155220
-112    ASoC_UT_11samp_WGS    -289.61               403.80    0.3863700
-131  ASoC_TNFa_11samp_WGS    -205.63               921.12    0.7267900
-133 020222_ATAC_Stim_TNFa    -461.65              5197.70    0.2292300
-134   020222_ATAC_Stim_UT    -412.45              4560.60    0.1487300
-139  ASoC_TNFa_11samp_WGS    -493.95              1151.60    0.0353950
-148    ASoC_UT_11samp_WGS    -293.47               267.16    0.1156900
-151  ASoC_TNFa_11samp_WGS -623310.00            692640.00    0.6606400
-152    ASoC_UT_11samp_WGS -322100.00            363190.00    0.8188400
-164    ASoC_UT_11samp_WGS    -802.26             24679.00    0.1260000
-168    ASoC_UT_11samp_WGS    -710.07              1601.10    0.0710930
-181 020222_ATAC_Stim_TNFa    -355.99               794.37    0.0143590
-182   020222_ATAC_Stim_UT    -362.38               826.03    0.0242910
-189 020222_ATAC_Stim_TNFa    -217.65              1558.10    0.3028800
-190   020222_ATAC_Stim_UT    -403.88              3021.40    0.1043700
-191  ASoC_TNFa_11samp_WGS   -1446.50             10475.00    0.2988400
-192    ASoC_UT_11samp_WGS    -552.88              3791.90    0.6417700
-229 020222_ATAC_Stim_TNFa    -244.67              3321.90    0.5788700
-232    ASoC_UT_11samp_WGS   -1352.80             18373.00    0.4333400
-244    ASoC_UT_11samp_WGS    -203.55               133.36    0.0402720
-259  ASoC_TNFa_11samp_WGS    -257.30               469.30    0.5078100
-261 020222_ATAC_Stim_TNFa    -732.72             41364.00    0.3420000
-262   020222_ATAC_Stim_UT    -289.74             15426.00    0.7058700
-283  ASoC_TNFa_11samp_WGS    -332.97               474.91    0.1738700
-293 020222_ATAC_Stim_TNFa   -4129.40             76739.00    0.6832700
-294   020222_ATAC_Stim_UT   -9206.60            167720.00    0.4046200
-296    ASoC_UT_11samp_WGS  -40576.00            732880.00    0.6129400
-307  ASoC_TNFa_11samp_WGS    -501.08               608.36    0.1123000
-308    ASoC_UT_11samp_WGS    -663.10               649.95    0.0030039
-312    ASoC_UT_11samp_WGS    -869.40              1776.70    0.0353800
-328    ASoC_UT_11samp_WGS    -237.45               238.30    0.2662200
-335  ASoC_TNFa_11samp_WGS    -263.72               984.79    0.7113100
-336    ASoC_UT_11samp_WGS    -758.69              3111.10    0.1451300
-344    ASoC_UT_11samp_WGS    -783.12              1381.40    0.0099177
-347  ASoC_TNFa_11samp_WGS    -506.86              2537.60    0.3906700
-348    ASoC_UT_11samp_WGS   -1252.90              5821.30    0.0185150
-356    ASoC_UT_11samp_WGS    -563.30             76204.00    0.8357900
-376    ASoC_UT_11samp_WGS    -320.17              1003.20    0.7419400
+92     ASoC_UT_11samp_WGS    -299.19               142.39    0.0104890
+96     ASoC_UT_11samp_WGS    -448.60               272.57    0.0129160
+112    ASoC_UT_11samp_WGS    -233.72               331.65    0.4152400
+133 020222_ATAC_Stim_TNFa    -521.23             62562.00    0.2211900
+134   020222_ATAC_Stim_UT    -458.69             53992.00    0.1490900
+139  ASoC_TNFa_11samp_WGS    -478.54              1003.40    0.0336300
+148    ASoC_UT_11samp_WGS    -288.99               264.54    0.1159900
+149 020222_ATAC_Stim_TNFa   -2060.80            652970.00    0.1324800
+150   020222_ATAC_Stim_UT   -2172.70            665740.00    0.1276300
+164    ASoC_UT_11samp_WGS    -818.25             17814.00    0.1271800
+168    ASoC_UT_11samp_WGS    -693.13              1499.40    0.0722220
+181 020222_ATAC_Stim_TNFa    -328.90               664.92    0.0143000
+182   020222_ATAC_Stim_UT    -332.57               687.65    0.0248120
+189 020222_ATAC_Stim_TNFa    -207.71              1460.30    0.3211500
+190   020222_ATAC_Stim_UT    -382.70              2816.80    0.1177200
+191  ASoC_TNFa_11samp_WGS   -1366.10              9837.00    0.3266200
+192    ASoC_UT_11samp_WGS    -527.29              3605.70    0.6575000
+229 020222_ATAC_Stim_TNFa    -203.77              1822.40    0.5837800
+232    ASoC_UT_11samp_WGS   -1127.00             10072.00    0.3952000
+259  ASoC_TNFa_11samp_WGS    -230.01               406.13    0.5068200
+261 020222_ATAC_Stim_TNFa    -568.13             15694.00    0.3368100
+262   020222_ATAC_Stim_UT    -220.62              6363.50    0.7076300
+283  ASoC_TNFa_11samp_WGS    -336.59               484.85    0.1673100
+295  ASoC_TNFa_11samp_WGS   -3132.10            218900.00    0.6561200
+307  ASoC_TNFa_11samp_WGS    -522.75               697.29    0.1240000
+308    ASoC_UT_11samp_WGS    -719.97               771.01    0.0021607
+312    ASoC_UT_11samp_WGS    -684.60              1093.10    0.0407770
+328    ASoC_UT_11samp_WGS    -231.67               229.10    0.2605100
+335  ASoC_TNFa_11samp_WGS    -253.92               857.94    0.7017400
+336    ASoC_UT_11samp_WGS    -732.17              2566.90    0.1306100
+344    ASoC_UT_11samp_WGS    -733.82              1150.20    0.0089515
+347  ASoC_TNFa_11samp_WGS    -473.95              2063.70    0.3909500
+348    ASoC_UT_11samp_WGS   -1190.40              4755.70    0.0165780
+356    ASoC_UT_11samp_WGS    -516.78             16074.00    0.8473100
+376    ASoC_UT_11samp_WGS    -317.74               921.93    0.7227900
               ci               Trait
-43     1647.9680               GIIBS
-45     1146.8548               GIOth
-46     1722.0168               GIOth
-48     2996.2520               GIOth
-59   277986.8000             GIUlcer
-60   184886.8000             GIUlcer
+43     1664.9808               GIIBS
+45     1206.7132               GIOth
+46     1836.0692               GIOth
+48     3057.2080               GIOth
+56      582.1984            GIReflux
+59   177458.4000             GIUlcer
+60    50203.4400             GIUlcer
 64      630.4340 Glucose_FS_Mean_INT
 79      511.7560     Mg_BSP_Mean_INT
-92      279.7116             Phe_241
-96      537.7456           Phe_241_1
-112     791.4480           Phe_250_1
-131    1805.3952           Phe_250_4
-133   10187.4920          Phe_250_41
-134    8938.7760          Phe_250_41
-139    2257.1360          Phe_250_42
-148     523.6336             Phe_261
-151 1357574.4000           Phe_261_2
-152  711852.4000           Phe_261_2
-164   48370.8400             Phe_271
-168    3138.1560           Phe_271_3
-181    1556.9652          Phe_272_12
-182    1619.0188          Phe_272_12
-189    3053.8760             Phe_275
-190    5921.9440             Phe_275
-191   20531.0000             Phe_275
-192    7432.1240             Phe_275
-229    6510.9240          Phe_278_11
-232   36011.0800          Phe_278_11
-244     261.3856          Phe_530_11
-259     919.8280             Phe_535
-261   81073.4400             Phe_536
-262   30234.9600             Phe_536
-283     930.8236             Phe_558
-293  150408.4400           Phe_561_1
-294  328731.2000           Phe_561_1
-296 1436444.8000           Phe_561_1
-307    1192.3856           Phe_562_2
-308    1273.9020           Phe_562_2
-312    3482.3320             Phe_563
-328     467.0680             Phe_571
-335    1930.1884          Phe_571_51
-336    6097.7560          Phe_571_51
-344    2707.5440             Phe_574
-347    4973.6960           Phe_574_1
-348   11409.7480           Phe_574_1
-356  149359.8400             Phe_578
-376    1966.2720             Phe_789
-                                                              Trait_label
-43                                 Irritable bowel syndrome survey result
-45                                        Other digestive system problems
-46                                        Other digestive system problems
-48                                        Other digestive system problems
-59                                                          Peptic ulcers
-60                                                          Peptic ulcers
-64                                            Glucose finger stick result
-79                                                              Magnesium
-92                                                Nontoxic nodular goiter
-96                                             Nontoxic uninodular goiter
-112                                                       Type 1 diabetes
-131                                                      Abnormal glucose
-133                                              Impaired fasting glucose
-134                                              Impaired fasting glucose
-139                                                Other abnormal glucose
-148                                                    Vitamin deficiency
-151                                        Vitamin b-complex deficiencies
-152                                        Vitamin b-complex deficiencies
-164                    Disorders of carbohydrate transport and metabolism
-168 Intestinal disaccharidase deficiencies and disaccharide malabsorption
-181                                                     Hyperglyceridemia
-182                                                     Hyperglyceridemia
-189                                       Disorders of mineral metabolism
-190                                       Disorders of mineral metabolism
-191                                       Disorders of mineral metabolism
-192                                       Disorders of mineral metabolism
-229                                                        Morbid obesity
-232                                                        Morbid obesity
-244                                                                  GERD
-259                                              Gastritis and duodenitis
-261                                      Disorders of function of stomach
-262                                      Disorders of function of stomach
-283                                         Noninfectious gastroenteritis
-293                                                              Diarrhea
-294                                                              Diarrhea
-296                                                              Diarrhea
-307                                                        Diverticulitis
-308                                                        Diverticulitis
-312                                                          Constipation
-328                                   Chronic liver disease and cirrhosis
-335                         Cirrhosis of liver without mention of alcohol
-336                         Cirrhosis of liver without mention of alcohol
-344                                      Cholelithiasis and cholecystitis
-347                                                        Cholelithiasis
-348                                                        Cholelithiasis
-356                                           Gastrointestinal hemorrhage
-376                                                   Nausea and vomiting</code></pre>
+92      279.0844             Phe_241
+96      534.2372           Phe_241_1
+112     650.0340           Phe_250_1
+133  122621.5200          Phe_250_41
+134  105824.3200          Phe_250_41
+139    1966.6640          Phe_250_42
+148     518.4984             Phe_261
+149 1279821.2000           Phe_261_2
+150 1304850.4000           Phe_261_2
+164   34915.4400             Phe_271
+168    2938.8240           Phe_271_3
+181    1303.2432          Phe_272_12
+182    1347.7940          Phe_272_12
+189    2862.1880             Phe_275
+190    5520.9280             Phe_275
+191   19280.5200             Phe_275
+192    7067.1720             Phe_275
+229    3571.9040          Phe_278_11
+232   19741.1200          Phe_278_11
+259     796.0148             Phe_535
+261   30760.2400             Phe_536
+262   12472.4600             Phe_536
+283     950.3060             Phe_558
+295  429044.0000           Phe_561_1
+307    1366.6884           Phe_562_2
+308    1511.1796           Phe_562_2
+312    2142.4760             Phe_563
+328     449.0360             Phe_571
+335    1681.5624          Phe_571_51
+336    5031.1240          Phe_571_51
+344    2254.3920             Phe_574
+347    4044.8520           Phe_574_1
+348    9321.1720           Phe_574_1
+356   31505.0400             Phe_578
+376    1806.9828             Phe_789
+                                                                                                     Trait_label
+43                                 Irritable bowel syndrome survey result (N cases = 15794, N controls = 299874)
+45                                        Other digestive system problems (N cases = 17700, N controls = 297968)
+46                                        Other digestive system problems (N cases = 17700, N controls = 297968)
+48                                        Other digestive system problems (N cases = 17700, N controls = 297968)
+56                                                      Acid reflux/GERD (N cases = 107942, N controls = 207726)
+59                                                          Peptic ulcers (N cases = 10929, N controls = 304739)
+60                                                          Peptic ulcers (N cases = 10929, N controls = 304739)
+64                                                                 Glucose finger stick result (N total = 69680)
+79                                                                                  Magnesium (N total = 145571)
+92                                                Nontoxic nodular goiter (N cases = 15286, N controls = 431005)
+96                                             Nontoxic uninodular goiter (N cases = 12152, N controls = 433970)
+112                                                       Type 1 diabetes (N cases = 16971, N controls = 418767)
+133                                              Impaired fasting glucose (N cases = 40912, N controls = 388446)
+134                                              Impaired fasting glucose (N cases = 40912, N controls = 388446)
+139                                                Other abnormal glucose (N cases = 31907, N controls = 383507)
+148                                                    Vitamin deficiency (N cases = 90650, N controls = 318995)
+149                                        Vitamin b-complex deficiencies (N cases = 21840, N controls = 415740)
+150                                        Vitamin b-complex deficiencies (N cases = 21840, N controls = 415740)
+164                    Disorders of carbohydrate transport and metabolism (N cases = 12349, N controls = 426073)
+168 Intestinal disaccharidase deficiencies and disaccharide malabsorption (N cases = 11891, N controls = 426970)
+181                                                     Hyperglyceridemia (N cases = 17425, N controls = 419299)
+182                                                     Hyperglyceridemia (N cases = 17425, N controls = 419299)
+189                                       Disorders of mineral metabolism (N cases = 24136, N controls = 403344)
+190                                       Disorders of mineral metabolism (N cases = 24136, N controls = 403344)
+191                                       Disorders of mineral metabolism (N cases = 24136, N controls = 403344)
+192                                       Disorders of mineral metabolism (N cases = 24136, N controls = 403344)
+229                                                        Morbid obesity (N cases = 45933, N controls = 385784)
+232                                                        Morbid obesity (N cases = 45933, N controls = 385784)
+259                                              Gastritis and duodenitis (N cases = 20797, N controls = 394987)
+261                                      Disorders of function of stomach (N cases = 12584, N controls = 420458)
+262                                      Disorders of function of stomach (N cases = 12584, N controls = 420458)
+283                                         Noninfectious gastroenteritis (N cases = 14278, N controls = 411628)
+295                                                              Diarrhea (N cases = 47462, N controls = 359574)
+307                                                        Diverticulitis (N cases = 10900, N controls = 428348)
+308                                                        Diverticulitis (N cases = 10900, N controls = 428348)
+312                                                          Constipation (N cases = 48515, N controls = 358488)
+328                                   Chronic liver disease and cirrhosis (N cases = 30744, N controls = 401215)
+335                         Cirrhosis of liver without mention of alcohol (N cases = 13367, N controls = 433864)
+336                         Cirrhosis of liver without mention of alcohol (N cases = 13367, N controls = 433864)
+344                                      Cholelithiasis and cholecystitis (N cases = 23182, N controls = 416631)
+347                                                        Cholelithiasis (N cases = 18237, N controls = 421370)
+348                                                        Cholelithiasis (N cases = 18237, N controls = 421370)
+356                                           Gastrointestinal hemorrhage (N cases = 47936, N controls = 366187)
+376                                                   Nausea and vomiting (N cases = 30059, N controls = 381553)</code></pre>
 <pre class="r"><code>subset(all_traits, Enrichment &gt; 200)</code></pre>
 <pre><code>                 Category Enrichment Enrichment_std_error Enrichment_p
-49  020222_ATAC_Stim_TNFa     201.93               193.38     0.014474
-51   ASoC_TNFa_11samp_WGS    1023.30              1085.00     0.122710
-58    020222_ATAC_Stim_UT     652.84             91932.00     0.100590
+49  020222_ATAC_Stim_TNFa     203.07               192.93     0.017767
+51   ASoC_TNFa_11samp_WGS    1044.20              1084.20     0.115120
+58    020222_ATAC_Stim_UT     784.71             31501.00     0.100500
 63   ASoC_TNFa_11samp_WGS     303.27               449.04     0.198240
-88     ASoC_UT_11samp_WGS     234.06               329.75     0.421450
-111  ASoC_TNFa_11samp_WGS     848.18               940.92     0.069108
-123  ASoC_TNFa_11samp_WGS     345.74               226.37     0.115750
-127  ASoC_TNFa_11samp_WGS     213.12               123.00     0.064318
-132    ASoC_UT_11samp_WGS     478.08              1622.80     0.352740
-135  ASoC_TNFa_11samp_WGS     223.47              5169.70     0.925780
-136    ASoC_UT_11samp_WGS    3132.20             40379.00     0.225600
-140    ASoC_UT_11samp_WGS     240.47               682.21     0.419980
-143  ASoC_TNFa_11samp_WGS     693.76               632.21     0.039157
-144    ASoC_UT_11samp_WGS    1118.10              1167.30     0.099882
-149 020222_ATAC_Stim_TNFa  554220.00            645170.00     0.142000
-150   020222_ATAC_Stim_UT  582820.00            681780.00     0.137640
-158   020222_ATAC_Stim_UT     222.41              2754.90     0.318210
-159  ASoC_TNFa_11samp_WGS    2354.60             34228.00     0.010368
-163  ASoC_TNFa_11samp_WGS     365.25             10446.00     0.643390
-167  ASoC_TNFa_11samp_WGS     378.67               878.75     0.515170
-183  ASoC_TNFa_11samp_WGS     619.23              1409.90     0.167370
-184    ASoC_UT_11samp_WGS     624.92              1353.70     0.051985
-196    ASoC_UT_11samp_WGS     951.19              1110.50     0.345780
-200    ASoC_UT_11samp_WGS    1556.70              2060.70     0.369410
-204    ASoC_UT_11samp_WGS     787.10              1383.90     0.482430
-208    ASoC_UT_11samp_WGS     467.15               661.69     0.432500
-219  ASoC_TNFa_11samp_WGS     403.45               440.25     0.180960
-220    ASoC_UT_11samp_WGS     270.64               337.28     0.302830
-223  ASoC_TNFa_11samp_WGS     214.07               165.46     0.131940
-231  ASoC_TNFa_11samp_WGS    3354.30             46525.00     0.215900
-251  ASoC_TNFa_11samp_WGS     386.40               471.00     0.144700
-252    ASoC_UT_11samp_WGS     294.73               355.87     0.126140
-255  ASoC_TNFa_11samp_WGS     200.10               313.57     0.489990
-263  ASoC_TNFa_11samp_WGS    1614.50             98760.00     0.428550
-264    ASoC_UT_11samp_WGS    1885.40            115320.00     0.282820
-267  ASoC_TNFa_11samp_WGS     200.33               281.84     0.329970
-276    ASoC_UT_11samp_WGS    1393.40              4833.50     0.138160
-279  ASoC_TNFa_11samp_WGS     453.29               595.91     0.197060
-280    ASoC_UT_11samp_WGS     275.47               456.01     0.416790
-292    ASoC_UT_11samp_WGS     294.88               519.02     0.311640
-295  ASoC_TNFa_11samp_WGS   22138.00            381390.00     0.663030
-299  ASoC_TNFa_11samp_WGS     301.33               241.84     0.084690
-303  ASoC_TNFa_11samp_WGS     319.55               237.39     0.065490
-310   020222_ATAC_Stim_UT     200.12               481.46     0.172840
-311  ASoC_TNFa_11samp_WGS     717.32              1824.50     0.289220
-315  ASoC_TNFa_11samp_WGS     813.21              1242.50     0.122860
-316    ASoC_UT_11samp_WGS     378.80               935.11     0.647670
-320    ASoC_UT_11samp_WGS     281.13               321.40     0.345180
-323  ASoC_TNFa_11samp_WGS     206.78               495.25     0.682780
-324    ASoC_UT_11samp_WGS     240.12               519.52     0.634390
-351  ASoC_TNFa_11samp_WGS     839.02              1125.60     0.036000
-352    ASoC_UT_11samp_WGS     704.42              1132.00     0.022245
-364    ASoC_UT_11samp_WGS     277.93               263.37     0.107090
+88     ASoC_UT_11samp_WGS     250.99               355.37     0.426890
+111  ASoC_TNFa_11samp_WGS     745.31               772.25     0.065780
+123  ASoC_TNFa_11samp_WGS     340.97               229.36     0.130210
+127  ASoC_TNFa_11samp_WGS     215.68               126.12     0.069948
+132    ASoC_UT_11samp_WGS     505.03              1738.60     0.337360
+135  ASoC_TNFa_11samp_WGS     257.81             35890.00     0.923770
+136    ASoC_UT_11samp_WGS    3659.90            505770.00     0.212770
+140    ASoC_UT_11samp_WGS     228.56               598.54     0.434630
+143  ASoC_TNFa_11samp_WGS     670.96               599.73     0.040669
+144    ASoC_UT_11samp_WGS    1088.90              1120.90     0.103530
+151  ASoC_TNFa_11samp_WGS    2624.50            814250.00     0.604970
+152    ASoC_UT_11samp_WGS    1243.20            348680.00     0.805990
+158   020222_ATAC_Stim_UT     248.33              4738.20     0.313150
+159  ASoC_TNFa_11samp_WGS    2610.50             57584.00     0.010215
+163  ASoC_TNFa_11samp_WGS     371.50              7525.80     0.645240
+167  ASoC_TNFa_11samp_WGS     373.86               843.10     0.512270
+183  ASoC_TNFa_11samp_WGS     601.43              1248.40     0.140680
+184    ASoC_UT_11samp_WGS     564.16              1112.90     0.052757
+196    ASoC_UT_11samp_WGS    1052.20              1209.00     0.336470
+200    ASoC_UT_11samp_WGS    1609.80              2119.00     0.368120
+204    ASoC_UT_11samp_WGS     836.16              1422.80     0.463500
+208    ASoC_UT_11samp_WGS     448.33               637.74     0.438740
+219  ASoC_TNFa_11samp_WGS     402.30               441.98     0.192550
+220    ASoC_UT_11samp_WGS     269.25               332.97     0.299280
+223  ASoC_TNFa_11samp_WGS     264.76               204.94     0.118120
+231  ASoC_TNFa_11samp_WGS    2254.30             20885.00     0.258380
+251  ASoC_TNFa_11samp_WGS     400.85               497.13     0.142770
+252    ASoC_UT_11samp_WGS     308.75               375.77     0.114630
+263  ASoC_TNFa_11samp_WGS    1201.80             34207.00     0.445230
+264    ASoC_UT_11samp_WGS    1447.40             37701.00     0.289340
+276    ASoC_UT_11samp_WGS    1309.00              4034.30     0.124600
+279  ASoC_TNFa_11samp_WGS     460.74               592.21     0.181120
+280    ASoC_UT_11samp_WGS     275.48               442.70     0.400160
+292    ASoC_UT_11samp_WGS     270.23               460.97     0.317310
+293 020222_ATAC_Stim_TNFa     619.37             42070.00     0.661790
+294   020222_ATAC_Stim_UT    1288.10             86550.00     0.403900
+296    ASoC_UT_11samp_WGS    5564.30            377800.00     0.615860
+299  ASoC_TNFa_11samp_WGS     341.18               255.53     0.066137
+303  ASoC_TNFa_11samp_WGS     323.38               234.08     0.058684
+311  ASoC_TNFa_11samp_WGS     599.04              1226.40     0.288500
+315  ASoC_TNFa_11samp_WGS     776.75              1140.80     0.120670
+316    ASoC_UT_11samp_WGS     355.83               882.40     0.655080
+320    ASoC_UT_11samp_WGS     263.82               317.34     0.380690
+324    ASoC_UT_11samp_WGS     243.49               517.09     0.624640
+351  ASoC_TNFa_11samp_WGS     833.62              1119.70     0.040311
+352    ASoC_UT_11samp_WGS     707.52              1130.40     0.023924
+355  ASoC_TNFa_11samp_WGS     337.66              8702.80     0.851610
+364    ASoC_UT_11samp_WGS     277.45               268.45     0.115530
               ci               Trait
-49      379.0248             GIPolyp
-51     2126.6000             GIPolyp
-58   180186.7200             GIUlcer
+49      378.1428             GIPolyp
+51     2125.0320             GIPolyp
+58    61741.9600             GIUlcer
 63      880.1184 Glucose_FS_Mean_INT
-88      646.3100             Phe_208
-111    1844.2032           Phe_250_1
-123     443.6852          Phe_250_23
-127     241.0800          Phe_250_24
-132    3180.6880           Phe_250_4
-135   10132.6120          Phe_250_41
-136   79142.8400          Phe_250_41
-140    1337.1316          Phe_250_42
-143    1239.1316             Phe_260
-144    2287.9080             Phe_260
-149 1264533.2000           Phe_261_2
-150 1336288.8000           Phe_261_2
-158    5399.6040             Phe_269
-159   67086.8800             Phe_269
-163   20474.1600             Phe_271
-167    1722.3500           Phe_271_3
-183    2763.4040          Phe_272_12
-184    2653.2520          Phe_272_12
-196    2176.5800             Phe_276
-200    4038.9720           Phe_276_1
-204    2712.4440          Phe_276_12
-208    1296.9124          Phe_276_13
-219     862.8900           Phe_276_5
-220     661.0688           Phe_276_5
-223     324.3016             Phe_278
-231   91189.0000          Phe_278_11
-251     923.1600          Phe_530_14
-252     697.5052          Phe_530_14
-255     614.5972             Phe_531
-263  193569.6000             Phe_536
-264  226027.2000             Phe_536
-267     552.4064             Phe_550
-276    9473.6600           Phe_550_2
-279    1167.9836           Phe_550_4
-280     893.7796           Phe_550_4
-292    1017.2792             Phe_561
-295  747524.4000           Phe_561_1
-299     474.0064             Phe_562
-303     465.2844           Phe_562_1
-310     943.6616             Phe_563
-311    3576.0200             Phe_563
-315    2435.3000             Phe_564
-316    1832.8156             Phe_564
-320     629.9440           Phe_564_1
-323     970.6900             Phe_565
-324    1018.2592             Phe_565
-351    2206.1760             Phe_577
-352    2218.7200             Phe_577
-364     516.2052           Phe_578_8
-                                                              Trait_label
-49                                                           Colon polyps
-51                                                           Colon polyps
-58                                                          Peptic ulcers
-63                                            Glucose finger stick result
-88                                               Benign neoplasm of colon
-111                                                       Type 1 diabetes
-123                        Type 2 diabetes with ophthalmic manifestations
-127                      Type 2 diabetes with neurological manifestations
-132                                                      Abnormal glucose
-135                                              Impaired fasting glucose
-136                                              Impaired fasting glucose
-140                                                Other abnormal glucose
-143                                          Protein-calorie malnutrition
-144                                          Protein-calorie malnutrition
-149                                        Vitamin b-complex deficiencies
-150                                        Vitamin b-complex deficiencies
-158                                                           Proteinuria
-159                                                           Proteinuria
-163                    Disorders of carbohydrate transport and metabolism
-167 Intestinal disaccharidase deficiencies and disaccharide malabsorption
-183                                                     Hyperglyceridemia
-184                                                     Hyperglyceridemia
-196               Disorders of fluid, electrolyte, and acid-based balance
-200                                                 Electrolyte imbalance
-204                                     Hyposmolality and/or hyponatremia
-208                                                       Hyperpotassemia
-219                                                           Hypovolemia
-220                                                           Hypovolemia
-223                       Overweight, obesity and other hyperalimentation
-231                                                        Morbid obesity
-251                                                    Reflux esophagitis
-252                                                    Reflux esophagitis
-255                                                          Peptic ulcer
-263                                      Disorders of function of stomach
-264                                      Disorders of function of stomach
-267                                                      Abdominal hernia
-276                                                  Diaphragmatic hernia
-279                                                      Umbilical hernia
-280                                                      Umbilical hernia
-292                                   Symptoms involving digestive system
-295                                                              Diarrhea
-299                                     Diverticulosis and diverticulitis
-303                                                        Diverticulosis
-310                                                          Constipation
-311                                                          Constipation
-315                                        Functional digestive disorders
-316                                        Functional digestive disorders
-320                                              Irritable bowel syndrome
-323                                            Anal and rectal conditions
-324                                            Anal and rectal conditions
-351                                                  Diseases of pancreas
-352                                                  Diseases of pancreas
-364                                         Hemorrhage of rectum and anus</code></pre>
+88      696.5252             Phe_208
+111    1513.6100           Phe_250_1
+123     449.5456          Phe_250_23
+127     247.1952          Phe_250_24
+132    3407.6560           Phe_250_4
+135   70344.4000          Phe_250_41
+136  991309.2000          Phe_250_41
+140    1173.1384          Phe_250_42
+143    1175.4708             Phe_260
+144    2196.9640             Phe_260
+151 1595930.0000           Phe_261_2
+152  683412.8000           Phe_261_2
+158    9286.8720             Phe_269
+159  112864.6400             Phe_269
+163   14750.5680             Phe_271
+167    1652.4760           Phe_271_3
+183    2446.8640          Phe_272_12
+184    2181.2840          Phe_272_12
+196    2369.6400             Phe_276
+200    4153.2400           Phe_276_1
+204    2788.6880          Phe_276_12
+208    1249.9704          Phe_276_13
+219     866.2808           Phe_276_5
+220     652.6212           Phe_276_5
+223     401.6824             Phe_278
+231   40934.6000          Phe_278_11
+251     974.3748          Phe_530_14
+252     736.5092          Phe_530_14
+263   67045.7200             Phe_536
+264   73893.9600             Phe_536
+276    7907.2280           Phe_550_2
+279    1160.7316           Phe_550_4
+280     867.6920           Phe_550_4
+292     903.5012             Phe_561
+293   82457.2000           Phe_561_1
+294  169638.0000           Phe_561_1
+296  740488.0000           Phe_561_1
+299     500.8388             Phe_562
+303     458.7968           Phe_562_1
+311    2403.7440             Phe_563
+315    2235.9680             Phe_564
+316    1729.5040             Phe_564
+320     621.9864           Phe_564_1
+324    1013.4964             Phe_565
+351    2194.6120             Phe_577
+352    2215.5840             Phe_577
+355   17057.4880             Phe_578
+364     526.1620           Phe_578_8
+                                                                                                     Trait_label
+49                                                           Colon polyps (N cases = 73737, N controls = 241931)
+51                                                           Colon polyps (N cases = 73737, N controls = 241931)
+58                                                          Peptic ulcers (N cases = 10929, N controls = 304739)
+63                                                                 Glucose finger stick result (N total = 69680)
+88                                              Benign neoplasm of colon (N cases = 125095, N controls = 270155)
+111                                                       Type 1 diabetes (N cases = 16971, N controls = 418767)
+123                        Type 2 diabetes with ophthalmic manifestations (N cases = 28561, N controls = 402796)
+127                      Type 2 diabetes with neurological manifestations (N cases = 59205, N controls = 375439)
+132                                                      Abnormal glucose (N cases = 69640, N controls = 338815)
+135                                              Impaired fasting glucose (N cases = 40912, N controls = 388446)
+136                                              Impaired fasting glucose (N cases = 40912, N controls = 388446)
+140                                                Other abnormal glucose (N cases = 31907, N controls = 383507)
+143                                          Protein-calorie malnutrition (N cases = 13964, N controls = 422281)
+144                                          Protein-calorie malnutrition (N cases = 13964, N controls = 422281)
+151                                        Vitamin b-complex deficiencies (N cases = 21840, N controls = 415740)
+152                                        Vitamin b-complex deficiencies (N cases = 21840, N controls = 415740)
+158                                                           Proteinuria (N cases = 10033, N controls = 432072)
+159                                                           Proteinuria (N cases = 10033, N controls = 432072)
+163                    Disorders of carbohydrate transport and metabolism (N cases = 12349, N controls = 426073)
+167 Intestinal disaccharidase deficiencies and disaccharide malabsorption (N cases = 11891, N controls = 426970)
+183                                                     Hyperglyceridemia (N cases = 17425, N controls = 419299)
+184                                                     Hyperglyceridemia (N cases = 17425, N controls = 419299)
+196               Disorders of fluid, electrolyte, and acid-based balance (N cases = 74426, N controls = 323713)
+200                                                 Electrolyte imbalance (N cases = 55646, N controls = 352393)
+204                                     Hyposmolality and/or hyponatremia (N cases = 17144, N controls = 416063)
+208                                                       Hyperpotassemia (N cases = 17226, N controls = 415141)
+219                                                           Hypovolemia (N cases = 22799, N controls = 393769)
+220                                                           Hypovolemia (N cases = 22799, N controls = 393769)
+223                      Overweight, obesity and other hyperalimentation (N cases = 187880, N controls = 218356)
+231                                                        Morbid obesity (N cases = 45933, N controls = 385784)
+251                                                    Reflux esophagitis (N cases = 15549, N controls = 417617)
+252                                                    Reflux esophagitis (N cases = 15549, N controls = 417617)
+263                                      Disorders of function of stomach (N cases = 12584, N controls = 420458)
+264                                      Disorders of function of stomach (N cases = 12584, N controls = 420458)
+276                                                  Diaphragmatic hernia (N cases = 19852, N controls = 406606)
+279                                                      Umbilical hernia (N cases = 15292, N controls = 428443)
+280                                                      Umbilical hernia (N cases = 15292, N controls = 428443)
+292                                   Symptoms involving digestive system (N cases = 60074, N controls = 337851)
+293                                                              Diarrhea (N cases = 47462, N controls = 359574)
+294                                                              Diarrhea (N cases = 47462, N controls = 359574)
+296                                                              Diarrhea (N cases = 47462, N controls = 359574)
+299                                     Diverticulosis and diverticulitis (N cases = 60821, N controls = 330833)
+303                                                        Diverticulosis (N cases = 53699, N controls = 338014)
+311                                                          Constipation (N cases = 48515, N controls = 358488)
+315                                        Functional digestive disorders (N cases = 27707, N controls = 391566)
+316                                        Functional digestive disorders (N cases = 27707, N controls = 391566)
+320                                              Irritable bowel syndrome (N cases = 14867, N controls = 427355)
+324                                            Anal and rectal conditions (N cases = 14676, N controls = 410407)
+351                                                  Diseases of pancreas (N cases = 12564, N controls = 431876)
+352                                                  Diseases of pancreas (N cases = 12564, N controls = 431876)
+355                                           Gastrointestinal hemorrhage (N cases = 47936, N controls = 366187)
+364                                         Hemorrhage of rectum and anus (N cases = 14212, N controls = 415119)</code></pre>
 <pre class="r"><code>subset(all_traits, Enrichment_std_error &lt; -200)</code></pre>
 <pre><code>[1] Category             Enrichment           Enrichment_std_error
 [4] Enrichment_p         ci                   Trait               
 [7] Trait_label         
 &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <pre class="r"><code>subset(all_traits, Enrichment_std_error &gt; 200)</code></pre>
-<pre><code>                 Category  Enrichment Enrichment_std_error Enrichment_p
-42    020222_ATAC_Stim_UT -1.1300e+02               219.07    0.1648500
-43   ASoC_TNFa_11samp_WGS -3.4129e+02               840.80    0.5419300
-44     ASoC_UT_11samp_WGS  1.3187e+02               341.83    0.6387500
-45  020222_ATAC_Stim_TNFa -2.7609e+02               585.13    0.1181800
-46    020222_ATAC_Stim_UT -4.1518e+02               878.58    0.0311030
-47   ASoC_TNFa_11samp_WGS  1.6217e+02              1348.40    0.8786800
-48     ASoC_UT_11samp_WGS -6.0378e+02              1528.70    0.5076800
-51   ASoC_TNFa_11samp_WGS  1.0233e+03              1085.00    0.1227100
-52     ASoC_UT_11samp_WGS -4.2517e+01               465.32    0.9149600
-55   ASoC_TNFa_11samp_WGS -3.5592e+01               245.15    0.8746600
-56     ASoC_UT_11samp_WGS -1.9155e+02               293.46    0.3978900
-57  020222_ATAC_Stim_TNFa  4.3738e+01              4707.00    0.9046500
-58    020222_ATAC_Stim_UT  6.5284e+02             91932.00    0.1005900
-59   ASoC_TNFa_11samp_WGS -9.6123e+02            141830.00    0.4609900
-60     ASoC_UT_11samp_WGS -6.5145e+02             94330.00    0.5787700
-63   ASoC_TNFa_11samp_WGS  3.0327e+02               449.04    0.1982400
-64     ASoC_UT_11samp_WGS -2.3450e+02               321.65    0.2071700
-79   ASoC_TNFa_11samp_WGS -2.8039e+02               261.10    0.1093200
-80     ASoC_UT_11samp_WGS -1.1721e+02               216.93    0.5188500
-83   ASoC_TNFa_11samp_WGS  3.5122e+01               233.40    0.8811200
-84     ASoC_UT_11samp_WGS -3.8782e+01               237.24    0.8614100
-87   ASoC_TNFa_11samp_WGS  9.2757e-01               222.32    0.9997400
-88     ASoC_UT_11samp_WGS  2.3406e+02               329.75    0.4214500
-95   ASoC_TNFa_11samp_WGS -2.9885e+01               203.83    0.8824700
-96     ASoC_UT_11samp_WGS -4.4755e+02               274.36    0.0155220
-111  ASoC_TNFa_11samp_WGS  8.4818e+02               940.92    0.0691080
-112    ASoC_UT_11samp_WGS -2.8961e+02               403.80    0.3863700
-123  ASoC_TNFa_11samp_WGS  3.4574e+02               226.37    0.1157500
-129 020222_ATAC_Stim_TNFa -8.1619e+01               273.32    0.5500600
-131  ASoC_TNFa_11samp_WGS -2.0563e+02               921.12    0.7267900
-132    ASoC_UT_11samp_WGS  4.7808e+02              1622.80    0.3527400
-133 020222_ATAC_Stim_TNFa -4.6165e+02              5197.70    0.2292300
-134   020222_ATAC_Stim_UT -4.1245e+02              4560.60    0.1487300
-135  ASoC_TNFa_11samp_WGS  2.2347e+02              5169.70    0.9257800
-136    ASoC_UT_11samp_WGS  3.1322e+03             40379.00    0.2256000
-139  ASoC_TNFa_11samp_WGS -4.9395e+02              1151.60    0.0353950
-140    ASoC_UT_11samp_WGS  2.4047e+02               682.21    0.4199800
-143  ASoC_TNFa_11samp_WGS  6.9376e+02               632.21    0.0391570
-144    ASoC_UT_11samp_WGS  1.1181e+03              1167.30    0.0998820
-148    ASoC_UT_11samp_WGS -2.9347e+02               267.16    0.1156900
-149 020222_ATAC_Stim_TNFa  5.5422e+05            645170.00    0.1420000
-150   020222_ATAC_Stim_UT  5.8282e+05            681780.00    0.1376400
-151  ASoC_TNFa_11samp_WGS -6.2331e+05            692640.00    0.6606400
-152    ASoC_UT_11samp_WGS -3.2210e+05            363190.00    0.8188400
-156    ASoC_UT_11samp_WGS -1.0326e+02               230.80    0.6154000
-157 020222_ATAC_Stim_TNFa -8.5651e+01              1669.90    0.6663800
-158   020222_ATAC_Stim_UT  2.2241e+02              2754.90    0.3182100
-159  ASoC_TNFa_11samp_WGS  2.3546e+03             34228.00    0.0103680
-160    ASoC_UT_11samp_WGS -6.8787e+01               735.56    0.9189500
-161 020222_ATAC_Stim_TNFa -4.7122e+01              1057.80    0.7410500
-162   020222_ATAC_Stim_UT -9.7801e+01              2724.20    0.4235800
-163  ASoC_TNFa_11samp_WGS  3.6525e+02             10446.00    0.6433900
-164    ASoC_UT_11samp_WGS -8.0226e+02             24679.00    0.1260000
-166   020222_ATAC_Stim_UT -9.2566e+01               220.11    0.2661500
-167  ASoC_TNFa_11samp_WGS  3.7867e+02               878.75    0.5151700
-168    ASoC_UT_11samp_WGS -7.1007e+02              1601.10    0.0710930
-179  ASoC_TNFa_11samp_WGS -3.4882e+01               381.53    0.9217500
-180    ASoC_UT_11samp_WGS -1.6768e+02               315.07    0.4880900
-181 020222_ATAC_Stim_TNFa -3.5599e+02               794.37    0.0143590
-182   020222_ATAC_Stim_UT -3.6238e+02               826.03    0.0242910
-183  ASoC_TNFa_11samp_WGS  6.1923e+02              1409.90    0.1673700
-184    ASoC_UT_11samp_WGS  6.2492e+02              1353.70    0.0519850
-189 020222_ATAC_Stim_TNFa -2.1765e+02              1558.10    0.3028800
-190   020222_ATAC_Stim_UT -4.0388e+02              3021.40    0.1043700
-191  ASoC_TNFa_11samp_WGS -1.4465e+03             10475.00    0.2988400
-192    ASoC_UT_11samp_WGS -5.5288e+02              3791.90    0.6417700
-195  ASoC_TNFa_11samp_WGS  7.6449e+01               267.39    0.7620300
-196    ASoC_UT_11samp_WGS  9.5119e+02              1110.50    0.3457800
-199  ASoC_TNFa_11samp_WGS  1.4595e+02               441.73    0.7225200
-200    ASoC_UT_11samp_WGS  1.5567e+03              2060.70    0.3694100
-203  ASoC_TNFa_11samp_WGS  1.1093e+02               297.92    0.6662600
-204    ASoC_UT_11samp_WGS  7.8710e+02              1383.90    0.4824300
-207  ASoC_TNFa_11samp_WGS  1.4075e+02               274.39    0.5857300
-208    ASoC_UT_11samp_WGS  4.6715e+02               661.69    0.4325000
-215  ASoC_TNFa_11samp_WGS -1.2089e+02               369.78    0.7047200
-216    ASoC_UT_11samp_WGS -1.2614e+02               294.94    0.6572500
-219  ASoC_TNFa_11samp_WGS  4.0345e+02               440.25    0.1809600
-220    ASoC_UT_11samp_WGS  2.7064e+02               337.28    0.3028300
-229 020222_ATAC_Stim_TNFa -2.4467e+02              3321.90    0.5788700
-230   020222_ATAC_Stim_UT  8.9672e+01              1373.70    0.8485500
-231  ASoC_TNFa_11samp_WGS  3.3543e+03             46525.00    0.2159000
-232    ASoC_UT_11samp_WGS -1.3528e+03             18373.00    0.4333400
-251  ASoC_TNFa_11samp_WGS  3.8640e+02               471.00    0.1447000
-252    ASoC_UT_11samp_WGS  2.9473e+02               355.87    0.1261400
-255  ASoC_TNFa_11samp_WGS  2.0010e+02               313.57    0.4899900
-256    ASoC_UT_11samp_WGS -2.0009e+01               298.12    0.9373100
-257 020222_ATAC_Stim_TNFa  1.8137e+02               221.39    0.0569300
-259  ASoC_TNFa_11samp_WGS -2.5730e+02               469.30    0.5078100
-260    ASoC_UT_11samp_WGS -8.6291e+01               447.09    0.8406000
-261 020222_ATAC_Stim_TNFa -7.3272e+02             41364.00    0.3420000
-262   020222_ATAC_Stim_UT -2.8974e+02             15426.00    0.7058700
-263  ASoC_TNFa_11samp_WGS  1.6145e+03             98760.00    0.4285500
-264    ASoC_UT_11samp_WGS  1.8854e+03            115320.00    0.2828200
-267  ASoC_TNFa_11samp_WGS  2.0033e+02               281.84    0.3299700
-271  ASoC_TNFa_11samp_WGS -3.4160e+01               222.94    0.8625700
-272    ASoC_UT_11samp_WGS  4.5721e+01               247.43    0.8463300
-273 020222_ATAC_Stim_TNFa -6.9756e+01               365.08    0.6986900
-274   020222_ATAC_Stim_UT  2.6874e+01               226.45    0.8892600
-275  ASoC_TNFa_11samp_WGS -1.7165e+02              1346.60    0.8410300
-276    ASoC_UT_11samp_WGS  1.3934e+03              4833.50    0.1381600
-279  ASoC_TNFa_11samp_WGS  4.5329e+02               595.91    0.1970600
-280    ASoC_UT_11samp_WGS  2.7547e+02               456.01    0.4167900
-283  ASoC_TNFa_11samp_WGS -3.3297e+02               474.91    0.1738700
-284    ASoC_UT_11samp_WGS -1.8516e+02               304.01    0.4615500
-291  ASoC_TNFa_11samp_WGS -8.7248e+01               322.61    0.7714000
-292    ASoC_UT_11samp_WGS  2.9488e+02               519.02    0.3116400
-293 020222_ATAC_Stim_TNFa -4.1294e+03             76739.00    0.6832700
-294   020222_ATAC_Stim_UT -9.2066e+03            167720.00    0.4046200
-295  ASoC_TNFa_11samp_WGS  2.2138e+04            381390.00    0.6630300
-296    ASoC_UT_11samp_WGS -4.0576e+04            732880.00    0.6129400
-299  ASoC_TNFa_11samp_WGS  3.0133e+02               241.84    0.0846900
-303  ASoC_TNFa_11samp_WGS  3.1955e+02               237.39    0.0654900
-307  ASoC_TNFa_11samp_WGS -5.0108e+02               608.36    0.1123000
-308    ASoC_UT_11samp_WGS -6.6310e+02               649.95    0.0030039
-309 020222_ATAC_Stim_TNFa  1.7515e+02               430.65    0.1830700
-310   020222_ATAC_Stim_UT  2.0012e+02               481.46    0.1728400
-311  ASoC_TNFa_11samp_WGS  7.1732e+02              1824.50    0.2892200
-312    ASoC_UT_11samp_WGS -8.6940e+02              1776.70    0.0353800
-315  ASoC_TNFa_11samp_WGS  8.1321e+02              1242.50    0.1228600
-316    ASoC_UT_11samp_WGS  3.7880e+02               935.11    0.6476700
-319  ASoC_TNFa_11samp_WGS  9.6501e+01               294.08    0.7399300
-320    ASoC_UT_11samp_WGS  2.8113e+02               321.40    0.3451800
-323  ASoC_TNFa_11samp_WGS  2.0678e+02               495.25    0.6827800
-324    ASoC_UT_11samp_WGS  2.4012e+02               519.52    0.6343900
-328    ASoC_UT_11samp_WGS -2.3745e+02               238.30    0.2662200
-333 020222_ATAC_Stim_TNFa -4.9513e+01               295.28    0.7889500
-334   020222_ATAC_Stim_UT  8.8755e+01               393.84    0.6198400
-335  ASoC_TNFa_11samp_WGS -2.6372e+02               984.79    0.7113100
-336    ASoC_UT_11samp_WGS -7.5869e+02              3111.10    0.1451300
-339  ASoC_TNFa_11samp_WGS -1.3200e+02               207.97    0.5039500
-340    ASoC_UT_11samp_WGS  1.5498e+02               263.02    0.4411400
-343  ASoC_TNFa_11samp_WGS  8.0747e+01               418.59    0.8343800
-344    ASoC_UT_11samp_WGS -7.8312e+02              1381.40    0.0099177
-345 020222_ATAC_Stim_TNFa -7.7363e+01               527.39    0.7043300
-346   020222_ATAC_Stim_UT -1.1767e+02               695.67    0.5470100
-347  ASoC_TNFa_11samp_WGS -5.0686e+02              2537.60    0.3906700
-348    ASoC_UT_11samp_WGS -1.2529e+03              5821.30    0.0185150
-351  ASoC_TNFa_11samp_WGS  8.3902e+02              1125.60    0.0360000
-352    ASoC_UT_11samp_WGS  7.0442e+02              1132.00    0.0222450
-353 020222_ATAC_Stim_TNFa  5.7476e+01              3569.00    0.8909600
-354   020222_ATAC_Stim_UT -8.7441e+01             12885.00    0.8523900
-355  ASoC_TNFa_11samp_WGS -1.3207e+00             10113.00    0.9989700
-356    ASoC_UT_11samp_WGS -5.6330e+02             76204.00    0.8357900
-360    ASoC_UT_11samp_WGS  5.0027e+01               204.70    0.8066700
-363  ASoC_TNFa_11samp_WGS -1.7110e+01               210.15    0.9331900
-364    ASoC_UT_11samp_WGS  2.7793e+02               263.37    0.1070900
-367  ASoC_TNFa_11samp_WGS  9.6039e+01               246.41    0.6769300
-368    ASoC_UT_11samp_WGS  7.8039e+01               313.27    0.7999100
-373 020222_ATAC_Stim_TNFa  1.7079e+02               239.34    0.0988100
-375  ASoC_TNFa_11samp_WGS  5.5774e+01               584.73    0.9278100
-376    ASoC_UT_11samp_WGS -3.2017e+02              1003.20    0.7419400
+<pre><code>                 Category Enrichment Enrichment_std_error Enrichment_p
+42    020222_ATAC_Stim_UT  -116.3400               224.82    0.1534100
+43   ASoC_TNFa_11samp_WGS  -340.1900               849.48    0.5474200
+44     ASoC_UT_11samp_WGS   129.8700               342.79    0.6450900
+45  020222_ATAC_Stim_TNFa  -283.4700               615.67    0.1161100
+46    020222_ATAC_Stim_UT  -432.0000               936.77    0.0287740
+47   ASoC_TNFa_11samp_WGS   158.1600              1359.90    0.8827700
+48     ASoC_UT_11samp_WGS  -607.2200              1559.80    0.5059500
+51   ASoC_TNFa_11samp_WGS  1044.2000              1084.20    0.1151200
+52     ASoC_UT_11samp_WGS   -35.9010               451.71    0.9257700
+55   ASoC_TNFa_11samp_WGS   -38.3120               244.35    0.8647000
+56     ASoC_UT_11samp_WGS  -210.3700               297.04    0.3212400
+57  020222_ATAC_Stim_TNFa    67.2380              6836.10    0.8772900
+58    020222_ATAC_Stim_UT   784.7100             31501.00    0.1005000
+59   ASoC_TNFa_11samp_WGS -1157.6000             90540.00    0.4641100
+60     ASoC_UT_11samp_WGS  -772.8400             25614.00    0.5908200
+63   ASoC_TNFa_11samp_WGS   303.2700               449.04    0.1982400
+64     ASoC_UT_11samp_WGS  -234.5000               321.65    0.2071700
+79   ASoC_TNFa_11samp_WGS  -280.3900               261.10    0.1093200
+80     ASoC_UT_11samp_WGS  -117.2100               216.93    0.5188500
+83   ASoC_TNFa_11samp_WGS    41.8590               240.69    0.8615900
+84     ASoC_UT_11samp_WGS   -36.7080               243.05    0.8715000
+87   ASoC_TNFa_11samp_WGS   -12.8050               226.60    0.9508900
+88     ASoC_UT_11samp_WGS   250.9900               355.37    0.4268900
+96     ASoC_UT_11samp_WGS  -448.6000               272.57    0.0129160
+111  ASoC_TNFa_11samp_WGS   745.3100               772.25    0.0657800
+112    ASoC_UT_11samp_WGS  -233.7200               331.65    0.4152400
+123  ASoC_TNFa_11samp_WGS   340.9700               229.36    0.1302100
+129 020222_ATAC_Stim_TNFa   -84.9940               301.47    0.5412900
+131  ASoC_TNFa_11samp_WGS  -181.4600               922.58    0.7646800
+132    ASoC_UT_11samp_WGS   505.0300              1738.60    0.3373600
+133 020222_ATAC_Stim_TNFa  -521.2300             62562.00    0.2211900
+134   020222_ATAC_Stim_UT  -458.6900             53992.00    0.1490900
+135  ASoC_TNFa_11samp_WGS   257.8100             35890.00    0.9237700
+136    ASoC_UT_11samp_WGS  3659.9000            505770.00    0.2127700
+139  ASoC_TNFa_11samp_WGS  -478.5400              1003.40    0.0336300
+140    ASoC_UT_11samp_WGS   228.5600               598.54    0.4346300
+143  ASoC_TNFa_11samp_WGS   670.9600               599.73    0.0406690
+144    ASoC_UT_11samp_WGS  1088.9000              1120.90    0.1035300
+148    ASoC_UT_11samp_WGS  -288.9900               264.54    0.1159900
+149 020222_ATAC_Stim_TNFa -2060.8000            652970.00    0.1324800
+150   020222_ATAC_Stim_UT -2172.7000            665740.00    0.1276300
+151  ASoC_TNFa_11samp_WGS  2624.5000            814250.00    0.6049700
+152    ASoC_UT_11samp_WGS  1243.2000            348680.00    0.8059900
+156    ASoC_UT_11samp_WGS   -96.9540               230.82    0.6381100
+157 020222_ATAC_Stim_TNFa   -93.0420              2688.70    0.6712000
+158   020222_ATAC_Stim_UT   248.3300              4738.20    0.3131500
+159  ASoC_TNFa_11samp_WGS  2610.5000             57584.00    0.0102150
+160    ASoC_UT_11samp_WGS   -72.9760               816.32    0.9217600
+161 020222_ATAC_Stim_TNFa   -50.8860               837.10    0.7257200
+162   020222_ATAC_Stim_UT  -101.0500              1999.00    0.4161200
+163  ASoC_TNFa_11samp_WGS   371.5000              7525.80    0.6452400
+164    ASoC_UT_11samp_WGS  -818.2500             17814.00    0.1271800
+166   020222_ATAC_Stim_UT   -91.5230               209.37    0.2579100
+167  ASoC_TNFa_11samp_WGS   373.8600               843.10    0.5122700
+168    ASoC_UT_11samp_WGS  -693.1300              1499.40    0.0722220
+179  ASoC_TNFa_11samp_WGS    -1.0028               416.49    0.9959600
+180    ASoC_UT_11samp_WGS  -154.3300               337.31    0.5609200
+181 020222_ATAC_Stim_TNFa  -328.9000               664.92    0.0143000
+182   020222_ATAC_Stim_UT  -332.5700               687.65    0.0248120
+183  ASoC_TNFa_11samp_WGS   601.4300              1248.40    0.1406800
+184    ASoC_UT_11samp_WGS   564.1600              1112.90    0.0527570
+189 020222_ATAC_Stim_TNFa  -207.7100              1460.30    0.3211500
+190   020222_ATAC_Stim_UT  -382.7000              2816.80    0.1177200
+191  ASoC_TNFa_11samp_WGS -1366.1000              9837.00    0.3266200
+192    ASoC_UT_11samp_WGS  -527.2900              3605.70    0.6575000
+195  ASoC_TNFa_11samp_WGS   106.7100               276.67    0.6794300
+196    ASoC_UT_11samp_WGS  1052.2000              1209.00    0.3364700
+199  ASoC_TNFa_11samp_WGS   163.5400               439.04    0.6859900
+200    ASoC_UT_11samp_WGS  1609.8000              2119.00    0.3681200
+203  ASoC_TNFa_11samp_WGS   107.9800               292.37    0.6700500
+204    ASoC_UT_11samp_WGS   836.1600              1422.80    0.4635000
+207  ASoC_TNFa_11samp_WGS   134.7100               255.23    0.5742200
+208    ASoC_UT_11samp_WGS   448.3300               637.74    0.4387400
+215  ASoC_TNFa_11samp_WGS  -118.0100               390.29    0.7248700
+216    ASoC_UT_11samp_WGS  -135.2800               309.80    0.6466400
+219  ASoC_TNFa_11samp_WGS   402.3000               441.98    0.1925500
+220    ASoC_UT_11samp_WGS   269.2500               332.97    0.2992800
+223  ASoC_TNFa_11samp_WGS   264.7600               204.94    0.1181200
+229 020222_ATAC_Stim_TNFa  -203.7700              1822.40    0.5837800
+230   020222_ATAC_Stim_UT   103.1900              1057.80    0.7961000
+231  ASoC_TNFa_11samp_WGS  2254.3000             20885.00    0.2583800
+232    ASoC_UT_11samp_WGS -1127.0000             10072.00    0.3952000
+251  ASoC_TNFa_11samp_WGS   400.8500               497.13    0.1427700
+252    ASoC_UT_11samp_WGS   308.7500               375.77    0.1146300
+255  ASoC_TNFa_11samp_WGS   197.4600               316.36    0.4998800
+256    ASoC_UT_11samp_WGS   -24.3720               302.75    0.9252100
+259  ASoC_TNFa_11samp_WGS  -230.0100               406.13    0.5068200
+260    ASoC_UT_11samp_WGS   -64.9900               388.52    0.8625600
+261 020222_ATAC_Stim_TNFa  -568.1300             15694.00    0.3368100
+262   020222_ATAC_Stim_UT  -220.6200              6363.50    0.7076300
+263  ASoC_TNFa_11samp_WGS  1201.8000             34207.00    0.4452300
+264    ASoC_UT_11samp_WGS  1447.4000             37701.00    0.2893400
+267  ASoC_TNFa_11samp_WGS   191.0900               280.30    0.3657900
+271  ASoC_TNFa_11samp_WGS   -43.9660               218.68    0.8214100
+272    ASoC_UT_11samp_WGS    40.5670               246.00    0.8635000
+273 020222_ATAC_Stim_TNFa   -55.0260               283.21    0.7328200
+275  ASoC_TNFa_11samp_WGS  -105.3500              1114.70    0.8953200
+276    ASoC_UT_11samp_WGS  1309.0000              4034.30    0.1246000
+279  ASoC_TNFa_11samp_WGS   460.7400               592.21    0.1811200
+280    ASoC_UT_11samp_WGS   275.4800               442.70    0.4001600
+283  ASoC_TNFa_11samp_WGS  -336.5900               484.85    0.1673100
+284    ASoC_UT_11samp_WGS  -184.7800               307.72    0.4671400
+291  ASoC_TNFa_11samp_WGS   -80.6200               299.81    0.7763100
+292    ASoC_UT_11samp_WGS   270.2300               460.97    0.3173100
+293 020222_ATAC_Stim_TNFa   619.3700             42070.00    0.6617900
+294   020222_ATAC_Stim_UT  1288.1000             86550.00    0.4039000
+295  ASoC_TNFa_11samp_WGS -3132.1000            218900.00    0.6561200
+296    ASoC_UT_11samp_WGS  5564.3000            377800.00    0.6158600
+299  ASoC_TNFa_11samp_WGS   341.1800               255.53    0.0661370
+303  ASoC_TNFa_11samp_WGS   323.3800               234.08    0.0586840
+307  ASoC_TNFa_11samp_WGS  -522.7500               697.29    0.1240000
+308    ASoC_UT_11samp_WGS  -719.9700               771.01    0.0021607
+309 020222_ATAC_Stim_TNFa   148.7400               292.45    0.1782700
+310   020222_ATAC_Stim_UT   166.1100               319.67    0.1722000
+311  ASoC_TNFa_11samp_WGS   599.0400              1226.40    0.2885000
+312    ASoC_UT_11samp_WGS  -684.6000              1093.10    0.0407770
+315  ASoC_TNFa_11samp_WGS   776.7500              1140.80    0.1206700
+316    ASoC_UT_11samp_WGS   355.8300               882.40    0.6550800
+319  ASoC_TNFa_11samp_WGS   107.1100               292.51    0.7090600
+320    ASoC_UT_11samp_WGS   263.8200               317.34    0.3806900
+323  ASoC_TNFa_11samp_WGS   199.8700               486.12    0.6875900
+324    ASoC_UT_11samp_WGS   243.4900               517.09    0.6246400
+328    ASoC_UT_11samp_WGS  -231.6700               229.10    0.2605100
+333 020222_ATAC_Stim_TNFa   -46.0740               257.37    0.7926400
+334   020222_ATAC_Stim_UT    83.4970               330.31    0.6217600
+335  ASoC_TNFa_11samp_WGS  -253.9200               857.94    0.7017400
+336    ASoC_UT_11samp_WGS  -732.1700              2566.90    0.1306100
+339  ASoC_TNFa_11samp_WGS  -145.0900               228.08    0.4931300
+340    ASoC_UT_11samp_WGS   160.7900               285.05    0.4505800
+343  ASoC_TNFa_11samp_WGS    81.7890               388.54    0.8211200
+344    ASoC_UT_11samp_WGS  -733.8200              1150.20    0.0089515
+345 020222_ATAC_Stim_TNFa   -70.4770               431.35    0.7115900
+346   020222_ATAC_Stim_UT  -108.7900               562.69    0.5516100
+347  ASoC_TNFa_11samp_WGS  -473.9500              2063.70    0.3909500
+348    ASoC_UT_11samp_WGS -1190.4000              4755.70    0.0165780
+351  ASoC_TNFa_11samp_WGS   833.6200              1119.70    0.0403110
+352    ASoC_UT_11samp_WGS   707.5200              1130.40    0.0239240
+353 020222_ATAC_Stim_TNFa    72.4720              1808.70    0.8633600
+354   020222_ATAC_Stim_UT   -87.3350              2837.50    0.8537900
+355  ASoC_TNFa_11samp_WGS   337.6600              8702.80    0.8516100
+356    ASoC_UT_11samp_WGS  -516.7800             16074.00    0.8473100
+360    ASoC_UT_11samp_WGS    58.8530               208.61    0.7766500
+363  ASoC_TNFa_11samp_WGS   -14.5610               212.67    0.9432200
+364    ASoC_UT_11samp_WGS   277.4500               268.45    0.1155300
+367  ASoC_TNFa_11samp_WGS   102.4000               254.09    0.6650300
+368    ASoC_UT_11samp_WGS    82.3010               321.10    0.7937700
+375  ASoC_TNFa_11samp_WGS    13.6980               536.72    0.9817900
+376    ASoC_UT_11samp_WGS  -317.7400               921.93    0.7227900
               ci               Trait
-42      429.3772               GIIBS
-43     1647.9680               GIIBS
-44      669.9868               GIIBS
-45     1146.8548               GIOth
-46     1722.0168               GIOth
-47     2642.8640               GIOth
-48     2996.2520               GIOth
-51     2126.6000             GIPolyp
-52      912.0272             GIPolyp
-55      480.4940            GIReflux
-56      575.1816            GIReflux
-57     9225.7200             GIUlcer
-58   180186.7200             GIUlcer
-59   277986.8000             GIUlcer
-60   184886.8000             GIUlcer
+42      440.6472               GIIBS
+43     1664.9808               GIIBS
+44      671.8684               GIIBS
+45     1206.7132               GIOth
+46     1836.0692               GIOth
+47     2665.4040               GIOth
+48     3057.2080               GIOth
+51     2125.0320             GIPolyp
+52      885.3516             GIPolyp
+55      478.9260            GIReflux
+56      582.1984            GIReflux
+57    13398.7560             GIUlcer
+58    61741.9600             GIUlcer
+59   177458.4000             GIUlcer
+60    50203.4400             GIUlcer
 63      880.1184 Glucose_FS_Mean_INT
 64      630.4340 Glucose_FS_Mean_INT
 79      511.7560     Mg_BSP_Mean_INT
 80      425.1828     Mg_BSP_Mean_INT
-83      457.4640             Phe_153
-84      464.9904             Phe_153
-87      435.7472             Phe_208
-88      646.3100             Phe_208
-95      399.5068           Phe_241_1
-96      537.7456           Phe_241_1
-111    1844.2032           Phe_250_1
-112     791.4480           Phe_250_1
-123     443.6852          Phe_250_23
-129     535.7072           Phe_250_4
-131    1805.3952           Phe_250_4
-132    3180.6880           Phe_250_4
-133   10187.4920          Phe_250_41
-134    8938.7760          Phe_250_41
-135   10132.6120          Phe_250_41
-136   79142.8400          Phe_250_41
-139    2257.1360          Phe_250_42
-140    1337.1316          Phe_250_42
-143    1239.1316             Phe_260
-144    2287.9080             Phe_260
-148     523.6336             Phe_261
-149 1264533.2000           Phe_261_2
-150 1336288.8000           Phe_261_2
-151 1357574.4000           Phe_261_2
-152  711852.4000           Phe_261_2
-156     452.3680           Phe_261_4
-157    3273.0040             Phe_269
-158    5399.6040             Phe_269
-159   67086.8800             Phe_269
-160    1441.6976             Phe_269
-161    2073.2880             Phe_271
-162    5339.4320             Phe_271
-163   20474.1600             Phe_271
-164   48370.8400             Phe_271
-166     431.4156           Phe_271_3
-167    1722.3500           Phe_271_3
-168    3138.1560           Phe_271_3
-179     747.7988          Phe_272_11
-180     617.5372          Phe_272_11
-181    1556.9652          Phe_272_12
-182    1619.0188          Phe_272_12
-183    2763.4040          Phe_272_12
-184    2653.2520          Phe_272_12
-189    3053.8760             Phe_275
-190    5921.9440             Phe_275
-191   20531.0000             Phe_275
-192    7432.1240             Phe_275
-195     524.0844             Phe_276
-196    2176.5800             Phe_276
-199     865.7908           Phe_276_1
-200    4038.9720           Phe_276_1
-203     583.9232          Phe_276_12
-204    2712.4440          Phe_276_12
-207     537.8044          Phe_276_13
-208    1296.9124          Phe_276_13
-215     724.7688           Phe_276_4
-216     578.0824           Phe_276_4
-219     862.8900           Phe_276_5
-220     661.0688           Phe_276_5
-229    6510.9240          Phe_278_11
-230    2692.4520          Phe_278_11
-231   91189.0000          Phe_278_11
-232   36011.0800          Phe_278_11
-251     923.1600          Phe_530_14
-252     697.5052          Phe_530_14
-255     614.5972             Phe_531
-256     584.3152             Phe_531
-257     433.9244             Phe_535
-259     919.8280             Phe_535
-260     876.2964             Phe_535
-261   81073.4400             Phe_536
-262   30234.9600             Phe_536
-263  193569.6000             Phe_536
-264  226027.2000             Phe_536
-267     552.4064             Phe_550
-271     436.9624           Phe_550_1
-272     484.9628           Phe_550_1
-273     715.5568           Phe_550_2
-274     443.8420           Phe_550_2
-275    2639.3360           Phe_550_2
-276    9473.6600           Phe_550_2
-279    1167.9836           Phe_550_4
-280     893.7796           Phe_550_4
-283     930.8236             Phe_558
-284     595.8596             Phe_558
-291     632.3156             Phe_561
-292    1017.2792             Phe_561
-293  150408.4400           Phe_561_1
-294  328731.2000           Phe_561_1
-295  747524.4000           Phe_561_1
-296 1436444.8000           Phe_561_1
-299     474.0064             Phe_562
-303     465.2844           Phe_562_1
-307    1192.3856           Phe_562_2
-308    1273.9020           Phe_562_2
-309     844.0740             Phe_563
-310     943.6616             Phe_563
-311    3576.0200             Phe_563
-312    3482.3320             Phe_563
-315    2435.3000             Phe_564
-316    1832.8156             Phe_564
-319     576.3968           Phe_564_1
-320     629.9440           Phe_564_1
-323     970.6900             Phe_565
-324    1018.2592             Phe_565
-328     467.0680             Phe_571
-333     578.7488          Phe_571_51
-334     771.9264          Phe_571_51
-335    1930.1884          Phe_571_51
-336    6097.7560          Phe_571_51
-339     407.6212           Phe_573_7
-340     515.5192           Phe_573_7
-343     820.4364             Phe_574
-344    2707.5440             Phe_574
-345    1033.6844           Phe_574_1
-346    1363.5132           Phe_574_1
-347    4973.6960           Phe_574_1
-348   11409.7480           Phe_574_1
-351    2206.1760             Phe_577
-352    2218.7200             Phe_577
-353    6995.2400             Phe_578
-354   25254.6000             Phe_578
-355   19821.4800             Phe_578
-356  149359.8400             Phe_578
-360     401.2120           Phe_578_2
-363     411.8940           Phe_578_8
-364     516.2052           Phe_578_8
-367     482.9636           Phe_578_9
-368     614.0092           Phe_578_9
-373     469.1064             Phe_789
-375    1146.0708             Phe_789
-376    1966.2720             Phe_789
-                                                              Trait_label
-42                                 Irritable bowel syndrome survey result
-43                                 Irritable bowel syndrome survey result
-44                                 Irritable bowel syndrome survey result
-45                                        Other digestive system problems
-46                                        Other digestive system problems
-47                                        Other digestive system problems
-48                                        Other digestive system problems
-51                                                           Colon polyps
-52                                                           Colon polyps
-55                                                       Acid reflux/GERD
-56                                                       Acid reflux/GERD
-57                                                          Peptic ulcers
-58                                                          Peptic ulcers
-59                                                          Peptic ulcers
-60                                                          Peptic ulcers
-63                                            Glucose finger stick result
-64                                            Glucose finger stick result
-79                                                              Magnesium
-80                                                              Magnesium
-83                                                      Colorectal cancer
-84                                                      Colorectal cancer
-87                                               Benign neoplasm of colon
-88                                               Benign neoplasm of colon
-95                                             Nontoxic uninodular goiter
-96                                             Nontoxic uninodular goiter
-111                                                       Type 1 diabetes
-112                                                       Type 1 diabetes
-123                        Type 2 diabetes with ophthalmic manifestations
-129                                                      Abnormal glucose
-131                                                      Abnormal glucose
-132                                                      Abnormal glucose
-133                                              Impaired fasting glucose
-134                                              Impaired fasting glucose
-135                                              Impaired fasting glucose
-136                                              Impaired fasting glucose
-139                                                Other abnormal glucose
-140                                                Other abnormal glucose
-143                                          Protein-calorie malnutrition
-144                                          Protein-calorie malnutrition
-148                                                    Vitamin deficiency
-149                                        Vitamin b-complex deficiencies
-150                                        Vitamin b-complex deficiencies
-151                                        Vitamin b-complex deficiencies
-152                                        Vitamin b-complex deficiencies
-156                                                  Vitamin d deficiency
-157                                                           Proteinuria
-158                                                           Proteinuria
-159                                                           Proteinuria
-160                                                           Proteinuria
-161                    Disorders of carbohydrate transport and metabolism
-162                    Disorders of carbohydrate transport and metabolism
-163                    Disorders of carbohydrate transport and metabolism
-164                    Disorders of carbohydrate transport and metabolism
-166 Intestinal disaccharidase deficiencies and disaccharide malabsorption
-167 Intestinal disaccharidase deficiencies and disaccharide malabsorption
-168 Intestinal disaccharidase deficiencies and disaccharide malabsorption
-179                                                  Hypercholesterolemia
-180                                                  Hypercholesterolemia
-181                                                     Hyperglyceridemia
-182                                                     Hyperglyceridemia
-183                                                     Hyperglyceridemia
-184                                                     Hyperglyceridemia
-189                                       Disorders of mineral metabolism
-190                                       Disorders of mineral metabolism
-191                                       Disorders of mineral metabolism
-192                                       Disorders of mineral metabolism
-195               Disorders of fluid, electrolyte, and acid-based balance
-196               Disorders of fluid, electrolyte, and acid-based balance
-199                                                 Electrolyte imbalance
-200                                                 Electrolyte imbalance
-203                                     Hyposmolality and/or hyponatremia
-204                                     Hyposmolality and/or hyponatremia
-207                                                       Hyperpotassemia
-208                                                       Hyperpotassemia
-215                                            Acid-base balance disorder
-216                                            Acid-base balance disorder
-219                                                           Hypovolemia
-220                                                           Hypovolemia
-229                                                        Morbid obesity
-230                                                        Morbid obesity
-231                                                        Morbid obesity
-232                                                        Morbid obesity
-251                                                    Reflux esophagitis
-252                                                    Reflux esophagitis
-255                                                          Peptic ulcer
-256                                                          Peptic ulcer
-257                                              Gastritis and duodenitis
-259                                              Gastritis and duodenitis
-260                                              Gastritis and duodenitis
-261                                      Disorders of function of stomach
-262                                      Disorders of function of stomach
-263                                      Disorders of function of stomach
-264                                      Disorders of function of stomach
-267                                                      Abdominal hernia
-271                                                       Inguinal hernia
-272                                                       Inguinal hernia
-273                                                  Diaphragmatic hernia
-274                                                  Diaphragmatic hernia
-275                                                  Diaphragmatic hernia
-276                                                  Diaphragmatic hernia
-279                                                      Umbilical hernia
-280                                                      Umbilical hernia
-283                                         Noninfectious gastroenteritis
-284                                         Noninfectious gastroenteritis
-291                                   Symptoms involving digestive system
-292                                   Symptoms involving digestive system
-293                                                              Diarrhea
-294                                                              Diarrhea
-295                                                              Diarrhea
-296                                                              Diarrhea
-299                                     Diverticulosis and diverticulitis
-303                                                        Diverticulosis
-307                                                        Diverticulitis
-308                                                        Diverticulitis
-309                                                          Constipation
-310                                                          Constipation
-311                                                          Constipation
-312                                                          Constipation
-315                                        Functional digestive disorders
-316                                        Functional digestive disorders
-319                                              Irritable bowel syndrome
-320                                              Irritable bowel syndrome
-323                                            Anal and rectal conditions
-324                                            Anal and rectal conditions
-328                                   Chronic liver disease and cirrhosis
-333                         Cirrhosis of liver without mention of alcohol
-334                         Cirrhosis of liver without mention of alcohol
-335                         Cirrhosis of liver without mention of alcohol
-336                         Cirrhosis of liver without mention of alcohol
-339                           Abnormal results of function study of liver
-340                           Abnormal results of function study of liver
-343                                      Cholelithiasis and cholecystitis
-344                                      Cholelithiasis and cholecystitis
-345                                                        Cholelithiasis
-346                                                        Cholelithiasis
-347                                                        Cholelithiasis
-348                                                        Cholelithiasis
-351                                                  Diseases of pancreas
-352                                                  Diseases of pancreas
-353                                           Gastrointestinal hemorrhage
-354                                           Gastrointestinal hemorrhage
-355                                           Gastrointestinal hemorrhage
-356                                           Gastrointestinal hemorrhage
-360                                                        Blood in stool
-363                                         Hemorrhage of rectum and anus
-364                                         Hemorrhage of rectum and anus
-367                                  Hemorrhage of gastrointestinal tract
-368                                  Hemorrhage of gastrointestinal tract
-373                                                   Nausea and vomiting
-375                                                   Nausea and vomiting
-376                                                   Nausea and vomiting</code></pre>
+83      471.7524             Phe_153
+84      476.3780             Phe_153
+87      444.1360             Phe_208
+88      696.5252             Phe_208
+96      534.2372           Phe_241_1
+111    1513.6100           Phe_250_1
+112     650.0340           Phe_250_1
+123     449.5456          Phe_250_23
+129     590.8812           Phe_250_4
+131    1808.2568           Phe_250_4
+132    3407.6560           Phe_250_4
+133  122621.5200          Phe_250_41
+134  105824.3200          Phe_250_41
+135   70344.4000          Phe_250_41
+136  991309.2000          Phe_250_41
+139    1966.6640          Phe_250_42
+140    1173.1384          Phe_250_42
+143    1175.4708             Phe_260
+144    2196.9640             Phe_260
+148     518.4984             Phe_261
+149 1279821.2000           Phe_261_2
+150 1304850.4000           Phe_261_2
+151 1595930.0000           Phe_261_2
+152  683412.8000           Phe_261_2
+156     452.4072           Phe_261_4
+157    5269.8520             Phe_269
+158    9286.8720             Phe_269
+159  112864.6400             Phe_269
+160    1599.9872             Phe_269
+161    1640.7160             Phe_271
+162    3918.0400             Phe_271
+163   14750.5680             Phe_271
+164   34915.4400             Phe_271
+166     410.3652           Phe_271_3
+167    1652.4760           Phe_271_3
+168    2938.8240           Phe_271_3
+179     816.3204          Phe_272_11
+180     661.1276          Phe_272_11
+181    1303.2432          Phe_272_12
+182    1347.7940          Phe_272_12
+183    2446.8640          Phe_272_12
+184    2181.2840          Phe_272_12
+189    2862.1880             Phe_275
+190    5520.9280             Phe_275
+191   19280.5200             Phe_275
+192    7067.1720             Phe_275
+195     542.2732             Phe_276
+196    2369.6400             Phe_276
+199     860.5184           Phe_276_1
+200    4153.2400           Phe_276_1
+203     573.0452          Phe_276_12
+204    2788.6880          Phe_276_12
+207     500.2508          Phe_276_13
+208    1249.9704          Phe_276_13
+215     764.9684           Phe_276_4
+216     607.2080           Phe_276_4
+219     866.2808           Phe_276_5
+220     652.6212           Phe_276_5
+223     401.6824             Phe_278
+229    3571.9040          Phe_278_11
+230    2073.2880          Phe_278_11
+231   40934.6000          Phe_278_11
+232   19741.1200          Phe_278_11
+251     974.3748          Phe_530_14
+252     736.5092          Phe_530_14
+255     620.0656             Phe_531
+256     593.3900             Phe_531
+259     796.0148             Phe_535
+260     761.4992             Phe_535
+261   30760.2400             Phe_536
+262   12472.4600             Phe_536
+263   67045.7200             Phe_536
+264   73893.9600             Phe_536
+267     549.3880             Phe_550
+271     428.6128           Phe_550_1
+272     482.1600           Phe_550_1
+273     555.0916           Phe_550_2
+275    2184.8120           Phe_550_2
+276    7907.2280           Phe_550_2
+279    1160.7316           Phe_550_4
+280     867.6920           Phe_550_4
+283     950.3060             Phe_558
+284     603.1312             Phe_558
+291     587.6276             Phe_561
+292     903.5012             Phe_561
+293   82457.2000           Phe_561_1
+294  169638.0000           Phe_561_1
+295  429044.0000           Phe_561_1
+296  740488.0000           Phe_561_1
+299     500.8388             Phe_562
+303     458.7968           Phe_562_1
+307    1366.6884           Phe_562_2
+308    1511.1796           Phe_562_2
+309     573.2020             Phe_563
+310     626.5532             Phe_563
+311    2403.7440             Phe_563
+312    2142.4760             Phe_563
+315    2235.9680             Phe_564
+316    1729.5040             Phe_564
+319     573.3196           Phe_564_1
+320     621.9864           Phe_564_1
+323     952.7952             Phe_565
+324    1013.4964             Phe_565
+328     449.0360             Phe_571
+333     504.4452          Phe_571_51
+334     647.4076          Phe_571_51
+335    1681.5624          Phe_571_51
+336    5031.1240          Phe_571_51
+339     447.0368           Phe_573_7
+340     558.6980           Phe_573_7
+343     761.5384             Phe_574
+344    2254.3920             Phe_574
+345     845.4460           Phe_574_1
+346    1102.8724           Phe_574_1
+347    4044.8520           Phe_574_1
+348    9321.1720           Phe_574_1
+351    2194.6120             Phe_577
+352    2215.5840             Phe_577
+353    3545.0520             Phe_578
+354    5561.5000             Phe_578
+355   17057.4880             Phe_578
+356   31505.0400             Phe_578
+360     408.8756           Phe_578_2
+363     416.8332           Phe_578_8
+364     526.1620           Phe_578_8
+367     498.0164           Phe_578_9
+368     629.3560           Phe_578_9
+375    1051.9712             Phe_789
+376    1806.9828             Phe_789
+                                                                                                     Trait_label
+42                                 Irritable bowel syndrome survey result (N cases = 15794, N controls = 299874)
+43                                 Irritable bowel syndrome survey result (N cases = 15794, N controls = 299874)
+44                                 Irritable bowel syndrome survey result (N cases = 15794, N controls = 299874)
+45                                        Other digestive system problems (N cases = 17700, N controls = 297968)
+46                                        Other digestive system problems (N cases = 17700, N controls = 297968)
+47                                        Other digestive system problems (N cases = 17700, N controls = 297968)
+48                                        Other digestive system problems (N cases = 17700, N controls = 297968)
+51                                                           Colon polyps (N cases = 73737, N controls = 241931)
+52                                                           Colon polyps (N cases = 73737, N controls = 241931)
+55                                                      Acid reflux/GERD (N cases = 107942, N controls = 207726)
+56                                                      Acid reflux/GERD (N cases = 107942, N controls = 207726)
+57                                                          Peptic ulcers (N cases = 10929, N controls = 304739)
+58                                                          Peptic ulcers (N cases = 10929, N controls = 304739)
+59                                                          Peptic ulcers (N cases = 10929, N controls = 304739)
+60                                                          Peptic ulcers (N cases = 10929, N controls = 304739)
+63                                                                 Glucose finger stick result (N total = 69680)
+64                                                                 Glucose finger stick result (N total = 69680)
+79                                                                                  Magnesium (N total = 145571)
+80                                                                                  Magnesium (N total = 145571)
+83                                                      Colorectal cancer (N cases = 10436, N controls = 436330)
+84                                                      Colorectal cancer (N cases = 10436, N controls = 436330)
+87                                              Benign neoplasm of colon (N cases = 125095, N controls = 270155)
+88                                              Benign neoplasm of colon (N cases = 125095, N controls = 270155)
+96                                             Nontoxic uninodular goiter (N cases = 12152, N controls = 433970)
+111                                                       Type 1 diabetes (N cases = 16971, N controls = 418767)
+112                                                       Type 1 diabetes (N cases = 16971, N controls = 418767)
+123                        Type 2 diabetes with ophthalmic manifestations (N cases = 28561, N controls = 402796)
+129                                                      Abnormal glucose (N cases = 69640, N controls = 338815)
+131                                                      Abnormal glucose (N cases = 69640, N controls = 338815)
+132                                                      Abnormal glucose (N cases = 69640, N controls = 338815)
+133                                              Impaired fasting glucose (N cases = 40912, N controls = 388446)
+134                                              Impaired fasting glucose (N cases = 40912, N controls = 388446)
+135                                              Impaired fasting glucose (N cases = 40912, N controls = 388446)
+136                                              Impaired fasting glucose (N cases = 40912, N controls = 388446)
+139                                                Other abnormal glucose (N cases = 31907, N controls = 383507)
+140                                                Other abnormal glucose (N cases = 31907, N controls = 383507)
+143                                          Protein-calorie malnutrition (N cases = 13964, N controls = 422281)
+144                                          Protein-calorie malnutrition (N cases = 13964, N controls = 422281)
+148                                                    Vitamin deficiency (N cases = 90650, N controls = 318995)
+149                                        Vitamin b-complex deficiencies (N cases = 21840, N controls = 415740)
+150                                        Vitamin b-complex deficiencies (N cases = 21840, N controls = 415740)
+151                                        Vitamin b-complex deficiencies (N cases = 21840, N controls = 415740)
+152                                        Vitamin b-complex deficiencies (N cases = 21840, N controls = 415740)
+156                                                  Vitamin d deficiency (N cases = 73425, N controls = 341194)
+157                                                           Proteinuria (N cases = 10033, N controls = 432072)
+158                                                           Proteinuria (N cases = 10033, N controls = 432072)
+159                                                           Proteinuria (N cases = 10033, N controls = 432072)
+160                                                           Proteinuria (N cases = 10033, N controls = 432072)
+161                    Disorders of carbohydrate transport and metabolism (N cases = 12349, N controls = 426073)
+162                    Disorders of carbohydrate transport and metabolism (N cases = 12349, N controls = 426073)
+163                    Disorders of carbohydrate transport and metabolism (N cases = 12349, N controls = 426073)
+164                    Disorders of carbohydrate transport and metabolism (N cases = 12349, N controls = 426073)
+166 Intestinal disaccharidase deficiencies and disaccharide malabsorption (N cases = 11891, N controls = 426970)
+167 Intestinal disaccharidase deficiencies and disaccharide malabsorption (N cases = 11891, N controls = 426970)
+168 Intestinal disaccharidase deficiencies and disaccharide malabsorption (N cases = 11891, N controls = 426970)
+179                                                  Hypercholesterolemia (N cases = 65795, N controls = 351476)
+180                                                  Hypercholesterolemia (N cases = 65795, N controls = 351476)
+181                                                     Hyperglyceridemia (N cases = 17425, N controls = 419299)
+182                                                     Hyperglyceridemia (N cases = 17425, N controls = 419299)
+183                                                     Hyperglyceridemia (N cases = 17425, N controls = 419299)
+184                                                     Hyperglyceridemia (N cases = 17425, N controls = 419299)
+189                                       Disorders of mineral metabolism (N cases = 24136, N controls = 403344)
+190                                       Disorders of mineral metabolism (N cases = 24136, N controls = 403344)
+191                                       Disorders of mineral metabolism (N cases = 24136, N controls = 403344)
+192                                       Disorders of mineral metabolism (N cases = 24136, N controls = 403344)
+195               Disorders of fluid, electrolyte, and acid-based balance (N cases = 74426, N controls = 323713)
+196               Disorders of fluid, electrolyte, and acid-based balance (N cases = 74426, N controls = 323713)
+199                                                 Electrolyte imbalance (N cases = 55646, N controls = 352393)
+200                                                 Electrolyte imbalance (N cases = 55646, N controls = 352393)
+203                                     Hyposmolality and/or hyponatremia (N cases = 17144, N controls = 416063)
+204                                     Hyposmolality and/or hyponatremia (N cases = 17144, N controls = 416063)
+207                                                       Hyperpotassemia (N cases = 17226, N controls = 415141)
+208                                                       Hyperpotassemia (N cases = 17226, N controls = 415141)
+215                                            Acid-base balance disorder (N cases = 10439, N controls = 424044)
+216                                            Acid-base balance disorder (N cases = 10439, N controls = 424044)
+219                                                           Hypovolemia (N cases = 22799, N controls = 393769)
+220                                                           Hypovolemia (N cases = 22799, N controls = 393769)
+223                      Overweight, obesity and other hyperalimentation (N cases = 187880, N controls = 218356)
+229                                                        Morbid obesity (N cases = 45933, N controls = 385784)
+230                                                        Morbid obesity (N cases = 45933, N controls = 385784)
+231                                                        Morbid obesity (N cases = 45933, N controls = 385784)
+232                                                        Morbid obesity (N cases = 45933, N controls = 385784)
+251                                                    Reflux esophagitis (N cases = 15549, N controls = 417617)
+252                                                    Reflux esophagitis (N cases = 15549, N controls = 417617)
+255                                                          Peptic ulcer (N cases = 16413, N controls = 422212)
+256                                                          Peptic ulcer (N cases = 16413, N controls = 422212)
+259                                              Gastritis and duodenitis (N cases = 20797, N controls = 394987)
+260                                              Gastritis and duodenitis (N cases = 20797, N controls = 394987)
+261                                      Disorders of function of stomach (N cases = 12584, N controls = 420458)
+262                                      Disorders of function of stomach (N cases = 12584, N controls = 420458)
+263                                      Disorders of function of stomach (N cases = 12584, N controls = 420458)
+264                                      Disorders of function of stomach (N cases = 12584, N controls = 420458)
+267                                                      Abdominal hernia (N cases = 71035, N controls = 345335)
+271                                                       Inguinal hernia (N cases = 30294, N controls = 410088)
+272                                                       Inguinal hernia (N cases = 30294, N controls = 410088)
+273                                                  Diaphragmatic hernia (N cases = 19852, N controls = 406606)
+275                                                  Diaphragmatic hernia (N cases = 19852, N controls = 406606)
+276                                                  Diaphragmatic hernia (N cases = 19852, N controls = 406606)
+279                                                      Umbilical hernia (N cases = 15292, N controls = 428443)
+280                                                      Umbilical hernia (N cases = 15292, N controls = 428443)
+283                                         Noninfectious gastroenteritis (N cases = 14278, N controls = 411628)
+284                                         Noninfectious gastroenteritis (N cases = 14278, N controls = 411628)
+291                                   Symptoms involving digestive system (N cases = 60074, N controls = 337851)
+292                                   Symptoms involving digestive system (N cases = 60074, N controls = 337851)
+293                                                              Diarrhea (N cases = 47462, N controls = 359574)
+294                                                              Diarrhea (N cases = 47462, N controls = 359574)
+295                                                              Diarrhea (N cases = 47462, N controls = 359574)
+296                                                              Diarrhea (N cases = 47462, N controls = 359574)
+299                                     Diverticulosis and diverticulitis (N cases = 60821, N controls = 330833)
+303                                                        Diverticulosis (N cases = 53699, N controls = 338014)
+307                                                        Diverticulitis (N cases = 10900, N controls = 428348)
+308                                                        Diverticulitis (N cases = 10900, N controls = 428348)
+309                                                          Constipation (N cases = 48515, N controls = 358488)
+310                                                          Constipation (N cases = 48515, N controls = 358488)
+311                                                          Constipation (N cases = 48515, N controls = 358488)
+312                                                          Constipation (N cases = 48515, N controls = 358488)
+315                                        Functional digestive disorders (N cases = 27707, N controls = 391566)
+316                                        Functional digestive disorders (N cases = 27707, N controls = 391566)
+319                                              Irritable bowel syndrome (N cases = 14867, N controls = 427355)
+320                                              Irritable bowel syndrome (N cases = 14867, N controls = 427355)
+323                                            Anal and rectal conditions (N cases = 14676, N controls = 410407)
+324                                            Anal and rectal conditions (N cases = 14676, N controls = 410407)
+328                                   Chronic liver disease and cirrhosis (N cases = 30744, N controls = 401215)
+333                         Cirrhosis of liver without mention of alcohol (N cases = 13367, N controls = 433864)
+334                         Cirrhosis of liver without mention of alcohol (N cases = 13367, N controls = 433864)
+335                         Cirrhosis of liver without mention of alcohol (N cases = 13367, N controls = 433864)
+336                         Cirrhosis of liver without mention of alcohol (N cases = 13367, N controls = 433864)
+339                           Abnormal results of function study of liver (N cases = 30105, N controls = 398152)
+340                           Abnormal results of function study of liver (N cases = 30105, N controls = 398152)
+343                                      Cholelithiasis and cholecystitis (N cases = 23182, N controls = 416631)
+344                                      Cholelithiasis and cholecystitis (N cases = 23182, N controls = 416631)
+345                                                        Cholelithiasis (N cases = 18237, N controls = 421370)
+346                                                        Cholelithiasis (N cases = 18237, N controls = 421370)
+347                                                        Cholelithiasis (N cases = 18237, N controls = 421370)
+348                                                        Cholelithiasis (N cases = 18237, N controls = 421370)
+351                                                  Diseases of pancreas (N cases = 12564, N controls = 431876)
+352                                                  Diseases of pancreas (N cases = 12564, N controls = 431876)
+353                                           Gastrointestinal hemorrhage (N cases = 47936, N controls = 366187)
+354                                           Gastrointestinal hemorrhage (N cases = 47936, N controls = 366187)
+355                                           Gastrointestinal hemorrhage (N cases = 47936, N controls = 366187)
+356                                           Gastrointestinal hemorrhage (N cases = 47936, N controls = 366187)
+360                                                        Blood in stool (N cases = 21012, N controls = 400480)
+363                                         Hemorrhage of rectum and anus (N cases = 14212, N controls = 415119)
+364                                         Hemorrhage of rectum and anus (N cases = 14212, N controls = 415119)
+367                                  Hemorrhage of gastrointestinal tract (N cases = 14284, N controls = 421134)
+368                                  Hemorrhage of gastrointestinal tract (N cases = 14284, N controls = 421134)
+375                                                   Nausea and vomiting (N cases = 30059, N controls = 381553)
+376                                                   Nausea and vomiting (N cases = 30059, N controls = 381553)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
