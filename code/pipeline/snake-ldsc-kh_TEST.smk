@@ -30,7 +30,7 @@ munged_sumstats = pdout + 'munged_sumstats/'
 #finemapping = pdout + 'finemapping/'
 
 # Global wildcards
-traits = ["Sodium_BSP_Mean_INT", "Phe_578_8", "Phe_530_1", "TotChol_Mean_INT"]
+traits = "Phe_578_8"
 chrom = list(map(str, range(1,23)))
 
 # Cleaned sumstats columns

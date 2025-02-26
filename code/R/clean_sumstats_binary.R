@@ -28,15 +28,25 @@ clean_sumstats <- function(sumstats, cols.to.keep){
   # make chromosomes integers
   clean.sumstats$chr <- as.integer(clean.sumstats$chr)
   
-  # Split the confidence interval column into lower and upper bounds
-  clean.sumstats <- clean.sumstats %>% separate(col=ci, into=c("ci_lower", "ci_upper"), sep=",")
-  clean.sumstats$ci_lower <- as.numeric(clean.sumstats$ci_lower)
-  clean.sumstats$ci_upper <- as.numeric(clean.sumstats$ci_upper)
-
+  # make odds ratio numeric
+  clean.sumstats$or <- as.numeric(clean.sumstats$or)
+  
   # Compute Zscores
-  beta = log(clean.sumstats$or)
-  se = (log(clean.sumstats$or) - log(clean.sumstats$ci_lower))/(1.96)
-  zscore <- beta/se
+  zscore_fun <- function(or, pval){
+    if (or < 1) {
+      zscore <- -abs(qnorm(pval / 2))  # Negative z-score for OR < 1
+    } else if (or > 1) {
+      zscore <- abs(qnorm(pval / 2))   # Positive z-score for OR > 1
+    } else {
+      zscore <- 0  # Handle OR == 1 (no effect)
+    }
+  return(zscore)
+}
+  
+  # calculate zscore based on OR sign (+ or -)
+  zscore <- mapply(zscore_fun, clean.sumstats$or, clean.sumstats$pval)
+
+  # add Z score to data frame output
   clean.sumstats['zscore'] <- zscore
   clean.sumstats <- clean.sumstats[!is.na(zscore),]
   
@@ -54,6 +64,7 @@ clean_sumstats <- function(sumstats, cols.to.keep){
     
   return(clean.sumstats)
 }
+
 
 args <- commandArgs(trailingOnly=T)
 sumstats <- vroom::vroom(args[1], col_names = T)

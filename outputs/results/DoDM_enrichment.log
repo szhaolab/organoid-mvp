@@ -14,7 +14,7 @@ Call:
 --overlap-annot  \
 --not-M-5-50  
 
-Beginning analysis at Mon Feb 17 13:38:00 2025
+Beginning analysis at Mon Feb 24 12:16:19 2025
 Reading summary statistics from /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/munged_sumstats/DoDM_munged_sumstats.parquet ...
 Read summary statistics for 18498756 SNPs.
 Reading reference panel LD Score from /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/DoDM/DoDM.[1-22] ...
@@ -24,14 +24,14 @@ Read regression weight LD Scores for 9997231 SNPs.
 After merging with reference panel LD, 107209 SNPs remain.
 After merging with regression SNP LD, 107209 SNPs remain.
 WARNING: number of SNPs less than 200k; this is almost always bad.
-Removed 1 SNPs with chi^2 > 80 (107208 SNPs remain)
-Total Observed scale h2: 0.6088 (0.1498)
+Removed 3 SNPs with chi^2 > 80 (107206 SNPs remain)
+Total Observed scale h2: 0.7445 (0.184)
 Categories: 020222_ATAC_Stim_TNFa_0 020222_ATAC_Stim_UT_0 ASoC_TNFa_11samp_WGS_0_0 ASoC_UT_11samp_WGS_0_0 MAFbin1_0 MAFbin2_0 MAFbin3_0 MAFbin4_0 MAFbin5_0 MAFbin6_0 MAFbin7_0 MAFbin8_0 MAFbin9_0 MAFbin10_0 MAF_Adj_Predicted_Allele_Age_0 MAF_Adj_LLD_AFR_0 Recomb_Rate_10kb_0 Nucleotide_Diversity_10kb_0 Backgrd_Selection_Stat_0 CpG_Content_50kb_0
-Lambda GC: 1.6637
-Mean Chi^2: 1.5825
-Intercept: 1.2269 (0.0256)
-Ratio: 0.3896 (0.0439)
+Lambda GC: 1.6607
+Mean Chi^2: 1.7976
+Intercept: 1.3381 (0.0308)
+Ratio: 0.4239 (0.0387)
 Reading annot matrix from /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/annotations/DoDM/DoDM.[1-22] ...
 Results printed to /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/results/DoDM_enrichment.results
-Analysis finished at Mon Feb 17 13:39:52 2025
-Total time elapsed: 1.0m:52.370000000000005s
+Analysis finished at Mon Feb 24 12:18:05 2025
+Total time elapsed: 1.0m:46.269999999999996s

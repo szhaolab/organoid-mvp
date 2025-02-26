@@ -1,0 +1,30 @@
+host: q05.hpcc.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+clean_sumstats              1
+enrichment_ldsc             1
+get_significant_loci        1
+munge_sumstats              1
+total                       5
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 24 11:11:34 2025]
+localrule clean_sumstats:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP_R4.1000G_AGR.Phe_578_8.EUR.GIA.dbGaP.txt.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    jobid: 3
+    reason: Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: '/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/clean_sumstats_binary.R' 
+    wildcards: trait=Phe_578_8
+    resources: tmpdir=/scratch/f007fdw
+
+
+        Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/clean_sumstats_binary.R /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP_R4.1000G_AGR.Phe_578_8.EUR.GIA.dbGaP.txt.gz chrom,pos,or,ci,ref,alt,SNP_ID,pval /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+        

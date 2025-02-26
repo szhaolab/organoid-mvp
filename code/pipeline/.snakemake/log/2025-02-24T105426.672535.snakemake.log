@@ -1,0 +1,41 @@
+host: s22.hpcc.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                      count
+---------------------  -------
+all                          1
+clean_sumstats_binary        1
+total                        2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 24 10:54:26 2025]
+localrule clean_sumstats_binary:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP_R4.1000G_AGR.Phe_578_8.EUR.GIA.dbGaP.txt.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    jobid: 1
+    reason: Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: '/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/clean_sumstats_binary.R' now: <nothing exclusive> 
+    wildcards: binary_traits=Phe_578_8
+    resources: tmpdir=/scratch/f007fdw
+
+[Mon Feb 24 11:00:02 2025]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 24 11:00:02 2025]
+localrule all:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    jobid: 0
+    reason: Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/Phe_578_8_sumstats.txt.gz
+    resources: tmpdir=/scratch/f007fdw
+
+[Mon Feb 24 11:00:02 2025]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2025-02-24T105426.672535.snakemake.log

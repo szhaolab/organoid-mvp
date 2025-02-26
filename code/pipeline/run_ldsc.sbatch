@@ -21,5 +21,5 @@ input_smk=$1
 # output_folder=$1
 # cd  ${output_folder} 
 
-snakemake -p -c1 -s $input_smk
+snakemake -p -c1 -s $input_smk --config trait="Phe_578_8"
 

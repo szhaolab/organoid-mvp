@@ -1,0 +1,27 @@
+host: t05.hpcc.dartmouth.edu
+Building DAG of jobs...
+Traceback (most recent call last):
+
+  File "/dartfs-hpc/rc/home/w/f007fdw/.conda/envs/snakemake/lib/python3.11/site-packages/snakemake/cli.py", line 2156, in args_to_api
+    dag_api.execute_workflow(
+
+  File "/dartfs-hpc/rc/home/w/f007fdw/.conda/envs/snakemake/lib/python3.11/site-packages/snakemake/api.py", line 595, in execute_workflow
+    workflow.execute(
+
+  File "/dartfs-hpc/rc/home/w/f007fdw/.conda/envs/snakemake/lib/python3.11/site-packages/snakemake/workflow.py", line 1125, in execute
+    with self.persistence.lock():
+
+  File "/dartfs-hpc/rc/home/w/f007fdw/.conda/envs/snakemake/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+
+  File "/dartfs-hpc/rc/home/w/f007fdw/.conda/envs/snakemake/lib/python3.11/site-packages/snakemake/persistence.py", line 204, in lock
+    if self.locked:
+       ^^^^^^^^^^^
+
+  File "/dartfs-hpc/rc/home/w/f007fdw/.conda/envs/snakemake/lib/python3.11/site-packages/snakemake/persistence.py", line 185, in locked
+    with open(lockfile) as lock:
+         ^^^^^^^^^^^^^^
+
+FileNotFoundError: [Errno 2] No such file or directory: '/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/pipeline/.snakemake/locks/1.output.lock'
+

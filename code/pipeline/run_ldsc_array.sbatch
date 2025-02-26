@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=64G
 #SBATCH --time=24:00:00
-#SBATCH --array=1-97%6
+#SBATCH --array=1-97%20
 #SBATCH --output=/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/pipeline/array-outputs/run_ldsc_array_%j.log
 #SBATCH --mail-type=BEGIN,END,FAIL
 
