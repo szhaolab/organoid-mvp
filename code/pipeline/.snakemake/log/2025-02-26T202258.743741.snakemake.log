@@ -1,0 +1,314 @@
+host: s08.hpcc.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+clean_sumstats              1
+compute_ld_scores          22
+create_annotations         22
+enrichment_ldsc             1
+get_significant_loci        1
+munge_sumstats              1
+total                      49
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:22:59 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.14.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.14.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.14.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.14.l2.M
+    jobid: 31
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.14.annot.gz
+    wildcards: trait=30730, chrom=14
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.14.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.14.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.14.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.14.l2.M
+[Wed Feb 26 20:23:25 2025]
+Finished job 31.
+1 of 49 steps (2%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:23:26 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.21.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.21.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.21.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.21.l2.M
+    jobid: 45
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.21.annot.gz
+    wildcards: trait=30730, chrom=21
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.21.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.21.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.21.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.21.l2.M
+[Wed Feb 26 20:23:49 2025]
+Finished job 45.
+2 of 49 steps (4%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:23:49 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.12.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.12.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.12.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.12.l2.M
+    jobid: 27
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.12.annot.gz
+    wildcards: trait=30730, chrom=12
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.12.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.12.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.12.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.12.l2.M
+[Wed Feb 26 20:24:18 2025]
+Finished job 27.
+3 of 49 steps (6%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:24:18 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.22.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.22.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.l2.M
+    jobid: 47
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.annot.gz
+    wildcards: trait=30730, chrom=22
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.22.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.22.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.l2.M
+[Wed Feb 26 20:24:43 2025]
+Finished job 47.
+4 of 49 steps (8%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:24:43 2025]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.l2.ldscore.parquet
+    jobid: 46
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.annot.gz
+    wildcards: trait=30730, chrom=22
+    resources: tmpdir=/scratch/f007fdw
+
+
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/compute_ldscores.py                --bfile /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.22                --annot /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.annot.gz                --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.22.l2.ldscore.parquet
+        
+[Wed Feb 26 20:25:14 2025]
+Finished job 46.
+5 of 49 steps (10%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:25:14 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.15.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.15.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.l2.M
+    jobid: 33
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.annot.gz
+    wildcards: trait=30730, chrom=15
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.15.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.15.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.l2.M
+[Wed Feb 26 20:25:39 2025]
+Finished job 33.
+6 of 49 steps (12%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:25:39 2025]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.l2.ldscore.parquet
+    jobid: 32
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.annot.gz
+    wildcards: trait=30730, chrom=15
+    resources: tmpdir=/scratch/f007fdw
+
+
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/compute_ldscores.py                --bfile /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.15                --annot /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.annot.gz                --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.15.l2.ldscore.parquet
+        
+[Wed Feb 26 20:26:40 2025]
+Finished job 32.
+7 of 49 steps (14%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:26:40 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.6.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.l2.M
+    jobid: 15
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.annot.gz
+    wildcards: trait=30730, chrom=6
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.6.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.l2.M
+[Wed Feb 26 20:27:11 2025]
+Finished job 15.
+8 of 49 steps (16%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:27:12 2025]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.l2.ldscore.parquet
+    jobid: 14
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.annot.gz
+    wildcards: trait=30730, chrom=6
+    resources: tmpdir=/scratch/f007fdw
+
+
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/compute_ldscores.py                --bfile /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.6                --annot /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.annot.gz                --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.6.l2.ldscore.parquet
+        
+[Wed Feb 26 20:30:36 2025]
+Finished job 14.
+9 of 49 steps (18%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:30:36 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.11.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.11.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.11.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.11.l2.M
+    jobid: 25
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.11.annot.gz
+    wildcards: trait=30730, chrom=11
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.11.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.11.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.11.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.11.l2.M
+[Wed Feb 26 20:30:59 2025]
+Finished job 25.
+10 of 49 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:30:59 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.16.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.16.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.l2.M
+    jobid: 35
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.annot.gz
+    wildcards: trait=30730, chrom=16
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.16.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.16.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.l2.M
+[Wed Feb 26 20:31:21 2025]
+Finished job 35.
+11 of 49 steps (22%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:31:22 2025]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.l2.ldscore.parquet
+    jobid: 34
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.annot.gz
+    wildcards: trait=30730, chrom=16
+    resources: tmpdir=/scratch/f007fdw
+
+
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/compute_ldscores.py                --bfile /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.16                --annot /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.annot.gz                --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.16.l2.ldscore.parquet
+        
+[Wed Feb 26 20:32:26 2025]
+Finished job 34.
+12 of 49 steps (24%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:32:27 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.7.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.7.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.l2.M
+    jobid: 17
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.annot.gz
+    wildcards: trait=30730, chrom=7
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.7.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.7.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.l2.M
+[Wed Feb 26 20:32:53 2025]
+Finished job 17.
+13 of 49 steps (27%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:32:53 2025]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.l2.ldscore.parquet
+    jobid: 16
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.annot.gz
+    wildcards: trait=30730, chrom=7
+    resources: tmpdir=/scratch/f007fdw
+
+
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/compute_ldscores.py                --bfile /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.7                --annot /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.annot.gz                --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.7.l2.ldscore.parquet
+        
+[Wed Feb 26 20:35:15 2025]
+Finished job 16.
+14 of 49 steps (29%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:35:15 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.3.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.3.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.3.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.3.l2.M
+    jobid: 9
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.3.annot.gz
+    wildcards: trait=30730, chrom=3
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.3.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.3.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.3.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.3.l2.M
+[Wed Feb 26 20:35:45 2025]
+Finished job 9.
+15 of 49 steps (31%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:35:45 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.17.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.17.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.17.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.17.l2.M
+    jobid: 37
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.17.annot.gz
+    wildcards: trait=30730, chrom=17
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.17.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.17.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.17.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30730/30730.17.l2.M
+[Wed Feb 26 20:36:04 2025]
+Finished job 37.
+16 of 49 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb 26 20:36:04 2025]
+localrule clean_sumstats:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/biomarkers-30730-both_sexes-irnt.tsv.bgz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30730_sumstats.txt.gz
+    jobid: 3
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30730_sumstats.txt.gz
+    wildcards: trait=30730
+    resources: tmpdir=/scratch/f007fdw
+
+
+        Rscript clean_sumstats.R /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/biomarkers-30730-both_sexes-irnt.tsv.bgz chrom,pos,beta,sebeta,ref,alt,SNP_ID,pval /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30730_sumstats.txt.gz
+        
+[Wed Feb 26 20:36:04 2025]
+Error in rule clean_sumstats:
+    jobid: 3
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/biomarkers-30730-both_sexes-irnt.tsv.bgz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30730_sumstats.txt.gz
+    shell:
+        
+        Rscript clean_sumstats.R /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/biomarkers-30730-both_sexes-irnt.tsv.bgz chrom,pos,beta,sebeta,ref,alt,SNP_ID,pval /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30730_sumstats.txt.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-02-26T202258.743741.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

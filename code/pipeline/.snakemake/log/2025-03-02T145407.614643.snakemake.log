@@ -1,0 +1,24 @@
+host: t11.hpcc.dartmouth.edu
+host: t11.hpcc.dartmouth.edu
+host: t11.hpcc.dartmouth.edu
+Building DAG of jobs...
+Building DAG of jobs...
+Building DAG of jobs...
+MissingInputException in rule vcf_preprocess in file /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/pipeline/ukbb-snake-ldsc-kh.smk, line 51:
+Missing input files for rule vcf_preprocess:
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-trait14_irnt_preprocessed.vcf.gz
+    wildcards: trait=trait14
+    affected files:
+        /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-trait14_irnt.vcf.gz
+MissingInputException in rule vcf_preprocess in file /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/pipeline/ukbb-snake-ldsc-kh.smk, line 51:
+Missing input files for rule vcf_preprocess:
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-trait15_irnt_preprocessed.vcf.gz
+    wildcards: trait=trait15
+    affected files:
+        /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-trait15_irnt.vcf.gz
+MissingInputException in rule vcf_preprocess in file /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/pipeline/ukbb-snake-ldsc-kh.smk, line 51:
+Missing input files for rule vcf_preprocess:
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-trait12_irnt_preprocessed.vcf.gz
+    wildcards: trait=trait12
+    affected files:
+        /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-trait12_irnt.vcf.gz

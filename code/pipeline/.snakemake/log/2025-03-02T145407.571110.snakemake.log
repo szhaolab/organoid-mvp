@@ -1,0 +1,8 @@
+host: s43.hpcc.dartmouth.edu
+Building DAG of jobs...
+MissingInputException in rule vcf_preprocess in file /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/pipeline/ukbb-snake-ldsc-kh.smk, line 51:
+Missing input files for rule vcf_preprocess:
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-trait3_irnt_preprocessed.vcf.gz
+    wildcards: trait=trait3
+    affected files:
+        /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-trait3_irnt.vcf.gz

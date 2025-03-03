@@ -10,13 +10,15 @@ output: html_document
 ```{r}
 library(readxl)
 
-pheno_manifest <- read.csv("./data/UKBB/ukbb_phenotype_manifest.csv")
+pheno_manifest <- read.csv("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/UKBB/ukbb_phenotype_manifest.csv")
 
-h2_manifest <- read.csv("./data/UKBB/ukbb_h2_manifest.csv")
+h2_manifest <- read.csv("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/UKBB/ukbb_h2_manifest.csv")
 
 ```
 
-# Restricting to 10K people in the cohort, followed by keyword restrictions
+# APPROACH 1: Restricting to 10K people in the cohort, followed by keyword restrictions
+This approach filters for 10k cohort size, keywords, and then European heritability greater than or equal to 0.1.
+
 ## Restricting to full cohort size \>= 10,000
 
 ```{r}
@@ -109,7 +111,7 @@ print(nrow(TenK_pheno_filtered))
 
 ```
 
-## Removing duplicates across trait_types
+## Final organizing
 
 ```{r}
 #TenK_pheno_filtered$description
@@ -117,11 +119,14 @@ print(nrow(TenK_pheno_filtered))
 
 final_pheno <- select(TenK_pheno_filtered, trait_type, phenocode, pheno_sex,
                      coding, modifier, description, description_more, coding_description,
-                     category, n_cases_full_cohort_both_sexes, pops_pass_qc, estimates.ldsc.h2_observed)
+                     category, n_cases_full_cohort_both_sexes, pops_pass_qc, estimates.ldsc.h2_observed, 
+                     aws_link)
 final_pheno
 ```
 
-# Keyword restrictions only
+# APPROACH 2: Keyword restrictions only
+This approach filters for keywords and then European heritability greater than or equal to 0.1 (no cohort size restriction).
+
 ## Restricting phenotypes by keyword(s)
 
 ```{r}
@@ -211,7 +216,7 @@ nrow(test)
 ```
 
 
-## Removing duplicates across trait_types
+## Final organizing
 
 ```{r}
 #pheno_filtered$description
@@ -224,3 +229,42 @@ final_pheno2
 ```
 
 Multiple filtering techniques lead us to only 22 biomarker phenotypes of relevance due to low heritability. As a result, we are pivoting to using the All of Us dataset instead of the UK biobank.
+
+# VALIDATION OF MVP RESULTS
+We are interested in validating some enrichment trends observed in the MVP GWAS enrichment analysis. As such, we will perform enrichment analysis on the 22 biomarker phenotypes from UK biobank in addition to LDL cholesterol and glucose. These last two traits were originally filtered out due to heritability < 0.1.
+
+## Adding back in the two traits of interest
+```{r}
+
+two_phenos <- pheno_manifest %>% subset(description == "LDL direct"|
+                                            description == "Glucose") %>% 
+  left_join(EUR_h2) %>% 
+  select(trait_type, phenocode, pheno_sex,
+         coding, modifier, description, description_more, coding_description,
+         category, n_cases_full_cohort_both_sexes, pops_pass_qc, estimates.ldsc.h2_observed,
+         aws_link)
+
+validation_pheno <- full_join(final_pheno, two_phenos)
+
+```
+# Downloading the summary statistics
+GWAS summary statistics were downloaded from IEU OpenGWAS based on phenocode.
+
+```{r}
+
+validation_pheno <- validation_pheno %>% mutate(file_name = paste0("ukb-d-", phenocode, "_irnt"))
+
+file_list <- validation_pheno$file_name
+
+# for (file_name in file_list){
+#   system(paste0("wget -P /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ https://gwas.mrcieu.ac.uk/files/", file_name, "/", file_name, ".vcf.gz"))
+# }
+
+
+```
+
+# Saving phenotype list
+```{r}
+write.csv(validation_pheno, "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/UKBB_pheno_list_validation.csv")
+```
+

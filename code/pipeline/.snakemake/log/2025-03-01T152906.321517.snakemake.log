@@ -1,0 +1,101 @@
+host: s44.hpcc.dartmouth.edu
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+clean_sumstats              1
+compute_ld_scores          17
+create_annotations         11
+enrichment_ldsc             1
+get_significant_loci        1
+munge_sumstats              1
+vcf_preprocess              1
+total                      34
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar  1 15:29:09 2025]
+localrule vcf_preprocess:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt.vcf.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt_preprocessed.vcf.gz
+    jobid: 4
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt_preprocessed.vcf.gz
+    wildcards: trait=30670
+    resources: tmpdir=/scratch/f007fdw
+
+
+    bash /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/vcf_openGWAS_preprocess.sh /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt.vcf.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt_preprocessed.vcf.gz
+    
+[Sat Mar  1 15:30:45 2025]
+Finished job 4.
+1 of 34 steps (3%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar  1 15:30:45 2025]
+localrule create_annotations:
+    input: /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.4.bim, /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir, /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.4.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.annot.gz, /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.l2.M
+    jobid: 12
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.annot.gz
+    wildcards: trait=30670, chrom=4
+    resources: tmpdir=/scratch/f007fdw
+
+Rscript /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/create_annotations_KH.R /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.4.bim /dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/Gazel_LD_baseline/baseline_MAF_LD.4.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.annot.gz /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.l2.M
+[Sat Mar  1 15:31:34 2025]
+Finished job 12.
+2 of 34 steps (6%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar  1 15:31:34 2025]
+localrule compute_ld_scores:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.annot.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.l2.ldscore.parquet
+    jobid: 11
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.l2.ldscore.parquet; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.annot.gz
+    wildcards: trait=30670, chrom=4
+    resources: tmpdir=/scratch/f007fdw
+
+
+        python /dartfs/rc/lab/S/Szhao/katieh/polyfun/compute_ldscores.py                --bfile /dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/1000G_EUR_Phase3_plink/1000G.EUR.QC.4                --annot /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.annot.gz                --out /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/30670/30670.4.l2.ldscore.parquet
+        
+[Sat Mar  1 15:34:52 2025]
+Finished job 11.
+3 of 34 steps (9%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar  1 15:34:52 2025]
+localrule clean_sumstats:
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt_preprocessed.vcf.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30670_sumstats.txt.gz
+    jobid: 3
+    reason: Missing output files: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30670_sumstats.txt.gz; Input files updated by another job: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt_preprocessed.vcf.gz
+    wildcards: trait=30670
+    resources: tmpdir=/scratch/f007fdw
+
+
+        Rscript clean_sumstats_ukbb.R /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt_preprocessed.vcf.gz CHROM,POS,ES,SE,REF,ALT,ID,LP /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30670_sumstats.txt.gz
+        
+[Sat Mar  1 15:34:53 2025]
+Error in rule clean_sumstats:
+    jobid: 3
+    input: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt_preprocessed.vcf.gz
+    output: /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30670_sumstats.txt.gz
+    shell:
+        
+        Rscript clean_sumstats_ukbb.R /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/UKBB/ukb-d-30670_irnt_preprocessed.vcf.gz CHROM,POS,ES,SE,REF,ALT,ID,LP /dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/UKBB/30670_sumstats.txt.gz
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-03-01T152906.321517.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

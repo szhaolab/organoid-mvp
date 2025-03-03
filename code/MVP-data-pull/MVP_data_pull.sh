@@ -5,7 +5,7 @@ base_dir="/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data"
 # Directory for extracted files
 extracted_dir="$base_dir/extracted"
 # Directory for final file destination
-final_dir="/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats"
+final_dir="/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP"
 # Path to your CSV
 csv_file="/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/MVP_pheno_list.csv"
 

@@ -1,6 +1,8 @@
 
-/outputs/annotations
-/outputs/munged_sumstats
+/outputs/MVP/annotations
+/outputs/UKBB/annotations
+/outputs/MVP/munged_sumstats
+/outputs/UKBB/munged_sumstats
 /code/MVP-data-pull/job_*
 /raw-sumstats
 /cleaned-sumstats

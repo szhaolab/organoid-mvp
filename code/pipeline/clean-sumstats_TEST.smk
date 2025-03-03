@@ -13,12 +13,12 @@ if not os.path.isdir(logdir):
 pdnew = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/" # contain R scripts for rules
 pdorig = "/dartfs/rc/lab/S/Szhao/fine-mapping/cancer-polyfun/" # contain required metadata 
 polyfun = '/dartfs/rc/lab/S/Szhao/katieh/polyfun/' # contain polyfun software (download from github)
-pdout = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/" # desired output folder
+pdout = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/MVP/" # desired output folder
 pdclean = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/code/R/" # contains the clean_sumstats R script
 
 # Inputs (summary stats, a directory of annotations)
-raw_sumstats = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/"
-cleaned_sumstats = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/" 
+raw_sumstats = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/raw-sumstats/MVP/"
+cleaned_sumstats = "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/cleaned-sumstats/MVP/" 
 bed_dir = "/dartfs/rc/lab/S/Szhao/fine-mapping/organoid-polyfun/bed_dir/" # Where the ASoC annotations are stored
 
 # REQUIRED metadata
