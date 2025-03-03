@@ -12,7 +12,7 @@ editor_options:
 
 ### Picking [MVP traits](MVP-pheno-selection.html)
 
-### Full pipeline in [code/pipeline/snake-ldsc-kh.smk](enrichment-analysis.html)\
+### Full pipeline in code/pipeline/snake-ldsc-kh.smk
 1. Organization and normalization of raw MVP GWAS summary statistics (clean_sumstats)\
 2. Munge summary statistics to S-LDSC PolyFUN format (munge_sumstats)\
 3. Identify and count significant loci in LD blocks (get_significant_loci)\
@@ -20,10 +20,13 @@ editor_options:
 5. Compute LD scores for the ASoC annotation from a reference panel (compute_ld_scores)\
 6. Test for enrichment of the ASoC annotation in the MVP traits (enrichment_ldsc)\
 
-### Examining the [enrichment results](enrichment-plots.html)
+### Examining the [enrichment results](MVP-enrichment-plots.html)
 
 ### Examining [overlap between ASoC annotation and MVP SNPs](ASoC-overlap.html)
 
+### Validation of some traits in [UKBB](ukbb-enrichment-plots.html)
+- [UKBB trait selection](ukbb-pheno-selection.html)\
+- [ASoC overlap](ukbb-ASoC-overlap.html)\
+
 ### Archive
-- Picking [UKBB traits](ukbb-pheno-selection.html)\
 - Picking [All of Us traits](AoU-pheno-selection.html)\

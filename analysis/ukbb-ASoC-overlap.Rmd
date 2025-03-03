@@ -5,7 +5,7 @@ date: "2025-02-24"
 output: html_document
 ---
 
-This script examines the degree of overlap between the SNPs covered by the MVP GWASes and the SNPs in Liyang's ASoC annotation. We noticed high standard errors and negative enrichment values in our enrichment analysis, which may be due to SNPs in the ASoC annotation that are missing from the MVP GWAS.
+This script examines the degree of overlap between the SNPs covered by the UKBB GWASes and the SNPs in Liyang's ASoC annotation. 
 
 ```{r}
 library(dplyr)
@@ -24,11 +24,10 @@ colnames(TNFa_anno) <- c("chrom", "pos", "end_pos")
 
 # Reading in MVP annotation files and creating a table of coverages
 ```{r}
-annotation_path <- "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/MVP/annotations/"
+annotation_path <- "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/UKBB/annotations/"
 
-pheno_list <- read.csv("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/MVP_pheno_list.csv")
-odd_rows <- seq_len(nrow(pheno_list)) %% 2
-traits <- pheno_list[odd_rows==1,]$Trait
+pheno_list <- read.csv("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/UKBB_pheno_list_validation.csv")
+traits <- pheno_list$phenocode
 
 all_coverages <- data.frame(matrix(nrow=0, ncol=3))
 colnames(all_coverages) <- c("Trait", "UT_coverage", "TNFa_coverage")
@@ -44,8 +43,6 @@ colnames(all_coverages) <- c("Trait", "UT_coverage", "TNFa_coverage")
 #     chrom_anno <- fread(paste0(annotation_path, traits[i], "/", traits[i], ".", chrom_i, ".annot.gz"))
 # 
 #     # Add the SNPs that are covered to the ongoing count of annotation SNPs that are in the MVP GWAS
-#     print(sum(chrom_anno$ASoC_UT_11samp_WGS_0))
-#     print(sum(chrom_anno$ASoC_TNFa_11samp_WGS_0))
 #     UT_SNPs <- UT_SNPs + sum(chrom_anno$ASoC_UT_11samp_WGS_0)
 #     TNFa_SNPs <- TNFa_SNPs + sum(chrom_anno$ASoC_TNFa_11samp_WGS_0)
 #   }
@@ -65,14 +62,14 @@ colnames(all_coverages) <- c("Trait", "UT_coverage", "TNFa_coverage")
 #   all_coverages <- rbind(all_coverages, trait_coverage)
 # 
 # }
-
-#write.csv(all_coverages, "../data/MVP_ASoC_SNP_overlaps.csv")
+# 
+# write.csv(all_coverages, "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/UKBB_ASoC_SNP_overlaps.csv")
 
 ```
 
 
 ```{r}
-all_coverages <- read.csv("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/MVP_ASoC_SNP_overlaps.csv", header = TRUE)
+all_coverages <- read.csv("/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/data/UKBB_ASoC_SNP_overlaps.csv", header = TRUE)
 
 all_coverages
 
