@@ -89,6 +89,20 @@ for (i in seq(1, nrow(all_traits), 16)){
 }
 ```
 
+# Plot traits of interest
+```{r}
+all_traits_sub <- all_traits %>% subset(Trait_label == "Cholesterol (N total = 420607)" |
+                                          Trait_label == "Glycated haemoglobin (HbA1c) (N total = 419434)" |
+                                          Trait_label == "HDL cholesterol (N total = 385023)" |
+                                          Trait_label == "LDL direct (N total = 419831)"  |
+                                          Trait_label == "Triglycerides (N total = 420271)" |
+                                          Trait_label == "Glucose (N total = 384760)")
+
+for (i in seq(1, nrow(all_traits_sub), 12)){
+  enrichment_plot(all_traits_sub[i:(i+11),], group="Category", xlim=c(-120,120))
+}
+```
+
 # Interactive table of all traits and their enrichments
 ```{r}
 datatable(all_traits)

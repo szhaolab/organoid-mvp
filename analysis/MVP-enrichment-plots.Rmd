@@ -102,12 +102,31 @@ for (i in 1:length(traits)){
 
 # Plot all traits, four at a time
 ```{r}
-for (i in seq(1, nrow(all_traits)-4, 16)){
+for (i in seq(1, nrow(all_traits), 16)){
   enrichment_plot(all_traits[i:(i+15),], group="Category", xlim=c(-120,120))
 }
 # Last trait
 enrichment_plot(all_traits[385:388,], group="Category", xlim=c(-120,120))
 
+```
+# Plot traits of interest
+```{r}
+all_traits_sub <- all_traits %>% subset(Trait_label == "Hemoglobin a1c (N total = 338848)" |
+                                          Trait_label == "Glucose (N total = 419946)" |
+                                          Trait_label == "High density lipoprotein cholesterol (N total = 404121)" |
+                                          Trait_label == "Low density lipoprotein cholesterol (N total = 404741)" |
+                                          Trait_label == "Diabetes / \"sugar\" (N cases = 80160, N controls = 235508)" |
+                                          Trait_label == "High cholesterol (N cases = 176604, N controls = 139064)" |
+                                          Trait_label == "Diabetes mellitus (N cases = 154958, N controls = 276347)" |
+                                          Trait_label == "Diseases of esophagus (N cases = 189441, N controls = 223867)"|
+                                          Trait_label == "Esophagitis, GERD and related diseases (N cases = 185368, N controls = 228046)" |
+                                          Trait_label == "GERD (N cases = 175991, N controls = 236737)" |
+                                          Trait_label == "Total cholesterol (N total = 397615)" |
+                                          Trait_label == "Triglyceride (N total = 391626)")
+
+for (i in seq(1, nrow(all_traits_sub), 16)){
+  enrichment_plot(all_traits_sub[i:(i+15),], group="Category", xlim=c(-120,120))
+}
 ```
 
 # Interactive table of all traits and their enrichments
@@ -116,12 +135,6 @@ write.csv(all_traits, "/dartfs/rc/lab/S/Szhao/katieh/organoid-rotation/outputs/M
 datatable(all_traits)
 ```
 
-
-# Looking at which traits have abnormally large enrichment or large standard error
-```{r}
-hist(all_traits$Enrichment, breaks = 50)
-hist(all_traits$Enrichment_std_error, breaks = 20)
-```
 
 
 
